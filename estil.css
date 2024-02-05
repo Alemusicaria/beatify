@@ -6,51 +6,63 @@ body {
 }
 
 
-header{
+header {
     position: relative;
     max-width: 80%;
     left: 20%;
     background-color: rgba(0, 0, 0, 0.575);
     border-radius: 5px 5px 0 0;
-    .menu{
+
+    .menu {
         padding: 1%;
         text-align: right;
-        a{
+
+        a {
             text-decoration: none;
             color: white;
             font-size: 17px;
             margin-right: 10px;
             font-weight: bold;
         }
-        a:hover{
+
+        a:hover {
             transform: scale(1.1);
         }
-        button{
+
+        button {
             display: inline-block;
-            padding: 10px 20px; /* Puedes ajustar el relleno según tus necesidades */
-            font-size: 16px; /* Puedes ajustar el tamaño de la fuente según tus preferencias */
+            padding: 10px 20px;
+            /* Puedes ajustar el relleno según tus necesidades */
+            font-size: 16px;
+            /* Puedes ajustar el tamaño de la fuente según tus preferencias */
             font-weight: bold;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            border: 2px solid #3498db; /* Puedes ajustar el color del borde según tus preferencias */
-            border-radius: 25px; /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
-            background-color: #3498db; /* Puedes ajustar el color de fondo según tus preferencias */
+            border: 2px solid #3498db;
+            /* Puedes ajustar el color del borde según tus preferencias */
+            border-radius: 25px;
+            /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
+            background-color: #3498db;
+            /* Puedes ajustar el color de fondo según tus preferencias */
             color: #ffffff;
         }
-        button:hover{
+
+        button:hover {
             transform: scale(1.1);
         }
-        
+
     }
 }
+
 .contenedor-left {
     max-width: 20%;
-    min-height: 92%;
+    max-height: 92%;
     align-items: center;
     padding-top: 1%;
     position: fixed;
     top: 0;
+
     .miniMenu {
         background-color: rgb(36, 34, 34);
         padding: 1%;
@@ -59,18 +71,20 @@ header{
         margin-left: 2%;
         font-weight: bold;
         color: white;
+
         ul {
             list-style: none;
             line-height: 2.5em;
             padding-left: 2%;
-            i{
+
+            i {
                 margin-right: 10px;
             }
         }
 
         img {
             height: 20px;
-            
+
         }
     }
 
@@ -81,32 +95,40 @@ header{
         max-width: 90%;
         margin-left: 2%;
         color: white;
-        #primera{
+
+        #primera {
             padding: 1%;
             background-color: rgb(59, 59, 59);
             max-width: 90%;
             border-radius: 5px;
             margin-left: 2%;
-            
-            button{
+
+            button {
                 display: inline-block;
-                padding: 10px 20px; /* Puedes ajustar el relleno según tus necesidades */
-                font-size: 16px; /* Puedes ajustar el tamaño de la fuente según tus preferencias */
+                padding: 10px 20px;
+                /* Puedes ajustar el relleno según tus necesidades */
+                font-size: 16px;
+                /* Puedes ajustar el tamaño de la fuente según tus preferencias */
                 font-weight: bold;
                 text-align: center;
                 text-decoration: none;
                 cursor: pointer;
-                border: 2px solid #3498db; /* Puedes ajustar el color del borde según tus preferencias */
-                border-radius: 25px; /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
-                background-color: #3498db; /* Puedes ajustar el color de fondo según tus preferencias */
+                border: 2px solid #3498db;
+                /* Puedes ajustar el color del borde según tus preferencias */
+                border-radius: 25px;
+                /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
+                background-color: #3498db;
+                /* Puedes ajustar el color de fondo según tus preferencias */
                 color: #ffffff;
             }
-            button:hover{
+
+            button:hover {
                 transform: scale(1.1);
             }
         }
     }
-    .fakeFooter{
+
+    .fakeFooter {
         background-color: rgb(59, 59, 59);
         max-width: 90%;
         padding: 1%;
@@ -116,29 +138,86 @@ header{
         margin-bottom: 10px;
     }
 }
-footer{
+
+.contenedor-right {
+    position: relative;
+    padding: 1%;
+    background-color: rgb(59, 59, 59);
+    max-width: 78%;
+    left: 20%;
+    #taula {
+        display: grid;
+        grid-template-columns: repeat(5, 20%);
+    }
+    h2 {
+        max-height: 40px;
+        margin-bottom: 0;
+    }
+    .songs {
+        margin-top: 10px;
+        max-width: 80%;
+        background-color: rgb(69, 69, 69);
+        padding: 1%;
+        font-weight: bold;
+        justify-content: center;
+        text-align: center;
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            max-height: 150px;
+        }
+        #icono{
+            background-color: #11ff00;
+            position: absolute;
+            top: 50%;
+            height: 35px;
+            width: 35px;
+            border-radius: 60%;
+            transform: translate(-100%, 10%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+    .songs:hover{
+        background-color: rgb(96, 96, 96);
+        #icono{
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
     text-align: right;
-    background-color: pink;
+    background: radial-gradient(circle, #11ff00, #00aeff);
     padding: 0.4%;
     position: fixed;
     bottom: 0;
     width: 100%;
-    button{
+
+    button {
         display: inline-block;
-        padding: 10px 20px; /* Puedes ajustar el relleno según tus necesidades */
-        font-size: 16px; /* Puedes ajustar el tamaño de la fuente según tus preferencias */
+        padding: 10px 20px;
+        /* Puedes ajustar el relleno según tus necesidades */
+        font-size: 16px;
+        /* Puedes ajustar el tamaño de la fuente según tus preferencias */
         font-weight: bold;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-        border: 2px solid #3498db; /* Puedes ajustar el color del borde según tus preferencias */
-        border-radius: 25px; /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
-        background-color: #3498db; /* Puedes ajustar el color de fondo según tus preferencias */
+        border: 2px solid #3498db;
+        /* Puedes ajustar el color del borde según tus preferencias */
+        border-radius: 25px;
+        /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
+        background-color: #3498db;
+        /* Puedes ajustar el color de fondo según tus preferencias */
         color: #ffffff;
         margin-right: 25px;
 
     }
-    button:hover{
+
+    button:hover {
         transform: scale(1.1);
     }
 }
