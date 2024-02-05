@@ -8,6 +8,7 @@ body {
 
 header {
     position: relative;
+    top: 7px;
     max-width: 80%;
     left: 20%;
     background-color: rgb(36, 34, 34);
