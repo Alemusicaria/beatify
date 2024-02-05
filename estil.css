@@ -10,7 +10,7 @@ header {
     position: relative;
     max-width: 80%;
     left: 20%;
-    background-color: rgba(0, 0, 0, 0.575);
+    background-color: rgb(36, 34, 34);
     border-radius: 5px 5px 0 0;
 
     .menu {
@@ -59,7 +59,7 @@ header {
     max-width: 20%;
     max-height: 92%;
     align-items: center;
-    padding-top: 1%;
+    padding-top: 0.5%;
     position: fixed;
     top: 0;
 
@@ -191,6 +191,7 @@ header {
 }
 
 footer {
+    margin-top: 5px;
     text-align: right;
     background: radial-gradient(circle, #11ff00, #00aeff);
     padding: 1% 0 1% 0;
