@@ -155,6 +155,7 @@ header {
         margin-bottom: 0;
     }
     .songs {
+        position: relative;
         margin-top: 10px;
         max-width: 80%;
         background-color: rgb(69, 69, 69);
@@ -172,19 +173,18 @@ header {
         #icono{
             background-color: #11ff00;
             position: absolute;
-            top: 50%;
+            top: 40%;
+            left: 70%;
             height: 35px;
             width: 35px;
             border-radius: 60%;
-            transform: translate(-100%, 10%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            display: none;
         }
     }
     .songs:hover{
         background-color: rgb(96, 96, 96);
         #icono{
-            opacity: 1;
+            display: block;
             cursor: pointer;
         }
     }
