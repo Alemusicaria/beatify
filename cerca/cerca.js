@@ -1,14 +1,15 @@
 document.getElementById('cercaInput').addEventListener('input', function () {
     const cercaTerm = this.value.toLowerCase();
-
+    console.log('dada:', cercaTerm);
     // Realitza una sol·licitud AJAX per obtenir les dades del servidor PHP
-    fetch(`/cerca.php?cerca=${cercaTerm}`)
+    fetch(`./cerca.php?cerca=${cercaTerm}`)
         .then(response => response.json())
         .then(data => displayUsers(data))
         .catch(error => console.error('Error:', error));
 });
 
 function displayUsers(userArray) {
+    console.log("prova");
     const userList = document.getElementById('userList');
     userList.innerHTML = '';
 

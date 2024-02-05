@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+echo ("hola");
 
 // Configuració de la connexió a la base de dades
 $servername = "localhost";
@@ -16,7 +17,8 @@ if ($conn->connect_error) {
 }
 
 // Obtindre el terme de cerca de la sol·licitud GET
-$cercaTerm = $_GET['cerca'];
+$cercaTerm = isset($_GET['cerca']) ? $_GET['cerca'] : '';
+$cercaTerm = mysqli_real_escape_string($conn, $cercaTerm); // Validar y filtrar entrada
 
 // Consulta a la base de dades amb una instrucció preparada per evitar la injecció SQL
 $stmt = $conn->prepare("SELECT * FROM usuari WHERE Nom_usuari LIKE ?");
@@ -41,3 +43,4 @@ echo json_encode($users);
 $stmt->close();
 $conn->close();
 
+?>
