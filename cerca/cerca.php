@@ -40,4 +40,4 @@ echo json_encode($users);
 // Tancar connexió
 $stmt->close();
 $conn->close();
-?>
+
