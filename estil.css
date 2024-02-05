@@ -2,6 +2,7 @@ body {
     font-family: 'Outfit', sans-serif;
     margin: 0;
     text-align: justify;
+    background-color: black;
 }
 
 
@@ -10,6 +11,7 @@ header{
     max-width: 80%;
     left: 20%;
     background-color: rgba(0, 0, 0, 0.575);
+    border-radius: 5px 5px 0 0;
     .menu{
         padding: 1%;
         text-align: right;
@@ -44,21 +46,23 @@ header{
 }
 .contenedor-left {
     max-width: 20%;
-    min-height: 100%;
-    background-color: black;
+    min-height: 92%;
     align-items: center;
     padding-top: 1%;
     position: fixed;
     top: 0;
     .miniMenu {
-        background-color: rgb(238, 255, 0);
+        background-color: rgb(36, 34, 34);
         padding: 1%;
         border-radius: 5px;
         max-width: 90%;
         margin-left: 2%;
+        font-weight: bold;
+        color: white;
         ul {
             list-style: none;
             line-height: 2.5em;
+            padding-left: 2%;
             i{
                 margin-right: 10px;
             }
@@ -71,17 +75,19 @@ header{
     }
 
     .llistesUsuaris {
-        background-color: orange;
+        background-color: rgb(36, 34, 34);
         padding: 1%;
         border-radius: 5px;
         max-width: 90%;
         margin-left: 2%;
+        color: white;
         #primera{
             padding: 1%;
-            background-color: rgb(255, 38, 0);
+            background-color: rgb(59, 59, 59);
             max-width: 90%;
             border-radius: 5px;
             margin-left: 2%;
+            
             button{
                 display: inline-block;
                 padding: 10px 20px; /* Puedes ajustar el relleno según tus necesidades */
@@ -101,18 +107,38 @@ header{
         }
     }
     .fakeFooter{
-        background-color: white;
+        background-color: rgb(59, 59, 59);
         max-width: 90%;
         padding: 1%;
         border-radius: 5px;
         margin-left: 2%;
+        color: white;
+        margin-bottom: 10px;
     }
 }
 footer{
-    text-align: center;
+    text-align: right;
     background-color: pink;
     padding: 0.4%;
     position: fixed;
     bottom: 0;
     width: 100%;
+    button{
+        display: inline-block;
+        padding: 10px 20px; /* Puedes ajustar el relleno según tus necesidades */
+        font-size: 16px; /* Puedes ajustar el tamaño de la fuente según tus preferencias */
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #3498db; /* Puedes ajustar el color del borde según tus preferencias */
+        border-radius: 25px; /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
+        background-color: #3498db; /* Puedes ajustar el color de fondo según tus preferencias */
+        color: #ffffff;
+        margin-right: 25px;
+
+    }
+    button:hover{
+        transform: scale(1.1);
+    }
 }
