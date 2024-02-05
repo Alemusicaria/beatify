@@ -193,9 +193,7 @@ header {
 footer {
     text-align: right;
     background: radial-gradient(circle, #11ff00, #00aeff);
-    padding: 0.4%;
-    position: fixed;
-    bottom: 0;
+    padding: 1% 0 1% 0;
     width: 100%;
 
     button {
