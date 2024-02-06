@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: black;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(36, 34, 34);
+    padding: 10px;
+    color: white;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: white;
+}
+
+.plan {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(36, 34, 34);
+}
+
+.plan:hover {
+    transform: scale(1.03);
+}
+
+h2 {
+    color: #1DB954;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ventajas, .desventajas {
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #888;
+}
