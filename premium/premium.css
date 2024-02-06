@@ -12,7 +12,7 @@ header {
     color: white;
 }
 .comparison-table {
-    max-width: 600px;
+    max-width: 30%;
     margin: 50px auto;
     background-color: #fff;
     border-radius: 8px;
