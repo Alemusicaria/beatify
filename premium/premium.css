@@ -16,7 +16,6 @@ header {
     margin: 50px auto;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
@@ -38,6 +37,9 @@ header {
   
   th {
     text-transform: uppercase;
+  }
+  tbody tr:nth-child(odd) {
+    background: linear-gradient(to right, #ffffff, #a7e2fd); /* Cambia estos colores según tu preferencia */
   }
   
   tbody tr:hover {
