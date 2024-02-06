@@ -15,13 +15,16 @@ header {
 section {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 50px;
     color: white;
     width: 99%;
+    
 }
 
 .plan {
-    border: 1px solid #ddd;
+    border-style: solid;
+    border-image: linear-gradient(to right, #ff0000, #00ff00);
+    border-image-slice: 1;
     border-radius: 8px;
     padding: 20px;
     width: 30%;
@@ -43,7 +46,8 @@ ul {
     padding: 0;
 }
 
-.ventajas, .desventajas {
+.ventajas,
+.desventajas {
     margin-top: 10px;
 }
 
