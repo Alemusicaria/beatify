@@ -17,6 +17,7 @@ section {
     justify-content: space-around;
     margin-top: 20px;
     color: white;
+    width: 99%;
 }
 
 .plan {
@@ -47,7 +48,9 @@ ul {
 }
 
 footer {
-    margin-top: 30px;
+    position: fixed;
     text-align: center;
+    width: 100%;
     color: #888;
+    bottom: 0;
 }
