@@ -23,7 +23,7 @@ section {
 
 .plan {
     border-style: solid;
-    border-image: linear-gradient(to right, #ff0000, #00ff00);
+    border-image: linear-gradient(to left, #11ff00, #00aeff);
     border-image-slice: 1;
     border-radius: 8px;
     padding: 20px;
