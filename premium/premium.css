@@ -20,7 +20,10 @@ header {
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   h1 {
-    color: #0077cc;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to left, #11ff00, #00aeff);
+    display: inline-block;
   }
   
   ul {
