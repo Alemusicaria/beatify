@@ -3,6 +3,7 @@ body {
   margin: 20px;
   background-color: black;
   margin: 0;
+  text-align: justify;
 }
 
 header {
@@ -11,6 +12,32 @@ header {
   padding: 10px;
   color: white;
 }
+
+.textoIntro {
+  color: white;
+  max-width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  h1 {
+    color: #0077cc;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+}
+
+
 
 .comparison-table {
   max-width: 30%;
