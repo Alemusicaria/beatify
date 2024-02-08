@@ -16,7 +16,7 @@
       <a href="">Asistencia</a>
       <a href="">|</a>
       <a href="">Registrarse</a>
-      <button>Iniciar Sessió</button>
+      <button id="iniciarSessio">Iniciar Sessió</button>
     </div>
   </header>
   <div class="textoIntro">
@@ -118,6 +118,12 @@
   <footer>
     <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
   </footer>
+  <script>
+    document.getElementById('iniciarSessio').addEventListener('click', function() {
+    // Cambia 'tu_pagina.html' por la ruta correcta de tu página HTML vinculada
+    window.location.href = '/login/login.html';
+});
+</script>
 </body>
 
 </html>
