@@ -7,10 +7,56 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   background-color: rgb(36, 34, 34);
   padding: 10px;
   color: white;
+  #titol{
+    max-width: 60%;
+  }
+  .menu {
+    padding: 1%;
+    text-align: right;
+    max-width: 40%;
+    
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      display: inline-block;
+      padding: 10px 20px;
+      /* Puedes ajustar el relleno según tus necesidades */
+      font-size: 16px;
+      /* Puedes ajustar el tamaño de la fuente según tus preferencias */
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #3498db;
+      /* Puedes ajustar el color del borde según tus preferencias */
+      border-radius: 25px;
+      /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
+      background-color: #3498db;
+      /* Puedes ajustar el color de fondo según tus preferencias */
+      color: #ffffff;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+  }
 }
 
 .textoIntro {
@@ -19,22 +65,23 @@ header {
   margin: 20px auto;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   h1 {
     background-clip: text;
     color: transparent;
     background-image: linear-gradient(to left, #11ff00, #00aeff);
     display: inline-block;
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   li {
     margin-bottom: 5px;
   }
-  
+
   p {
     line-height: 1.5;
   }
@@ -71,7 +118,8 @@ td:nth-child(3) {
   background: linear-gradient(to left, #11ff00, #00aeff);
   /* Puedes ajustar los colores del degradado según tus preferencias */
 }
-th:nth-child(2){
+
+th:nth-child(2) {
   background-color: white;
   color: black;
 }
