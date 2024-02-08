@@ -72,7 +72,10 @@ header {
         margin-left: 2%;
         font-weight: bold;
         color: white;
-
+        a{
+            text-decoration: none;
+            color: white;
+        }
         ul {
             list-style: none;
             line-height: 2.5em;
