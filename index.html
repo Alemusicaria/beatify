@@ -113,14 +113,23 @@
         </div>
 
     </div>
-    <div class="reproductor-musica">
-        <audio controls>
-            <source src="ruta_de_tu_archivo_de_audio.mp3" type="audio/mp3">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-    </div>
+ 
     <footer>
-        <button>Registrat Gratis</button>
+        <div class="reproductor-musica">
+            <div class="reproductor-contenido">
+                <div class="reproductor-info">
+                    <img src="./img/portadaCanciones/laModelo.jpg" alt="portada">
+                    <div class="info-text">
+                        <h4>La Modelo</h4>
+                        <p>Ozuna ft Cardi B</p>
+                    </div>
+                </div>
+                <audio controls>
+                    <source src="./musica/laModelo.mp3" type="audio/mp3">
+                </audio>
+                <button>Registrat Gratis</button>
+            </div>
+        </div>
     </footer>
     <script>
         document.getElementById('iniciarSessio').addEventListener('click', function () {
