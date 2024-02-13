@@ -113,15 +113,15 @@
         </div>
 
     </div>
- 
+
     <footer>
         <div class="reproductor-musica">
             <div class="reproductor-contenido">
                 <div class="reproductor-info">
-                    <img src="./img/portadaCanciones/laModelo.jpg" alt="portada">
+                    <img src="" alt="portada" id="reproductor-img">
                     <div class="info-text">
-                        <h4>La Modelo</h4>
-                        <p>Ozuna ft Cardi B</p>
+                        <h4 id="reproductor-title"></h4>
+                        <p id="reproductor-artist"></p>
                     </div>
                 </div>
                 <audio controls>
@@ -132,6 +132,28 @@
         </div>
     </footer>
     <script>
+        // Función para transferir información al hacer clic en la imagen
+        function transferirInformacion() {
+            // Obtener elementos del primer div
+            var songsDiv = document.querySelector('.songs');
+            var imgSrc = songsDiv.querySelector('img').src;
+            var songTitle = songsDiv.querySelector('h4').innerText;
+            var artistInfo = songsDiv.querySelector('p').innerText;
+
+            // Asignar la información al segundo div
+            var reproductorImg = document.getElementById('reproductor-img');
+            var reproductorTitle = document.getElementById('reproductor-title');
+            var reproductorArtist = document.getElementById('reproductor-artist');
+
+            reproductorImg.src = imgSrc;
+            reproductorTitle.innerText = songTitle;
+            reproductorArtist.innerText = artistInfo;
+        }
+
+        // Agregar evento de clic al icono en el primer div
+        var icono = document.getElementById('icono');
+        icono.addEventListener('click', transferirInformacion);
+
         document.getElementById('iniciarSessio').addEventListener('click', function () {
             // Cambia 'tu_pagina.html' por la ruta correcta de tu página HTML vinculada
             window.location.href = '/login/login.html';
