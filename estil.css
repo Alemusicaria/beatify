@@ -200,7 +200,7 @@ footer {
     background: radial-gradient(circle, #11ff00, #00aeff);
     padding: 1% 0 1% 0;
     width: 100%;
-
+    bottom: 0;
     button {
         display: inline-block;
         padding: 10px 20px;
