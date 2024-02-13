@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <audio controls>
-                    <source src="./musica/laModelo.mp3" type="audio/mp3">
+                    <source src="" type="audio/mp3" id="reproductor-audio">
                 </audio>
             </div>
         </div>
@@ -150,7 +150,7 @@
                 reproductorImg.src = imgSrc;
                 reproductorTitle.innerText = songTitle;
                 reproductorArtist.innerText = artistInfo;
-                reproductorAudio.src = "./musica/" + songsDiv.getAttribute('data-index') + ".mp3";
+                reproductorAudio.src = "./musica/" + songTitle + ".mp3";
             }
         }
 
