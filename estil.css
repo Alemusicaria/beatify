@@ -259,8 +259,7 @@ footer {
     position: fixed;
 
 }
-
-button {
+.reproductor-musica button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -272,11 +271,9 @@ button {
     border-radius: 25px;
     background-color: #3498db;
     color: #ffffff;
-    margin-top: 15px;
-    margin-right: 25px;
-    z-index: 2;
+    margin-left: 100px; 
 }
 
-button:hover {
+.reproductor-musica button:hover {
     transform: scale(1.1);
 }
