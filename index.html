@@ -124,9 +124,25 @@
                         <p id="reproductor-artist"></p>
                     </div>
                 </div>
-                <audio controls>
-                    <source src="./musica/laModelo.mp3" type="audio/mp3">
-                </audio>
+                <div class="music-player-container">
+                    <div class="controls-music-container">
+                        <div class="progress-song-container">
+                            <div class="progress-bar">
+                                <span class="progress"></span>
+                            </div>
+                        </div>
+                        <div class="time-container">
+                            <span class="time-left" id="CurrentSongTime"></span>
+                            <span class="time-left" id="SongLength"></span>
+                        </div>
+                    </div>
+                    <audio controls preload="metadata" src="Audio.mp3"></audio>
+                    <div class="main-song-controls">
+                        <img src="Backward.svg" alt="" class="icon" id="Back10">
+                        <img src="Play.svg" alt="" class="icon" id="PlayPause">
+                        <img src="Forward.svg" alt="" class="icon" id="Plus10">
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -165,6 +181,8 @@
             window.location.href = '/login/login.html';
         });
     </script>
+    <script src="code.js"></script>
+
 </body>
 
 </html>
