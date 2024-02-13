@@ -39,10 +39,10 @@ const playPause = document.getElementById('PlayPause'),
 
 playPause.addEventListener('click', ()=>{
     if(audio.paused){
-        playPause.src = 'pause.svg';
+        playPause.src = '/img/simbols/pause.svg';
         audio.play();
     }else{
-        playPause.src = 'Play.svg';
+        playPause.src = '/img/simbols/Play.svg';
         audio.pause();
     }
 })
