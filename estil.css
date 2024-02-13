@@ -254,7 +254,7 @@ footer {
 .reproductor-contenido {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Alinea los elementos al inicio y al final del contenedor */
+    justify-content: space-between;
     padding: 10px;
     width: 80%;
     margin: 0 auto;
@@ -272,9 +272,7 @@ footer {
     border-radius: 25px;
     background-color: #3498db;
     color: #ffffff;
-    margin-top: 0;
-    margin-right: 0; /* Puedes ajustar el margen derecho según sea necesario */
-    margin-bottom: 0;
+    margin-right: 0; 
 }
 
 .reproductor-musica button:hover {
