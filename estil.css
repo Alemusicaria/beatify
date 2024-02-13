@@ -13,41 +13,41 @@ header {
     left: 20%;
     background-color: rgb(36, 34, 34);
     border-radius: 5px 5px 0 0;
+}
 
-    .menu {
-        padding: 1%;
-        text-align: right;
+header .menu {
+    padding: 1%;
+    text-align: right;
+}
 
-        a {
-            text-decoration: none;
-            color: white;
-            font-size: 17px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
+header .menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    margin-right: 10px;
+    font-weight: bold;
+}
 
-        a:hover {
-            transform: scale(1.1);
-        }
+header .menu a:hover {
+    transform: scale(1.1);
+}
 
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            border: 2px solid #3498db;
-            border-radius: 25px;
-            background-color: #3498db;
-            color: #ffffff;
-        }
+header .menu button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    background-color: #3498db;
+    color: #ffffff;
+}
 
-        button:hover {
-            transform: scale(1.1);
-        }
-    }
+header .menu button:hover {
+    transform: scale(1.1);
 }
 
 .contenedor-left {
@@ -57,80 +57,63 @@ header {
     padding-top: 0.5%;
     position: fixed;
     top: 0;
+}
 
-    .miniMenu {
-        background-color: rgb(36, 34, 34);
-        padding: 1%;
-        border-radius: 5px;
-        max-width: 90%;
-        margin-left: 2%;
-        font-weight: bold;
-        color: white;
+.contenedor-left .miniMenu,
+.contenedor-left .llistesUsuaris,
+.contenedor-left .fakeFooter {
+    background-color: rgb(36, 34, 34);
+    padding: 1%;
+    border-radius: 5px;
+    max-width: 90%;
+    margin-left: 2%;
+    color: white;
+}
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
+.contenedor-left .miniMenu a,
+.contenedor-left .llistesUsuaris a {
+    text-decoration: none;
+    color: white;
+}
 
-        ul {
-            list-style: none;
-            line-height: 2.5em;
-            padding-left: 2%;
+.contenedor-left .miniMenu ul {
+    list-style: none;
+    line-height: 2.5em;
+    padding-left: 2%;
+}
 
-            i {
-                margin-right: 10px;
-            }
-        }
+.contenedor-left .miniMenu ul i {
+    margin-right: 10px;
+}
 
-        img {
-            height: 20px;
-        }
-    }
+.contenedor-left .miniMenu img {
+    height: 20px;
+}
 
-    .llistesUsuaris {
-        background-color: rgb(36, 34, 34);
-        padding: 1%;
-        border-radius: 5px;
-        max-width: 90%;
-        margin-left: 2%;
-        color: white;
+.contenedor-left #primera {
+    padding: 1%;
+    background-color: rgb(59, 59, 59);
+    max-width: 90%;
+    border-radius: 5px;
+    margin-left: 2%;
+}
 
-        #primera {
-            padding: 1%;
-            background-color: rgb(59, 59, 59);
-            max-width: 90%;
-            border-radius: 5px;
-            margin-left: 2%;
+.contenedor-left #primera button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    background-color: #3498db;
+    color: #ffffff;
+}
 
-            button {
-                display: inline-block;
-                padding: 10px 20px;
-                font-size: 16px;
-                font-weight: bold;
-                text-align: center;
-                text-decoration: none;
-                cursor: pointer;
-                border: 2px solid #3498db;
-                border-radius: 25px;
-                background-color: #3498db;
-                color: #ffffff;
-            }
-
-            button:hover {
-                transform: scale(1.1);
-            }
-        }
-    }
-
-    .fakeFooter {
-        background-color: rgb(59, 59, 59);
-        max-width: 90%;
-        padding: 1%;
-        border-radius: 5px;
-        margin-left: 2%;
-        color: white;
-        margin-bottom: 10px;
-    }
+.contenedor-left #primera button:hover {
+    transform: scale(1.1);
 }
 
 .contenedor-right {
@@ -141,55 +124,55 @@ header {
     max-width: 78%;
     left: 20%;
     border-radius: 0 0 5px 5px;
+}
 
-    #taula {
-        display: grid;
-        grid-template-columns: repeat(5, 20%);
-    }
+.contenedor-right #taula {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
 
-    h2 {
-        max-height: 40px;
-        margin-bottom: 0;
-    }
+.contenedor-right h2 {
+    max-height: 40px;
+    margin-bottom: 0;
+}
 
-    .songs {
-        position: relative;
-        margin-top: 10px;
-        max-width: 80%;
-        background-color: rgb(69, 69, 69);
-        padding: 1%;
-        font-weight: bold;
-        justify-content: center;
-        text-align: center;
-        border-radius: 5px;
+.contenedor-right .songs {
+    position: relative;
+    margin-top: 10px;
+    max-width: 80%;
+    background-color: rgb(69, 69, 69);
+    padding: 1%;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
 
-        img {
-            width: 100%;
-            height: auto;
-            max-width: 150px;
-            max-height: 150px;
-        }
+.contenedor-right .songs img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+}
 
-        #icono {
-            background-color: #11ff00;
-            position: absolute;
-            top: 40%;
-            left: 70%;
-            height: 35px;
-            width: 35px;
-            border-radius: 60%;
-            display: none;
-        }
-    }
+.contenedor-right .songs #icono {
+    background-color: #11ff00;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    height: 35px;
+    width: 35px;
+    border-radius: 60%;
+    display: none;
+}
 
-    .songs:hover {
-        background-color: rgb(96, 96, 96);
+.contenedor-right .songs:hover {
+    background-color: rgb(96, 96, 96);
+}
 
-        #icono {
-            display: block;
-            cursor: pointer;
-        }
-    }
+.contenedor-right .songs:hover #icono {
+    display: block;
+    cursor: pointer;
 }
 
 .reproductor-musica {
@@ -206,7 +189,6 @@ header {
     z-index: 1;
 }
 
-
 audio {
     width: 70%;
     margin-left: auto;
@@ -215,30 +197,23 @@ audio {
 .reproductor-info {
     display: flex;
     align-items: center;
-
-    img {
-        width: 50px;
-        height: 50px;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
-
-    .info-text {
-        h4,
-        p {
-            margin: 0;
-            color: white;
-        }
-
-        p {
-            font-size: 14px;
-        }
-    }
 }
 
-audio {
-    width: 70%;
-    margin-left: auto;
+.reproductor-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.reproductor-info .info-text h4,
+.reproductor-info .info-text p {
+    margin: 0;
+    color: white;
+}
+
+.reproductor-info .info-text p {
+    font-size: 14px;
 }
 
 footer {
@@ -249,8 +224,8 @@ footer {
     bottom: 0;
     margin-bottom: 0;
     position: fixed;
-
 }
+
 .reproductor-contenido {
     display: flex;
     align-items: center;
@@ -272,10 +247,11 @@ footer {
     border-radius: 25px;
     background-color: #3498db;
     color: #ffffff;
-    margin-right: 0; 
+    right: 15px;
+    margin-left: auto; 
+    position: fixed;
 }
 
 .reproductor-musica button:hover {
     transform: scale(1.1);
 }
-
