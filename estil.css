@@ -86,7 +86,7 @@ header {
             height: 20px;
         }
     }
- 
+
     .llistesUsuaris {
         background-color: rgb(36, 34, 34);
         padding: 1%;
@@ -198,11 +198,12 @@ header {
     align-items: center;
     height: 8vh;
     position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
     max-width: 100%;
     text-align: center;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .reproductor-contenido {
@@ -216,7 +217,7 @@ header {
 
 audio {
     width: 70%;
-    margin-left: auto; 
+    margin-left: auto;
 }
 
 .reproductor-info {
@@ -231,7 +232,6 @@ audio {
     }
 
     .info-text {
-
         h4,
         p {
             margin: 0;
@@ -258,23 +258,25 @@ footer {
     margin-bottom: 0;
     position: fixed;
 
-    button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        border: 2px solid #3498db;
-        border-radius: 25px;
-        background-color: #3498db;
-        color: #ffffff;
-        margin-top: 15px;
-        margin-right: 25px;
-    }
+}
 
-    button:hover {
-        transform: scale(1.1);
-    }
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    background-color: #3498db;
+    color: #ffffff;
+    margin-top: 15px;
+    margin-right: 25px;
+    z-index: 2;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
