@@ -5,7 +5,6 @@ body {
     background-color: black;
 }
 
-
 header {
     position: relative;
     top: 7px;
@@ -33,26 +32,20 @@ header {
         button {
             display: inline-block;
             padding: 10px 20px;
-            /* Puedes ajustar el relleno según tus necesidades */
             font-size: 16px;
-            /* Puedes ajustar el tamaño de la fuente según tus preferencias */
             font-weight: bold;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
             border: 2px solid #3498db;
-            /* Puedes ajustar el color del borde según tus preferencias */
             border-radius: 25px;
-            /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
             background-color: #3498db;
-            /* Puedes ajustar el color de fondo según tus preferencias */
             color: #ffffff;
         }
 
         button:hover {
             transform: scale(1.1);
         }
-
     }
 }
 
@@ -72,10 +65,12 @@ header {
         margin-left: 2%;
         font-weight: bold;
         color: white;
-        a{
+
+        a {
             text-decoration: none;
             color: white;
         }
+
         ul {
             list-style: none;
             line-height: 2.5em;
@@ -88,7 +83,6 @@ header {
 
         img {
             height: 20px;
-
         }
     }
 
@@ -110,19 +104,14 @@ header {
             button {
                 display: inline-block;
                 padding: 10px 20px;
-                /* Puedes ajustar el relleno según tus necesidades */
                 font-size: 16px;
-                /* Puedes ajustar el tamaño de la fuente según tus preferencias */
                 font-weight: bold;
                 text-align: center;
                 text-decoration: none;
                 cursor: pointer;
                 border: 2px solid #3498db;
-                /* Puedes ajustar el color del borde según tus preferencias */
                 border-radius: 25px;
-                /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
                 background-color: #3498db;
-                /* Puedes ajustar el color de fondo según tus preferencias */
                 color: #ffffff;
             }
 
@@ -150,14 +139,17 @@ header {
     max-width: 78%;
     left: 20%;
     border-radius: 0 0 5px 5px;
+
     #taula {
         display: grid;
         grid-template-columns: repeat(5, 20%);
     }
+
     h2 {
         max-height: 40px;
         margin-bottom: 0;
     }
+
     .songs {
         position: relative;
         margin-top: 10px;
@@ -168,13 +160,15 @@ header {
         justify-content: center;
         text-align: center;
         border-radius: 5px;
+
         img {
             width: 100%;
             height: auto;
             max-width: 150px;
             max-height: 150px;
         }
-        #icono{
+
+        #icono {
             background-color: #11ff00;
             position: absolute;
             top: 40%;
@@ -185,13 +179,36 @@ header {
             display: none;
         }
     }
-    .songs:hover{
+
+    .songs:hover {
         background-color: rgb(96, 96, 96);
-        #icono{
+
+        #icono {
             display: block;
             cursor: pointer;
         }
     }
+}
+
+.reproductor-musica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    background-color: aquamarine;
+    position: fixed;
+    bottom: 60px;
+    /* Ajusta la distancia desde abajo según tus necesidades */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 100%;
+    /* Establece un ancho máximo para evitar que el reproductor sea demasiado ancho */
+    text-align: center;
+}
+
+audio {
+    width: 100%;
 }
 
 footer {
@@ -202,25 +219,20 @@ footer {
     width: 100%;
     bottom: 0;
     position: fixed;
+
     button {
         display: inline-block;
         padding: 10px 20px;
-        /* Puedes ajustar el relleno según tus necesidades */
         font-size: 16px;
-        /* Puedes ajustar el tamaño de la fuente según tus preferencias */
         font-weight: bold;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
         border: 2px solid #3498db;
-        /* Puedes ajustar el color del borde según tus preferencias */
         border-radius: 25px;
-        /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
         background-color: #3498db;
-        /* Puedes ajustar el color de fondo según tus preferencias */
         color: #ffffff;
         margin-right: 25px;
-
     }
 
     button:hover {
