@@ -155,7 +155,7 @@ header .menu button:hover {
     max-height: 150px;
 }
 
-.contenedor-right .songs #icono {
+.contenedor-right .songs .icono {
     background-color: #11ff00;
     position: absolute;
     top: 40%;
@@ -170,7 +170,7 @@ header .menu button:hover {
     background-color: rgb(96, 96, 96);
 }
 
-.contenedor-right .songs:hover #icono {
+.contenedor-right .songs:hover .icono {
     display: block;
     cursor: pointer;
 }
