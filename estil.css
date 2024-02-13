@@ -86,7 +86,7 @@ header {
             height: 20px;
         }
     }
-
+ 
     .llistesUsuaris {
         background-color: rgb(36, 34, 34);
         padding: 1%;
@@ -199,7 +199,7 @@ header {
     height: 8vh;
     background-color: rgb(0, 0, 0);
     position: fixed;
-    bottom: 60px;
+    bottom: 75px;
     left: 0;
     width: 100%;
     max-width: 100%;
@@ -255,8 +255,8 @@ footer {
     margin-top: 5px;
     text-align: right;
     background: radial-gradient(circle, #11ff00, #00aeff);
-    padding: 1% 0 1% 0;
     width: 100%;
+    height: 75px;
     bottom: 0;
     margin-bottom: 0;
     position: fixed;
@@ -273,6 +273,7 @@ footer {
         border-radius: 25px;
         background-color: #3498db;
         color: #ffffff;
+        margin-top: 15px;
         margin-right: 25px;
     }
 
