@@ -77,7 +77,7 @@ header {
   h1 {
     background-clip: text;
     color: transparent;
-    background-image: linear-gradient(to left, #11ff00, #00aeff);
+    background-image: linear-gradient(to left, #40c037, #40c037);
     display: inline-block;
   }
 
@@ -123,7 +123,7 @@ th {
 
 th:nth-child(3),
 td:nth-child(3) {
-  background: linear-gradient(to left, #11ff00, #00aeff);
+  background: linear-gradient(to left, #296126, #40c037);
   /* Puedes ajustar los colores del degradado según tus preferencias */
 }
 
@@ -148,7 +148,7 @@ section {
 
 .plan {
   border-style: solid;
-  border-image: linear-gradient(to left, #11ff00, #00aeff);
+  border-image: linear-gradient(to left, #296126, #40c037);
   border-image-slice: 1;
   border-radius: 8px;
   padding: 20px;
