@@ -1,0 +1,67 @@
+CREATE TABLE Artista (
+    ID INT PRIMARY KEY,
+    Nom VARCHAR(255),
+    Cognom VARCHAR(255),
+    NomArtistic VARCHAR(255),
+    Datanaix DATE,
+    Foto VARCHAR(255),
+    Info TEXT
+);
+
+CREATE TABLE Canco (
+    ID INT PRIMARY KEY,
+    ID_Album INT,
+    ID_Titol INT,
+    Ruta VARCHAR(255),
+    Img VARCHAR(255),
+    FOREIGN KEY (ID_Album) REFERENCES Album(ID)
+);
+
+CREATE TABLE Crea_musica (
+    ID_Canco INT,
+    ID_Artista INT,
+    PRIMARY KEY (ID_Canco, ID_Artista),
+    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID),
+    FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
+);
+
+CREATE TABLE Album (
+    ID INT PRIMARY KEY,
+    ID_Artista INT,
+    Titol VARCHAR(255),
+    DataLlançament DATE,
+    Foto VARCHAR(255),
+    FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
+);
+
+CREATE TABLE Usuari (
+    ID INT PRIMARY KEY,
+    Contrasenya VARCHAR(255),
+    Nom VARCHAR(255),
+    Email VARCHAR(255),
+    Cognom VARCHAR(255),
+    NomUsuari VARCHAR(255),
+    Foto VARCHAR(255)
+);
+
+CREATE TABLE Llista_Reproduccio (
+    ID INT PRIMARY KEY,
+    ID_Usuari INT,
+    Nom VARCHAR(255),
+    FOREIGN KEY (ID_Usuari) REFERENCES Usuari(ID)
+);
+
+CREATE TABLE Afegeix (
+    ID_Canco INT,
+    ID_LlistaReproduccio INT,
+    PRIMARY KEY (ID_Canco, ID_LlistaReproduccio),
+    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID),
+    FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID)
+);
+
+CREATE TABLE Genere (
+    ID INT PRIMARY KEY,
+    ID_Canco INT,
+    Nom VARCHAR(255),
+    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
+);
