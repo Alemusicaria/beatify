@@ -217,7 +217,7 @@ footer {
 .volume-container{
     left: 80%;
     display: flex;
-    position: relative;
+    position: absolute;
 }
 
 .music-player-container {
