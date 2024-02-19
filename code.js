@@ -54,7 +54,7 @@ plus10.addEventListener('click', ()=>{
 back10.addEventListener('click', ()=>{
     audio.currentTime -=10;
 })
-
+/*
 const volumeSlider = document.getElementById('volumeSlider');
 const volumeIcon = document.getElementById('volumeIcon');
 
@@ -76,6 +76,6 @@ function updateVolumeIcon() {
         volumeIcon.src = './img/simbols/volume.svg';
     }
 }
-
 // Call updateVolumeIcon initially to set the correct volume icon
 updateVolumeIcon();
+*/
