@@ -1,7 +1,7 @@
 -- Dades per a la taula Artista
 INSERT INTO Artista (Nom, Cognom, NomArtistic, Datanaix, Foto, Info)
 VALUES 
-  ('Ramón', 'Ayala', 'Daddy Yankee', '1977-02-03', 'Daddy_yankee.jpg', 'Reggaeton artist'),
+  ('Ramón Luis', 'Ayala Rodriguez', 'Daddy Yankee', '1977-02-03', 'Daddy_yankee.jpg', 'Reggaeton artist'),
   ('Juan', 'Carlos Ozuna', 'Ozuna', '1992-03-13', 'Ozuna.jpg', 'Reggaeton and Latin trap artist'),
   ('Karol', 'G', 'Karol G', '1991-02-14', 'Karol_g.jpg', 'Reggaeton and Latin pop artist'),
   ('J Balvin', 'Balvin', 'J Balvin', '1985-05-07', 'J_balvin.jpg', 'Reggaeton and Latin urban artist'),
@@ -10,7 +10,6 @@ VALUES
   ('William Omar', 'Landrón Rivera', 'Don Omar', '1978-02-10', 'Don_omar.jpg', 'Reggaeton and Latin urban artist'),
   ('Benito Antonio', 'Martínez Ocasio', 'Bad Bunny', '1994-3-10', 'Bad_bunny.jpg', 'Reggaeton and Latin pop artist'),
   ('Carlos Efrén', 'Reyes Rosado', 'Farruko', '1991-05-03', 'Farruko.jpg', 'Reggaeton artist'),
-  ('Ramón', 'Ayala', 'Daddy Yankee', '1977-02-03', 'Daddy_yankee.jpg', 'Reggaeton artist'),
   ('Becky', 'Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist');
 
 -- Dades per a la taula Album
