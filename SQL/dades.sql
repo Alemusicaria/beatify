@@ -19,11 +19,11 @@ VALUES
 -- Dades per a la taula Canco
 INSERT INTO Canco (ID, ID_Album, ID_Titol, Ruta, Img)
 VALUES
-  (1, 1, 1, 'gasolina.mp3', 'gasolina_cover.jpg'),
-  (2, 2, 1, 'criminal.mp3', 'criminal_cover.jpg'),
-  (3, 3, 1, 'tusa.mp3', 'tusa_cover.jpg'),
-  (4, 4, 1, 'mi_gente.mp3', 'mi_gente_cover.jpg'),
-  (5, 5, 1, 'sin_pijama.mp3', 'sin_pijama_cover.jpg');
+  (1, 1, 1, 'gasolina.mp3', 'gasolina.jpg'),
+  (2, 2, 1, 'criminal.mp3', 'criminal.jpg'),
+  (3, 3, 1, 'tusa.mp3', 'tusa.jpg'),
+  (4, 4, 1, 'mi_gente.mp3', 'mi_gente.jpg'),
+  (5, 5, 1, 'sin_pijama.mp3', 'sin_pijama.jpg');
 
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
