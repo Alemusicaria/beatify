@@ -8,7 +8,9 @@
     <link rel="icon" href="./img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estil.css">
-    <script src="./perfil.js" defer></script>
+    <!--<script src="./perfil.js" defer></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <title>Beatify</title>
 </head>
 
@@ -51,66 +53,6 @@
     <div class="contenedor-right">
         <h2>Lo més escoltat</h2>
         <div id="taula">
-            <div class="songs">
-                <img src="./musica/portades/Mix_Reggaton.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Mix de Reggaton</h4>
-                <p>Mix de les cançons més escoltades en l'actualitat</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/laModelo.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Modelo</h4>
-                <p>Ozuna ft Cardi B</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/rompe_Corazones.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Rompe Corazones</h4>
-                <p>Daddy Yankee ft Ozuna</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/diles.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Diles</h4>
-                <p>Arcangel ft Bad Bunny etc...</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/tunoviveasi.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Tu no Vive Asi</h4>
-                <p>Arcangel ft Bad Bunny</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/laDespedida.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Despedida</h4>
-                <p>Daddy Yankee</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/guayaGuaya.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Guaya Guaya</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/divaVirtual.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Diva Virtual</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/daleDonDale.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Dale Don Dale</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/perroNegro.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Perro Negro</h4>
-                <p>Bad Bunny ft Feid</p>
-            </div>
         </div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
 
@@ -183,6 +125,50 @@
             // Cambia 'tu_pagina.html' por la ruta correcta de tu página HTML vinculada
             window.location.href = './login/login.html';
         });
+
+
+
+
+
+
+
+
+        function carregarCancons() {
+            // Fer una crida AJAX per obtenir les cançons de la base de dades
+            $.ajax({
+                url: 'conexio.php',
+                method: 'GET',
+                success: function (data) {
+                    // Parsejar les dades rebudes (assumeix que la resposta és un array JSON)
+                    var cancons = JSON.parse(data);
+
+                    // Seleccioneu l'element #taula per afegir-hi els div de les cançons
+                    var taula = $('#taula');
+
+                    // Itera sobre les cançons i afegeix-les a la pàgina
+                    $.each(cancons, function (index, canco) {
+                        // Crear un nou element div amb les classes necessàries
+                        var novaCancoDiv = $('<div class="songs"></div>');
+
+                        // Afegir les etiquetes d'imatge, icono, h4 i p
+                        novaCancoDiv.append('<img src="musica/portades/' + canco.Img + '" alt="' + canco.Titol + '" class="portada">');
+                        novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
+                        novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+
+                        // Afegir el nou div a l'element #taula
+                        taula.append(novaCancoDiv);
+                    });
+                },
+                error: function (error) {
+                    console.log('Error en carregar les cançons:', error);
+                }
+            });
+        }
+
+        // Cridar la funció per carregar les cançons quan la pàgina estigui carregada
+        $(document).ready(function () {
+            carregarCancons();
+        });
         document.addEventListener('DOMContentLoaded', function () {
             // Obtén la lista de canciones y el campo de búsqueda
             const songList = document.getElementById('taula');
@@ -207,10 +193,5 @@
     </script>
     <script src="code.js"></script>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        applyStoredPreferences();
-    });
-</script>
 
 </html>
