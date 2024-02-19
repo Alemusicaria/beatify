@@ -27,7 +27,8 @@
                 <li><a href="./index.html"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.html"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>CERCAR</li>
+                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
+                        id="searchInput" placeholder="Buscar canciones"></li>
             </ul>
         </div>
         <br>
@@ -182,12 +183,34 @@
             // Cambia 'tu_pagina.html' por la ruta correcta de tu página HTML vinculada
             window.location.href = './login/login.html';
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtén la lista de canciones y el campo de búsqueda
+            const songList = document.getElementById('taula');
+            const searchInput = document.getElementById('searchInput');
+
+            // Agrega un evento de escucha al campo de búsqueda
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // Filtra las canciones basadas en el término de búsqueda
+                Array.from(songList.children).forEach(function (song) {
+                    const songName = song.textContent.toLowerCase();
+
+                    if (songName.includes(searchTerm)) {
+                        song.style.display = 'block'; // Muestra la canción si coincide
+                    } else {
+                        song.style.display = 'none'; // Oculta la canción si no coincide
+                    }
+                });
+            });
+        });
     </script>
     <script src="code.js"></script>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-    applyStoredPreferences();
-});
+        applyStoredPreferences();
+    });
 </script>
+
 </html>
