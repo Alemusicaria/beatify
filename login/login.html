@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="login.css">
 </head>
 
-<body> 
+<body>
   <div class="row">
     <div class="col-md-6 mx-auto p-0">
       <div class="card">
@@ -33,8 +33,8 @@
                   <input type="submit" class="button" value="Log in" onclick="login()">
                 </div>
                 <div class="group">
-                  <input id="check" type="checkbox" class="check" checked>
-                  <label for="check"><span class="icon"></span>Recorda</label>
+                  <input id="check" type="checkbox" class="check">
+                  <label for="check"><span class="icon"></span> Recorda</label>
                 </div>
                 <div class="group">
                   <input type="submit" class="button" value="Sign In">
@@ -44,33 +44,38 @@
                   <a href="recuperar.html">He oblidat la Contrasenya?</a>
                 </div>
               </div>
+              <!-- Afegir nous camps al formulari -->
               <div class="sign-up-form">
                 <div class="group">
-                  <label for="user" class="label">Usuari</label>
-                  <input id="user" type="text" class="input" placeholder="Create your Usuari">
+                  <label for="name" class="label">Nom</label>
+                  <input id="name" type="text" class="input" placeholder="Introdueix el teu Nom">
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">Contrasenya</label>
-                  <input id="pass" type="Contrasenya" class="input" data-type="Contrasenya"
-                    placeholder="Create your Contrasenya">
+                  <label for="surname" class="label">Cognom</label>
+                  <input id="surname" type="text" class="input" placeholder="Introdueix el teu Cognom">
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">Repeat Contrasenya</label>
-                  <input id="pass" type="Contrasenya" class="input" data-type="Contrasenya"
-                    placeholder="Repeat your Contrasenya">
+                  <label for="email" class="label">Email</label>
+                  <input id="email" type="text" class="input" placeholder="Introdueix el teu Email">
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">Email Address</label>
-                  <input id="pass" type="text" class="input" placeholder="Enter your email address">
+                  <label for="username" class="label">Nom d'Usuari</label>
+                  <input id="username" type="text" class="input" placeholder="Introdueix el teu Nom d'Usuari">
                 </div>
                 <div class="group">
-                  <input type="submit" class="button" value="Sign Up">
+                  <label for="password_signup" class="label">Contrasenya</label>
+                  <input id="password_signup" type="password" class="input"
+                    placeholder="Introdueix la teva Contrasenya">
                 </div>
-                <div class="hr"></div>
-                <div class="foot">
-                  <label for="tab-1">Already Member?</label>
+                <div class="group">
+                  <label for="password_repeat" class="label">Repeteix Contrasenya</label>
+                  <input id="password_repeat" type="password" class="input" placeholder="Repeteix la teva Contrasenya">
+                </div>
+                <div class="group">
+                  <input type="submit" class="button" value="Registrar-se" onclick="register()">
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -107,6 +112,48 @@
         error: function (xhr, status, error) {
           // En cas d'error amb la crida AJAX, mostra informació de l'error
           console.error(xhr.responseText);
+          alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
+        }
+      });
+    }
+  </script>
+  <!-- Afegir aquest script al final del teu document -->
+  <script>
+    function register() {
+      // Obtenir les dades del formulari
+      var name = $("#name").val();
+      var surname = $("#surname").val();
+      var email = $("#email").val();
+      var username = $("#username").val();
+      var password_signup = $("#password_signup").val();
+      var password_repeat = $("#password_repeat").val();
+
+      // Verificar que les contrasenyes coincideixen
+      if (password_signup !== password_repeat) {
+        alert("Les contrasenyes no coincideixen. Torna-ho a provar.");
+        return;
+      }
+
+      // Fer una crida AJAX al teu backend (canvia la URL amb la teva API de registre)
+      $.ajax({
+        type: "POST",
+        url: "registrar.php",
+        data: {
+          name: name,
+          surname: surname,
+          email: email,
+          username: username,
+          password: password_signup
+        },
+        success: function (response) {
+          if (response === "OK") {
+            alert("Registre exitós. Ara pots iniciar sessió.");
+            // Potser també podries redireccionar l'usuari a la pàgina d'inici de sessió.
+          } else {
+            alert("Hi ha hagut un problema amb el registre. Torna-ho a provar.");
+          }
+        },
+        error: function () {
           alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
         }
       });
