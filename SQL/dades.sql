@@ -24,7 +24,7 @@ VALUES
   (3, 3, 1, 'tusa.mp3', 'tusa.jpg'),
   (4, 4, 1, 'mi_gente.mp3', 'mi_gente.jpg'),
   (5, 5, 1, 'sin_pijama.mp3', 'sin_pijama.jpg');
-
+  
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES

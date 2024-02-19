@@ -8,6 +8,15 @@ CREATE TABLE Artista (
     Info TEXT
 );
 
+CREATE TABLE Album (
+    ID INT PRIMARY KEY,
+    ID_Artista INT,
+    Titol VARCHAR(255),
+    DataLlançament DATE,
+    Foto VARCHAR(255),
+    FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
+);
+
 CREATE TABLE Canco (
     ID INT PRIMARY KEY,
     ID_Album INT,
@@ -22,15 +31,6 @@ CREATE TABLE Crea_musica (
     ID_Artista INT,
     PRIMARY KEY (ID_Canco, ID_Artista),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID),
-    FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
-);
-
-CREATE TABLE Album (
-    ID INT PRIMARY KEY,
-    ID_Artista INT,
-    Titol VARCHAR(255),
-    DataLlançament DATE,
-    Foto VARCHAR(255),
     FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
 );
 
