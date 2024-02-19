@@ -5,6 +5,8 @@ VALUES
   ('Juan', 'Carlos Ozuna', 'Ozuna', '1992-03-13', 'ozuna.jpg', 'Reggaeton and Latin trap artist'),
   ('Karol', 'G', 'Karol G', '1991-02-14', 'karol_g.jpg', 'Reggaeton and Latin pop artist'),
   ('J Balvin', 'Balvin', 'J Balvin', '1985-05-07', 'j_balvin.jpg', 'Reggaeton and Latin urban artist'),
+  ('Orlando Javier', 'Valle Vega', 'Chencho Corleone', '1979-02-19', 'j_balvin.jpg', 'Reggaeton and Latin urban artist'),
+  ('Edwin', 'Vázquez Vega', 'Maldy', '1985-05-07', 'j_balvin.jpg', 'Reggaeton and Latin urban artist'),
   ('Becky', 'Gomez', 'Becky G', '1997-03-02', 'becky_g.jpg', 'Reggaeton and Latin pop artist');
 
 -- Dades per a la taula Album
