@@ -17,13 +17,13 @@ VALUES
   (5, 'Mala Santa', '2018-10-17', 'mala_santa.jpg');
 
 -- Dades per a la taula Canco
-INSERT INTO Canco (ID_Album, ID_Titol, Ruta, Img)
+INSERT INTO Canco (ID_Album, Titol, Ruta, Img)
 VALUES
-  (1, 1, 'gasolina.mp3', 'gasolina.jpg'),
-  (2, 1, 'criminal.mp3', 'criminal.jpg'),
-  (3, 1, 'tusa.mp3', 'tusa.jpg'),
-  (4, 1, 'mi_gente.mp3', 'mi_gente.jpg'),
-  (5, 1, 'sin_pijama.mp3', 'sin_pijama.jpg');
+  (1, 'gasolina', 'gasolina.mp3', 'gasolina.jpg'),
+  (2, 'criminal', 'criminal.mp3', 'criminal.jpg'),
+  (3, 'tusa' , 'tusa.mp3', 'tusa.jpg'),
+  (4, 'mi_gente', 'mi_gente.mp3', 'mi_gente.jpg'),
+  (5, 'sin_pijama', 'sin_pijama.mp3', 'sin_pijama.jpg');
   
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)

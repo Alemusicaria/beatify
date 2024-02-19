@@ -20,7 +20,7 @@ CREATE TABLE Album (
 CREATE TABLE Canco (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Album INT,
-    ID_Titol INT,
+    Titol VARCHAR(255),
     Ruta VARCHAR(255),
     Img VARCHAR(255),
     FOREIGN KEY (ID_Album) REFERENCES Album(ID)
