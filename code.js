@@ -54,3 +54,28 @@ plus10.addEventListener('click', ()=>{
 back10.addEventListener('click', ()=>{
     audio.currentTime -=10;
 })
+
+const volumeSlider = document.getElementById('volumeSlider');
+const volumeIcon = document.getElementById('volumeIcon');
+
+// Set initial volume value and icon
+audio.volume = volumeSlider.value;
+
+volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value;
+    updateVolumeIcon();
+});
+
+function updateVolumeIcon() {
+    // Change volume icon based on the volume level
+    if (audio.volume === 0) {
+        volumeIcon.src = './img/simbols/mute.svg';
+    } else if (audio.volume < 0.5) {
+        volumeIcon.src = './img/simbols/volume-low.svg';
+    } else {
+        volumeIcon.src = './img/simbols/volume.svg';
+    }
+}
+
+// Call updateVolumeIcon initially to set the correct volume icon
+updateVolumeIcon();

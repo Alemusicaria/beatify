@@ -87,9 +87,14 @@
                         <img src="./img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
                     </div>
                 </div>
+                <div class="volume-container">
+                    <input type="range" id="volumeSlider" min="0" max="100" step="0.05" value="100">
+                    <img id="volumeIcon" src="./img/simbols/volume.svg" alt="Volume">
+                </div>
             </div>
         </div>
     </footer>
+
     <script>
         function carregarCancons() {
             $.ajax({
