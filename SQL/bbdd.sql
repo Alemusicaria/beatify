@@ -1,5 +1,5 @@
 CREATE TABLE Artista (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Nom VARCHAR(255),
     Cognom VARCHAR(255),
     NomArtistic VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE Artista (
 );
 
 CREATE TABLE Album (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Artista INT,
     Titol VARCHAR(255),
     DataLlançament DATE,
@@ -18,7 +18,7 @@ CREATE TABLE Album (
 );
 
 CREATE TABLE Canco (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Album INT,
     ID_Titol INT,
     Ruta VARCHAR(255),
@@ -35,7 +35,7 @@ CREATE TABLE Crea_musica (
 );
 
 CREATE TABLE Usuari (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Contrasenya VARCHAR(255),
     Nom VARCHAR(255),
     Email VARCHAR(255),
@@ -46,7 +46,7 @@ CREATE TABLE Usuari (
 );
 
 CREATE TABLE Llista_Reproduccio (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Usuari INT,
     Nom VARCHAR(255),
     FOREIGN KEY (ID_Usuari) REFERENCES Usuari(ID)
@@ -61,7 +61,7 @@ CREATE TABLE Afegeix (
 );
 
 CREATE TABLE Genere (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Canco INT,
     Nom VARCHAR(255),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
