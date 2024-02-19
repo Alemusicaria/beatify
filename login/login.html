@@ -10,158 +10,161 @@
 </head>
 
 <body>
-<body>
-  <div class="row">
-    <div class="col-md-6 mx-auto p-0">
-      <div class="card">
-        <div class="login-box">
-          <div class="login-snip">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
-              class="tab">Login</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-            <div class="login-space">
-              <div class="login">
-                <div class="group">
-                  <label for="user" class="label">Usuari</label>
-                  <input id="username" type="text" class="input" placeholder="Posa el teu Usuari">
-                </div>
-                <div class="group">
-                  <label for="pass" class="label">Contrasenya</label>
-                  <input id="password" type="password" class="input" data-type="password"
-                    placeholder="Posa la teva Contrasenya">
-                </div>
-                <div class="group">
-                  <input type="submit" class="button" value="Log in" onclick="login()">
-                </div>
-                <div class="group">
-                  <input id="check" type="checkbox" class="check">
-                  <label for="check"><span class="icon"></span> Recorda</label>
-                </div>
-                <div class="group">
-                  <input type="submit" class="button" value="Sign In">
-                </div>
-                <div class="hr"></div>
-                <div class="foot">
-                  <a href="recuperar.html">He oblidat la Contrasenya?</a>
-                </div>
-              </div>
-              <!-- Afegir nous camps al formulari -->
-              <div class="sign-up-form">
-                <div class="group">
-                  <label for="name" class="label">Nom</label>
-                  <input id="name" type="text" class="input" placeholder="Introdueix el teu Nom">
-                </div>
-                <div class="group">
-                  <label for="surname" class="label">Cognom</label>
-                  <input id="surname" type="text" class="input" placeholder="Introdueix el teu Cognom">
-                </div>
-                <div class="group">
-                  <label for="email" class="label">Email</label>
-                  <input id="email" type="text" class="input" placeholder="Introdueix el teu Email">
-                </div>
-                <div class="group">
-                  <label for="username" class="label">Nom d'Usuari</label>
-                  <input id="username" type="text" class="input" placeholder="Introdueix el teu Nom d'Usuari">
-                </div>
-                <div class="group">
-                  <label for="password_signup" class="label">Contrasenya</label>
-                  <input id="password_signup" type="password" class="input"
-                    placeholder="Introdueix la teva Contrasenya">
-                </div>
-                <div class="group">
-                  <label for="password_repeat" class="label">Repeteix Contrasenya</label>
-                  <input id="password_repeat" type="password" class="input" placeholder="Repeteix la teva Contrasenya">
-                </div>
-                <div class="group">
-                  <input type="submit" class="button" value="Registrar-se" onclick="register()">
-                </div>
-              </div>
 
+  <body>
+    <div class="row">
+      <div class="col-md-6 mx-auto p-0">
+        <div class="card">
+          <div class="login-box">
+            <div class="login-snip">
+              <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
+                class="tab">Login</label>
+              <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+              <div class="login-space">
+                <div class="login">
+                  <div class="group">
+                    <label for="username" class="label">Usuari</label>
+                    <input id="username" type="text" class="input" placeholder="Posa el teu Usuari"
+                      autocomplete="username">
+                  </div>
+                  <div class="group">
+                    <label for="password" class="label">Contrasenya</label>
+                    <input id="password" type="password" class="input" data-type="password"
+                      placeholder="Posa la teva Contrasenya" autocomplete="current-password">
+                  </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="Log in" onclick="login()">
+                  </div>
+                  <div class="group">
+                    <input id="check" type="checkbox" class="check">
+                    <label for="check"><span class="icon"></span> Recorda</label>
+                  </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="Sign In">
+                  </div>
+                  <div class="hr"></div>
+                  <div class="foot">
+                    <a href="recuperar.html">He oblidat la Contrasenya?</a>
+                  </div>
+                </div>
+                <!-- Afegir nous camps al formulari -->
+                <div class="sign-up-form">
+                  <div class="group">
+                    <label for="name" class="label">Nom</label>
+                    <input id="name" type="text" class="input" placeholder="Introdueix el teu Nom">
+                  </div>
+                  <div class="group">
+                    <label for="surname" class="label">Cognom</label>
+                    <input id="surname" type="text" class="input" placeholder="Introdueix el teu Cognom">
+                  </div>
+                  <div class="group">
+                    <label for="email" class="label">Email</label>
+                    <input id="email" type="text" class="input" placeholder="Introdueix el teu Email">
+                  </div>
+                  <div class="group">
+                    <label for="usernameRegister" class="label">Nom d'Usuari</label>
+                    <input id="usernameRegister" type="text" class="input" placeholder="Introdueix el teu Nom d'Usuari"
+                      autocomplete="username">
+                  </div>
+                  <div class="group">
+                    <label for="password_signup" class="label">Contrasenya</label>
+                    <input id="password_signup" type="password" class="input"
+                      placeholder="Introdueix la teva Contrasenya" autocomplete="new-password">
+                  </div>
+                  <div class="group">
+                    <label for="password_repeat" class="label">Repeteix Contrasenya</label>
+                    <input id="password_repeat" type="password" class="input" placeholder="Repeteix la teva Contrasenya"
+                      autocomplete="new-password">
+                  </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="Registrar-se" onclick="register()">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Afegir jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Afegir jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-  <!-- Afegir aquest script al final del teu document -->
-  <script>
-    function login() {
-      // Obtenir les dades del formulari
-      var username = $("#username").val();
-      var password = $("#password").val();
+    <!-- Afegir aquest script al final del teu document -->
+    <script>
+      function login() {
+        // Obtenir les dades del formulari
+        var username = $("#username").val();
+        var password = $("#password").val();
 
-      // Fer una crida AJAX al teu backend (ruta relativa al mateix directori)
-      $.ajax({
-        type: "POST",
-        url: "auth.php",
-        data: {
-          username: username,
-          password: password
-        },
-        success: function (response) {
-          if (response.trim() === "OK") {
-            // Si l'autenticació és exitosa, redirecciona a Funciona.html
-            window.location.href = "Funciona.html";
-          } else {
-            // Si l'autenticació no és exitosa, mostra un alert
-            alert("Credencials incorrectes. Torna-ho a provar.");
+        // Fer una crida AJAX al teu backend (ruta relativa al mateix directori)
+        $.ajax({
+          type: "POST",
+          url: "auth.php",
+          data: {
+            username: username,
+            password: password
+          },
+          success: function (response) {
+            if (response.trim() === "OK") {
+              // Si l'autenticació és exitosa, redirecciona a Funciona.html
+              window.location.href = "Funciona.html";
+            } else {
+              // Si l'autenticació no és exitosa, mostra un alert
+              alert("Credencials incorrectes. Torna-ho a provar.");
+            }
+          },
+          error: function (xhr, status, error) {
+            // En cas d'error amb la crida AJAX, mostra informació de l'error
+            console.error(xhr.responseText);
+            alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
           }
-        },
-        error: function (xhr, status, error) {
-          // En cas d'error amb la crida AJAX, mostra informació de l'error
-          console.error(xhr.responseText);
-          alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
-        }
-      });
-    }
-  </script>
-  <!-- Afegir aquest script al final del teu document -->
-  <script>
-    function register() {
-      // Obtenir les dades del formulari
-      var name = $("#name").val();
-      var surname = $("#surname").val();
-      var email = $("#email").val();
-      var username = $("#username").val();
-      var password_signup = $("#password_signup").val();
-      var password_repeat = $("#password_repeat").val();
-
-      // Verificar que les contrasenyes coincideixen
-      if (password_signup !== password_repeat) {
-        alert("Les contrasenyes no coincideixen. Torna-ho a provar.");
-        return;
+        });
       }
+    </script>
+    <!-- Afegir aquest script al final del teu document -->
+    <script>
+      function register() {
+        // Obtenir les dades del formulari
+        var name = $("#name").val();
+        var surname = $("#surname").val();
+        var email = $("#email").val();
+        var usernameRegister = $("#usernameRegister").val();
+        var password_signup = $("#password_signup").val();
+        var password_repeat = $("#password_repeat").val();
 
-      // Fer una crida AJAX al teu backend (canvia la URL amb la teva API de registre)
-      $.ajax({
-        type: "POST",
-        url: "registrar.php",
-        data: {
-          name: name,
-          surname: surname,
-          email: email,
-          username: username,
-          password: password_signup
-        },
-        success: function (response) {
-          if (response === "OK") {
-            alert("Registre exitós. Ara pots iniciar sessió.");
-            // Potser també podries redireccionar l'usuari a la pàgina d'inici de sessió.
-          } else {
-            alert("Hi ha hagut un problema amb el registre. Torna-ho a provar.");
-          }
-        },
-        error: function () {
-          alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
+        // Verificar que les contrasenyes coincideixen
+        if (password_signup !== password_repeat) {
+          alert("Les contrasenyes no coincideixen. Torna-ho a provar.");
+          return;
         }
-      });
-    }
-  </script>
+
+        // Fer una crida AJAX al teu backend (canvia la URL amb la teva API de registre)
+        $.ajax({
+          type: "POST",
+          url: "registrar.php",
+          data: {
+            name: name,
+            surname: surname,
+            email: email,
+            username: usernameRegister,
+            password: password_signup
+          },
+          success: function (response) {
+            if (response === "OK") {
+              alert("Registre exitós. Ara pots iniciar sessió.");
+              // Potser també podries redireccionar l'usuari a la pàgina d'inici de sessió.
+            } else {
+              alert("Hi ha hagut un problema amb el registre. Torna-ho a provar.");
+            }
+          },
+          error: function () {
+            alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
+          }
+        });
+      }
+    </script>
 
 
-</body>
+  </body>
 
 </html>
