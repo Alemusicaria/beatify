@@ -23,7 +23,8 @@ VALUES
   ('Juan Manuel', 'Magán González', 'Juan Magán', '1978-09-30', 'Cardi_b.jpg', 'Reggaeton and Latin hip hop artist'),
   ('Nick', 'Rivera Caminero', 'Nicky Jam', '1981-03-17', 'Nicky_jam.jpg', 'Reggaeton artist'),
   ('Austin', 'Santos', 'Arcángel', '1938-12-23', 'Arcángel.jpg', 'Reggaeton artist'),
-  ('Rebbeca', 'Marie Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist');
+  ('Rebbeca', 'Marie Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist'),
+  ('Ibai', 'Llanos', 'Ibai', '1995-04-26', 'Ibai.jpg', 'Idolo');
 
 -- Dades per a la taula Album
 INSERT INTO Album (ID_Artista, Titol, DataLlançament, Foto)
@@ -57,10 +58,12 @@ VALUES
   (6, 'Se Preparo', 'Se Preparo', 'Se Preparo.jpg'),
   (6, 'Si No Te Quisiera', 'Si No Te Quisiera.mp3', 'Si No Te Quisiera.jpg'),
   (6, 'Si Tu Novio Te Deja Sola', 'Si Tu Novio Te Deja Sola.mp3', 'Si Tu Novio Te Deja Sola.jpg'),
-  (6, 'Sigueme y Te Sigo', 'Sigueme y Te Sigo', 'Sigueme y Te Sigo.jpg'),
-  (6, 'Travesuras', 'Travesuras', 'Travesuras.jpg'),
-  (6, 'Tu No Vive Asi', 'Tu No Vive Asi', 'Tu No Vive Asi.jpg'),
+  (6, 'Sigueme y Te Sigo', 'Sigueme y Te Sigo.mp3', 'Sigueme y Te Sigo.jpg'),
+  (6, 'Travesuras', 'Travesuras.mp3', 'Travesuras.jpg'),
+  (6, 'Tu No Vive Asi', 'Tu No Vive Asi.mp3', 'Tu No Vive Asi.jpg'),
+  (NULL, 'Tu madre tiene una polla', 'Tu madre tiene una polla.mp3', 'Polla.jpg'),
   (6, 'Si Se Da', 'Si Se Da.mp3', 'Si Se Da.jpg');
+
   
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
