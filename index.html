@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="volume-container">
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0">
                     <img id="volumeIcon" src="./img/simbols/volume.svg" alt="Volume">
                 </div>
             </div>
@@ -112,6 +112,8 @@
                 volumeIcon.src = './img/simbols/mute.svg';
             } else if (audio1.volume < 0.5) {
                 volumeIcon.src = './img/simbols/volume-low.svg';
+            } else if (audio1.volume > 0.5 < 0.9) {
+                volumeIcon.src = './img/simbols/volume-high.svg';
             } else {
                 volumeIcon.src = './img/simbols/volume.svg';
             }
@@ -120,30 +122,37 @@
         updateVolumeIcon();
 
 
+        var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
+
         function carregarCancons() {
             $.ajax({
                 url: 'conexio.php',
                 method: 'GET',
                 success: function (data) {
-                    var cancons = JSON.parse(data);
-                    var taula = $('#taula');
-
-                    $.each(cancons, function (index, canco) {
-                        var novaCancoDiv = $('<div class="songs"></div>');
-                        novaCancoDiv.append('<img src="./musica/portades/' + canco.Img + '" alt="' + canco.Titol + '" class="portada">');
-                        novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
-                        novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
-
-                        taula.append(novaCancoDiv);
-                    });
-
-                    // Agregar evento de clic a las imágenes con la clase 'icono'
-                    $('.icono').on('click', transferirInformacion);
+                    canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivell local
+                    mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
                 },
                 error: function (error) {
-                    console.log('Error en cargar las canciones:', error);
+                    console.log('Error en carregar les cançons:', error);
                 }
             });
+        }
+
+        function mostrarCancons(cancons) {
+            var taula = $('#taula');
+            taula.empty(); // Netegem la taula abans de mostrar les cançons
+
+            $.each(cancons, function (index, canco) {
+                var novaCancoDiv = $('<div class="songs"></div>');
+                novaCancoDiv.append('<img src="./musica/portades/' + canco.Img + '" alt="' + canco.Titol + '" class="portada">');
+                novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
+                novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+
+                taula.append(novaCancoDiv);
+            });
+
+            // Agregar evento de clic a les imatges amb la classe 'icono'
+            $('.icono').on('click', transferirInformacion);
         }
 
         // Función para transferir información al reproductor de música
@@ -174,24 +183,20 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            // Obtén la lista de canciones y el campo de búsqueda
-            const songList = document.getElementById('taula');
+            // Obtén la llista de cançons i el camp de cerca
             const searchInput = document.getElementById('searchInput');
 
-            // Agrega un evento de escucha al campo de búsqueda
+            // Agrega un event de escolta al camp de cerca
             searchInput.addEventListener('input', function () {
                 const searchTerm = searchInput.value.toLowerCase();
 
-                // Filtra las canciones basadas en el término de búsqueda
-                Array.from(songList.children).forEach(function (song) {
-                    const songName = song.textContent.toLowerCase();
-
-                    if (songName.includes(searchTerm)) {
-                        song.style.display = 'block'; // Muestra la canción si coincide
-                    } else {
-                        song.style.display = 'none'; // Oculta la canción si no coincide
-                    }
+                // Filtra les cançons ja carregades
+                const canconsFiltrades = canconsCarregades.filter(function (canco) {
+                    return canco.Titol.toLowerCase().includes(searchTerm);
                 });
+
+                // Mostra les cançons filtrades
+                mostrarCancons(canconsFiltrades);
             });
         });
     </script>
