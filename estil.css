@@ -198,6 +198,7 @@ audio {
     font-size: 14px;
 }
 
+
 footer {
     margin-top: 5px;
     width: 100%;
@@ -213,7 +214,11 @@ footer {
     width: 95%;
     margin: 0 auto;
 }
-
+.volume-container{
+    left: 80%;
+    display: flex;
+    position: absolute;
+}
 
 .music-player-container {
     background: linear-gradient(30deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
