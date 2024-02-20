@@ -10,16 +10,30 @@ VALUES
   ('William Omar', 'Landrón Rivera', 'Don Omar', '1978-02-10', 'Don_omar.jpg', 'Reggaeton and Latin urban artist'),
   ('Benito Antonio', 'Martínez Ocasio', 'Bad Bunny', '1994-3-10', 'Bad_bunny.jpg', 'Reggaeton and Latin pop artist'),
   ('Carlos Efrén', 'Reyes Rosado', 'Farruko', '1991-05-03', 'Farruko.jpg', 'Reggaeton artist'),
+  ('Raúl Alejandro', 'Ocasio Ruiz', 'Rauw Alejandro', '1993-01-10', 'Rauw_alejandro.jpg', 'Reggaeton artist'),
+  ('Bryan Robert', 'Rohena Pérez', 'Bryant Myers', '1998-04-05', 'Bryant_myers.jpg', 'Reggaeton artist'),
+  ('Kevin Manuel', 'Rivera Allende', 'Kevvo', '1998-02-10', 'Kevvo.jpg', 'Reggaeton artist'),
+  ('Pedro David', 'Daleccio Torres', 'Dalex', '1990-10-07', 'Dalex.jpg', 'Reggaeton artist'),
+  ('Edgardo Rafael', 'Cuevas Feliciano', 'Lyanno', '1995-4-22', 'Lyanno.jpg', 'Reggaeton artist'),
+  ('Emmanuel', 'Gazmey Santiago', 'Anuel AA', '1992-11-26', 'Anuel_aa.jpg', 'Reggaeton artist'),
+  ('Belcalis', 'Marlenis Almánzar', 'Cardi B', '1992-10-11', 'Cardi_b.jpg', 'Reggaeton artist'),
+  ('Manuel', 'Turizo Zapata', 'Manuel Turizo', '2000-04-12', 'Manuel_turizo.jpg', 'Reggaeton artist'),
+  ('Michael Anthony', 'Torres Monge', 'Myke Towers', '1994-01-15', 'Myke_towers.jpg', 'Reggaeton artist'),
+  ('José Fernando', 'Cosculluela Suárez', 'Cosculluela', '1980-10-15', 'Cardi_b.jpg', 'Reggaeton artist'),
+  ('Juan Manuel', 'Magán González', 'Juan Magán', '1978-09-30', 'Cardi_b.jpg', 'Reggaeton and Latin hip hop artist'),
+  ('Nick', 'Rivera Caminero', 'Nicky Jam', '1981-03-17', 'Nicky_jam.jpg', 'Reggaeton artist'),
+  ('Austin', 'Santos', 'Arcángel', '1938-12-23', 'Arcángel.jpg', 'Reggaeton artist'),
   ('Becky', 'Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist');
 
 -- Dades per a la taula Album
 INSERT INTO Album (ID_Artista, Titol, DataLlançament, Foto)
 VALUES
-  (1, 'Barrio Fino', '2004-07-13', 'barrio_fino.jpg'),
-  (2, 'Odisea', '2017-08-25', 'odisea.jpg'),
-  (3, 'Ocean', '2019-05-03', 'ocean.jpg'),
-  (4, 'Vibras', '2018-05-25', 'vibras.jpg'),
-  (5, 'Mala Santa', '2018-10-17', 'mala_santa.jpg');
+  (1, 'Meet the Orphans', '2010-11-16', 'Meet the Orphans.jpg'),
+  (2, 'X 100PRE', '2018-12-24', 'X 100PRE.jpg'),
+  (3, 'iDon', '2009-04-28', 'iDon.jpg'),
+  (4, 'The Last Don II', '2018-05-25', 'The Last Don II.jpg'),
+  (5, 'Mundial', '2010-04-27', 'Mundial.jpg'),
+  (6, 'The Last Don', '2003-01-01', 'The Last Don.jpg');
 
 -- Dades per a la taula Canco
 INSERT INTO Canco (ID_Album, Titol, Ruta, Img)
