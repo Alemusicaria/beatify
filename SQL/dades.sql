@@ -38,11 +38,29 @@ VALUES
 -- Dades per a la taula Canco
 INSERT INTO Canco (ID_Album, Titol, Ruta, Img)
 VALUES
-  (1, 'gasolina', 'gasolina.mp3', 'gasolina.jpg'),
-  (2, 'criminal', 'criminal.mp3', 'criminal.jpg'),
-  (3, 'tusa' , 'tusa.mp3', 'tusa.jpg'),
-  (4, 'mi gente', 'mi_gente.mp3', 'mi_gente.jpg'),
-  (5, 'sin pijama', 'sin_pijama.mp3', 'sin_pijama.jpg');
+  (1, 'Amanece', 'Amanece.mp3', 'Amanece.jpg'),
+  (2, 'Candy', 'Candy.mp3', 'Candy.jpg'),
+  (3, 'Dale Don Dale' , 'Dale Don Dale.mp3', 'Dale Don Dale.jpg'),
+  (4, 'Danza Kuduro', 'Danza Kuduro.mp3', 'Danza Kuduro.jpg'),
+  (5, 'Diles', 'Diles.mp3', 'Diles.jpg'),
+  (6, 'Diva virtual', 'Diva virtual.mp3', 'Diva virtual.jpg'),
+  (7, 'El Efecto' , 'El Efecto.mp3', 'El Efecto.jpg'),
+  (8, 'Es un secreto', 'Es un secreto.mp3', 'Es un secreto.jpg'),
+  (9, 'Guaya Guaya', 'Guaya Guaya.mp3', 'Guaya Guaya.jpg'),
+  (10, 'La Curiosidad', 'La Curiosidad.mp3', 'La Curiosidad.jpg'),
+  (11, 'La Despedida', 'La Despedida.mp3', 'La Despedida.jpg'),
+  (12, 'La Modelo' , 'La Modelo.mp3', 'La Modelo.jpg'),
+  (13, 'La Nota', 'La Nota.mp3', 'La Nota.jpg'),
+  (14, 'La Rompe Corazones', 'La Rompe Corazones.mp3', 'La Rompe Corazones.jpg'),
+  (15, 'Manicomio', 'Manicomio.mp3', 'Manicomio.jpg'),
+  (16, 'PERRO NEGRO' , 'PERRO NEGRO.mp3', 'PERRO NEGRO.jpg'),
+  (17, 'Se Preparo', 'Se Preparo', 'Se Preparo.jpg'),
+  (18, 'Si No Te Quisiera', 'Si No Te Quisiera.mp3', 'Si No Te Quisiera.jpg'),
+  (19, 'Si Tu Novio Te Deja Sola', 'Si Tu Novio Te Deja Sola.mp3', 'Si Tu Novio Te Deja Sola.jpg'),
+  (20, 'Sigueme y Te Sigo', 'Sigueme y Te Sigo', 'Sigueme y Te Sigo.jpg'),
+  (21, 'Travesuras', 'Travesuras', 'Travesuras.jpg'),
+  (12, 'Tu No Vive Asi', 'Tu No Vive Asi', 'Tu No Vive Asi.jpg'),
+  (23, 'Si Se Da', 'Si Se Da.mp3', 'Si Se Da.jpg');
   
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
