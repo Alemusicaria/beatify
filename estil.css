@@ -218,6 +218,26 @@ footer {
     left: 80%;
     display: flex;
     position: absolute;
+    text-align: center;
+    #volumeSlider {
+        max-width: 400px;
+        width: 100%;
+        height: 18px;
+        appearance: none;
+        background-color: rgb(250, 250, 250);
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 25px;
+      }
+      
+      #volumeSlider::-webkit-slider-thumb {
+        appearance: none;
+        height: 18px;
+        width: 18px;
+        background-color: #464646;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
 }
 
 .music-player-container {

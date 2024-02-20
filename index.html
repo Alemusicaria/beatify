@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="volume-container">
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0">
                     <img id="volumeIcon" src="./img/simbols/volume.svg" alt="Volume">
                 </div>
             </div>
@@ -112,7 +112,9 @@
                 volumeIcon.src = './img/simbols/mute.svg';
             } else if (audio1.volume < 0.5) {
                 volumeIcon.src = './img/simbols/volume-low.svg';
-            } else {
+            }else if(audio1.volume > 0.5 < 0.9){
+                volumeIcon.src = './img/simbols/volume-high.svg';
+            }else {
                 volumeIcon.src = './img/simbols/volume.svg';
             }
         }
