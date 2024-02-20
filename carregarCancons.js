@@ -13,6 +13,37 @@ function carregarCancons() {
         }
     });
 }
+$(document).ready(function () {
+    var currentIndex = 0; // Índice de la canción actual en el array
+
+    function reproducirSiguienteCancion() {
+        // Incrementar el índice y asegurarse de que no exceda el límite del array
+        currentIndex = (currentIndex + 1) % canconsCarregades.length;
+
+        // Obtener la información de la siguiente canción
+        var nextSong = canconsCarregades[currentIndex];
+        var imgSrc = "./musica/portades/" + nextSong.Img;
+        var songTitle = nextSong.Titol;
+
+        // Actualizar la información del reproductor de música
+        $('#reproductor-img').attr('src', imgSrc);
+        $('#reproductor-title').text(songTitle);
+        $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
+        $('#reproductor-audio').attr('src', "./musica/mp3/" + songTitle + ".mp3");
+
+        // Reproducir la siguiente canción
+        $('#reproductor-audio')[0].play();
+    }
+
+    // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
+    $('#reproductor-audio').on('ended', function () {
+        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
+        reproducirSiguienteCancion();
+    });
+
+    // Cargar las canciones y comenzar a reproducir la primera
+    carregarCancons();
+});
 
 function mostrarCancons(cancons) {
     var taula = $('#taula');
