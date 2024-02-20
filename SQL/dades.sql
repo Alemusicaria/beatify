@@ -23,7 +23,7 @@ VALUES
   ('Juan Manuel', 'Magán González', 'Juan Magán', '1978-09-30', 'Cardi_b.jpg', 'Reggaeton and Latin hip hop artist'),
   ('Nick', 'Rivera Caminero', 'Nicky Jam', '1981-03-17', 'Nicky_jam.jpg', 'Reggaeton artist'),
   ('Austin', 'Santos', 'Arcángel', '1938-12-23', 'Arcángel.jpg', 'Reggaeton artist'),
-  ('Becky', 'Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist');
+  ('Rebbeca', 'Marie Gomez', 'Becky G', '1997-03-02', 'Becky_g.jpg', 'Reggaeton and Latin pop artist');
 
 -- Dades per a la taula Album
 INSERT INTO Album (ID_Artista, Titol, DataLlançament, Foto)
