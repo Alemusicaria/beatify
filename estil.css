@@ -103,7 +103,7 @@ button:hover {
     position: relative;
     z-index: 1;
     padding: 1%;
-    background-color: rgb(59, 59, 59);
+    background: linear-gradient(rgb(32, 11, 11), #000000);
     max-width: 78%;
     left: 20%;
     border-radius: 0 0 5px 5px;
@@ -112,7 +112,7 @@ button:hover {
 
 .contenedor-right #taula {
     display: grid;
-    grid-template-columns: repeat(5, 20%);
+    grid-template-columns: repeat(6, 16%);
 }
 
 .contenedor-right h2 {
@@ -124,7 +124,7 @@ button:hover {
     position: relative;
     margin-top: 10px;
     max-width: 80%;
-    background-color: rgb(69, 69, 69);
+    background-color: #151414;
     padding: 1%;
     font-weight: bold;
     justify-content: center;
@@ -140,10 +140,10 @@ button:hover {
 }
 
 .contenedor-right .songs .icono {
-    background-color: #11ff00;
+    background-color: #39222263;
     position: absolute;
-    top: 40%;
-    left: 70%;
+    top: 50%;
+    left: 65%;
     height: 35px;
     width: 35px;
     border-radius: 60%;
@@ -215,11 +215,13 @@ footer {
     width: 95%;
     margin: 0 auto;
 }
-.volume-container{
+
+.volume-container {
     left: 80%;
     display: flex;
     position: absolute;
     text-align: center;
+
     #volumeSlider {
         max-width: 400px;
         width: 100%;
@@ -229,16 +231,16 @@ footer {
         cursor: pointer;
         overflow: hidden;
         border-radius: 25px;
-      }
-      
-      #volumeSlider::-webkit-slider-thumb {
+    }
+
+    #volumeSlider::-webkit-slider-thumb {
         appearance: none;
         height: 18px;
         width: 18px;
         background-color: #464646;
         border-radius: 50%;
         border: 2px solid white;
-      }
+    }
 }
 
 .music-player-container {
