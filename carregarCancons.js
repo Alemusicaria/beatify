@@ -1,11 +1,48 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 
+// Reproducción de Canciones Automática
+$(document).ready(function () {
+
+    window.reproducirCancionDesdeIndice = function(index) {
+        // Verificar si el índice está dentro del rango del array
+        if (index >= 0 && index < canconsCarregades.length) {
+            currentIndex = index;
+
+            // Obtener la información de la canción seleccionada
+            var selectedSong = canconsCarregades[currentIndex];
+            var imgSrc = "./musica/portades/" + selectedSong.Img;
+            var songTitle = selectedSong.Titol;
+
+            // Actualizar la información del reproductor de música
+            $('#reproductor-img').attr('src', imgSrc);
+            $('#reproductor-title').text(songTitle);
+            $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
+            $('#reproductor-audio').attr('src', "./musica/mp3/" + songTitle + ".mp3");
+
+            // Reproducir la canción seleccionada
+            $('#reproductor-audio')[0].play();
+        } else {
+            // Si el índice está fuera del rango, volver al principio del array
+            reproducirCancionDesdeIndice(0);
+        }
+    }
+
+    // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
+    $('#reproductor-audio').on('ended', function () {
+        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
+        reproducirCancionDesdeIndice(currentIndex + 1);
+    });
+
+    // Cargar las canciones y comenzar a reproducir la primera
+    carregarCancons();
+});
+
 function carregarCancons() {
     $.ajax({
         url: 'conexio.php',
         method: 'GET',
         success: function (data) {
-            canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivell local
+            canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
             mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
         },
         error: function (error) {
@@ -13,37 +50,6 @@ function carregarCancons() {
         }
     });
 }
-$(document).ready(function () {
-    var currentIndex = 0; // Índice de la canción actual en el array
-
-    function reproducirSiguienteCancion() {
-        // Incrementar el índice y asegurarse de que no exceda el límite del array
-        currentIndex = (currentIndex + 1) % canconsCarregades.length;
-
-        // Obtener la información de la siguiente canción
-        var nextSong = canconsCarregades[currentIndex];
-        var imgSrc = "./musica/portades/" + nextSong.Img;
-        var songTitle = nextSong.Titol;
-
-        // Actualizar la información del reproductor de música
-        $('#reproductor-img').attr('src', imgSrc);
-        $('#reproductor-title').text(songTitle);
-        $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
-        $('#reproductor-audio').attr('src', "./musica/mp3/" + songTitle + ".mp3");
-
-        // Reproducir la siguiente canción
-        $('#reproductor-audio')[0].play();
-    }
-
-    // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
-    $('#reproductor-audio').on('ended', function () {
-        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
-        reproducirSiguienteCancion();
-    });
-
-    // Cargar las canciones y comenzar a reproducir la primera
-    carregarCancons();
-});
 
 function mostrarCancons(cancons) {
     var taula = $('#taula');
@@ -69,6 +75,11 @@ function transferirInformacion(event) {
     var songTitle = cancoDiv.find('h4').text();
     var artistInfo = cancoDiv.find('p').text();
 
+    // Obtener el índice de la canción seleccionada
+    var index = $('.songs').index(cancoDiv);
+
+    
+
     var reproductorImg = $('#reproductor-img');
     var reproductorTitle = $('#reproductor-title');
     var reproductorArtist = $('#reproductor-artist');
@@ -79,12 +90,10 @@ function transferirInformacion(event) {
     reproductorArtist.text(artistInfo);
     reproductorAudio.attr('src', "./musica/mp3/" + songTitle + ".mp3");
     reproductorAudio[0].play(); // Iniciar la reproducción
+
+    // Llamar a la función para reproducir desde el índice seleccionado
+    window.reproducirCancionDesdeIndice(index);
 }
-
-$(document).ready(function () {
-    carregarCancons();
-});
-
 
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la llista de cançons i el camp de cerca
