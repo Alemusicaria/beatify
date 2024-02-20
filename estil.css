@@ -51,8 +51,8 @@ button:hover {
 }
 
 .contenedor-left {
-    max-width: 20%;
-    max-height: 92%;
+    width: 40vh;
+    height: 77vh;
     align-items: center;
     padding-top: 0.5%;
     position: fixed;
@@ -114,9 +114,7 @@ button:hover {
     grid-template-columns: repeat(6, 16%);
 }
 
-#taula::-webkit-scrollbar{
-    
-}
+#taula::-webkit-scrollbar {}
 
 .contenedor-right h2 {
     max-height: 40px;
