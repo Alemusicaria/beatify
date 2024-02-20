@@ -8,6 +8,9 @@
     <link rel="icon" href="./img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estil.css">
+    <!--<script src="./perfil.js" defer></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <title>Beatify</title>
 </head>
 
@@ -26,7 +29,8 @@
                 <li><a href="./index.html"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.html"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>CERCAR</li>
+                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
+                        id="searchInput" placeholder="Buscar canciones"></li>
             </ul>
         </div>
         <br>
@@ -40,78 +44,16 @@
             <br>
             <div class="fakeFooter">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida nec est non elementum.
-                    In
-                    sollicitudin augue nunc, sed bibendum est pretium a. Sed quam sapien, luctus sit amet libero sed
+                    In sollicitudin augue nunc, sed bibendum est pretium a. Sed quam sapien, luctus sit amet libero sed
                 </p>
             </div>
         </div>
     </div>
     <div class="contenedor-right">
-        <h2>Lo més escoltat</h2>
+        <h2>Totes les cançons</h2>
         <div id="taula">
-            <div class="songs">
-                <img src="./musica/portades/Mix_Reggaton.jpg" alt="reggaton" class="portada">
-                <img src="./musica/portades/playImg.png" alt="icon" class="icono">
-                <h4>Mix de Reggaton</h4>
-                <p>Mix de les cançons més escoltades en l'actualitat</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/laModelo.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Modelo</h4>
-                <p>Ozuna ft Cardi B</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/rompe_Corazones.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Rompe Corazones</h4>
-                <p>Daddy Yankee ft Ozuna</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/diles.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Diles</h4>
-                <p>Arcangel ft Bad Bunny etc...</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/tunoviveasi.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Tu no Vive Asi</h4>
-                <p>Arcangel ft Bad Bunny</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/laDespedida.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>La Despedida</h4>
-                <p>Daddy Yankee</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/guayaGuaya.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Guaya Guaya</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/divaVirtual.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Diva Virtual</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/daleDonDale.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Dale Don Dale</h4>
-                <p>Don Omar</p>
-            </div>
-            <div class="songs">
-                <img src="./musica/portades/perroNegro.jpg" alt="reggaton" class="portada">
-                <img src="./img/playImg.png" alt="icon" class="icono">
-                <h4>Perro Negro</h4>
-                <p>Bad Bunny ft Feid</p>
-            </div>
         </div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
-
     </div>
 
     <footer>
@@ -143,47 +85,117 @@
                         <img src="./img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
                     </div>
                 </div>
+                <div class="volume-container">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
+                    <img id="volumeIcon" src="./img/simbols/volume.svg" alt="Volume">
+                </div>
             </div>
         </div>
     </footer>
+
     <script>
-        function transferirInformacion(event) {
-            // Obtener el conjunto de elementos padre del icono clicado
-            var songsDiv = event.target.closest('.songs');
+        const audio1 = document.querySelector('audio');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
 
-            // Verificar si se encontró el conjunto de elementos
-            if (songsDiv) {
-                var imgSrc = songsDiv.querySelector('img.portada').src;
-                var songTitle = songsDiv.querySelector('h4').innerText;
-                var artistInfo = songsDiv.querySelector('p').innerText;
+        // Set initial volume value and icon
+        audio1.volume = volumeSlider.value;
 
-                // Asignar la información al reproductor de música
-                var reproductorImg = document.getElementById('reproductor-img');
-                var reproductorTitle = document.getElementById('reproductor-title');
-                var reproductorArtist = document.getElementById('reproductor-artist');
-                var reproductorAudio = document.getElementById('reproductor-audio');
-
-                reproductorImg.src = imgSrc;
-                reproductorTitle.innerText = songTitle;
-                reproductorArtist.innerText = artistInfo;
-                reproductorAudio.src = "./musica/mp3/" + songTitle + ".mp3";
-                reproductorAudio.play();
-            }
-        }
-
-        // Agregar evento de clic a todos los elementos con la clase 'icono'
-        var iconos = document.querySelectorAll('.icono');
-        iconos.forEach(function (icono) {
-            icono.addEventListener('click', transferirInformacion);
+        volumeSlider.addEventListener('input', () => {
+            audio1.volume = volumeSlider.value;
+            updateVolumeIcon();
         });
 
-        document.getElementById('iniciarSessio').addEventListener('click', function () {
-            // Cambia 'tu_pagina.html' por la ruta correcta de tu página HTML vinculada
+        function updateVolumeIcon() {
+            // Change volume icon based on the volume level
+            if (audio1.volume === 0) {
+                volumeIcon.src = './img/simbols/mute.svg';
+            } else if (audio1.volume < 0.5) {
+                volumeIcon.src = './img/simbols/volume-low.svg';
+            } else {
+                volumeIcon.src = './img/simbols/volume.svg';
+            }
+        }
+        // Call updateVolumeIcon initially to set the correct volume icon
+        updateVolumeIcon();
+
+
+        function carregarCancons() {
+            $.ajax({
+                url: 'conexio.php',
+                method: 'GET',
+                success: function (data) {
+                    var cancons = JSON.parse(data);
+                    var taula = $('#taula');
+
+                    $.each(cancons, function (index, canco) {
+                        var novaCancoDiv = $('<div class="songs"></div>');
+                        novaCancoDiv.append('<img src="./musica/portades/' + canco.Img + '" alt="' + canco.Titol + '" class="portada">');
+                        novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
+                        novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+
+                        taula.append(novaCancoDiv);
+                    });
+
+                    // Agregar evento de clic a las imágenes con la clase 'icono'
+                    $('.icono').on('click', transferirInformacion);
+                },
+                error: function (error) {
+                    console.log('Error en cargar las canciones:', error);
+                }
+            });
+        }
+
+        // Función para transferir información al reproductor de música
+        function transferirInformacion(event) {
+            var cancoDiv = $(this).closest('.songs');
+            var imgSrc = cancoDiv.find('img.portada').attr('src');
+            var songTitle = cancoDiv.find('h4').text();
+            var artistInfo = cancoDiv.find('p').text();
+
+            var reproductorImg = $('#reproductor-img');
+            var reproductorTitle = $('#reproductor-title');
+            var reproductorArtist = $('#reproductor-artist');
+            var reproductorAudio = $('#reproductor-audio');
+
+            reproductorImg.attr('src', imgSrc);
+            reproductorTitle.text(songTitle);
+            reproductorArtist.text(artistInfo);
+            reproductorAudio.attr('src', "./musica/mp3/" + songTitle + ".mp3");
+            reproductorAudio[0].play(); // Iniciar la reproducción
+        }
+
+        $(document).ready(function () {
+            carregarCancons();
+        });
+
+        $('#iniciarSessio').on('click', function () {
             window.location.href = './login/login.html';
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtén la lista de canciones y el campo de búsqueda
+            const songList = document.getElementById('taula');
+            const searchInput = document.getElementById('searchInput');
+
+            // Agrega un evento de escucha al campo de búsqueda
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // Filtra las canciones basadas en el término de búsqueda
+                Array.from(songList.children).forEach(function (song) {
+                    const songName = song.textContent.toLowerCase();
+
+                    if (songName.includes(searchTerm)) {
+                        song.style.display = 'block'; // Muestra la canción si coincide
+                    } else {
+                        song.style.display = 'none'; // Oculta la canción si no coincide
+                    }
+                });
+            });
         });
     </script>
     <script src="code.js"></script>
-
 </body>
 
 </html>
