@@ -87,7 +87,8 @@ VALUES
   (6, 'Tu No Vive Asi', 'Tu No Vive Asi.mp3', 'Tu No Vive Asi.jpg'),
   (NULL, 'Tu madre tiene una polla', 'Tu madre tiene una polla.mp3', 'Polla.jpg'),
   (6, 'Vuelve', 'Vuelve.mp3', 'Vuelve.jpg'),
-  (6, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg');
+  (6, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg'),
+  (6, 'Dile', 'Dile.mp3', 'Dile.jpg');
 
   
 -- Dades per a la taula Crea_musica
