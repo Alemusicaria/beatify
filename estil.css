@@ -4,6 +4,7 @@ body {
     text-align: justify;
     background-color: black;
     margin-bottom: 75px;
+    scrollbar-color:rgb(61, 22, 22) #f1f1f100;
 }
 
 header {
