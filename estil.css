@@ -107,6 +107,7 @@ button:hover {
     max-width: 78%;
     left: 20%;
     border-radius: 0 0 5px 5px;
+    height: 77vh;
 }
 
 .contenedor-right #taula {
