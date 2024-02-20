@@ -96,19 +96,24 @@ function transferirInformacion(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Obtén la llista de cançons i el camp de cerca
+    // Obtén la lista de canciones y el campo de búsqueda
+    const songList = document.getElementById('taula');
     const searchInput = document.getElementById('searchInput');
 
-    // Agrega un event de escolta al camp de cerca
+    // Agrega un evento de escucha al campo de búsqueda
     searchInput.addEventListener('input', function () {
         const searchTerm = searchInput.value.toLowerCase();
 
-        // Filtra les cançons ja carregades
-        const canconsFiltrades = canconsCarregades.filter(function (canco) {
-            return canco.Titol.toLowerCase().includes(searchTerm);
-        });
+        // Filtra las canciones basadas en el término de búsqueda
+        Array.from(songList.children).forEach(function (song) {
+            const songName = song.textContent.toLowerCase();
 
-        // Mostra les cançons filtrades
-        mostrarCancons(canconsFiltrades);
+            if (songName.includes(searchTerm)) {
+                song.style.display = 'block'; // Muestra la canción si coincide
+            } else {
+                song.style.display = 'none'; // Oculta la canción si no coincide
+            }
+        });
     });
 });
+
