@@ -30,7 +30,7 @@
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                echo '<li><img src="./musica/portades/Baila Morena.jpg" alt="" onclick="alert(\'hola\');"/></li>';
+                echo '<li><img src="./img/user.png" alt="" onclick="alert(\'hola\');"/></li>';
                 //echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
                 //echo '<button id="tancarSessio">Tanca Sessio</button> ';
             } else {
