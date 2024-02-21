@@ -56,7 +56,7 @@
         </div> -->
 
 
-        <div class="menu2">dawd</div>
+        
     </header>
     <div class="contenedor-left">
         <div class="miniMenu">
