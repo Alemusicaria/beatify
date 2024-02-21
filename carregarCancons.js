@@ -17,7 +17,6 @@ $(document).ready(function () {
             }else{
                 imgSrc='./musica/portades/' + selectedSong.Img;
             }
-            console.log(imgSrc);
             var songTitle = selectedSong.Titol;
 
             // Actualizar la información del reproductor de música
