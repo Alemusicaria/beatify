@@ -1,4 +1,4 @@
-var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
+
 
 // Reproducción de Canciones Automática
 $(document).ready(function () {
@@ -10,11 +10,19 @@ $(document).ready(function () {
 
             // Obtener la información de la canción seleccionada
             var selectedSong = canconsCarregades[currentIndex];
-            var imgSrc = "./musica/portades/" + selectedSong.Img;
+            
+            var imgSrc;
+            if(selectedSong.Foto_Album){
+                imgSrc='./musica/portades/' + selectedSong.Foto_Album;
+            }else{
+                imgSrc='./musica/portades/' + selectedSong.Img;
+            }
+            console.log(imgSrc);
             var songTitle = selectedSong.Titol;
 
             // Actualizar la información del reproductor de música
             $('#reproductor-img').attr('src', imgSrc);
+            
             $('#reproductor-title').text(songTitle);
             $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
             $('#reproductor-audio').attr('src', "./musica/mp3/" + songTitle + ".mp3");
@@ -59,8 +67,13 @@ function mostrarCancons(cancons) {
         var novaCancoDiv = $('<div class="songs"></div>');
         
         // Utilizar la Foto del Álbum si está disponible
-        var imgSrc = canco.Foto_Album ? './musica/portades/' + canco.Foto_Album : './musica/portades/' + canco.Img;
-        
+        var imgSrc;
+        if (canco.Foto_Album) {
+            imgSrc = './musica/portades/' + canco.Foto_Album;
+        } else {
+            // Si no hay Foto_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
+            imgSrc = './musica/portades/' + canco.Img;
+        }        
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
