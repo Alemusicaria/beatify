@@ -57,7 +57,11 @@ function mostrarCancons(cancons) {
 
     $.each(cancons, function (index, canco) {
         var novaCancoDiv = $('<div class="songs"></div>');
-        novaCancoDiv.append('<img src="./musica/portades/' + canco.Img + '" alt="' + canco.Titol + '" class="portada">');
+        
+        // Utilizar la Foto del Álbum si está disponible
+        var imgSrc = canco.Foto_Album ? './musica/portades/' + canco.Foto_Album : './musica/portades/' + canco.Img;
+        
+        novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
 

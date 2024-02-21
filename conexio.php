@@ -12,8 +12,11 @@ if ($conn->connect_error) {
     die(json_encode(array('error' => 'Error de conexión a la base de datos')));
 }
 
-// Consulta SQL para obtener las canciones
-$sql = "SELECT Titol, Img FROM canco";
+// Consulta SQL para obtener las canciones con el ID del álbum y la foto del álbum
+$sql = "SELECT canco.ID AS ID_Canco, canco.Titol, canco.Img, album.ID AS ID_Album, album.Foto AS Foto_Album
+        FROM canco
+        LEFT JOIN album ON canco.ID_Album = album.ID";
+
 $result = $conn->query($sql);
 
 // Verificar si hay resultados
@@ -24,8 +27,11 @@ if ($result->num_rows > 0) {
     // Iterar sobre los resultados y añadir cada canción al array
     while ($row = $result->fetch_assoc()) {
         $cancion = array(
+            'ID_Canco' => $row['ID_Canco'],
             'Titol' => $row['Titol'],
             'Img' => $row['Img'],
+            'ID_Album' => $row['ID_Album'],
+            'Foto_Album' => $row['Foto_Album'],
         );
         $canciones[] = $cancion;
     }
