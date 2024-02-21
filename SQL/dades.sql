@@ -88,7 +88,13 @@ VALUES
   (NULL, 'Tu madre tiene una polla', 'Tu madre tiene una polla.mp3', 'Polla.jpg'),
   (6, 'Vuelve', 'Vuelve.mp3', 'Vuelve.jpg'),
   (6, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg'),
-  (6, 'Dile', 'Dile.mp3', 'Dile.jpg');
+  (6, 'Dile', 'Dile.mp3', 'Dile.jpg'),
+  (6, 'Yo No Soy Tu Marido', 'Yo No Soy Tu Marido.mp3', 'Yo No Soy Tu Marido.jpg'),
+  (6, 'Donde Estan Las Gatas', 'Donde Estan Las Gatas.mp3', 'Donde Estan Las Gatas.jpg'),
+  (6, 'Cancion Con Yandel', 'Cancion Con Yandel.mp3', 'Cancion Con Yandel.jpg'),
+  (6, 'El Telefono', 'El Telefono.mp3', 'El Telefono.jpg'),
+  (6, 'La Forma En Que Me Miras', 'La Forma En Que Me Miras.mp3', 'La Forma En Que Me Miras.jpg')
+  ;
 
   
 -- Dades per a la taula Crea_musica
