@@ -85,7 +85,7 @@ VALUES
   (6, 'Travesuras', 'Travesuras.mp3', 'Travesuras.jpg'),
   (6, 'Tu Foto', 'Tu Foto.mp3', 'Tu Foto.jpg'),
   (6, 'Tu No Vive Asi', 'Tu No Vive Asi.mp3', 'Tu No Vive Asi.jpg'),
-  (NULL, 'Tu madre tiene una polla', 'Tu madre tiene una polla.mp3', 'Polla.jpg'),
+  (NULL, 'Tu madre tiene una polla', 'Tu madre tiene una polla.mp3', 'Tu madre tiene una polla.jpg'),
   (6, 'Vuelve', 'Vuelve.mp3', 'Vuelve.jpg'),
   (6, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg'),
   (6, 'Dile', 'Dile.mp3', 'Dile.jpg'),
