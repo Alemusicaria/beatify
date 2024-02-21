@@ -38,7 +38,7 @@ if ($check_result->num_rows > 0) {
     $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium) VALUES ('$password', '$name', '$email', '$surname', '$username', NULL, 0)";
 
     if ($conn->query($insert_query) === TRUE) {
-        // Registre exitós
+        
         echo "OK";
     } else {
         // Hi ha hagut un error en el registre

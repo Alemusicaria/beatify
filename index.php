@@ -1,3 +1,11 @@
+<?php
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +24,39 @@
 
 <body>
     <header>
-        <div class="menu">
+        <ul class="menu">
+            <li> <a href="./premium/premium.html">Premium</a></li>
+            <li> <a href="">Asistencia</a></li>
+            <?php
+
+            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                echo '<li><img src="./musica/portades/Baila Morena.jpg" alt="" onclick="alert(\'hola\');"/></li>';
+                //echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
+                //echo '<button id="tancarSessio">Tanca Sessio</button> ';
+            } else {
+                echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
+            }
+            ?>
+        </ul>
+
+        <!-- <div class="menu">
             <a href="./premium/premium.html">Premium</a>
             <a href="">Asistencia</a>
 
-            <button id="iniciarSessio">Iniciar Sessió</button>
-        </div>
+            <?php
+
+            /* if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                echo '<img src="./img/Logo_sense_fons.png" alt="" height="40px"/>';
+                echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
+                echo '<button id="tancarSessio">Tanca Sessio</button> ';
+            } else {
+                echo "<button id=\"iniciarSessio\">Iniciar Sessió</button>";
+            } */
+            ?>
+        </div> -->
+
+
+        <div class="menu2">dawd</div>
     </header>
     <div class="contenedor-left">
         <div class="miniMenu">
@@ -29,8 +64,7 @@
                 <li><a href="./index.html"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.html"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
-                        id="searchInput" placeholder="Buscar cançons"></li>
+                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text" id="searchInput" placeholder="Buscar cançons"></li>
             </ul>
         </div>
         <br>
@@ -93,8 +127,13 @@
         </div>
     </footer>
     <script>
-        $('#iniciarSessio').on('click', function () {
+        $('#iniciarSessio').on('click', function() {
             window.location.href = './login/login.html';
+        });
+        $('#tancarSessio').on('click', function() {
+
+            window.location.href = './login/unlogin.php';
+
         });
     </script>
     <script src="audio.js"></script>

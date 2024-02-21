@@ -27,6 +27,8 @@ $result = $conn->query($sql);
 // Verifica si s'ha trobat un usuari amb les credencials proporcionades
 if ($result->num_rows > 0) {
     // L'autenticació és exitosa
+    setcookie('NomUsuari', $username,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
+
     echo "OK";
 } else {
     // L'autenticació ha fallat

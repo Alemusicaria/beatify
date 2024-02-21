@@ -9,16 +9,16 @@ body {
 
 header {
     position: relative;
-    top: 7px;
     max-width: 80%;
     left: 20%;
     background-color: rgb(32, 11, 11);
     border-radius: 5px 5px 0 0;
+    height: 73px;
 }
 
 header .menu {
-    padding: 1%;
     text-align: right;
+    
 }
 
 header .menu a {
@@ -32,6 +32,52 @@ header .menu a {
 header .menu a:hover {
     transform: scale(1.1);
 }
+
+header{
+    width: 100%;
+
+}
+
+
+header ul{
+    background-color: rgb(32, 11, 11);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+header ul li{
+
+    margin-right: 1.5%;
+}
+
+header ul li img{
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+header .menu2 {
+
+    
+    position: absolute;
+    right: 0;
+    z-index: 2;
+
+    
+    width: 200px;
+    height: 400px;
+    background-color: red;
+}
+
 
 button {
     display: inline-block;
@@ -101,7 +147,6 @@ button:hover {
 
 .contenedor-right {
     position: relative;
-    z-index: 1;
     padding: 1%;
     background: linear-gradient(rgb(32, 11, 11), #000000);
     max-width: 78%;
@@ -148,8 +193,8 @@ button:hover {
 .contenedor-right .songs .icono {
     background-color: #39222263;
     position: absolute;
-    top: 48%;
-    left: 70%;
+    top: 50%;
+    left: 65%;
     height: 35px;
     width: 35px;
     border-radius: 60%;
