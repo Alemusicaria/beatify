@@ -1,5 +1,4 @@
-
-
+var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 // Reproducción de Canciones Automática
 $(document).ready(function () {
 
