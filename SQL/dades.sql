@@ -132,7 +132,7 @@ VALUES
 -- Dades per a la taula Usuari
 INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium)
 VALUES
-  ('contrasenya1', 'Maria', 'maria@email.com', 'Gomez', 'maria_g', 'maria.jpg', true),
+  ('1', 'Maria', 'maria@email.com', 'Gomez', 'user', 'maria.jpg', true),
   ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', 'pablo.jpg', false),
   ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', 'eva.jpg', true),
   ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', 'carlos.jpg', false),
