@@ -100,7 +100,7 @@ VALUES
   (NULL, 'Sábado Rebelde', 'Sábado Rebelde.mp3', 'Sábado Rebelde.jpg'),
   (NULL, 'SANDUNGA', 'SANDUNGA.mp3', 'SANDUNGA.jpg'),
   (12, 'Se Preparo', 'Se Preparo', 'Se Preparo.jpg'),
-  (24, 'Si No Te Quisiera', 'Si No Te Quisiera.mp3', 'Si No Te Quisiera.jpg'),
+  (25, 'Si No Te Quisiera', 'Si No Te Quisiera.mp3', 'Si No Te Quisiera.jpg'),
   (NULL, 'Si Se Da Remix', 'Si Se Da Remix.mp3', 'Si Se Da Remix.jpg'),
   (NULL, 'Si Tu Novio Te Deja Sola', 'Si Tu Novio Te Deja Sola.mp3', 'Si Tu Novio Te Deja Sola.jpg'),
   (NULL, 'Sigueme y Te Sigo', 'Sigueme y Te Sigo.mp3', 'Sigueme y Te Sigo.jpg'),
@@ -112,10 +112,10 @@ VALUES
   (NULL, 'Vuelve', 'Vuelve.mp3', 'Vuelve.jpg'),
   (NULL, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg'),
   (6, 'Dile', 'Dile.mp3', 'Dile.jpg'),
-  (25, 'Yo No Soy Tu Marido', 'Yo No Soy Tu Marido.mp3', 'Yo No Soy Tu Marido.jpg'),
-  (26, 'Donde Estan Las Gatas', 'Donde Estan Las Gatas.mp3', 'Donde Estan Las Gatas.jpg'),
+  (26, 'Yo No Soy Tu Marido', 'Yo No Soy Tu Marido.mp3', 'Yo No Soy Tu Marido.jpg'),
+  (27, 'Donde Estan Las Gatas', 'Donde Estan Las Gatas.mp3', 'Donde Estan Las Gatas.jpg'),
   (10, 'Cancion Con Yandel', 'Cancion Con Yandel.mp3', 'Cancion Con Yandel.jpg'),
-  (27, 'El Telefono', 'El Telefono.mp3', 'El Telefono.jpg'),
+  (28, 'El Telefono', 'El Telefono.mp3', 'El Telefono.jpg'),
   (NULL, 'La Forma En Que Me Miras', 'La Forma En Que Me Miras.mp3', 'La Forma En Que Me Miras.jpg')
   ;
 
