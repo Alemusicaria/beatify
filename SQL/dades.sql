@@ -126,10 +126,6 @@ VALUES
   (26, 1, 'Donde Estan Las Gatas', 'Donde Estan Las Gatas.mp3', 'Donde Estan Las Gatas.jpg'),
   (NULL, 3, 'De Las 2', 'De Las 2.mp3', 'De Las 2.jpg'),
   (26, 1, 'Zun Da Da', 'Zun Da Da.mp3', 'Zun Da Da.jpg');
-
-
-
-
   
 -- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
