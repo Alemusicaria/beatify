@@ -59,7 +59,7 @@ VALUES
   ;
 
 -- Dades per a la taula Canco
-INSERT INTO cancons (ID_Album, Genero, Titol, Ruta, Img) 
+INSERT INTO cancons (ID_Album, Genere, Titol, Ruta, Img) 
 VALUES
   (NULL, 1, 'Amanece', 'Amanece.mp3', 'Amanece.jpg'),
   (NULL, 1, 'Asesina Remix', 'Asesina Remix.mp3', 'Asesina Remix.jpg'),
