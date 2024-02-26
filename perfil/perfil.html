@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estil.css">
+    <link rel="stylesheet" href="./perfil.css">
     <script src="../perfil.js" defer></script>
     <title>Mi Perfil</title>
 </head>
@@ -13,7 +13,6 @@
     <div class="profile-container">
         <h1>Mi Perfil</h1>
         <button id="btn-customize">Personalizar</button>
-        <button>ggg</button>
         <div id="customize-options" class="hidden">
             <label for="button-shape">Forma de los botones:</label>
             <select id="button-shape">
@@ -28,12 +27,11 @@
                 <option value="medium">Mediano</option>
                 <option value="large">Grande</option>
             </select>
+            <button id="btn-save">Guardar</button>
         </div>
     </div>
+
+    <script src="../perfil.js"></script>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    applyStoredPreferences();
-});
-</script>
+
 </html>

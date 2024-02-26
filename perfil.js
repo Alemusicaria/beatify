@@ -1,70 +1,50 @@
-/*document.addEventListener('DOMContentLoaded', function() {
-    const customizeButton = document.getElementById('btn-customize');
-    const customizeOptions = document.getElementById('customize-options');
-    const buttonShapeSelect = document.getElementById('button-shape');
-    const colorPicker = document.getElementById('color-picker');
-    const fontSizeSelect = document.getElementById('font-size'); // Nueva línea
-
-    
-    function applyStoredPreferences() {
-        const storedShape = localStorage.getItem('buttonShape') || 'rounded';
-        const storedColor = localStorage.getItem('buttonColor') || '#3498db';
-        const storedFontSize = localStorage.getItem('fontSize') || 'medium';
-    
-        applyButtonShape(storedShape);
-        applyButtonColor(storedColor);
-        applyFontSize(storedFontSize);
-    }
-    
-    function storePreference(key, value) {
-        localStorage.setItem(key, value);
-    }
-
-    customizeButton.addEventListener('click', function() {
-        customizeOptions.classList.toggle('hidden');
-    });
-
-    buttonShapeSelect.addEventListener('change', function() {
-        const selectedShape = buttonShapeSelect.value;
-        applyButtonShape(selectedShape);
-    });
-
-    colorPicker.addEventListener('input', function() {
-        const selectedColor = colorPicker.value;
-        applyButtonColor(selectedColor);
-    });
-
-    fontSizeSelect.addEventListener('change', function() {
-        const selectedFontSize = fontSizeSelect.value;
-        applyFontSize(selectedFontSize);
-    });
-
-    // Funciones auxiliares para aplicar los cambios a los botones
-   function applyButtonShape(shape) {
-    document.querySelectorAll('button').forEach(button => {
-        button.style.borderRadius = shape === 'rounded' ? '5px' : '0';
-    });
-    storePreference('buttonShape', shape);
-}
-
-function applyButtonColor(color) {
-    document.querySelectorAll('button').forEach(button => {
-        button.style.backgroundColor = color;
-    });
-    storePreference('buttonColor', color);
-}
-
-function applyFontSize(size) {
-    const fontSizeMap = {
-        'small': '14px',
-        'medium': '16px',
-        'large': '18px',
+function guardarPersonalizacion() {
+    const opciones = {
+        forma: document.getElementById('button-shape').value,
+        color: document.getElementById('color-picker').value,
+        fontSize: document.getElementById('font-size').value,
     };
-    document.body.style.fontSize = fontSizeMap[size];
-    storePreference('fontSize', size);
+
+    document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/`;
+
+    document.getElementById('customize-options').classList.add('hidden');
+    aplicarPersonalizacion(); // Llama a la función para aplicar la personalización después de guardar
 }
+
+function cargarPersonalizacion() {
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('personalizacion='));
+
+    if (cookieValue) {
+        return JSON.parse(cookieValue.split('=')[1]);
+    }
+
+    return null;
+}
+
+function aplicarPersonalizacion() {
+    const opciones = cargarPersonalizacion();
+
+    if (opciones) {
+        const botones = document.querySelectorAll('button');
+
+        botones.forEach(boton => {
+            boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
+            boton.style.backgroundColor = opciones.color;
+            boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
+                opciones.fontSize === 'medium' ? '16px' : '20px';
+        });
+    }
+}
+
+document.getElementById('btn-customize').addEventListener('click', () => {
+    document.getElementById('customize-options').classList.remove('hidden');
 });
-*/
+
+document.getElementById('btn-save').addEventListener('click', guardarPersonalizacion);
+
+window.addEventListener('load', aplicarPersonalizacion);
 // PERFIL
 $(document).ready(function () {
     $('.dropdown-list').hide();
