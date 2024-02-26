@@ -123,6 +123,8 @@ VALUES
   (NULL, 1, 'Yandel 150', 'Yandel 150.mp3', 'Yandel 150.jpg'),
   (6, 1, 'Dile', 'Dile.mp3', 'Dile.jpg'),
   (25, 1, 'Yo No Soy Tu Marido', 'Yo No Soy Tu Marido.mp3', 'Yo No Soy Tu Marido.jpg'),
+  (26, 1, 'Donde Estan Las Gatas', 'Donde Estan Las Gatas.mp3', 'Donde Estan Las Gatas.jpg'),
+  (NULL, 3, 'De Las 2', 'De Las 2.mp3', 'De Las 2.jpg'),
   (26, 1, 'Zun Da Da', 'Zun Da Da.mp3', 'Zun Da Da.jpg');
 
 
