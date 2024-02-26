@@ -23,7 +23,9 @@ CREATE TABLE Canco (
     Titol VARCHAR(255),
     Ruta VARCHAR(255),
     Img VARCHAR(255),
+    Genere INT,
     FOREIGN KEY (ID_Album) REFERENCES Album(ID)
+    FOREIGN KEY (Genere) REFERENCES Genere(ID)
 );
 
 CREATE TABLE Crea_musica (
@@ -62,7 +64,5 @@ CREATE TABLE Afegeix (
 
 CREATE TABLE Genere (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    ID_Canco INT,
-    Nom VARCHAR(255),
-    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
+    Nom VARCHAR(255)
 );
