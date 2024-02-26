@@ -4,7 +4,7 @@ body {
     text-align: justify;
     background-color: black;
     margin-bottom: 75px;
-    scrollbar-color:rgb(61, 22, 22) #f1f1f100;
+    scrollbar-color: rgb(61, 22, 22) #f1f1f100;
 }
 
 header {
@@ -18,7 +18,7 @@ header {
 
 header .menu {
     text-align: right;
-    
+
 }
 
 header .menu a {
@@ -33,13 +33,13 @@ header .menu a:hover {
     transform: scale(1.1);
 }
 
-header{
+header {
     width: 100%;
 
 }
 
 
-header ul{
+header ul {
     background-color: rgb(32, 11, 11);
     display: flex;
     align-items: center;
@@ -52,12 +52,12 @@ header ul{
     width: auto;
 }
 
-header ul li{
+header ul li {
 
     margin-right: 1.5%;
 }
 
-header ul li img{
+header ul li img {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
@@ -67,12 +67,12 @@ header ul li img{
 
 header .menu2 {
 
-    
+
     position: absolute;
     right: 0;
     z-index: 2;
 
-    
+
     width: 200px;
     height: 400px;
     background-color: red;
@@ -404,4 +404,54 @@ footer {
 
 audio {
     display: none;
+}
+
+.perfil-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.perfil-dropdown img {
+    height: 30px;
+    /* Ajusta el tamaño de la imagen según tus necesidades */
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 73px;
+    right: 20px;
+    background-color: #151414;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    height: 100%;
+    width: 160px;
+    border-radius: 5px;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: 8px;
+    width: 90%;
+}
+
+.dropdown-list li:hover {
+    background-color: #494545;
+}
+
+.dropdown-list li {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-list li img {
+    height: 15px;
+    border-radius: 0%;
+    margin-right: 8px;
+    margin-left: 8px;
 }
