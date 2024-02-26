@@ -27,12 +27,10 @@
                 </div>
     
                 <ul class="dropdown-list">
-                <li><img src="./img/simbols/ajustes.png" alt="Ajustes"> <a href="#">Configuració</a></li>
-                <li><img src="./img/simbols/cerrar-sesion.png" alt="Cerrar sesión"> <a href="#">Tancar sessió</a></li>
+                    <li><img src="./img/simbols/ajustes.png" alt="Ajustes"> <a href="#">Configuració</a></li>
+                    <li onclick="cerrarSesion()"><img src="./img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
                 </ul>
             ';
-                //echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
-                //echo '<button id="tancarSessio">Tanca Sessio</button> ';
             } else {
                 echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
             }
@@ -112,9 +110,13 @@
             window.location.href = './login/login.html';
         });
 
-        $('#tancarSessio').on('click', function() {
+        function cerrarSesion() {
+            // Eliminar la cookie
+            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // Redirigir a la página de inicio de sesión o a otra página relevante
             window.location.href = './login/unlogin.php';
-        });
+        }
     </script>
 
     </script>
