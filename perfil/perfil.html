@@ -5,29 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./perfil.css">
+    <link rel="icon" href="../img/Logo_sense_fons.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <script src="../perfil.js" defer></script>
     <title>Mi Perfil</title>
 </head>
 
 <body>
+    <header>
+        <h1 id="titol">Configuració Usuari - <a href="../index.php">Beatify</a></h1>
+        <div class="menu">
+          <a href="./premium.html">Premium</a>
+          <a href="">Asistencia</a>
+          <button id="iniciarSessio">Iniciar Sessió</button>
+        </div>
+      </header>
     <div class="profile-container">
-        <h1>Mi Perfil</h1>
-        <button id="btn-customize">Personalizar</button>
+        <h1>Botons</h1>
+        <button id="btn-customize">Personalitzar</button>
         <div id="customize-options" class="hidden">
-            <label for="button-shape">Forma de los botones:</label>
+            <label for="button-shape">Forma dels botons:</label>
             <select id="button-shape">
-                <option value="rounded">Redondeado</option>
-                <option value="square">Cuadrado</option>
+                <option value="rounded">Arrodonit</option>
+                <option value="square">Quadrat</option>
             </select>
             <label for="color-picker">Color:</label>
             <input type="color" id="color-picker">
-            <label for="font-size">Tamaño de la fuente:</label>
+            <label for="font-size">Mida de la lletra:</label>
             <select id="font-size">
-                <option value="small">Pequeño</option>
-                <option value="medium">Mediano</option>
-                <option value="large">Grande</option>
+                <option value="small">Petit</option>
+                <option value="medium">Mitjà</option>
+                <option value="large">Gran</option>
             </select>
-            <button id="btn-save">Guardar</button>
+            <button id="btn-save">Desar</button>
         </div>
     </div>
 
