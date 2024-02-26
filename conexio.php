@@ -29,19 +29,19 @@ if ($result->num_rows > 0) {
 
     // Iterar sobre los resultados y añadir cada canción al array
     // Iterar sobre los resultados y añadir cada canción al array
-while ($row = $result->fetch_assoc()) {
-    $cancion = array(
-        'ID_Canco' => $row['ID_Canco'],
-        'Titol' => $row['Titol'],
-        'Img' => $row['Img'],
-        'ID_Album' => $row['ID_Album'],
-        'Foto_Album' => $row['Foto_Album'],
-        'ID_Genere' => $row['ID_Genere'],
-        'ID_Artista' => $row['ID_Artista'], // Agregado para incluir el ID del Artista
-        'Nom_Artista' => $row['Nom_Artista'], // Agregado para incluir el Nombre del Artista
-    );
-    $canciones[] = $cancion;
-}
+    while ($row = $result->fetch_assoc()) {
+        $cancion = array(
+            'ID_Canco' => $row['ID_Canco'],
+            'Titol' => $row['Titol'],
+            'Img' => $row['Img'],
+            'ID_Album' => $row['ID_Album'],
+            'Foto_Album' => $row['Foto_Album'],
+            'ID_Genere' => $row['ID_Genere'],
+            'ID_Artista' => $row['ID_Artista'], // Agregado para incluir el ID del Artista
+            'Nom_Artista' => $row['Nom_Artista'], // Agregado para incluir el Nombre del Artista
+        );
+        $canciones[] = $cancion;
+    }
 
 
     // Devolver el array de canciones como JSON
