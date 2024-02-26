@@ -17,15 +17,20 @@ CREATE TABLE Album (
     FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
 );
 
+CREATE TABLE Genere (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nom VARCHAR(255)
+);
+
 CREATE TABLE Canco (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Album INT,
     Titol VARCHAR(255),
     Ruta VARCHAR(255),
     Img VARCHAR(255),
-    Genere INT,
-    FOREIGN KEY (ID_Album) REFERENCES Album(ID)
-    FOREIGN KEY (Genere) REFERENCES Genere(ID)
+    ID_Genere INT,
+    FOREIGN KEY (ID_Album) REFERENCES Album(ID),
+    FOREIGN KEY (ID_Genere) REFERENCES Genere(ID)
 );
 
 CREATE TABLE Crea_musica (
@@ -60,9 +65,4 @@ CREATE TABLE Afegeix (
     PRIMARY KEY (ID_Canco, ID_LlistaReproduccio),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID),
     FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID)
-);
-
-CREATE TABLE Genere (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nom VARCHAR(255)
 );

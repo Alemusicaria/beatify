@@ -58,8 +58,19 @@ VALUES
   (6, 'The Bad Boy', '2003-01-01', 'The Bad Boy.jpg')
   ;
 
+-- Dades per a la taula Genere
+INSERT INTO Genere (Nom)
+VALUES
+  ('Reggaeton'),
+  ('Latin Pop'),
+  ('Trap'),
+  ('Electronic'),
+  ('Pop'),
+  ('Hip Hop'),
+  ('Bachata');
+
 -- Dades per a la taula Canco
-INSERT INTO cancons (ID_Album, Genere, Titol, Ruta, Img) 
+INSERT INTO canco (ID_Album, ID_Genere, Titol, Ruta, Img) 
 VALUES
   (NULL, 1, 'Amanece', 'Amanece.mp3', 'Amanece.jpg'),
   (NULL, 1, 'Asesina Remix', 'Asesina Remix.mp3', 'Asesina Remix.jpg'),
@@ -153,14 +164,3 @@ VALUES
   (3, 3),
   (4, 4),
   (5, 5);
-
--- Dades per a la taula Genere
-INSERT INTO Genere (Nom)
-VALUES
-  ('Reggaeton'),
-  ('Latin Pop'),
-  ('Trap'),
-  ('Electronic'),
-  ('Pop'),
-  ('Hip Hop'),
-  ('Bachata');

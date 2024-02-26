@@ -75,6 +75,7 @@ function mostrarCancons(cancons) {
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+        novaCancoDiv.append('<h4>' + canco.Genere + '</h4>');
 
         taula.append(novaCancoDiv);
     });
