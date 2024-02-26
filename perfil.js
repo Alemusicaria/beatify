@@ -5,7 +5,7 @@ function guardarPersonalizacion() {
         fontSize: document.getElementById('font-size').value,
     };
 
-    document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/`;
+    document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
 
     document.getElementById('customize-options').classList.add('hidden');
     aplicarPersonalizacion(); // Llama a la función para aplicar la personalización después de guardar
