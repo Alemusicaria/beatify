@@ -40,8 +40,8 @@
     <div class="contenedor-left">
         <div class="miniMenu">
             <ul id="menu">
-                <li><a href="./index.html"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
-                <li><a href="./index.html"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
+                <li><a href="./index.php"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
+                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
                 <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text" id="searchInput" placeholder="Buscar cançons"></li>
             </ul>
