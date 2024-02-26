@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const customizeButton = document.getElementById('btn-customize');
     const customizeOptions = document.getElementById('customize-options');
     const buttonShapeSelect = document.getElementById('button-shape');
@@ -63,4 +63,19 @@ function applyFontSize(size) {
     document.body.style.fontSize = fontSizeMap[size];
     storePreference('fontSize', size);
 }
+});
+*/
+// PERFIL
+$(document).ready(function () {
+    $('.dropdown-list').hide();
+
+});
+function toggleDropdown() {
+    $('.dropdown-list').toggle();
+}
+
+$(document).on('click', function (e) {
+    if (!$(e.target).closest('.perfil-dropdown').length) {
+        $('.dropdown-list').hide();
+    }
 });

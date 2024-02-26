@@ -8,7 +8,6 @@
     <link rel="icon" href="./img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estil.css">
-    <!--<script src="./perfil.js" defer></script> -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <title>Beatify</title>
@@ -22,33 +21,21 @@
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                echo '<li><img src="./img/user.png" alt="" onclick="alert(\'hola\');"/></li>';
-                //echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
-                //echo '<button id="tancarSessio">Tanca Sessio</button> ';
+                echo '
+                <div class="perfil-dropdown">
+                    <img src="./img/user.png" alt="" onclick="toggleDropdown()"/>
+                </div>
+    
+                <ul class="dropdown-list">
+                    <li><img src="./img/simbols/ajustes.png" alt="Ajustes"> <a href="#">Configuració</a></li>
+                    <li onclick="cerrarSesion()"><img src="./img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
+                </ul>
+            ';
             } else {
                 echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
             }
             ?>
         </ul>
-
-        <!-- <div class="menu">
-            <a href="./premium/premium.html">Premium</a>
-            <a href="">Asistencia</a>
-
-            <?php
-
-            /* if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                echo '<img src="./img/Logo_sense_fons.png" alt="" height="40px"/>';
-                echo '<h2>' . $_COOKIE['NomUsuari'] . '</h2>';
-                echo '<button id="tancarSessio">Tanca Sessio</button> ';
-            } else {
-                echo "<button id=\"iniciarSessio\">Iniciar Sessió</button>";
-            } */
-            ?>
-        </div> -->
-
-
-
     </header>
     <div class="contenedor-left">
         <div class="miniMenu">
@@ -122,15 +109,21 @@
         $('#iniciarSessio').on('click', function() {
             window.location.href = './login/login.html';
         });
-        $('#tancarSessio').on('click', function() {
 
+        function cerrarSesion() {
+            // Eliminar la cookie
+            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // Redirigir a la página de inicio de sesión o a otra página relevante
             window.location.href = './login/unlogin.php';
+        }
+    </script>
 
-        });
     </script>
     <script src="audio.js"></script>
     <script src="code.js"></script>
     <script src="carregarCancons.js"></script>
+    <script src="perfil.js"></script>
 </body>
 
 </html>
