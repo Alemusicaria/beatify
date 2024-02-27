@@ -43,28 +43,17 @@
                 <li><a href="./index.php"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
-                        id="searchInput" placeholder="Buscar cançons"></li>
+                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
+                </li>
             </ul>
         </div>
         <br>
-        <div class="llistesUsuaris">
-            <h2><i class="fa-solid fa-compact-disc"></i>Llistes Cançons</h2>
-            <div id="primera">
-                <h4>Crea la teva Primera Llista</h4>
-                <p>Es molt fàcil</p>
-                <button onclick="location.href='crearLlista.php';">Crea Llista</button>
-            </div>
-            <br>
-            <div class="fakeFooter">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida nec est non elementum.
-                    In sollicitudin augue nunc, sed bibendum est pretium a. Sed quam sapien, luctus sit amet libero sed
-                </p>
-            </div>
-        </div>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
-        <h2>Totes les cançons</h2>
+        <hr>
+        <h2>busquem alguna cosa per a la teva llita</h2><br>
+        <i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
+            id="searchInput" placeholder="Buscar cançons">
         <div id="taula" class="scrollable-container">
         </div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
