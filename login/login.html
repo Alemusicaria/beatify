@@ -107,8 +107,9 @@
             username: username,
             password: password
           },
-          success: function (response) {
-            if (response.trim() === "OK") {
+          success: function (data) {
+            var usuariCarregat = data;
+            if (usuariCarregat.status === "OK") {
               // Si l'autenticació és exitosa, redirecciona a Funciona.html
               window.location.href = "../index.php";
             } else {

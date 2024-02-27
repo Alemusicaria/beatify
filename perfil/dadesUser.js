@@ -1,0 +1,46 @@
+function carregarUsuari() {
+    $.ajax({
+        url: '../login/auth.php',
+        method: 'POST',
+        data: {
+            username: 'user', // Reemplaza con el nombre de usuario del formulario
+            password: '1' // Reemplaza con la contraseña del formulario
+        },
+        success: function (data) {
+            console.log(data);
+            var usuariCarregat = data;
+
+            if (usuariCarregat.status === 'OK') {
+                // Usuario autenticado con éxito
+                // Puedes acceder a los datos del usuario a través de las propiedades del objeto usuariCarregat
+                var nom = usuariCarregat.Nom;
+                var cognom = usuariCarregat.Cognom;
+                var foto = usuariCarregat.Foto;
+                var premium = usuariCarregat.Premium;
+                var email = usuariCarregat.Email;
+                // Realiza las acciones necesarias con los datos del usuario
+                // Por ejemplo, mostrar la información en la interfaz de usuario
+                mostrarInformacioUsuari(nom, cognom, foto, premium, email);
+            } else {
+                // Autenticación fallida
+                console.log('Error en la autenticación:', data);
+            }
+        },
+        error: function (error) {
+            console.log('Error en cargar el usuario:', error);
+        }
+    });
+}
+
+function mostrarInformacioUsuari(nom, cognom, foto, premium, email) {
+    // Actualiza el contenido de los elementos HTML con la información del usuario
+    $('.fotoPerfil').attr('src', foto); 
+    $('.NomUsuari').text('Nom: ' + nom + ' ' + cognom); 
+    $('.email').text('Correu: ' + email + ', Premium: ' + premium); 
+}
+
+// Llama a la función para cargar el usuario al cargar la página
+$(document).ready(function () {
+    carregarUsuari();
+});
+
