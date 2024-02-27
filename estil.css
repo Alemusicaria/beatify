@@ -64,21 +64,6 @@ header ul li img {
     cursor: pointer;
 }
 
-
-header .menu2 {
-
-
-    position: absolute;
-    right: 0;
-    z-index: 2;
-
-
-    width: 200px;
-    height: 400px;
-    background-color: red;
-}
-
-
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -189,7 +174,7 @@ button:hover {
 .contenedor-right .songs .icono {
     background-color: #39222263;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 65%;
     height: 35px;
     width: 35px;

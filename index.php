@@ -16,7 +16,7 @@
 <body>
     <header>
         <ul class="menu">
-            <li> <a href="./premium/premium.html">Premium</a></li>
+            <li> <a href="./premium/premium.php">Premium</a></li>
             <li> <a href="">Asistencia</a></li>
             <?php
 
@@ -119,9 +119,6 @@
             // Redirigir a la página de inicio de sesión o a otra página relevante
             window.location.href = './login/unlogin.php';
         }
-    </script>
-
-    <script>
         // Función para cargar la personalización desde la cookie
         function cargarPersonalizacion() {
             const cookieValue = document.cookie
