@@ -21,19 +21,34 @@ $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
 
 // Crea la consulta SQL per obtenir l'usuari de la base de dades
-$sql = "SELECT * FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
+$sql = "SELECT Nom, Cognom, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
 $result = $conn->query($sql);
+
+// Inicializa un array para almacenar los resultados
+$response = array();
 
 // Verifica si s'ha trobat un usuari amb les credencials proporcionades
 if ($result->num_rows > 0) {
     // L'autenticació és exitosa
+    $row = $result->fetch_assoc();
+
     setcookie('NomUsuari', $username,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
 
-    echo "OK";
+    // Agrega los datos del usuario al array de respuesta
+    $response['status'] = "OK";
+    $response['Nom'] = $row['Nom'];
+    $response['Cognom'] = $row['Cognom'];
+    $response['Foto'] = $row['Foto'];
+    $response['Premium'] = $row['Premium'];
+    $response['Email'] = $row['Email'];
 } else {
     // L'autenticació ha fallat
-    echo "KO";
+    $response['status'] = "KO";
 }
+
+// Imprime la respuesta en formato JSON
+header('Content-Type: application/json');
+echo json_encode($response);
 
 // Tanca la connexió amb la base de dades
 $conn->close();
