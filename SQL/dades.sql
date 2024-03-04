@@ -55,8 +55,7 @@ VALUES
   (6, 'The King is Back', '2003-01-01', 'The King is Back.jpg'),
   (6, 'Kilates 2', '2003-01-01', 'Kilates 2.jpg'),
   (6, 'Gargolas 3', '2003-01-01', 'Gargolas 3.jpg'),
-  (6, 'The Bad Boy', '2003-01-01', 'The Bad Boy.jpg')
-  ;
+  (6, 'The Bad Boy', '2003-01-01', 'The Bad Boy.jpg');
 
 -- Dades per a la taula Genere
 INSERT INTO Genere (Nom)
