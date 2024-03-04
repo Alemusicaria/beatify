@@ -43,8 +43,7 @@
                 <li><a href="./index.php"><img src="./img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
-                        id="searchInput" placeholder="Buscar cançons"></li>
+                <li><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text" id="searchInput" placeholder="Buscar cançons"></li>
             </ul>
         </div>
         <br>
@@ -53,7 +52,7 @@
             <div id="primera">
                 <h4>Crea la teva Primera Llista</h4>
                 <p>Es molt fàcil</p>
-                <button onclick="location.href='creaLlista.php';">Crea Llista</button>
+                <button onclick="location.href='llistes/creaLlista.php';">Crea Llista</button>
             </div>
             <br>
             <div class="fakeFooter">
@@ -107,7 +106,7 @@
         </div>
     </footer>
     <script>
-        $('#iniciarSessio').on('click', function () {
+        $('#iniciarSessio').on('click', function() {
             window.location.href = './login/login.html';
         });
 
@@ -128,7 +127,6 @@
             if (cookieValue) {
                 return JSON.parse(cookieValue.split('=')[1]);
             }
-
             return null;
         }
 
@@ -149,7 +147,6 @@
                 });
             }
         }
-
         // Llamar a la función para cargar y aplicar la personalización al cargar la página
         window.addEventListener('load', aplicarPersonalizacion);
     </script>
