@@ -23,7 +23,7 @@
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
-                    <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+                    <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
                 </div>
     
                 <ul class="dropdown-list">
