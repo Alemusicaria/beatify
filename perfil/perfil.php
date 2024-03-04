@@ -18,10 +18,26 @@
         <div class="menu">
             <a href="./premium.html">Premium</a>
             <a href="">Asistencia</a>
-            <button id="iniciarSessio">Iniciar Sessió</button>
+            <?php
+
+            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                echo '
+                <div class="perfil-dropdown">
+                    <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+                </div>
+    
+                <ul class="dropdown-list">
+                    <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="./perfil.php">Configuració</a></li>
+                    <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
+                </ul>
+            ';
+            } else {
+                echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
+            }
+            ?>
         </div>
     </header>
-    <div class="dadesUser" style="color: aqua;">
+    <div class="dadesUser">
         <h1>Dades de l'usuari</h1>
         <img src="" alt="" class="fotoPerfil">
         <p class="NomUsuari"></p>
@@ -47,7 +63,20 @@
             <button id="btn-save">Desar</button>
         </div>
     </div>
+    <script>
+        $('#iniciarSessio').on('click', function () {
+            window.location.href = '../login/login.html';
+        });
 
+        function cerrarSesion() {
+            // Eliminar la cookie
+            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // Redirigir a la página de inicio de sesión o a otra página relevante
+            window.location.href = '../login/unlogin.php';
+        }
+    </script>
     <script src="../perfil.js"></script>
     <script src="dadesUser.js"></script>
 </body>
