@@ -48,7 +48,15 @@
             <option value="../img/user/user.png">Predeterminada</option>
             <option value="../img/user/1.png">Opción 1</option>
             <option value="../img/user/2.png">Opción 2</option>
-            <!-- Agrega más opciones según sea necesario -->
+            <option value="../img/user/3.png">Opción 3</option>
+            <option value="../img/user/4.png">Opción 4</option>
+            <option value="../img/user/5.png">Opción 5</option>
+            <option value="../img/user/6.png">Opción 6</option>
+            <option value="../img/user/7.png">Opción 7</option>
+            <option value="../img/user/8.png">Opción 8</option>
+            <option value="../img/user/9.png">Opción 9</option>
+            <option value="../img/user/10.png">Opción 10</option>
+
         </select>
 
         <button id="guardarCambios">Guardar</button>

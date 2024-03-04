@@ -23,7 +23,7 @@
       if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
         echo '
           <div class="perfil-dropdown">
-              <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+              <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
           </div>
 
           <ul class="dropdown-list">
@@ -137,14 +137,15 @@
     <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
   </footer>
   <script>
-    function cerrarSesion() {
-      // Eliminar la cookie
-      document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+     function cerrarSesion() {
+            // Eliminar la cookie
+            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "Contrasenya=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-      // Redirigir a la página de inicio de sesión o a otra página relevante
-      window.location.href = '../login/unlogin.php';
-    }
+            // Redirigir a la página de inicio de sesión o a otra página relevante
+            window.location.href = '../login/unlogin.php';
+        }
     // Función para cargar la personalización desde la cookie
     function cargarPersonalizacion() {
       const cookieValue = document.cookie
