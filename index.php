@@ -27,7 +27,7 @@
                 </div>
     
                 <ul class="dropdown-list">
-                    <li><img src="./img/simbols/ajustes.png" alt="Ajustes"> <a href="perfil/perfil.html">Configuració</a></li>
+                    <li><img src="./img/simbols/ajustes.png" alt="Ajustes"> <a href="perfil/perfil.php">Configuració</a></li>
                     <li onclick="cerrarSesion()"><img src="./img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
                 </ul>
             ';
