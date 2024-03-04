@@ -39,9 +39,19 @@
     </header>
     <div class="dadesUser">
         <h1>Dades de l'usuari</h1>
-        <img src="" alt="" class="fotoPerfil">
+        <img src="" alt="" class="fotoPerfil" id="fotoPerfil">
         <p class="NomUsuari"></p>
         <p class="email"></p>
+
+        <p>Selecciona tu foto de perfil:</p>
+        <select id="opcionesImagen">
+            <option value="../img/user/user.png">Predeterminada</option>
+            <option value="../img/user/1.png">Opción 1</option>
+            <option value="../img/user/2.png">Opción 2</option>
+            <!-- Agrega más opciones según sea necesario -->
+        </select>
+
+        <button id="guardarCambios">Guardar</button>
     </div>
     <div class="profile-container">
         <h1>Botons</h1>

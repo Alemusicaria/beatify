@@ -45,10 +45,22 @@ function carregarUsuari() {
 }
 
 function mostrarInformacioUsuari(nom, cognom, foto, premium, email) {
+    var username = getCookie('NomUsuari');
     // Actualiza el contenido de los elementos HTML con la información del usuario
     $('.fotoPerfil').attr('src', foto); 
     $('.NomUsuari').text('Nom: ' + nom + ' ' + cognom); 
     $('.email').text('Correu: ' + email + ', Premium: ' + premium); 
+
+    $('#guardarCambios').on('click', function () {
+        var nuevaFoto = $('#opcionesImagen').val();
+        $('#fotoPerfil').attr('src', nuevaFoto);
+
+        // Envía la solicitud al servidor para actualizar la base de datos
+        $.post('newImage.php', { nuevaFoto: nuevaFoto, username: username }, function (respuesta) {
+            // Puedes manejar la respuesta del servidor aquí
+            console.log(respuesta);
+        });
+    });
 }
 
 // Llama a la función para cargar el usuario al cargar la página
