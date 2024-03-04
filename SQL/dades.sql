@@ -55,8 +55,7 @@ VALUES
   (6, 'The King is Back', '2003-01-01', 'The King is Back.jpg'),
   (6, 'Kilates 2', '2003-01-01', 'Kilates 2.jpg'),
   (6, 'Gargolas 3', '2003-01-01', 'Gargolas 3.jpg'),
-  (6, 'The Bad Boy', '2003-01-01', 'The Bad Boy.jpg')
-  ;
+  (6, 'The Bad Boy', '2003-01-01', 'The Bad Boy.jpg');
 
 -- Dades per a la taula Genere
 INSERT INTO Genere (Nom)
@@ -186,11 +185,11 @@ VALUES
 -- Dades per a la taula Usuari
 INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium)
 VALUES
-  ('1', 'Maria', 'maria@email.com', 'Gomez', 'user', 'maria.jpg', true),
-  ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', 'pablo.jpg', false),
-  ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', 'eva.jpg', true),
-  ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', 'carlos.jpg', false),
-  ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', 'laura.jpg', true);
+  ('1', 'Aleix', 'aleix@email.com', 'Prat', 'aprat', NULL, true),
+  ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', NULL, false),
+  ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', NULL, true),
+  ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', NULL, false),
+  ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', NULL, true);
 
 -- Dades per a la taula Llista_Reproduccio
 INSERT INTO Llista_Reproduccio (ID_Usuari, Nom)
