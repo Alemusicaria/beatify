@@ -186,11 +186,11 @@ VALUES
 -- Dades per a la taula Usuari
 INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium)
 VALUES
-  ('1', 'Maria', 'maria@email.com', 'Gomez', 'user', 'maria.jpg', true),
-  ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', 'pablo.jpg', false),
-  ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', 'eva.jpg', true),
-  ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', 'carlos.jpg', false),
-  ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', 'laura.jpg', true);
+  ('1', 'Aleix', 'aleix@email.com', 'Prat', 'aprat', NULL, true),
+  ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', NULL, false),
+  ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', NULL, true),
+  ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', NULL, false),
+  ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', NULL, true);
 
 -- Dades per a la taula Llista_Reproduccio
 INSERT INTO Llista_Reproduccio (ID_Usuari, Nom)
