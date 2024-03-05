@@ -135,13 +135,13 @@ select {
 }
 
 .perfil-dropdown img {
-  height: 30px;
-  /* Ajusta el tamaño de la imagen según tus necesidades */
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-  margin-right: 20px;
-  width: 100%;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: contain;
+    cursor: pointer;
+    margin-right: 20px;
+    width: 100%;
+    margin-bottom: 0px;
 }
 
 .dropdown-list {

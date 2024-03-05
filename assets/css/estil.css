@@ -390,15 +390,17 @@ audio {
 .perfil-dropdown {
     position: relative;
     display: inline-block;
+    margin-right: 20px;
 }
 
 .perfil-dropdown img {
     height: 30px;
-    /* Ajusta el tamaño de la imagen según tus necesidades */
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer;
-    margin-right: 20px;
+    width: 100%;
+    margin-bottom: 0px;
+    
 }
 
 .dropdown-list {
