@@ -23,7 +23,7 @@
       if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
         echo '
           <div class="perfil-dropdown">
-              <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+              <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
           </div>
 
           <ul class="dropdown-list">
@@ -108,7 +108,7 @@
     </div>
 
     <div class="plan">
-      <h2>Premium - 10,99€/Mes</h2>
+      <h2>Premium - 10€/Mes</h2>
       <ul class="avantatges">
         <li>Accés a tota la biblioteca</li>
         <li>Reproducció sense anuncis</li>
@@ -117,18 +117,6 @@
       <ul class="desavantatges">
         <li>Cost mensual</li>
         <li>Requereix subscripció</li>
-      </ul>
-    </div>
-
-    <div class="plan">
-      <h2>Familiar - 15,99€/Mes</h2>
-      <ul class="avantatges">
-        <li>Tot inclòs a Premium</li>
-        <li>Fins a 6 comptes familiars</li>
-      </ul>
-      <ul class="desavantatges">
-        <li>Cost mensual addicional</li>
-        <li>Requereix subscripció Premium</li>
       </ul>
     </div>
   </section>
