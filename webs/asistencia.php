@@ -39,7 +39,7 @@
     </header>
 
     <form class="contacte-form" action="#">
-        <h1>Envianos un Mensaje</h1>
+        <h1>Envia'ns un Missatge</h1>
         <label for="name"></label>
         <input type="text" id="name" placeholder="Nom" required>
         <label for="telefono"></label>
