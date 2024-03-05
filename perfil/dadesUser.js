@@ -49,7 +49,13 @@ function mostrarInformacioUsuari(nom, cognom, foto, premium, email) {
     // Actualiza el contenido de los elementos HTML con la información del usuario
     $('.fotoPerfil').attr('src', foto); 
     $('.NomUsuari').text('Nom: ' + nom + ' ' + cognom); 
-    $('.email').text('Correu: ' + email + ', Premium: ' + premium); 
+    $('.email').text('Correu: ' + email); 
+    if(premium==1){
+        $('.premium').text('Premium: Si');
+    }else{
+        $('.premium').text('Premium: No');
+    }
+    
 
     $('#guardarCambios').on('click', function () {
         var nuevaFoto = $('#opcionesImagen').val();

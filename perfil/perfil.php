@@ -42,8 +42,9 @@
         <img src="" alt="" class="fotoPerfil" id="fotoPerfil">
         <p class="NomUsuari"></p>
         <p class="email"></p>
+        <p class="premium"></p>
 
-        <p>Selecciona tu foto de perfil:</p>
+        <p id="select">Selecciona tu foto de perfil:</p>
         <select id="opcionesImagen">
             <option value="../img/user/user.png">Predeterminada</option>
             <option value="../img/user/1.png">Opción 1</option>
