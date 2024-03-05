@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./perfil.css">
+    <link rel="stylesheet" href="../assets/js/perfil.css">
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <script src="../perfil.js" defer></script>
-    <title>Mi Perfil</title>
+    <title>El meu Perfil</title>
 </head>
 
 <body>
     <header>
-        <h1 id="titol">Configuració Usuari - <a href="../index.php">Beatify</a></h1>
+        <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a></h1>
         <div class="menu">
             <a href="./premium.html">Premium</a>
             <a href="">Asistencia</a>
@@ -82,23 +81,11 @@
             <button id="btn-save">Desar</button>
         </div>
     </div>
-    <script>
-        $('#iniciarSessio').on('click', function () {
-            window.location.href = '../login/login.html';
-        });
 
-        function cerrarSesion() {
-            // Eliminar la cookie
-            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "Contrasenya=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    <script src="../assets/js/perfil.js"></script>
+    <script src="../assets/js/dadesUser.js"></script>
+    <script src="../assets/js/cookies.js"></script>
 
-            // Redirigir a la página de inicio de sesión o a otra página relevante
-            window.location.href = '../login/unlogin.php';
-        }
-    </script>
-    <script src="../perfil.js"></script>
-    <script src="dadesUser.js"></script>
 </body>
 
 </html>

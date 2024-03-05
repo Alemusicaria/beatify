@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6102a80a3f.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./estil.css">
+    <link rel="stylesheet" href="../assets/css/estil2.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <title>Beatify</title>
@@ -16,7 +16,7 @@
 <body>
     <header>
         <ul class="menu">
-            <li> <a href="../premium/premium.html">Premium</a></li>
+            <li> <a href="./premium.php">Premium</a></li>
             <li> <a href="">Asistencia</a></li>
             <?php
 
@@ -27,7 +27,7 @@
                 </div>
     
                 <ul class="dropdown-list">
-                    <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="perfil/perfil.html">Configuració</a></li>
+                    <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="./perfil.php">Configuració</a></li>
                     <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
                 </ul>
             ';
@@ -40,10 +40,10 @@
     <div class="contenedor-left">
         <div class="miniMenu">
             <ul id="menu">
-                <li><a href="../index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
-                <li><a href="../index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
+                <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
+                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><a href="../index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
+                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
                 </li>
             </ul>
         </div>
@@ -95,60 +95,12 @@
             </div>
         </div>
     </footer>
-    <script>
-        $('#iniciarSessio').on('click', function () {
-            window.location.href = '../login/login.html';
-        });
 
-        function cerrarSesion() {
-            // Eliminar la cookie
-            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-            // Redirigir a la página de inicio de sesión o a otra página relevante
-            window.location.href = '../login/unlogin.php';
-        }
-    </script>
-
-    <script>
-        // Función para cargar la personalización desde la cookie
-        function cargarPersonalizacion() {
-            const cookieValue = document.cookie
-                .split('; ')
-                .find(row => row.startsWith('personalizacion='));
-
-            if (cookieValue) {
-                return JSON.parse(cookieValue.split('=')[1]);
-            }
-
-            return null;
-        }
-
-        // Función para aplicar la personalización a los elementos necesarios
-        function aplicarPersonalizacion() {
-            const opciones = cargarPersonalizacion();
-
-            if (opciones) {
-                // Aplicar la personalización a los elementos que desees
-                // En este ejemplo, solo se aplica a los botones
-                const botones = document.querySelectorAll('button');
-
-                botones.forEach(boton => {
-                    boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
-                    boton.style.backgroundColor = opciones.color;
-                    boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
-                        opciones.fontSize === 'medium' ? '16px' : '20px';
-                });
-            }
-        }
-
-        // Llamar a la función para cargar y aplicar la personalización al cargar la página
-        window.addEventListener('load', aplicarPersonalizacion);
-    </script>
-    <script src="../audio.js"></script>
-    <script src="../code.js"></script>
-    <script src="carregarLlistaCancons.js"></script>
-    <script src="../perfil.js"></script>
+    <script src="../assets/js/audio.js"></script>
+    <script src="../assets/js/code.js"></script>
+    <script src="../assets/js/carregarLlistaCancons.js"></script>
+    <script src="../assets/js/perfil.js"></script>
+    <script src="../assets/js/cookies.js"></script>
 </body>
 
 </html>

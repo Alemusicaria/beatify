@@ -13,13 +13,13 @@ volumeSlider.addEventListener('input', () => {
 function updateVolumeIcon() {
     // Change volume icon based on the volume level
     if (audio1.volume === 0) {
-        volumeIcon.src = './img/simbols/mute.svg';
+        volumeIcon.src = '../img/simbols/mute.svg';
     } else if (audio1.volume < 0.5) {
-        volumeIcon.src = './img/simbols/volume-low.svg';
+        volumeIcon.src = '../img/simbols/volume-low.svg';
     } else if (audio1.volume > 0.5 < 0.9) {
-        volumeIcon.src = './img/simbols/volume-high.svg';
+        volumeIcon.src = '../img/simbols/volume-high.svg';
     } else {
-        volumeIcon.src = './img/simbols/volume.svg';
+        volumeIcon.src = '../img/simbols/volume.svg';
     }
 }
 // Call updateVolumeIcon initially to set the correct volume icon

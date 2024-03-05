@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 function carregarCancons() {
     $.ajax({
-        url: 'conexio.php',
+        url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
             canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
@@ -73,7 +73,7 @@ function mostrarCancons(cancons) {
             imgSrc = '../musica/portades/' + canco.Img;
         }        
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
-        novaCancoDiv.append('<img src="./img/playImg.png" alt="icon" class="icono">');
+        novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
         novaCancoDiv.append('<p>'+canco.Nom_Artista+'</p>');
 

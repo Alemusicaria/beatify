@@ -6,17 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plans de Pagament - Beatify</title>
   <link rel="icon" href="../img/Logo_sense_fons.png">
-  <link rel="stylesheet" type="text/css" href="./premium.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/premium.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 </head>
 
 <body>
   <header>
-    <h1 id="titol">Plans de Pagament - <a href="../index.php">Beatify</a></h1>
+    <h1 id="titol">Plans de Pagament - <a href="./index.php">Beatify</a></h1>
     <ul class="menu">
-      <li> <a href="../index.php">Inici</a></li>
+      <li> <a href="./index.php">Inici</a></li>
       <li> <a href="">Asistencia</a></li>
       <?php
 
@@ -27,12 +26,12 @@
           </div>
 
           <ul class="dropdown-list">
-              <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="perfil/perfil.html">Configuració</a></li>
+              <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="./perfil.php">Configuració</a></li>
               <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
           </ul>
       ';
       } else {
-        echo "<li><button onclick=\"location.href='../login/login.html';\">Iniciar Sessió</button></li>";
+        echo "<li><button onclick=\"location.href='./login.html';\">Iniciar Sessió</button></li>";
       }
       ?>
     </ul>
@@ -124,52 +123,9 @@
   <footer>
     <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
   </footer>
-  <script>
-     function cerrarSesion() {
-            // Eliminar la cookie
-            document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "Contrasenya=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-            // Redirigir a la página de inicio de sesión o a otra página relevante
-            window.location.href = '../login/unlogin.php';
-        }
-    // Función para cargar la personalización desde la cookie
-    function cargarPersonalizacion() {
-      const cookieValue = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('personalizacion='));
-
-      if (cookieValue) {
-        return JSON.parse(cookieValue.split('=')[1]);
-      }
-
-      return null;
-    }
-
-    // Función para aplicar la personalización a los elementos necesarios
-    function aplicarPersonalizacion() {
-      const opciones = cargarPersonalizacion();
-
-      if (opciones) {
-        // Aplicar la personalización a los elementos que desees
-        // En este ejemplo, solo se aplica a los botones
-        const botones = document.querySelectorAll('button');
-
-        botones.forEach(boton => {
-          boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
-          boton.style.backgroundColor = opciones.color;
-          boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
-            opciones.fontSize === 'medium' ? '16px' : '20px';
-        });
-      }
-    }
-
-    // Llamar a la función para cargar y aplicar la personalización al cargar la página
-    window.addEventListener('load', aplicarPersonalizacion);
-  </script>
-  <script src="../perfil.js"></script>
-
+  <script src="../assets/js/perfil.js"></script>
+  <script src="../assets/js/cookies.js"></script>
 </body>
 
 </html>
