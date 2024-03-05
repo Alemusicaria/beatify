@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beatify | Inici sessió</title>
   <link rel="icon" href="../img/Logo_sense_fons.png">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>
@@ -42,9 +42,9 @@
                   </div>
                   <div class="hr"></div>
                   <div class="foot">
-                    <a href="recuperar/recuperar.html">He oblidat la Contrasenya?</a>
+                    <a href="./recuperar.html">He oblidat la Contrasenya?</a>
                     <br><br>
-                    <a href="../index.php">Torna al inici</a>
+                    <a href="./index.php">Torna al inici</a>
                   </div>
                 </div>
                 <!-- Afegir nous camps al formulari -->
@@ -80,7 +80,7 @@
                     <input type="submit" class="button" value="Registrar-se" onclick="register()">
                   </div>
                   <div class="foot">
-                    <a href="../index.php">Torna al inici</a>
+                    <a href="./index.php">Torna al inici</a>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@
         // Fer una crida AJAX al teu backend (ruta relativa al mateix directori)
         $.ajax({
           type: "POST",
-          url: "auth.php",
+          url: "../assets/php/auth.php",
           data: {
             username: username,
             password: password
@@ -110,7 +110,7 @@
             var usuariCarregat = data;
             if (usuariCarregat.status === "OK") {
               // Si l'autenticació és exitosa, redirecciona a Funciona.html
-              window.location.href = "../index.php";
+              window.location.href = "./index.php";
             } else {
               // Si l'autenticació no és exitosa, mostra un alert
               alert("Credencials incorrectes. Torna-ho a provar.");
@@ -144,7 +144,7 @@
         // Fer una crida AJAX al teu backend (canvia la URL amb la teva API de registre)
         $.ajax({
           type: "POST",
-          url: "registrar.php",
+          url: "../assets/php/registrar.php",
           data: {
             name: name,
             surname: surname,

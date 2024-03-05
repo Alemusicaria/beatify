@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Aleix Prat, Zakaria Guenfoudi, Angel Cespedes">
+    <title>Beatify | Recuperació clau</title>
+    <link rel="icon" href="../img/Logo_sense_fons.png">
+    <link href="https://getbootstrap.com/docs/5.3/examples/carousel/" rel="canonical">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/sign-in.css" rel="stylesheet">
+    <link href="../assets/css/recuperar.css" rel="stylesheet">
+</head>
+
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="form-signin w-100 m-auto">
+        <form action="../assets/php/procesar_recuperacion.php" method="post">
+            <h1 class="h3 mb-3 fw-normal">Recuperació de contrasenya</h1>
+            <p class="mb-4">Introdueix la teva adreça de correu electrònic associada al teu compte.</p>
+
+            <div class="form-floating">
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    required>
+                <label for="floatingInput">Correu electrònic</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Enviar enllaç de recuperació</button>
+        </form>
+        <p class="mt-3 mb-3 text-body-secondary">
+            Torna a la <a href="./login.html">pàgina d'inici de sessió</a>.
+        </p>
+        <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
+    </main>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
