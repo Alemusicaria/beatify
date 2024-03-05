@@ -1,5 +1,5 @@
 <?php 
 
 setcookie('NomUsuari', "", time() - 0, "/");
-header("Location: ../index.php");
+header("Location: ../../webs/index.php");
 ?>
