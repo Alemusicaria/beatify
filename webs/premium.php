@@ -16,7 +16,7 @@
     <h1 id="titol">Plans de Pagament - <a href="./index.php">Beatify</a></h1>
     <ul class="menu">
       <li> <a href="./index.php">Inici</a></li>
-      <li> <a href="">Asistencia</a></li>
+      <li> <a href="./asistencia.php">Asistencia</a></li>
       <?php
 
       if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
