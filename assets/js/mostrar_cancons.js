@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Crea una imagen con la clase "icono"
                 const imgIcono = document.createElement('img');
-                imgIcono.src = './img/playImg.png';
+                imgIcono.src = '../img/playImg.png';
                 imgIcono.alt = 'icon';
                 imgIcono.classList.add('icono');
 

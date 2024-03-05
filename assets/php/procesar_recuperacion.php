@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar el correo electrónico
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: index.html?error=invalid_email");
+        header("Location: index.php?error=invalid_email");
         exit();
     }
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mail($email, $subject, $message, $headers);
 
     // Redirige al usuario a una página de éxito o muestra un mensaje de éxito aquí
-    header("Location: recuperacion_exitosa.html");
+    header("Location: ./recuperacion_exitosa.html");
     exit();
 }
 
