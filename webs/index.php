@@ -20,7 +20,7 @@
     <header>
         <ul class="menu">
             <li> <a href="./premium.php">Premium</a></li>
-            <li> <a href="">Asistencia</a></li>
+            <li> <a href="./asistencia.php">Asistencia</a></li>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
