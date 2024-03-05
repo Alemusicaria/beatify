@@ -31,6 +31,7 @@ header {
     max-width: 40%;
     display: flex;
     align-items: center;
+
     a {
       text-decoration: none;
       color: white;
@@ -67,6 +68,7 @@ header {
 
   }
 }
+
 .dadesUser {
   max-width: 50%;
   margin: 50px auto;
@@ -81,9 +83,15 @@ header {
   color: #000000;
 }
 
+.dadesUser p {
+  color: white;
+}
+
 .fotoPerfil {
-  width: 100px; /* Ajusta el tamaño según tus necesidades */
-  height: 100px; /* Ajusta el tamaño según tus necesidades */
+  width: 100px;
+  /* Ajusta el tamaño según tus necesidades */
+  height: 100px;
+  /* Ajusta el tamaño según tus necesidades */
   border-radius: 50%;
   margin-bottom: 10px;
 }
@@ -135,13 +143,13 @@ select {
 }
 
 .perfil-dropdown img {
-    height: 30px;
-    border-radius: 50%;
-    object-fit: contain;
-    cursor: pointer;
-    margin-right: 20px;
-    width: 100%;
-    margin-bottom: 0px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: contain;
+  cursor: pointer;
+  margin-right: 20px;
+  width: 100%;
+  margin-bottom: 0px;
 }
 
 .dropdown-list {
