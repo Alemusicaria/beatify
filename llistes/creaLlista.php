@@ -23,7 +23,7 @@
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
-                    <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+                    <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
                 </div>
     
                 <ul class="dropdown-list">
@@ -51,7 +51,7 @@
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
         <hr>
-        <h2>busquem alguna cosa per a la teva llita</h2><br>
+        <h2>Busquem alguna cosa per a la teva llita</h2><br>
         <i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
             id="searchInput" placeholder="Buscar cançons">
         <div id="taula" class="scrollable-container">
@@ -145,10 +145,10 @@
         // Llamar a la función para cargar y aplicar la personalización al cargar la página
         window.addEventListener('load', aplicarPersonalizacion);
     </script>
-    <script src="audio.js"></script>
-    <script src="code.js"></script>
-    <script src="carregarCancons.js"></script>
-    <script src="perfil.js"></script>
+    <script src="../audio.js"></script>
+    <script src="../code.js"></script>
+    <script src="carregarLlistaCancons.js"></script>
+    <script src="../perfil.js"></script>
 </body>
 
 </html>
