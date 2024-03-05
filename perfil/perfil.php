@@ -23,7 +23,7 @@
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
-                    <img src="../img/user.png" alt="" onclick="toggleDropdown()"/>
+                    <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
                 </div>
     
                 <ul class="dropdown-list">
@@ -39,9 +39,28 @@
     </header>
     <div class="dadesUser">
         <h1>Dades de l'usuari</h1>
-        <img src="" alt="" class="fotoPerfil">
+        <img src="" alt="" class="fotoPerfil" id="fotoPerfil">
         <p class="NomUsuari"></p>
         <p class="email"></p>
+        <p class="premium"></p>
+
+        <p id="select">Selecciona tu foto de perfil:</p>
+        <select id="opcionesImagen">
+            <option value="../img/user/user.png">Predeterminada</option>
+            <option value="../img/user/1.png">Opción 1</option>
+            <option value="../img/user/2.png">Opción 2</option>
+            <option value="../img/user/3.png">Opción 3</option>
+            <option value="../img/user/4.png">Opción 4</option>
+            <option value="../img/user/5.png">Opción 5</option>
+            <option value="../img/user/6.png">Opción 6</option>
+            <option value="../img/user/7.png">Opción 7</option>
+            <option value="../img/user/8.png">Opción 8</option>
+            <option value="../img/user/9.png">Opción 9</option>
+            <option value="../img/user/10.png">Opción 10</option>
+
+        </select>
+
+        <button id="guardarCambios">Guardar</button>
     </div>
     <div class="profile-container">
         <h1>Botons</h1>
@@ -72,6 +91,7 @@
             // Eliminar la cookie
             document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "Contrasenya=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
             // Redirigir a la página de inicio de sesión o a otra página relevante
             window.location.href = '../login/unlogin.php';

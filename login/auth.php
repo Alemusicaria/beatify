@@ -33,6 +33,8 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     setcookie('NomUsuari', $username,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
+    setcookie('Contrasenya', $password,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
+
 
     // Agrega los datos del usuario al array de respuesta
     $response['status'] = "OK";

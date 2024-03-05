@@ -1,10 +1,22 @@
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
 function carregarUsuari() {
+    var username = getCookie('NomUsuari');
+    var password = getCookie('Contrasenya');
     $.ajax({
         url: '../login/auth.php',
         method: 'POST',
         data: {
-            username: 'user', // Reemplaza con el nombre de usuario del formulario
-            password: '1' // Reemplaza con la contraseña del formulario
+            username: username, // Reemplaza con el nombre de usuario del formulario
+            password: password // Reemplaza con la contraseña del formulario
         },
         success: function (data) {
             console.log(data);
@@ -33,10 +45,28 @@ function carregarUsuari() {
 }
 
 function mostrarInformacioUsuari(nom, cognom, foto, premium, email) {
+    var username = getCookie('NomUsuari');
     // Actualiza el contenido de los elementos HTML con la información del usuario
     $('.fotoPerfil').attr('src', foto); 
     $('.NomUsuari').text('Nom: ' + nom + ' ' + cognom); 
-    $('.email').text('Correu: ' + email + ', Premium: ' + premium); 
+    $('.email').text('Correu: ' + email); 
+    if(premium==1){
+        $('.premium').text('Premium: Si');
+    }else{
+        $('.premium').text('Premium: No');
+    }
+    
+
+    $('#guardarCambios').on('click', function () {
+        var nuevaFoto = $('#opcionesImagen').val();
+        $('#fotoPerfil').attr('src', nuevaFoto);
+
+        // Envía la solicitud al servidor para actualizar la base de datos
+        $.post('newImage.php', { nuevaFoto: nuevaFoto, username: username }, function (respuesta) {
+            // Puedes manejar la respuesta del servidor aquí
+            console.log(respuesta);
+        });
+    });
 }
 
 // Llama a la función para cargar el usuario al cargar la página
