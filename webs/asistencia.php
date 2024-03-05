@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/asistencia.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <link rel="icon" href="/img/logo.PNG">
+    <link rel="icon" href="../img/Logo_sense_fons.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Alza Esquis</title>
@@ -61,7 +61,7 @@
             <i class="fa fa-twitter"></i>
             <i class="fa fa-linkedin"></i>
         </div>
-        <p>Copyright</p>
+        <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </footer>
     <script src="../assets/js/perfil.js"></script>
     <script src="../assets/js/dadesUser.js"></script>
