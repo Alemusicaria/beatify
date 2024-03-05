@@ -12,7 +12,7 @@ function carregarUsuari() {
     var username = getCookie('NomUsuari');
     var password = getCookie('Contrasenya');
     $.ajax({
-        url: '../login/auth.php',
+        url: '../assets/php/auth.php',
         method: 'POST',
         data: {
             username: username, // Reemplaza con el nombre de usuario del formulario
@@ -62,7 +62,7 @@ function mostrarInformacioUsuari(nom, cognom, foto, premium, email) {
         $('#fotoPerfil').attr('src', nuevaFoto);
 
         // Envía la solicitud al servidor para actualizar la base de datos
-        $.post('newImage.php', { nuevaFoto: nuevaFoto, username: username }, function (respuesta) {
+        $.post('../assets/php/newImage.php', { nuevaFoto: nuevaFoto, username: username }, function (respuesta) {
             // Puedes manejar la respuesta del servidor aquí
             console.log(respuesta);
         });
