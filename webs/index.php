@@ -52,7 +52,7 @@
             <div id="primera">
                 <h4>Crea la teva Primera Llista</h4>
                 <p>Es molt fàcil</p>
-                <button onclick="location.href='.creaLlista.php';">Crea Llista</button>
+                <button onclick="location.href='./creaLlista.php';">Crea Llista</button>
             </div>
             <br>
             <div class="fakeFooter">

@@ -12,9 +12,9 @@ $(document).ready(function () {
 
             var imgSrc;
             if (selectedSong.Foto_Album) {
-                imgSrc = '../../musica/portades/' + selectedSong.Foto_Album;
+                imgSrc = '../musica/portades/' + selectedSong.Foto_Album;
             } else {
-                imgSrc = '../../musica/portades/' + selectedSong.Img;
+                imgSrc = '../musica/portades/' + selectedSong.Img;
             }
             var songTitle = selectedSong.Titol;
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
             $('#reproductor-title').text(songTitle);
             $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
-            $('#reproductor-audio').attr('src', "../../musica/mp3/" + songTitle + ".mp3");
+            $('#reproductor-audio').attr('src', "../musica/mp3/" + songTitle + ".mp3");
 
             // Reproducir la canción seleccionada
             $('#reproductor-audio')[0].play();
@@ -67,13 +67,13 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Foto_Album) {
-            imgSrc = '../../musica/portades/' + canco.Foto_Album;
+            imgSrc = '../musica/portades/' + canco.Foto_Album;
         } else {
             // Si no hay Foto_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../../musica/portades/' + canco.Img;
+            imgSrc = '../musica/portades/' + canco.Img;
         }
-        novaCancoDiv.append('<img src="../../' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
-        novaCancoDiv.append('<img src="../../img/playImg.png" alt="icon" class="icono">');
+        novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
+        novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
         novaCancoDiv.append('<p>' + canco.Nom_Artista + '</p>');
 
