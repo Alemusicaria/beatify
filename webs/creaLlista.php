@@ -51,7 +51,7 @@
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
         <hr>
-        <h2>Busquem alguna cosa per a la teva llita</h2><br>
+        <h2>Busquem alguna cosa per a la teva llista</h2><br>
         <i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
             id="searchInput" placeholder="Buscar cançons">
         <div id="taula" class="scrollable-container">
