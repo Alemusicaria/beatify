@@ -209,7 +209,7 @@ header ul li img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   z-index: 1000;
-  height: 7.5vh;
+  height: 100%;
   width: 160px;
   border-radius: 5px;
 }

@@ -82,18 +82,20 @@ body {
   .perfil-dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .perfil-dropdown img {
+    margin-right: 20px;
+}
+
+.perfil-dropdown img {
     height: 30px;
     border-radius: 50%;
     object-fit: contain;
     cursor: pointer;
     width: 100%;
     margin-bottom: 0px;
-  }
-  
-  .dropdown-list {
+
+}
+
+.dropdown-list {
     display: none;
     position: absolute;
     top: 73px;
@@ -102,32 +104,32 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     z-index: 1000;
-    height: 7.5vh;
+    height: 10.5vh;
     width: 160px;
     border-radius: 5px;
-  }
-  
-  .dropdown-list a {
+}
+
+.dropdown-list a {
     display: block;
     padding: 8px;
     width: 90%;
-  }
-  
-  .dropdown-list li:hover {
+}
+
+.dropdown-list li:hover {
     background-color: #494545;
-  }
-  
-  .dropdown-list li {
+}
+
+.dropdown-list li {
     display: flex;
     align-items: center;
-  }
-  
-  .dropdown-list li img {
+}
+
+.dropdown-list li img {
     height: 15px;
     border-radius: 0%;
     margin-right: 8px;
     margin-left: 8px;
-  }
+}
   
   .contacte-form {
     max-width: 70%;
@@ -156,6 +158,11 @@ body {
   }
   
   .contacte-form button {
-    background-color: rgb(70, 176, 218);
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
   }
   
