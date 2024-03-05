@@ -22,7 +22,7 @@
       if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
         echo '
           <div class="perfil-dropdown">
-              <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
+              <img src="../img/user/user.png" alt="" class="fotoPerfil" onclick="toggleDropdown()"/>
           </div>
 
           <ul class="dropdown-list">
@@ -126,6 +126,7 @@
 
   <script src="../assets/js/perfil.js"></script>
   <script src="../assets/js/cookies.js"></script>
+  <script src="../assets/js/dadesUser.js"></script>
 </body>
 
 </html>

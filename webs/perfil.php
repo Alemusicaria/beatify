@@ -15,7 +15,7 @@
     <header>
         <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a></h1>
         <div class="menu">
-            <a href="./premium.html">Premium</a>
+            <a href="./premium.php">Premium</a>
             <a href="">Asistencia</a>
             <?php
 
