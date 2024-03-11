@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6102a80a3f.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/estil2.css">
+    <link rel="stylesheet" href="../assets/css/estil.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <title>Beatify</title>
@@ -52,10 +52,13 @@
     <div class="contenedor-right" style="overflow-y: auto;">
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
-        <i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i><input type="text"
-            id="searchInput" placeholder="Buscar cançons">
-        <div id="taula" class="scrollable-container">
+        <div class="buscar">
+            <input type="text" id="searchInput" placeholder="Cerca" required />
+            <div class="btn">
+                <i class="fas fa-search icon"></i>
+            </div>   
         </div>
+        <div id="taula" class="scrollable-container"></div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </div>
 
