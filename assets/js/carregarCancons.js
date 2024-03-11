@@ -1,5 +1,29 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 // Reproducción de Canciones Automática
+function saltarCancons(index) {
+    var currentIndex = index; // Asegúrate de que currentIndex esté declarado fuera de la función
+
+    var nextSong = document.getElementById('NextSong');
+    var afterSong = document.getElementById('AfterSong');
+
+    nextSong.addEventListener('click', function () {
+        currentIndex += 1;
+        reproducirCancionDesdeIndice(currentIndex);
+    });
+
+    afterSong.addEventListener('click', function () {
+        currentIndex -= 1;
+        if (currentIndex < 0) {
+            currentIndex = canconsCarregades.length - 1;
+        }
+        reproducirCancionDesdeIndice(currentIndex);
+    });
+}
+
+// Llamada a la función de inicialización cuando la página está lista
+document.addEventListener('DOMContentLoaded', function () {
+    saltarCancons();
+});
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
@@ -9,6 +33,7 @@ $(document).ready(function () {
 
             // Obtener la información de la canción seleccionada
             var selectedSong = canconsCarregades[currentIndex];
+
 
             var imgSrc;
             if (selectedSong.Foto_Album) {
@@ -20,7 +45,6 @@ $(document).ready(function () {
 
             // Actualizar la información del reproductor de música
             $('#reproductor-img').attr('src', imgSrc);
-
             $('#reproductor-title').text(songTitle);
             $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
             $('#reproductor-audio').attr('src', "../musica/mp3/" + songTitle + ".mp3");
@@ -32,6 +56,7 @@ $(document).ready(function () {
             reproducirCancionDesdeIndice(0);
         }
     }
+
 
     // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
     $('#reproductor-audio').on('ended', function () {
@@ -109,6 +134,7 @@ function transferirInformacion(event) {
 
     // Llamar a la función para reproducir desde el índice seleccionado
     window.reproducirCancionDesdeIndice(index);
+    saltarCancons(index);
 }
 
 document.addEventListener('DOMContentLoaded', function () {

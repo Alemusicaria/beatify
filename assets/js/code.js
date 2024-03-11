@@ -1,6 +1,6 @@
 const audio = document.querySelector('audio'),
-songLength = document.getElementById('SongLength'),
-currentTime = document.getElementById('CurrentSongTime');
+    songLength = document.getElementById('SongLength'),
+    currentTime = document.getElementById('CurrentSongTime');
 
 const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60),
