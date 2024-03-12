@@ -186,3 +186,54 @@ select {
   margin-right: 8px;
   margin-left: 8px;
 }
+
+#opcionesImagen {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#opcionesImagen option {
+  font-size: 14px;
+}
+
+#guardarCambios {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#guardarCambios:hover {
+  background-color: #2980b9;
+}
+
+#formFotoPerfil {
+  margin-top: 20px;
+}
+
+#inputFotoPerfil {
+  margin-top: 10px;
+}
+
+#btn-save {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-save:hover {
+  background-color: #2980b9;
+}

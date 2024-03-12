@@ -7,49 +7,6 @@
     <link rel="stylesheet" href="../assets/css/perfil.css">
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
-    <style>
-        /* Afegit estil per als elements del formulari d'imatge */
-        #formFotoPerfil {
-            margin-top: 20px;
-        }
-
-        #inputFotoPerfil {
-            margin-right: 10px;
-        }
-
-        #guardarCambios {
-            margin-top: 10px;
-        }
-
-        /* Estil per als elements del dropdown */
-        .perfil-dropdown {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .dropdown-list {
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            border: 1px solid #ddd;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            display: none;
-        }
-
-        .dropdown-list li {
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-list li:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
     <title>El meu Perfil</title>
 </head>
 
@@ -88,83 +45,15 @@
         <p id="select">Selecciona tu foto de perfil:</p>
         <!-- Nou bloc d'opcions generat dinàmicament amb JavaScript -->
         <select id="opcionesImagen">
-            <option value="../img/user/user.png">Predeterminada</option>
         </select>
 
-        <script>
-            // Obté les imatges de la carpeta ../img/user
-            fetchImageOptions('../img/user/').then(options => {
-                // Afegix les opcions al desplegable
-                options.forEach(option => {
-                    addOptionToSelect('opcionesImagen', option);
-                });
-
-                // Verifica si hi ha una cookie d'usuari i si és així, obté les imatges de la carpeta ../img/Nomusuari
-                const nomUsuari = getCookie('NomUsuari');
-                if (nomUsuari) {
-                    fetchImageOptions(`../img/${nomUsuari}/`).then(options => {
-                        options.forEach(option => {
-                            addOptionToSelect('opcionesImagen', option);
-                        });
-                    });
-                }
-            }).catch(error => {
-                console.error('Error en obtenir les opcions d\'imatge:', error);
-            });
-
-            // Funció per obtenir les opcions d'imatge d'una carpeta
-            async function fetchImageOptions(folderPath) {
-                try {
-                    const response = await fetch(folderPath);
-                    if (!response.ok) {
-                        throw new Error(`Error de la petició: ${response.status}`);
-                    }
-
-                    const contentType = response.headers.get('content-type');
-                    if (contentType && contentType.includes('application/json')) {
-                        const data = await response.json();
-                        return data;
-                    } else {
-                        throw new Error('La resposta no és JSON vàlid');
-                    }
-                } catch (error) {
-                    throw error;
-                }
-            }
-
-            // Funció per afegir una opció a un desplegable
-            function addOptionToSelect(selectId, optionValue) {
-                const select = document.getElementById(selectId);
-                const option = document.createElement('option');
-                option.value = optionValue;
-                option.text = optionValue;
-                select.add(option);
-            }
-
-            // Funció per obtenir el valor d'una cookie
-            function getCookie(cookieName) {
-                const name = `${cookieName}=`;
-                const decodedCookie = decodeURIComponent(document.cookie);
-                const cookieArray = decodedCookie.split(';');
-                for (let i = 0; i < cookieArray.length; i++) {
-                    let cookie = cookieArray[i];
-                    while (cookie.charAt(0) === ' ') {
-                        cookie = cookie.substring(1);
-                    }
-                    if (cookie.indexOf(name) === 0) {
-                        return cookie.substring(name.length, cookie.length);
-                    }
-                }
-                return '';
-            }
-        </script>
-
-        <button id="guardarCambios">Guardar</button>
+        <button id="guardarCambios">Seleccionar</button>
         <br>
         <br>
 
         <form id="formFotoPerfil" enctype="multipart/form-data">
             <input type="file" name="fotoPerfil" accept="image/*" id="inputFotoPerfil">
+            <br>
             <button type="button" onclick="guardarFotoPerfil()">Guardar</button>
         </form>
     </div>
@@ -197,25 +86,79 @@
     <script src="../assets/js/dadesUser.js"></script>
     <script src="../assets/js/cookies.js"></script>
     <script>
+        // Executar la funció en la càrrega de la pàgina
+        window.onload = function() {
+            generarOpcions();
+        }
+
+        function generarOpcions() {
+            var select = document.getElementById('opcionesImagen');
+            var nomUsuari = getCookie('NomUsuari');
+
+            // Buidar les opcions existents
+            while (select.options.length > 0) {
+                select.remove(0);
+            }
+            // Afegir opcions per cada imatge a la carpeta de l'usuari
+            $.ajax({
+                type: 'POST',
+                url: '../assets/php/obtenir_imatges.php', // Crea un fitxer PHP per gestionar aquesta sol·licitud
+                data: {
+                    nomUsuari: nomUsuari
+                },
+                success: function(response) {
+                    var imatges = JSON.parse(response);
+                    imatges.forEach(function(imatge) {
+                        var option = document.createElement('option');
+                        option.value = imatge;
+                        option.text = imatge.split('/').pop(); // Només el nom de l'arxiu, no tota la ruta
+                        option.setAttribute('data-imatge', imatge);
+                        select.add(option);
+                    });
+                },
+                error: function(error) {
+                    console.log('Error en obtenir les imatges: ' + error);
+                }
+            });
+        }
+
         function guardarFotoPerfil() {
             var formData = new FormData(document.getElementById('formFotoPerfil'));
 
             $.ajax({
                 type: 'POST',
-                url: '../assets/php/guardar_foto.php', // Crea un fitxer PHP per gestionar aquesta sol·licitud
+                url: '../assets/php/guardar_foto.php',
                 data: formData,
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    // Manejar la resposta del servidor (pot ser un missatge de confirmació)
                     console.log(response);
+                    // Actualitzar les opcions després de guardar la imatge
+                    generarOpcions();
                 },
                 error: function(error) {
                     console.log('Error en desar la foto de perfil: ' + error);
                 }
             });
         }
+
+        // Funció per obtenir el valor d'una cookie
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
     </script>
+
 </body>
 
 </html>
