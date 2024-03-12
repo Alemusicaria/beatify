@@ -100,9 +100,11 @@
                     </div>
                     <audio controls preload="metadata" src="" id="reproductor-audio"></audio>
                     <div class="main-song-controls">
+                        <img src="../img/simbols/after.svg" alt="" class="icon" id="AfterSong">
                         <img src="../img/simbols/Backward.svg" alt="" class="icon" id="Back10">
                         <img src="../img/simbols/Play.svg" alt="" class="icon" id="PlayPause">
                         <img src="../img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
+                        <img src="../img/simbols/next.svg" alt="" class="icon" id="NextSong">
                     </div>
                 </div>
                 <div class="volume-container">

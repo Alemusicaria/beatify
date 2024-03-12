@@ -38,7 +38,7 @@
         </div>
     </header>
 
-    <form class="contacte-form" action="#">
+    <form class="contacte-form" action="../assets/php/send_email.php" method="post">
         <h1>Envia'ns un Missatge</h1>
         <label for="name"></label>
         <input type="text" id="name" placeholder="Nom" required>
