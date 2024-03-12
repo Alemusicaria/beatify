@@ -139,6 +139,7 @@ button:hover {
 .contenedor-right #taula {
     display: grid;
     grid-template-columns: repeat(6, 16%);
+    justify-content: center;
 }
 
 .contenedor-right h2 {
@@ -158,7 +159,6 @@ button:hover {
     background-color: #151414;
     padding: 1%;
     font-weight: bold;
-    justify-content: center;
     text-align: center;
     color: white;
     border-radius: 5px;
