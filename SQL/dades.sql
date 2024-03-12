@@ -192,13 +192,13 @@ VALUES
   ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', NULL, true);
 
 -- Dades per a la taula Llista_Reproduccio
-INSERT INTO Llista_Reproduccio (ID_Usuari, Nom)
+INSERT INTO Llista_Reproduccio (ID_Usuari, Nom,Img)
 VALUES
-  (1, 'Favorits'),
-  (2, 'Reggaeton Mix'),
-  (3, 'Latin Hits'),
-  (4, 'Top Charts'),
-  (5, 'Party Playlist');
+  (1, 'Favorits',),
+  (2, 'Reggaeton Mix',),
+  (3, 'Latin Hits',),
+  (4, 'Top Charts',),
+  (5, 'Party Playlist',);
 
 -- Dades per a la taula Afegeix
 INSERT INTO Afegeix (ID_Canco, ID_LlistaReproduccio)
