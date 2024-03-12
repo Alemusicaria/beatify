@@ -8,40 +8,7 @@ function guardarPersonalizacion() {
     document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
 
     document.getElementById('customize-options').classList.add('hidden');
-    aplicarPersonalizacion(); // Llama a la función para aplicar la personalización después de guardar
-}
-
-function cargarPersonalizacion() {
-    const cookieValue = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('personalizacion='));
-
-    if (cookieValue) {
-        return JSON.parse(cookieValue.split('=')[1]);
-    }
-
-    return null;
-}
-
-function aplicarPersonalizacion() {
-    const opciones = cargarPersonalizacion();
-
-    if (opciones) {
-        const botones = document.querySelectorAll('button');
-        botones.forEach(boton => {
-            boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
-            boton.style.backgroundColor = opciones.color;
-            boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
-                opciones.fontSize === 'medium' ? '16px' : '20px';
-        });
-        const searchBtn = document.getElementById('search');
-        if (searchBtn) {
-            console.log('Aplicando personalización al elemento con id "search". Opciones:', opciones);
-            searchBtn.style.backgroundColor = opciones.color;
-        } else {
-            console.log('Elemento con id "search" no encontrado.');
-        }
-    }
+  
 }
 
 document.getElementById('btn-customize').addEventListener('click', () => {
@@ -50,7 +17,6 @@ document.getElementById('btn-customize').addEventListener('click', () => {
 
 document.getElementById('btn-save').addEventListener('click', guardarPersonalizacion);
 
-window.addEventListener('load', aplicarPersonalizacion);
 // PERFIL
 $(document).ready(function () {
     $('.dropdown-list').hide();
