@@ -21,7 +21,7 @@ $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
 
 // Crea la consulta SQL per obtenir l'usuari de la base de dades
-$sql = "SELECT Nom, Cognom, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
+$sql = "SELECT ID, Nom, Cognom, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
 $result = $conn->query($sql);
 
 // Inicializa un array para almacenar los resultados
@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
 
     setcookie('NomUsuari', $username,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
     setcookie('Contrasenya', $password,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
-
+    setcookie('UsuariID', $row['ID'], time() + (86400 * 30), "/"); // Guarda l'ID de l'usuari com a cookie
 
     // Agrega los datos del usuario al array de respuesta
     $response['status'] = "OK";

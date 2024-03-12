@@ -50,8 +50,11 @@
         <br>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
-        <div>
-            
+        <div class="formulari">
+            <form action="../assets/php/guardarLlista.php" method="POST">
+                <input type="text" name="nomLlista" placeholder="Nom de la teva llista" required>
+                <button type="submit">Crea Llista</button>
+            </form>
         </div>
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
