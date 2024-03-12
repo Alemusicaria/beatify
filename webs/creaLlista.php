@@ -50,6 +50,9 @@
         <br>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
+        <div>
+            
+        </div>
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
         <div class="buscar">

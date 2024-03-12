@@ -56,6 +56,7 @@ CREATE TABLE Llista_Reproduccio (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Usuari INT,
     Nom VARCHAR(255),
+    Img VARCHAR(255),
     FOREIGN KEY (ID_Usuari) REFERENCES Usuari(ID)
 );
 
