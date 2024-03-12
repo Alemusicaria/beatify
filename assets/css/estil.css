@@ -67,7 +67,7 @@ header ul li img {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db;
+    background-color: #b40e0e;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -90,7 +90,7 @@ button:hover {
 .contenedor-left .miniMenu,
 .contenedor-left .llistesUsuaris,
 .contenedor-left .fakeFooter {
-    background: linear-gradient(rgb(32, 11, 11), #000000);
+    background-color: #000000;
     padding: 1%;
     border-radius: 5px;
     max-width: 90%;
@@ -120,7 +120,7 @@ button:hover {
 
 .contenedor-left #primera {
     padding: 1%;
-    background: linear-gradient(rgb(66, 21, 21), #000000);
+    background-color: #000000;
     max-width: 90%;
     border-radius: 5px;
     margin-left: 2%;
