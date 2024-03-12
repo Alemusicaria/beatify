@@ -99,13 +99,6 @@
             while (select.options.length > 0) {
                 select.remove(0);
             }
-
-            // Afegir l'opció predeterminada
-            var defaultOption = document.createElement('option');
-            defaultOption.value = "../img/user/user.png";
-            defaultOption.text = "Predeterminada";
-            select.add(defaultOption);
-
             // Afegir opcions per cada imatge a la carpeta de l'usuari
             $.ajax({
                 type: 'POST',
