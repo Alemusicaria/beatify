@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (is_dir($directoriImatgesUsuari)) {
         $fitxersUsuari = glob($directoriImatgesUsuari . "*.{jpg,png,gif,jpeg}", GLOB_BRACE);
         foreach ($fitxersUsuari as $fitxer) {
-            $imatges[] = "../../img/" . $nomUsuari . "/" . basename($fitxer);
+            $imatges[] = "../img/" . $nomUsuari . "/" . basename($fitxer);
         }
     }
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (is_dir($directoriImatgesUser)) {
         $fitxersUser = glob($directoriImatgesUser . "*.{jpg,png,gif,jpeg}", GLOB_BRACE);
         foreach ($fitxersUser as $fitxer) {
-            $imatges[] = "../../img/user/" . basename($fitxer);
+            $imatges[] = "../img/user/" . basename($fitxer);
         }
     }
 
