@@ -464,14 +464,15 @@ audio {
     top: 0;
     left: 0;
     position: absolute;
-    background: #b40e0e;
     text-align: center;
     color: white;
     font-size: 18px;
     border-radius: 50%;
     cursor: pointer;
 }
-
+#search{
+    background-color: #b40e0e;
+}
 .buscar:hover input {
     width: 200px;
     margin-left: 45px;

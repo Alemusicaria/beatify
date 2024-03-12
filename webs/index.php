@@ -48,7 +48,7 @@
             </ul>
             <div class="buscar">
                 <input type="text" id="searchInput" placeholder="Cerca" required />
-                <div class="btn">
+                <div class="btn" id="search">
                     <i class="fas fa-search icon"></i>
                 </div>
             </div>

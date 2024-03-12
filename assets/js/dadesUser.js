@@ -19,7 +19,6 @@ function carregarUsuari() {
             password: password // Reemplaza con la contraseña del formulario
         },
         success: function (data) {
-            console.log(data);
             var usuariCarregat = data;
 
             if (usuariCarregat.status === 'OK') {
