@@ -1,14 +1,19 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 // Reproducción de Canciones Automática
 function saltarCancons(index) {
-    var currentIndex = index; // Asegúrate de que currentIndex esté declarado fuera de la función
+    var currentIndex = index;
+    var randomImage = $('#random');
 
     var nextSong = document.getElementById('NextSong');
     var afterSong = document.getElementById('AfterSong');
 
     nextSong.addEventListener('click', function () {
         currentIndex += 1;
-        reproducirCancionDesdeIndice(currentIndex);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex);
+        }
     });
 
     afterSong.addEventListener('click', function () {
@@ -16,7 +21,11 @@ function saltarCancons(index) {
         if (currentIndex < 0) {
             currentIndex = canconsCarregades.length - 1;
         }
-        reproducirCancionDesdeIndice(currentIndex);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex);
+        }
     });
 }
 
@@ -27,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
+        var randomImage = $('#random');
         // Verificar si el índice está dentro del rango del array
         if (index >= 0 && index < canconsCarregades.length) {
             currentIndex = index;
@@ -138,15 +148,13 @@ function transferirInformacion(event) {
 }
 
 $(document).ready(function () {
-    // Generar ID aleatorio para la imagen
-    var randomId = Math.floor(Math.random() * canconsCarregades.length);
     var randomImage = $('#random');
     randomImage.on('click', function() {
-        reproducirCancionAleatoria();
+        window.reproducirCancionAleatoria();
         randomImage.addClass('clicked');
     });
 
-    function reproducirCancionAleatoria() {
+    window.reproducirCancionAleatoria=function() {
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
