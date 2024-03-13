@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
-        var randomImage = $('#random');
+       
         // Verificar si el índice está dentro del rango del array
         if (index >= 0 && index < canconsCarregades.length) {
             currentIndex = index;
@@ -67,11 +67,14 @@ $(document).ready(function () {
         }
     }
 
-
+    var randomImage = $('#random');
     // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
     $('#reproductor-audio').on('ended', function () {
-        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
-        reproducirCancionDesdeIndice(currentIndex + 1);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex + 1);
+        }
     });
 
     // Cargar las canciones y comenzar a reproducir la primera
@@ -150,22 +153,23 @@ function transferirInformacion(event) {
 $(document).ready(function () {
     var randomImage = $('#random');
     randomImage.on('click', function() {
-        window.reproducirCancionAleatoria();
-        randomImage.addClass('clicked');
+        if (randomImage.hasClass('clicked')) {
+            randomImage.removeClass('clicked');
+            randomImage.css('border', ''); // Elimina el color de relleno
+        } else {
+            window.reproducirCancionAleatoria();
+            randomImage.addClass('clicked');
+            randomImage.css('border', 'red 1px solid');
+        }
+        
     });
 
     window.reproducirCancionAleatoria=function() {
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
-
-    $('#reproductor-audio').on('ended', function () {
-        if (randomImage.hasClass('clicked')) {
-            reproducirCancionAleatoria();
-        } else {
-            reproducirCancionDesdeIndice(currentIndex + 1);
-        }
-    });
+    
+    
 });
 
 
