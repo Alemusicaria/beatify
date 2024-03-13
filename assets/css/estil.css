@@ -274,6 +274,13 @@ footer {
         border: 2px solid white;
     }
 }
+.aleatori{
+    position: absolute;
+    left: 70%;
+    #random{
+        cursor: pointer;
+    }
+}
 
 .music-player-container {
     background: linear-gradient(30deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));

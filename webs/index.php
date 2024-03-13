@@ -107,6 +107,9 @@
                         <img src="../img/simbols/next.svg" alt="" class="icon" id="NextSong">
                     </div>
                 </div>
+                <div class="aleatori">
+                    <img src="../img/simbols/random.svg" alt="" id="random">
+                </div>
                 <div class="volume-container">
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
                     <img id="volumeIcon" src="../img/simbols/volume.svg" alt="Volume">

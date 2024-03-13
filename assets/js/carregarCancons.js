@@ -137,6 +137,30 @@ function transferirInformacion(event) {
     saltarCancons(index);
 }
 
+$(document).ready(function () {
+    // Generar ID aleatorio para la imagen
+    var randomId = Math.floor(Math.random() * canconsCarregades.length);
+    var randomImage = $('#random');
+    randomImage.on('click', function() {
+        reproducirCancionAleatoria();
+        randomImage.addClass('clicked');
+    });
+
+    function reproducirCancionAleatoria() {
+        var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
+        reproducirCancionDesdeIndice(randomIndex);
+    }
+
+    $('#reproductor-audio').on('ended', function () {
+        if (randomImage.hasClass('clicked')) {
+            reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex + 1);
+        }
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la lista de canciones y el campo de búsqueda
     const songList = document.getElementById('taula');
