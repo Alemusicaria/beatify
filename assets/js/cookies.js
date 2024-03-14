@@ -3,51 +3,57 @@ $('#iniciarSessio').on('click', function () {
 });
 
 function cerrarSesion() {
-    // Eliminar la cookie
-    document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-    // Redirigir a la página de inicio de sesión o a otra página relevante
+    eliminarCookie('NomUsuari');
+    eliminarCookie('personalizacion');
     window.location.href = '../assets/php/unlogin.php';
 }
 
-// Función para cargar la personalización desde la cookie
+function eliminarCookie(nombre) {
+    document.cookie = `${nombre}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
 function cargarPersonalizacion() {
     const cookieValue = document.cookie
         .split('; ')
         .find(row => row.startsWith('personalizacion='));
 
-    if (cookieValue) {
-        return JSON.parse(cookieValue.split('=')[1]);
-    }
-
-    return null;
+    return cookieValue ? JSON.parse(cookieValue.split('=')[1]) : null;
 }
 
-// Función para aplicar la personalización a los elementos necesarios
 function aplicarPersonalizacion() {
     const opciones = cargarPersonalizacion();
 
     if (opciones) {
-        // Aplicar la personalización a los elementos que desees
-        // En este ejemplo, solo se aplica a los botones
         const botones = document.querySelectorAll('button');
+        botones.forEach(boton => aplicarEstilo(boton, opciones));
 
-        botones.forEach(boton => {
-            boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
-            boton.style.backgroundColor = opciones.color;
-            boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
-                opciones.fontSize === 'medium' ? '16px' : '20px';
-        });
         const searchBtn = document.getElementById('search');
         if (searchBtn) {
             console.log('Aplicando personalización al elemento con id "search". Opciones:', opciones);
-            searchBtn.style.backgroundColor = opciones.color;
+            aplicarEstilo(searchBtn, opciones);
         } else {
             console.log('Elemento con id "search" no encontrado.');
         }
     }
 }
 
-// Llamar a la función para cargar y aplicar la personalización al cargar la página
+function aplicarEstilo(elemento, opciones) {
+    elemento.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
+    elemento.style.backgroundColor = opciones.color;
+    elemento.style.fontSize = obtenerTamañoFuente(opciones.fontSize);
+}
+
+function obtenerTamañoFuente(tamaño) {
+    switch (tamaño) {
+        case 'small':
+            return '12px';
+        case 'medium':
+            return '16px';
+        case 'large':
+            return '20px';
+        default:
+            return '16px'; // Tamaño medio por defecto
+    }
+}
+
 window.addEventListener('load', aplicarPersonalizacion);

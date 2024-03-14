@@ -1,37 +1,41 @@
-// Funció per desar la personalització
+$(document).ready(function () {
+    // Mostrar opciones de personalización al hacer clic en el botón
+    $('#btn-customize').click(function () {
+        $('#customize-options').removeClass('hidden');
+    });
+
+    // Guardar personalización al hacer clic en el botón de guardar
+    $('#btn-save').click(guardarPersonalizacion);
+
+    // Ocultar lista desplegable al inicio
+    $('.dropdown-list').hide();
+
+    // Alternar visualización de la lista desplegable
+    $('.perfil-dropdown').click(toggleDropdown);
+
+    // Ocultar la lista desplegable al hacer clic fuera de ella
+    $(document).click(function (e) {
+        if (!$(e.target).closest('.perfil-dropdown').length) {
+            $('.dropdown-list').hide();
+        }
+    });
+});
+
+// Función para guardar la personalización
 function guardarPersonalizacion() {
     const opciones = {
-        forma: document.getElementById('button-shape').value,
-        color: document.getElementById('color-picker').value,
-        fontSize: document.getElementById('font-size').value,
+        forma: $('#button-shape').val(),
+        color: $('#color-picker').val(),
+        fontSize: $('#font-size').val(),
     };
 
     document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
 
-    document.getElementById('customize-options').classList.add('hidden');
+    $('#customize-options').addClass('hidden');
 }
 
-// Mostra les opcions de personalització quan es fa clic
-document.getElementById('btn-customize').addEventListener('click', () => {
-    document.getElementById('customize-options').classList.remove('hidden');
-});
-
-// Quan el botó de desar es fa clic, executa la funció per desar la personalització
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('btn-save').addEventListener('click', guardarPersonalizacion);
-
-    // Amaga la llista desplegable al començament
-    $('.dropdown-list').hide();
-});
-
-// Funció per alternar la visualització de la llista desplegable
+// Función para alternar la visualización de la lista desplegable
 function toggleDropdown() {
     $('.dropdown-list').toggle();
 }
 
-// Amaga la llista desplegable quan es fa clic fora d'ella
-$(document).on('click', function (e) {
-    if (!$(e.target).closest('.perfil-dropdown').length) {
-        $('.dropdown-list').hide();
-    }
-});

@@ -1,26 +1,16 @@
-var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
+var canconsCarregades = []; // Array para almacenar las canciones ya cargadas
+
 // Reproducción de Canciones Automática
 $(document).ready(function () {
-
     window.reproducirCancionDesdeIndice = function (index) {
         // Verificar si el índice está dentro del rango del array
         if (index >= 0 && index < canconsCarregades.length) {
-            currentIndex = index;
-
-            // Obtener la información de la canción seleccionada
-            var selectedSong = canconsCarregades[currentIndex];
-
-            var imgSrc;
-            if (selectedSong.Foto_Album) {
-                imgSrc = '../musica/portades/' + selectedSong.Foto_Album;
-            } else {
-                imgSrc = '../musica/portades/' + selectedSong.Img;
-            }
+            var selectedSong = canconsCarregades[index];
+            var imgSrc = obtenerRutaImagen(selectedSong);
             var songTitle = selectedSong.Titol;
 
             // Actualizar la información del reproductor de música
             $('#reproductor-img').attr('src', imgSrc);
-
             $('#reproductor-title').text(songTitle);
             $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
             $('#reproductor-audio').attr('src', "../musica/mp3/" + songTitle + ".mp3");
@@ -31,70 +21,67 @@ $(document).ready(function () {
             // Si el índice está fuera del rango, volver al principio del array
             reproducirCancionDesdeIndice(0);
         }
-    }
+    };
 
     // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
     $('#reproductor-audio').on('ended', function () {
-        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
-        reproducirCancionDesdeIndice(currentIndex + 1);
+        var nextIndex = currentIndex + 1;
+        if (nextIndex < canconsCarregades.length) {
+            reproducirCancionDesdeIndice(nextIndex);
+        } else {
+            // Si no hay más canciones, detener la reproducción o realizar otra acción según sea necesario
+        }
     });
 
     // Cargar las canciones y comenzar a reproducir la primera
     carregarCancons();
 });
 
+// Función para cargar las canciones
 function carregarCancons() {
     $.ajax({
         url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
-            canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
-            mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+            canconsCarregades = JSON.parse(data); // Almacenar las canciones localmente
+            mostrarCancons(canconsCarregades); // Mostrar todas las canciones iniciales
         },
         error: function (error) {
-            console.log('Error en carregar les cançons:', error);
+            console.error('Error al cargar las canciones:', error);
+            // Manejar el error de manera apropiada, como mostrar un mensaje al usuario
         }
     });
 }
 
+// Función para mostrar las canciones en la página
 function mostrarCancons(cancons) {
     var taula = $('#taula');
-    taula.empty(); // Netegem la taula abans de mostrar les cançons
+    taula.empty(); // Limpiar la tabla antes de mostrar las canciones
 
     $.each(cancons, function (index, canco) {
         var novaCancoDiv = $('<div class="songs"></div>');
+        var imgSrc = obtenerRutaImagen(canco);
 
-        // Utilizar la Foto del Álbum si está disponible
-        var imgSrc;
-        if (canco.Foto_Album) {
-            imgSrc = '../musica/portades/' + canco.Foto_Album;
-        } else {
-            // Si no hay Foto_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Img;
-        }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/mas.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
-        novaCancoDiv.append('<p>' + canco.Nom_Artista + '</p>');
+        novaCancoDiv.append('<p>' + (canco.Nom_Artista || '') + '</p>');
 
         taula.append(novaCancoDiv);
     });
 
-    // Agregar evento de clic a les imatges amb la classe 'icono'
+    // Agregar evento de clic a las imágenes con la clase 'icono'
     $('.icono').on('click', transferirInformacion);
 }
 
 // Función para transferir información al reproductor de música
 function transferirInformacion(event) {
     var cancoDiv = $(this).closest('.songs');
-    var imgSrc = cancoDiv.find('img.portada').attr('src');
-    var songTitle = cancoDiv.find('h4').text();
-    var artistInfo = cancoDiv.find('p').text();
-
-    // Obtener el índice de la canción seleccionada
     var index = $('.songs').index(cancoDiv);
-
-
+    var selectedSong = canconsCarregades[index];
+    var imgSrc = obtenerRutaImagen(selectedSong);
+    var songTitle = selectedSong.Titol;
+    var artistInfo = selectedSong.Nom_Artista || '';
 
     var reproductorImg = $('#reproductor-img');
     var reproductorTitle = $('#reproductor-title');
@@ -111,25 +98,7 @@ function transferirInformacion(event) {
     window.reproducirCancionDesdeIndice(index);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Obtén la lista de canciones y el campo de búsqueda
-    const songList = document.getElementById('taula');
-    const searchInput = document.getElementById('searchInput');
-
-    // Agrega un evento de escucha al campo de búsqueda
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
-
-        // Filtra las canciones basadas en el término de búsqueda
-        Array.from(songList.children).forEach(function (song) {
-            const songName = song.textContent.toLowerCase();
-
-            if (songName.includes(searchTerm)) {
-                song.style.display = 'block'; // Muestra la canción si coincide
-            } else {
-                song.style.display = 'none'; // Oculta la canción si no coincide
-            }
-        });
-    });
-});
-
+// Función para obtener la ruta de la imagen de una canción
+function obtenerRutaImagen(song) {
+    return song.Foto_Album ? '../musica/portades/' + song.Foto_Album : '../musica/portades/' + song.Img;
+}

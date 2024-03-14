@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
-       
+        // Detener la reproducción actual si hay una
+        $('#reproductor-audio')[0].pause();
         // Verificar si el índice está dentro del rango del array
         if (index >= 0 && index < canconsCarregades.length) {
             currentIndex = index;
@@ -152,7 +153,7 @@ function transferirInformacion(event) {
 
 $(document).ready(function () {
     var randomImage = $('#random');
-    randomImage.on('click', function() {
+    randomImage.on('click', function () {
         if (randomImage.hasClass('clicked')) {
             randomImage.removeClass('clicked');
             randomImage.attr('src', '../img/simbols/random.svg');
@@ -161,15 +162,17 @@ $(document).ready(function () {
             randomImage.addClass('clicked');
             randomImage.attr('src', '../img/simbols/crandom.svg');
         }
-        
+
     });
 
-    window.reproducirCancionAleatoria=function() {
+    window.reproducirCancionAleatoria = function () {
+        // Detener la reproducción actual si hay una
+        $('#reproductor-audio')[0].pause();
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
-    
-    
+
+
 });
 
 

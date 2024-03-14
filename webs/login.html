@@ -89,16 +89,14 @@
         </div>
       </div>
     </div>
-    <!-- Afegir jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Afegir aquest script al final del teu document -->
     <script>
       function login() {
-        // Obtenir les dades del formulari
+        // Obtener los datos del formulario
         var username = $("#username").val();
         var password = $("#password").val();
 
-        // Fer una crida AJAX al teu backend (ruta relativa al mateix directori)
+        // Realizar una llamada AJAX al backend (ruta relativa al mismo directorio)
         $.ajax({
           type: "POST",
           url: "../assets/php/auth.php",
@@ -109,25 +107,23 @@
           success: function (data) {
             var usuariCarregat = data;
             if (usuariCarregat.status === "OK") {
-              // Si l'autenticació és exitosa, redirecciona a Funciona.html
+              // Si la autenticación es exitosa, redireccionar a Funciona.html
               window.location.href = "./index.php";
             } else {
-              // Si l'autenticació no és exitosa, mostra un alert
-              alert("Credencials incorrectes. Torna-ho a provar.");
+              // Si la autenticación no es exitosa, mostrar un alert
+              alert("Credenciales incorrectas. Inténtalo de nuevo.");
             }
           },
           error: function (xhr, status, error) {
-            // En cas d'error amb la crida AJAX, mostra informació de l'error
+            // En caso de error con la llamada AJAX, mostrar información del error
             console.error(xhr.responseText);
-            alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
+            alert("Ha habido un error al procesar la solicitud. Inténtalo de nuevo más tarde.");
           }
         });
       }
-    </script>
-    <!-- Afegir aquest script al final del teu document -->
-    <script>
+
       function register() {
-        // Obtenir les dades del formulari
+        // Obtener los datos del formulario
         var name = $("#name").val();
         var surname = $("#surname").val();
         var email = $("#email").val();
@@ -135,13 +131,13 @@
         var password_signup = $("#password_signup").val();
         var password_repeat = $("#password_repeat").val();
 
-        // Verificar que les contrasenyes coincideixen
+        // Verificar que las contraseñas coinciden
         if (password_signup !== password_repeat) {
-          alert("Les contrasenyes no coincideixen. Torna-ho a provar.");
+          alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
           return;
         }
 
-        // Fer una crida AJAX al teu backend (canvia la URL amb la teva API de registre)
+        // Realizar una llamada AJAX al backend (cambia la URL con tu API de registro)
         $.ajax({
           type: "POST",
           url: "../assets/php/registrar.php",
@@ -154,14 +150,14 @@
           },
           success: function (response) {
             if (response === "OK") {
-              alert("Registre exitós. Ara pots iniciar sessió.");
-              // Potser també podries redireccionar l'usuari a la pàgina d'inici de sessió.
+              alert("Registro exitoso. Ahora puedes iniciar sesión.");
+              // También podrías redireccionar al usuario a la página de inicio de sesión.
             } else {
-              alert("Hi ha hagut un problema amb el registre. Torna-ho a provar.");
+              alert("Ha habido un problema con el registro. Inténtalo de nuevo.");
             }
           },
           error: function () {
-            alert("Hi ha hagut un error en processar la sol·licitud. Torna-ho a provar més tard.");
+            alert("Ha habido un error al procesar la solicitud. Inténtalo de nuevo más tarde.");
           }
         });
       }
