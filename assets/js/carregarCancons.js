@@ -155,11 +155,11 @@ $(document).ready(function () {
     randomImage.on('click', function() {
         if (randomImage.hasClass('clicked')) {
             randomImage.removeClass('clicked');
-            randomImage.css('border', ''); // Elimina el color de relleno
+            randomImage.attr('src', '../img/simbols/random.svg');
         } else {
             window.reproducirCancionAleatoria();
             randomImage.addClass('clicked');
-            randomImage.css('border', 'red 1px solid');
+            randomImage.attr('src', '../img/simbols/crandom.svg');
         }
         
     });
