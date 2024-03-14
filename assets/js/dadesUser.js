@@ -16,6 +16,7 @@ function autenticarUsuario(nombreUsuario, contraseña) {
         data: { username: nombreUsuario, password: contraseña },
         success: function (data) {
             if (data.status === 'OK') {
+                console.log(data);
                 mostrarInformacionUsuario(data);
             } else {
                 console.log('Error en la autenticación:', data);
@@ -33,6 +34,7 @@ function mostrarInformacionUsuario(usuario) {
     var foto = usuario.Foto;
     var premium = usuario.Premium;
     var email = usuario.Email;
+    var NomUsuari = usuario.NomUsuari;
 
     $('.fotoPerfil').attr('src', foto);
     $('.NomUsuari').text('Nom: ' + nombre + ' ' + apellido);
@@ -42,8 +44,9 @@ function mostrarInformacionUsuario(usuario) {
     $('#guardarCambios').on('click', function () {
         var nuevaFoto = $('#opcionesImagen').val();
         $('#fotoPerfil').attr('src', nuevaFoto);
-
-        $.post('../assets/php/newImage.php', { nuevaFoto: nuevaFoto, username: nombre }, function (respuesta) {
+        console.log(nuevaFoto);
+        console.log(NomUsuari);
+        $.post('../assets/php/newImage.php', { nuevaFoto: nuevaFoto, username: NomUsuari }, function (respuesta) {
             console.log(respuesta);
         });
     });

@@ -1,3 +1,8 @@
+// Definir la función toggleDropdown fuera de $(document).ready()
+function toggleDropdown() {
+    $('.dropdown-list').toggle();
+}
+
 $(document).ready(function () {
     // Mostrar opciones de personalización al hacer clic en el botón
     $('#btn-customize').click(function () {
@@ -7,11 +12,8 @@ $(document).ready(function () {
     // Guardar personalización al hacer clic en el botón de guardar
     $('#btn-save').click(guardarPersonalizacion);
 
-    // Ocultar lista desplegable al inicio
+    // Ocultar la lista desplegable al inicio
     $('.dropdown-list').hide();
-
-    // Alternar visualización de la lista desplegable
-    $('.perfil-dropdown').click(toggleDropdown);
 
     // Ocultar la lista desplegable al hacer clic fuera de ella
     $(document).click(function (e) {
@@ -33,9 +35,3 @@ function guardarPersonalizacion() {
 
     $('#customize-options').addClass('hidden');
 }
-
-// Función para alternar la visualización de la lista desplegable
-function toggleDropdown() {
-    $('.dropdown-list').toggle();
-}
-

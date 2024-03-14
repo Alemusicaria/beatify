@@ -9,7 +9,7 @@ if (isset($_POST['nuevaFoto']) && isset($_POST['username'])) {
     $dbusername = "root";
     $dbpassword = "";
     $dbname = "beatify";
-    
+
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
     if ($conn->connect_error) {
@@ -26,4 +26,3 @@ if (isset($_POST['nuevaFoto']) && isset($_POST['username'])) {
 } else {
     echo 'Error: Datos no recibidos';
 }
-?>

@@ -21,7 +21,7 @@ $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
 
 // Crea la consulta SQL per obtenir l'usuari de la base de dades
-$sql = "SELECT ID, Nom, Cognom, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
+$sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
 $result = $conn->query($sql);
 
 // Inicializa un array para almacenar los resultados
@@ -40,6 +40,7 @@ if ($result->num_rows > 0) {
     $response['status'] = "OK";
     $response['Nom'] = $row['Nom'];
     $response['Cognom'] = $row['Cognom'];
+    $response['NomUsuari'] = $row['NomUsuari'];
     $response['Foto'] = $row['Foto'];
     $response['Premium'] = $row['Premium'];
     $response['Email'] = $row['Email'];
