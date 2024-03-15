@@ -79,7 +79,7 @@ function mostrarCancons(cancons) {
 
         taula.append(novaCancoDiv);
     });
-
+    
     // Agregar evento de clic a les imatges amb la classe 'icono'
     $('.icono').on('click', transferirInformacion);
 }

@@ -31,7 +31,7 @@ if(isset($_COOKIE['UsuariID'])) {
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
-        echo "<script>alert('Llista creada amb èxit!'); window.location.href='./index.php';</script>";
+        echo "<script>alert('Llista creada amb èxit!'); window.location.href='../../webs/creaLlista.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
