@@ -50,12 +50,14 @@
         <br>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
-        <div class="formulari">
+        <div class="formulario" id="formulario">
             <form action="../assets/php/guardarLlista.php" method="POST">
-                <input type="text" name="nomLlista" placeholder="Nom de la teva llista" required>
-                <button type="submit">Crea Llista</button>
+                <input type="text" name="nomLlista" id="nomLlista" placeholder="Nombre de tu lista" required>
+                <button type="button" id="crearListaBtn">Crear Lista</button>
             </form>
         </div>
+        <h2 id="nombreListaTitulo" style="display: none;">Nombre de la Lista</h2>
+        <div id="llistaSeleccionades"></div>
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
         <div class="buscar">
@@ -110,6 +112,27 @@
     <script src="../assets/js/carregarLlistaCancons.js"></script>
     <script src="../assets/js/perfil.js"></script>
     <script src="../assets/js/cookies.js"></script>
+    <script src="../assets/js/llistaCanso.js"></script>
+
+    <script>
+    document.getElementById('crearListaBtn').addEventListener('click', function() {
+        var nombreLista = document.getElementById('nomLlista').value;
+        
+        // Comprobar si el nombre de la lista no está vacío
+        if (nombreLista.trim() !== '') {
+            // Ocultar el formulario
+            document.getElementById('formulario').style.display = 'none';
+            
+            // Actualizar y mostrar el título con el nombre de la lista
+            var titulo = document.getElementById('nombreListaTitulo');
+            titulo.textContent = nombreLista;
+            titulo.style.display = 'block';
+        } else {
+            alert('Si us plau, introduïu un nom per a la llista.');
+        }
+    });
+    </script>
+
 </body>
 
 </html>
