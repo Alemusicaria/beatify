@@ -20,7 +20,7 @@
             <li> <a href="">Asistencia</a></li>
             <?php
 
-            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+            if (isset ($_COOKIE['NomUsuari']) || !empty ($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
                     <img src="../img/user/user.png" alt="" onclick="toggleDropdown()"/>
@@ -43,7 +43,8 @@
                 <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
-                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
+                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass"
+                            style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
                 </li>
             </ul>
         </div>
@@ -115,22 +116,26 @@
     <!-- <script src="../assets/js/llistaCanco.js"></script> -->
 
     <script>
-        document.getElementById('crearListaBtn').addEventListener('click', function() {
-            var nombreLista = document.getElementById('nomLlista').value;
+       document.getElementById('crearListaBtn').addEventListener('click', function () {
+    var nombreLista = document.getElementById('nomLlista').value;
 
-            // Comprobar si el nombre de la lista no está vacío
-            if (nombreLista.trim() !== '') {
-                // Ocultar el formulario
-                document.getElementById('formulario').style.display = 'none';
-                console.log(nombreLista);
-                // Actualizar y mostrar el título con el nombre de la lista
-                var titulo = document.getElementById('nombreListaTitulo');
-                titulo.textContent = nombreLista;
-                titulo.style.display = 'block';
-            } else {
-                alert('Si us plau, introduïu un nom per a la llista.');
-            }
-        });
+    // Comprobar si el nombre de la lista no está vacío
+    if (nombreLista.trim() !== '') {
+        // Ocultar el formulario
+        document.getElementById('formulario').style.display = 'none';
+        console.log(nombreLista);
+        // Actualizar y mostrar el título con el nombre de la lista
+        var titulo = document.getElementById('nombreListaTitulo');
+        titulo.textContent = nombreLista;
+        titulo.style.display = 'block';
+
+        // Enviar el formulario
+        document.querySelector('form').submit();
+    } else {
+        alert('Si us plau, introduïu un nom per a la llista.');
+    }
+});
+
     </script>
 
 </body>
