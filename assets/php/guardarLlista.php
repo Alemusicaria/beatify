@@ -1,4 +1,6 @@
 <?php
+echo "<script>alert('Llista creada amb èxit!');</script>";
+
 // Conectar con la base de datos (ajusta las credenciales según tu configuración)
 $servername = "localhost";
 $dbusername = "root";
@@ -6,7 +8,6 @@ $dbpassword = "";
 $dbname = "beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-echo "<script>alert('Llista creada amb èxit!');</script>";
 
 // Verificar la conexión
 if ($conn->connect_error) {

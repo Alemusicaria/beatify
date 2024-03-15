@@ -49,7 +49,7 @@
             </ul>
         </div>
         <br>
-    </div>
+    </div> 
     <div class="contenedor-right" style="overflow-y: auto;">
         <div class="formulario" id="formulario">
             <form action="../assets/php/guardarLlista.php" method="POST">
