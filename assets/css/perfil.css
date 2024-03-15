@@ -78,6 +78,41 @@ header {
 
   }
 }
+#formFotoPerfil {
+  margin: 20px;
+}
+
+#inputFotoPerfil {
+  margin-bottom: 20px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+#inputFotoPerfil:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #3498db;
+}
+
+
 
 .dadesUser {
   max-width: 50%;
