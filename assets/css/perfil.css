@@ -89,17 +89,18 @@ header {
   border-radius: 5px;
   font-size: 16px;
   padding: 10px;
-  width: 100%;
+  width: 38%;
   background-color: #f8f8f8;
+  margin-left: 30%;
 }
 
 #inputFotoPerfil:focus {
-  border-color: #3498db;
+  background-color: #b40e0e;
   outline: none;
 }
 
 input[type="file"]::-webkit-file-upload-button {
-  background-color: #3498db;
+  background-color: #b84141;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -109,7 +110,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 input[type="file"]::-webkit-file-upload-button:hover {
-  background-color: #3498db;
+  background-color: #b40e0e;
 }
 
 
