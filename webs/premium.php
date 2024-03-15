@@ -9,6 +9,10 @@
   <link rel="stylesheet" type="text/css" href="../assets/css/premium.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- Enlace a los archivos JavaScript externos -->
+  <script src="../assets/js/perfil.js"></script>
+  <script src="../assets/js/cookies.js"></script>
+  <script src="../assets/js/dadesUser.js"></script>
 </head>
 
 <body>
@@ -123,10 +127,6 @@
   <footer>
     <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
   </footer>
-
-  <script src="../assets/js/perfil.js"></script>
-  <script src="../assets/js/cookies.js"></script>
-  <script src="../assets/js/dadesUser.js"></script>
 </body>
 
 </html>

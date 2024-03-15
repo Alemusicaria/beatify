@@ -26,7 +26,7 @@
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
-                    <img src="../img/user/user.png" alt=""  class="fotoPerfil" onclick="toggleDropdown()"/>
+                    <img src="../img/user/user.png" alt="" class="fotoPerfil" onclick="toggleDropdown()"/>
                 </div>
     
                 <ul class="dropdown-list">
@@ -48,7 +48,7 @@
             </ul>
             <div class="buscar">
                 <input type="text" id="searchInput" placeholder="Cerca" required />
-                <div class="btn">
+                <div class="btn" id="search">
                     <i class="fas fa-search icon"></i>
                 </div>
             </div>
@@ -106,6 +106,9 @@
                         <img src="../img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
                         <img src="../img/simbols/next.svg" alt="" class="icon" id="NextSong">
                     </div>
+                </div>
+                <div class="aleatori">
+                    <img src="../img/simbols/random.svg" alt="" id="random">
                 </div>
                 <div class="volume-container">
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">

@@ -39,6 +39,13 @@ function aplicarPersonalizacion() {
             boton.style.fontSize = opciones.fontSize === 'small' ? '12px' :
                 opciones.fontSize === 'medium' ? '16px' : '20px';
         });
+        const searchBtn = document.getElementById('search');
+        if (searchBtn) {
+            console.log('Aplicando personalización al elemento con id "search". Opciones:', opciones);
+            searchBtn.style.backgroundColor = opciones.color;
+        } else {
+            console.log('Elemento con id "search" no encontrado.');
+        }
     }
 }
 

@@ -67,7 +67,7 @@ header ul li img {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db;
+    background-color: #b40e0e;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -90,7 +90,7 @@ button:hover {
 .contenedor-left .miniMenu,
 .contenedor-left .llistesUsuaris,
 .contenedor-left .fakeFooter {
-    background: linear-gradient(rgb(32, 11, 11), #000000);
+    background-color: #000000;
     padding: 1%;
     border-radius: 5px;
     max-width: 90%;
@@ -120,7 +120,7 @@ button:hover {
 
 .contenedor-left #primera {
     padding: 1%;
-    background: linear-gradient(rgb(66, 21, 21), #000000);
+    background-color: #000000;
     max-width: 90%;
     border-radius: 5px;
     margin-left: 2%;
@@ -272,6 +272,13 @@ footer {
         background-color: #464646;
         border-radius: 50%;
         border: 2px solid white;
+    }
+}
+.aleatori{
+    position: absolute;
+    left: 70%;
+    #random{
+        cursor: pointer;
     }
 }
 
@@ -464,14 +471,15 @@ audio {
     top: 0;
     left: 0;
     position: absolute;
-    background: #b40e0e;
     text-align: center;
     color: white;
     font-size: 18px;
     border-radius: 50%;
     cursor: pointer;
 }
-
+#search{
+    background-color: #b40e0e;
+}
 .buscar:hover input {
     width: 200px;
     margin-left: 45px;
@@ -496,7 +504,6 @@ audio {
     .contenedor-left .miniMenu,
     .contenedor-left .llistesUsuaris,
     .contenedor-left .fakeFooter {
-        background: linear-gradient(rgb(32, 11, 11), #000000);
         padding: 1%;
         border-radius: 5px;
         max-width: 90%;
@@ -526,7 +533,6 @@ audio {
     
     .contenedor-left #primera {
         padding: 1%;
-        background: linear-gradient(rgb(66, 21, 21), #000000);
         max-width: 90%;
         border-radius: 5px;
         margin-left: 2%;
@@ -557,7 +563,6 @@ audio {
     .contenedor-right {
         position: relative;
         padding: 1%;
-        background: linear-gradient(rgb(32, 11, 11), #000000);
         max-width: 78%;
         left: 20%;
         border-radius: 0 0 5px 5px;
@@ -600,14 +605,8 @@ audio {
     }
     
     .contenedor-right .songs .icono {
-        background-color: #39222263;
-        position: absolute;
         top: 40%;
-        left: 65%;
-        height: 35px;
-        width: 35px;
-        border-radius: 60%;
-        display: none;
+        left: 60%;
     }
     
     .contenedor-right .songs:hover {
@@ -639,7 +638,6 @@ audio {
         top: 0;
         left: 0;
         position: absolute;
-        background: #b40e0e;
         text-align: center;
         color: white;
         font-size: 18px;

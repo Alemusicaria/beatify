@@ -1,14 +1,19 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 // Reproducción de Canciones Automática
 function saltarCancons(index) {
-    var currentIndex = index; // Asegúrate de que currentIndex esté declarado fuera de la función
+    var currentIndex = index;
+    var randomImage = $('#random');
 
     var nextSong = document.getElementById('NextSong');
     var afterSong = document.getElementById('AfterSong');
 
     nextSong.addEventListener('click', function () {
         currentIndex += 1;
-        reproducirCancionDesdeIndice(currentIndex);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex);
+        }
     });
 
     afterSong.addEventListener('click', function () {
@@ -16,7 +21,11 @@ function saltarCancons(index) {
         if (currentIndex < 0) {
             currentIndex = canconsCarregades.length - 1;
         }
-        reproducirCancionDesdeIndice(currentIndex);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex);
+        }
     });
 }
 
@@ -27,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
+        // Detener la reproducción actual si hay una
+        $('#reproductor-audio')[0].pause();
         // Verificar si el índice está dentro del rango del array
         if (index >= 0 && index < canconsCarregades.length) {
             currentIndex = index;
@@ -57,11 +68,14 @@ $(document).ready(function () {
         }
     }
 
-
+    var randomImage = $('#random');
     // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
     $('#reproductor-audio').on('ended', function () {
-        // Reproducir automáticamente la siguiente canción cuando la actual ha terminado
-        reproducirCancionDesdeIndice(currentIndex + 1);
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex + 1);
+        }
     });
 
     // Cargar las canciones y comenzar a reproducir la primera
@@ -136,6 +150,31 @@ function transferirInformacion(event) {
     window.reproducirCancionDesdeIndice(index);
     saltarCancons(index);
 }
+
+$(document).ready(function () {
+    var randomImage = $('#random');
+    randomImage.on('click', function () {
+        if (randomImage.hasClass('clicked')) {
+            randomImage.removeClass('clicked');
+            randomImage.attr('src', '../img/simbols/random.svg');
+        } else {
+            window.reproducirCancionAleatoria();
+            randomImage.addClass('clicked');
+            randomImage.attr('src', '../img/simbols/crandom.svg');
+        }
+
+    });
+
+    window.reproducirCancionAleatoria = function () {
+        // Detener la reproducción actual si hay una
+        $('#reproductor-audio')[0].pause();
+        var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
+        reproducirCancionDesdeIndice(randomIndex);
+    }
+
+
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la lista de canciones y el campo de búsqueda
