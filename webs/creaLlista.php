@@ -48,7 +48,7 @@
             </ul>
         </div>
         <br>
-    </div>
+    </div> 
     <div class="contenedor-right" style="overflow-y: auto;">
         <div class="formulario" id="formulario">
             <form action="../assets/php/guardarLlista.php" method="POST">
@@ -122,7 +122,6 @@
             if (nombreLista.trim() !== '') {
                 // Ocultar el formulario
                 document.getElementById('formulario').style.display = 'none';
-                console.log(nombreLista);
                 // Actualizar y mostrar el título con el nombre de la lista
                 var titulo = document.getElementById('nombreListaTitulo');
                 titulo.textContent = nombreLista;
