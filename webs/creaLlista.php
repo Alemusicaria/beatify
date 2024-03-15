@@ -64,7 +64,7 @@
             <input type="text" id="searchInput" placeholder="Cerca" required />
             <div class="btn">
                 <i class="fas fa-search icon"></i>
-            </div>   
+            </div>
         </div>
         <div id="taula" class="scrollable-container"></div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
@@ -112,25 +112,25 @@
     <script src="../assets/js/carregarLlistaCancons.js"></script>
     <script src="../assets/js/perfil.js"></script>
     <script src="../assets/js/cookies.js"></script>
-    <script src="../assets/js/llistaCanso.js"></script>
+    <!-- <script src="../assets/js/llistaCanco.js"></script> -->
 
     <script>
-    document.getElementById('crearListaBtn').addEventListener('click', function() {
-        var nombreLista = document.getElementById('nomLlista').value;
-        
-        // Comprobar si el nombre de la lista no está vacío
-        if (nombreLista.trim() !== '') {
-            // Ocultar el formulario
-            document.getElementById('formulario').style.display = 'none';
-            
-            // Actualizar y mostrar el título con el nombre de la lista
-            var titulo = document.getElementById('nombreListaTitulo');
-            titulo.textContent = nombreLista;
-            titulo.style.display = 'block';
-        } else {
-            alert('Si us plau, introduïu un nom per a la llista.');
-        }
-    });
+        document.getElementById('crearListaBtn').addEventListener('click', function() {
+            var nombreLista = document.getElementById('nomLlista').value;
+
+            // Comprobar si el nombre de la lista no está vacío
+            if (nombreLista.trim() !== '') {
+                // Ocultar el formulario
+                document.getElementById('formulario').style.display = 'none';
+
+                // Actualizar y mostrar el título con el nombre de la lista
+                var titulo = document.getElementById('nombreListaTitulo');
+                titulo.textContent = nombreLista;
+                titulo.style.display = 'block';
+            } else {
+                alert('Si us plau, introduïu un nom per a la llista.');
+            }
+        });
     </script>
 
 </body>
