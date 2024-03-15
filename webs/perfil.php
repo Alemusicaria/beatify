@@ -12,7 +12,10 @@
 
 <body>
     <header>
-        <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a></h1>
+        <div class="titol_Logo">
+            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo"> </a>
+            <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
+        </div>
         <div class="menu">
             <a href="./premium.php">Premium</a>
             <a href="./asistencia.php">Asistencia</a>
