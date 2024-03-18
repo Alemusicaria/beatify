@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="titol_Logo">
-            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo"> </a>
+            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
             <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
         </div>
         <div class="menu">

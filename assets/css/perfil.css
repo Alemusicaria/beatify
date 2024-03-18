@@ -30,7 +30,7 @@ header {
     }
   }
 
-  img {
+  .logo {
     width: 10vh;
   }
 
@@ -78,6 +78,7 @@ header {
 
   }
 }
+
 #formFotoPerfil {
   margin: 20px;
 }
