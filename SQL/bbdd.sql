@@ -4,7 +4,6 @@ CREATE TABLE Artista (
     Cognom VARCHAR(255),
     NomArtistic VARCHAR(255),
     Datanaix DATE,
-    Foto VARCHAR(255),
     Info TEXT
 );
 
@@ -13,7 +12,6 @@ CREATE TABLE Album (
     ID_Artista INT,
     Titol VARCHAR(255),
     DataLlançament DATE,
-    Foto VARCHAR(255),
     FOREIGN KEY (ID_Artista) REFERENCES Artista(ID)
 );
 
@@ -25,10 +23,8 @@ CREATE TABLE Genere (
 CREATE TABLE Canco (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Album INT,
-    Titol VARCHAR(255),
-    Ruta VARCHAR(255),
-    Img VARCHAR(255),
     ID_Genere INT,
+    Titol VARCHAR(255),
     FOREIGN KEY (ID_Album) REFERENCES Album(ID),
     FOREIGN KEY (ID_Genere) REFERENCES Genere(ID)
 );

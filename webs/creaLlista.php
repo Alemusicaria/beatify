@@ -62,7 +62,7 @@
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
         <div class="buscar">
             <input type="text" id="searchInput" placeholder="Cerca" required />
-            <div class="btn">
+            <div class="btn" id="search">
                 <i class="fas fa-search icon"></i>
             </div>
         </div>
