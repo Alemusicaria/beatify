@@ -106,10 +106,10 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Foto_Album) {
-            imgSrc = '../musica/portades/' + canco.Foto_Album;
+            imgSrc = '../musica/portades/' + canco.Foto_Album +".jpg";
         } else {
             // Si no hay Foto_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Img;
+            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');

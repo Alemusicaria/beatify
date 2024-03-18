@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obtener las canciones con el ID del álbum y la foto del álbum
-$sql = "SELECT canco.ID AS ID_Canco, canco.Titol, canco.ID_Genere, canco.Img, album.ID AS ID_Album, album.Foto AS Foto_Album, crea_musica.ID_Artista, artista.NomArtistic AS Nom_Artista
+$sql = "SELECT canco.ID AS ID_Canco, canco.Titol, canco.ID_Genere, album.ID AS ID_Album, album.Titol AS Foto_Album, crea_musica.ID_Artista, artista.NomArtistic AS Nom_Artista
         FROM canco
         LEFT JOIN album ON canco.ID_Album = album.ID
         LEFT JOIN crea_musica ON canco.ID = crea_musica.ID_Canco
@@ -33,7 +33,6 @@ if ($result->num_rows > 0) {
         $cancion = array(
             'ID_Canco' => $row['ID_Canco'],
             'Titol' => $row['Titol'],
-            'Img' => $row['Img'],
             'ID_Album' => $row['ID_Album'],
             'Foto_Album' => $row['Foto_Album'],
             'ID_Genere' => $row['ID_Genere'],
