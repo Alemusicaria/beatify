@@ -48,9 +48,9 @@ $(document).ready(function () {
 
             var imgSrc;
             if (selectedSong.Titol_Album) {
-                imgSrc = '../musica/portades/' + selectedSong.Titol_Album;
+                imgSrc = '../musica/portades/' + selectedSong.Titol_Album + '.jpg';
             } else {
-                imgSrc = '../musica/portades/' + selectedSong.Img;
+                imgSrc = '../musica/portades/' + selectedSong.Titol + '.jpg';
             }
             var songTitle = selectedSong.Titol;
 

@@ -16,7 +16,6 @@ function autenticarUsuario(nombreUsuario, contraseña) {
         data: { username: nombreUsuario, password: contraseña },
         success: function (data) {
             if (data.status === 'OK') {
-                console.log(data);
                 mostrarInformacionUsuario(data);
             } else {
                 console.log('Error en la autenticación:', data);
