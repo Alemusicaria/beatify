@@ -1,38 +1,4 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
-// Reproducción de Canciones Automática
-function saltarCancons(index) {
-    var currentIndex = index;
-    var randomImage = $('#random');
-
-    var nextSong = document.getElementById('NextSong');
-    var afterSong = document.getElementById('AfterSong');
-
-    nextSong.addEventListener('click', function () {
-        currentIndex += 1;
-        if (randomImage.hasClass('clicked')) {
-            window.reproducirCancionAleatoria();
-        } else {
-            reproducirCancionDesdeIndice(currentIndex);
-        }
-    });
-
-    afterSong.addEventListener('click', function () {
-        currentIndex -= 1;
-        if (currentIndex < 0) {
-            currentIndex = canconsCarregades.length - 1;
-        }
-        if (randomImage.hasClass('clicked')) {
-            window.reproducirCancionAleatoria();
-        } else {
-            reproducirCancionDesdeIndice(currentIndex);
-        }
-    });
-}
-
-// Llamada a la función de inicialización cuando la página está lista
-document.addEventListener('DOMContentLoaded', function () {
-    saltarCancons();
-});
 $(document).ready(function () {
 
     window.reproducirCancionDesdeIndice = function (index) {
@@ -106,74 +72,46 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Titol_Album) {
-            imgSrc = '../musica/portades/' + canco.Titol_Album +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol_Album + ".jpg";
         } else {
             // Si no hay Titol_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol + ".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/mas.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+        novaCancoDiv.append('<h5 style="display:none;">' + canco.id + '</h5>');
         novaCancoDiv.append('<p>' + canco.Nom_Artista + '</p>');
 
         taula.append(novaCancoDiv);
     });
 
     // Agregar evento de clic a les imatges amb la classe 'icono'
-    $('.icono').on('click', transferirInformacion);
+    $('.icono').on('click', afegirCancoLlista);
 }
+function afegirCancoLlista(event) {
+    // Obtener el ID de la canción desde el elemento clicado
+    var cancoID = $(this).siblings('h5').text(); // Suponiendo que el título de la canción contiene el ID
 
-// Función para transferir información al reproductor de música
-function transferirInformacion(event) {
-    var cancoDiv = $(this).closest('.songs');
-    var imgSrc = cancoDiv.find('img.portada').attr('src');
-    var songTitle = cancoDiv.find('h4').text();
-    var artistInfo = cancoDiv.find('p').text();
+    // Crear un objeto FormData para enviar los datos al servidor
+    var formData = new FormData();
+    formData.append('cancoID', cancoID);
 
-    // Obtener el índice de la canción seleccionada
-    var index = $('.songs').index(cancoDiv);
-
-
-
-    var reproductorImg = $('#reproductor-img');
-    var reproductorTitle = $('#reproductor-title');
-    var reproductorArtist = $('#reproductor-artist');
-    var reproductorAudio = $('#reproductor-audio');
-
-    reproductorImg.attr('src', imgSrc);
-    reproductorTitle.text(songTitle);
-    reproductorArtist.text(artistInfo);
-    reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
-    reproductorAudio[0].play(); // Iniciar la reproducción
-
-    // Llamar a la función para reproducir desde el índice seleccionado
-    window.reproducirCancionDesdeIndice(index);
-    saltarCancons(index);
-}
-
-$(document).ready(function () {
-    var randomImage = $('#random');
-    randomImage.on('click', function () {
-        if (randomImage.hasClass('clicked')) {
-            randomImage.removeClass('clicked');
-            randomImage.attr('src', '../img/simbols/random.svg');
-        } else {
-            window.reproducirCancionAleatoria();
-            randomImage.addClass('clicked');
-            randomImage.attr('src', '../img/simbols/crandom.svg');
+    $.ajax({
+        type: 'POST',
+        url: '../assets/php/guardar_canco_llista.php',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            console.log(response);
+            
+        },
+        error: function (error) {
+            console.log('Error en guardar la canción en la lista: ' + error);
         }
-
     });
-
-    window.reproducirCancionAleatoria = function () {
-        // Detener la reproducción actual si hay una
-        $('#reproductor-audio')[0].pause();
-        var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
-        reproducirCancionDesdeIndice(randomIndex);
-    }
-
-
-});
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
