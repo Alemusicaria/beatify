@@ -13,11 +13,14 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="titol">Asistencia al Usuari - <a href="./index.php">Beatify</a></h1>
+<header>
+        <div class="titol_Logo">
+            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
+            <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
+        </div>
         <div class="menu">
-            <a href="./index.php">Inici</a>
             <a href="./premium.php">Premium</a>
+            <a href="./index.php">Inici</a>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {

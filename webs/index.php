@@ -86,7 +86,7 @@
         <div class="reproductor-musica">
             <div class="reproductor-contenido">
                 <div class="reproductor-info">
-                    <img src="" alt="portada" id="reproductor-img">
+                    <img src="../img/simbols/black.jpg" alt="portada" id="reproductor-img">
                     <div class="info-text">
                         <h4 id="reproductor-title"></h4>
                         <p id="reproductor-artist"></p>

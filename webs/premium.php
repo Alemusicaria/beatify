@@ -16,30 +16,33 @@
 </head>
 
 <body>
-  <header>
-    <h1 id="titol">Plans de Pagament - <a href="./index.php">Beatify</a></h1>
-    <ul class="menu">
-      <li> <a href="./index.php">Inici</a></li>
-      <li> <a href="./asistencia.php">Asistencia</a></li>
-      <?php
+<header>
+        <div class="titol_Logo">
+            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
+            <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
+        </div>
+        <div class="menu">
+            <a href="./index.php">Inici</a>
+            <a href="./asistencia.php">Asistencia</a>
+            <?php
 
-      if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-        echo '
-          <div class="perfil-dropdown">
-              <img src="../img/user/user.png" alt="" class="fotoPerfil" onclick="toggleDropdown()"/>
-          </div>
-
-          <ul class="dropdown-list">
-              <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="./perfil.php">Configuració</a></li>
-              <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
-          </ul>
-      ';
-      } else {
-        echo "<li><button onclick=\"location.href='./login.html';\">Iniciar Sessió</button></li>";
-      }
-      ?>
-    </ul>
-  </header>
+            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                echo '
+                <div class="perfil-dropdown">
+                    <img src="../img/user/user.png" alt="" class="fotoPerfil" onclick="toggleDropdown()"/>
+                </div>
+    
+                <ul class="dropdown-list">
+                    <li><img src="../img/simbols/ajustes.png" alt="Ajustes"> <a href="./perfil.php">Configuració</a></li>
+                    <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
+                </ul>
+            ';
+            } else {
+                echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
+            }
+            ?>
+        </div>
+    </header>
   <div class="textoIntro">
     <h1>Desbloqueja tot el potencial musical amb Beatify Premium!</h1>
     <p>A Beatify, creiem que la música té el poder de transformar el teu dia, inspirar emocions i crear records
