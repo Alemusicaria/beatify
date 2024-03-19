@@ -47,10 +47,10 @@ $(document).ready(function () {
 
 
             var imgSrc;
-            if (selectedSong.Foto_Album) {
-                imgSrc = '../musica/portades/' + selectedSong.Foto_Album;
+            if (selectedSong.Titol_Album) {
+                imgSrc = '../musica/portades/' + selectedSong.Titol_Album + '.jpg';
             } else {
-                imgSrc = '../musica/portades/' + selectedSong.Img;
+                imgSrc = '../musica/portades/' + selectedSong.Titol + '.jpg';
             }
             var songTitle = selectedSong.Titol;
 
@@ -105,11 +105,11 @@ function mostrarCancons(cancons) {
 
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
-        if (canco.Foto_Album) {
-            imgSrc = '../musica/portades/' + canco.Foto_Album;
+        if (canco.Titol_Album) {
+            imgSrc = '../musica/portades/' + canco.Titol_Album +".jpg";
         } else {
-            // Si no hay Foto_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Img;
+            // Si no hay Titol_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
+            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');

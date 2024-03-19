@@ -14,35 +14,26 @@ if ($conn->connect_error) {
 }
 
 // Recibir el nombre de la lista del formulario
-$nomLlista = $_POST['nomLlista'];
-$foto = "Foto";
+$idLlista = $_COOKIE['ID_llista'];
+$idCanco = $_POST['cancoID'];
 
 // Asegurar de que el cookie 'UsuariID' existe
 if (isset($_COOKIE['UsuariID'])) {
     $idUsuari = $_COOKIE['UsuariID']; // Obtener el ID del usuario desde el cookie
-
+    echo $idLlista;
     // Preparar y ejecutar la consulta para insertar el nombre de la lista y el ID del usuario
-    $sql = "INSERT INTO llista_reproduccio (Nom, ID_Usuari, Img) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO afegeix (ID_Canco, ID_LlistaReproduccio) VALUES (?, ?)";
 
     // Preparar la consulta
     $stmt = $conn->prepare($sql);
 
     // Vincular los parámetros a la consulta preparada
     // 's' para string (el nombre de la lista) y 'i' para integer (el ID del usuario)
-    $stmt->bind_param("sis", $nomLlista, $idUsuari, $foto);
+    $stmt->bind_param("si", $idCanco, $idLlista);
 
-    // Després de l'execució de la primera consulta per inserir la nova llista
     if ($stmt->execute()) {
-        // Obté l'ID de la llista afegida
-        $id_llista = $conn->insert_id;
-
-        // Estableix el valor de l'ID de la llista com a cookie
-        setcookie('ID_llista', $id_llista,  time() + (86400 * 1), "/");
-
-        // Mostra l'ID de la llista (opcional)
-        echo "ID de la nova llista: " . $id_llista;
     } else {
-        echo "Error al insertar datos en la tabla Llista_Reproduccio: " . $stmt->error;
+        echo "Error al insertar datos en la tabla afegeix: " . $stmt->error;
     }
 } else {
     echo '<script>alert("No s\'ha pogut verificar l\'ID de l\'usuari."); window.location.href=\'./index.php\';</script>';

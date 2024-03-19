@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $assumpte = isset($_POST["assumpte"]) ? $_POST["assumpte"] : "";
     $mensaje = isset($_POST["textarea"]) ? $_POST["textarea"] : "";
 
-    $to = "tu@email.com";
+    $to = "$email";
     $subject = "Nuevo mensaje desde el formulario de contacto";
     $message = "Nombre: $nombre\nTeléfono: $telefono\nEmail: $email\nAsunto: $assumpte\nMensaje: $mensaje";
     $headers = "From: $email";

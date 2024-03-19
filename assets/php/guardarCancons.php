@@ -31,16 +31,7 @@ if (isset($_COOKIE['UsuariID'])) {
     // 's' para string (el nombre de la lista) y 'i' para integer (el ID del usuario)
     $stmt->bind_param("sis", $nomLlista, $idUsuari, $foto);
 
-    // Després de l'execució de la primera consulta per inserir la nova llista
     if ($stmt->execute()) {
-        // Obté l'ID de la llista afegida
-        $id_llista = $conn->insert_id;
-
-        // Estableix el valor de l'ID de la llista com a cookie
-        setcookie('ID_llista', $id_llista,  time() + (86400 * 1), "/");
-
-        // Mostra l'ID de la llista (opcional)
-        echo "ID de la nova llista: " . $id_llista;
     } else {
         echo "Error al insertar datos en la tabla Llista_Reproduccio: " . $stmt->error;
     }

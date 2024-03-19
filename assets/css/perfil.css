@@ -11,12 +11,17 @@ header {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  align-items: center;
   background-color: rgb(36, 34, 34);
   padding: 10px;
   color: white;
 
-  #titol {
+  .titol_Logo {
+    display: flex;
     max-width: 60%;
+  }
+
+  #titol {
     margin-left: 10px;
 
     a {
@@ -24,6 +29,11 @@ header {
       color: white;
     }
   }
+
+  .logo {
+    width: 10vh;
+  }
+
 
   .menu {
     padding: 1%;
@@ -57,7 +67,7 @@ header {
       /* Puedes ajustar el color del borde según tus preferencias */
       border-radius: 25px;
       /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
-      background-color: #3498db;
+      background-color: #b40e0e;
       /* Puedes ajustar el color de fondo según tus preferencias */
       color: #ffffff;
     }
@@ -68,6 +78,43 @@ header {
 
   }
 }
+
+#formFotoPerfil {
+  margin: 20px;
+}
+
+#inputFotoPerfil {
+  margin-bottom: 20px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  width: 38%;
+  background-color: #f8f8f8;
+  margin-left: 30%;
+}
+
+#inputFotoPerfil:focus {
+  background-color: #b40e0e;
+  outline: none;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #b84141;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #b40e0e;
+}
+
+
 
 .dadesUser {
   max-width: 50%;
@@ -117,7 +164,7 @@ header {
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #3498db;
+  background-color: #b40e0e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -204,7 +251,7 @@ select {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #3498db;
+  background-color: #b40e0e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -212,7 +259,7 @@ select {
 }
 
 #guardarCambios:hover {
-  background-color: #2980b9;
+  background-color: #b40e0e;
 }
 
 #formFotoPerfil {
@@ -227,7 +274,7 @@ select {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #3498db;
+  background-color: #b40e0e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -235,5 +282,5 @@ select {
 }
 
 #btn-save:hover {
-  background-color: #2980b9;
+  background-color: #b40e0e;
 }

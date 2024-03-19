@@ -59,7 +59,13 @@
             <div id="primera">
                 <h4>Crea la teva Primera Llista</h4>
                 <p>Es molt fàcil</p>
-                <button onclick="location.href='./creaLlista.php';">Crea Llista</button>
+                <?php
+                if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                    echo "<button onclick='location.href=\"./creaLlista.php\";'>Crea Llista</button>";
+                } else {
+                    echo "<button onclick='location.href=\"./login.html\";'>Crea Llista</button>";
+                }
+                ?>
             </div>
             <br>
             <div class="fakeFooter">

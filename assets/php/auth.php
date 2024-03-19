@@ -32,9 +32,9 @@ if ($result->num_rows > 0) {
     // L'autenticació és exitosa
     $row = $result->fetch_assoc();
 
-    setcookie('NomUsuari', $username,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
-    setcookie('Contrasenya', $password,  time() + (86400 * 30), "/"); // 86400 segundos = 1 día
-    setcookie('UsuariID', $row['ID'], time() + (86400 * 30), "/"); // Guarda l'ID de l'usuari com a cookie
+    setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
+    setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
+    setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda l'ID de l'usuari com a cookie
 
     // Agrega los datos del usuario al array de respuesta
     $response['status'] = "OK";

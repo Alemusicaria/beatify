@@ -17,7 +17,7 @@
     <header>
         <ul class="menu">
             <li> <a href="./premium.php">Premium</a></li>
-            <li> <a href="">Asistencia</a></li>
+            <li> <a href="./asistencia.php">Asistencia</a></li>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
@@ -50,19 +50,21 @@
         <br>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
-        <div class="formulari">
-            <form action="../assets/php/guardarLlista.php" method="POST">
-                <input type="text" name="nomLlista" placeholder="Nom de la teva llista" required>
-                <button type="submit">Crea Llista</button>
+        <div class="formulario" id="formulario">
+            <form>
+                <input type="text" name="nomLlista" id="nomLlista" placeholder="Nombre de tu lista" required>
+                <button type="button" id="crearListaBtn">Crear Lista</button>
             </form>
         </div>
+        <h2 id="nombreListaTitulo" style="display: none;">Nombre de la Lista</h2>
+        <div id="llistaSeleccionades"></div>
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>
         <div class="buscar">
             <input type="text" id="searchInput" placeholder="Cerca" required />
-            <div class="btn">
+            <div class="btn" id="search">
                 <i class="fas fa-search icon"></i>
-            </div>   
+            </div>
         </div>
         <div id="taula" class="scrollable-container"></div>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
@@ -110,6 +112,8 @@
     <script src="../assets/js/carregarLlistaCancons.js"></script>
     <script src="../assets/js/perfil.js"></script>
     <script src="../assets/js/cookies.js"></script>
+    <script src="../assets/js/llistaCanco.js"></script>
+
 </body>
 
 </html>
