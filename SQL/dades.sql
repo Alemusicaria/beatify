@@ -194,11 +194,11 @@ VALUES
 -- Dades per a la taula Llista_Reproduccio
 INSERT INTO Llista_Reproduccio (ID_Usuari, Nom,Img)
 VALUES
-  (1, 'Favorits',),
-  (2, 'Reggaeton Mix',),
-  (3, 'Latin Hits',),
-  (4, 'Top Charts',),
-  (5, 'Party Playlist',);
+  (1, 'Favorits',NULL),
+  (2, 'Reggaeton Mix',NULL),
+  (3, 'Latin Hits',NULL),
+  (4, 'Top Charts',NULL),
+  (5, 'Party Playlist',NULL);
 
 -- Dades per a la taula Afegeix
 INSERT INTO Afegeix (ID_Canco, ID_LlistaReproduccio)
