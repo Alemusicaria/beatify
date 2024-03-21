@@ -64,7 +64,7 @@ function carregarCancons() {
 
 function mostrarCancons(cancons) {
     var taula = $('#taula');
-    taula.empty(); // Netegem la taula abans de mostrar les cançons
+    taula.empty(); // Limpiar la tabla antes de mostrar las canciones
 
     $.each(cancons, function (index, canco) {
         var novaCancoDiv = $('<div class="songs"></div>');
@@ -72,22 +72,26 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Titol_Album) {
-            imgSrc = '../musica/portades/' + canco.Titol_Album + ".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol_Album +".jpg";
         } else {
-            // Si no hay Titol_Album, utiliza Img si está disponible, de lo contrario, asigna una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Titol + ".jpg";
+            // Si no hay Titol_Album, utilizar Titol si está disponible, de lo contrario, asignar una imagen genérica por defecto
+            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
-        novaCancoDiv.append('<img src="../img/mas.png" alt="icon" class="icono">');
+        novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
-        novaCancoDiv.append('<h5 style="display:none;">' + canco.id + '</h5>');
-        novaCancoDiv.append('<p>' + canco.Nom_Artista + '</p>');
+
+        // Agregar los nombres de los artistas
+        var artistas = canco.artistas.map(function(artista) {
+            return artista.Nom_Artista;
+        }).join(' , ');
+        novaCancoDiv.append('<p>' + artistas + '</p>');
 
         taula.append(novaCancoDiv);
     });
 
-    // Agregar evento de clic a les imatges amb la classe 'icono'
-    $('.icono').on('click', afegirCancoLlista);
+    // Agregar evento de clic a las imágenes con la clase 'icono'
+    $('.icono').on('click', transferirInformacion);
 }
 function afegirCancoLlista(event) {
     // Obtener el ID de la canción desde el elemento clicado
