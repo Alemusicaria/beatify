@@ -118,10 +118,10 @@
                 <img src="" alt="">
             </div>
             <div class="txt">
-                <h3></h3>
+                <h2></h2>
             </div>
             <div class="artista">
-                <p></p>
+                <h3></h3>
             </div>
         </div>
         <div class="lista">
@@ -186,8 +186,8 @@
                 var songTitle = selectedSong.title;
                 var artistInfo = selectedSong.artistInfo;
                 // Usa songTitle y artistInfo para establecer el título y la información del artista en tu div
-                $('.txt h3').text(songTitle);
-                $('.artista p').text(artistInfo);
+                $('.txt h2').text(songTitle);
+                $('.artista h3').text(artistInfo);
 
 
             }

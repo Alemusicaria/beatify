@@ -12,9 +12,14 @@
 .artista{
     color: white;
     font-weight: bold;
+    text-align: center;
+    max-width: 20%;
 }
 .txt{
     color: white;
+    h2{
+        margin:0;
+    }
 }
 
 .lista{
