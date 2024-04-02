@@ -53,7 +53,7 @@
                 <button type="button" id="crearListaBtn">Crear Lista</button>
             </form>
         </div>
-        <h2 id="nombreListaTitulo" style="display: none;">Nom de la Llista</h2>
+        <h2 id="nombreListaTitulo" style="display: none;"></h2>
         <!-- AQUI VAN LES CANÇONS DE LA LLISTA-->
         <div id="llistaSeleccionades"></div>
         <hr>

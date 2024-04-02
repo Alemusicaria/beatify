@@ -110,9 +110,17 @@ function afegirCancoLlista(event) {
         processData: false,
         success: function (response) {
             console.log(response);
+            // Limpiar el contenido anterior en caso de que haya
+            $('#llistaSeleccionades').empty();
+
+            // Recorrer todas las canciones y mostrarlas en el div
+            $.each(response, function (index, canco) {
+                $('#llistaSeleccionades').append('<div class="infoTitolLlista">' + canco.Titol + '</div>');
+                // Aquí puedes agregar más información si es necesario, como el nombre del artista, etc.
+            });
         },
         error: function (error) {
-            console.log('Error en guardar la canción en la lista: ' + error);
+            console.log('Error en guardar la canción en la lista:', error.responseText); // Imprime el texto de respuesta del error
         }
     });
 }
