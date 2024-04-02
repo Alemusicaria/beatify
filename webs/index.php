@@ -68,6 +68,46 @@
                 ?>
             </div>
             <br>
+
+            <?php
+
+            // Conectar con la base de datos (ajusta las credenciales según tu configuración)
+            $servername = "localhost";
+            $dbusername = "root";
+            $dbpassword = "";
+            $dbname = "beatify";
+
+            $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+            // Verificar la conexión
+            if ($conn->connect_error) {
+                die("Conexión fallida: " . $conn->connect_error);
+            }
+            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+                $sql = "SELECT * FROM llista_reproduccio WHERE ID_Usuari = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $_COOKIE['NomUsuari']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                // Verificar si hay resultados
+                if ($result->num_rows > 0) {
+                    // Iterar sobre cada lista de reproducción
+                    while ($row = $result->fetch_assoc()) {
+                        // Mostrar información de la lista de reproducción
+                        echo '<div class="Llistes">';
+                        echo '<h3>' . $row['Nom'] . '</h3>';
+                        // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
+                }
+            } else {
+                echo '<p>INICIAR SESSIO</p>';
+            }
+            ?>
+
             <div class="fakeFooter">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida nec est non elementum.
                     In sollicitudin augue nunc, sed bibendum est pretium a. Sed quam sapien, luctus sit amet libero sed

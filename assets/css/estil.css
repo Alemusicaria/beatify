@@ -494,7 +494,9 @@ audio {
     margin-left: 45px;
 
 }
-
+.infoTitolLlista{
+    color: white;
+}
 @media only screen and (max-width: 1600px) {
     .contenedor-left {
         width: 20%;
@@ -640,7 +642,6 @@ audio {
     }
 
     .btn {
-        width: 25%;
         height: auto;
         line-height: 45px;
         top: 0;
@@ -654,12 +655,12 @@ audio {
     }
 
     .buscar:hover input {
-        width: 50px;
+        width: 130px;
         margin-left: 45px;
     }
 
     .buscar input:focus {
-        width: 50px;
+        width: 130px;
         margin-left: 45px;
 
     }
