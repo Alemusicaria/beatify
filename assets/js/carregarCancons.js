@@ -118,7 +118,7 @@ function mostrarCancons(cancons) {
         // Agregar los nombres de los artistas
         var artistas = canco.artistas.map(function(artista) {
             return artista.Nom_Artista;
-        }).join(' , ');
+        }).join(', ');
         novaCancoDiv.append('<p>' + artistas + '</p>');
 
         taula.append(novaCancoDiv);
