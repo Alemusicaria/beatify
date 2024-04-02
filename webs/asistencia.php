@@ -13,14 +13,11 @@
 </head>
 
 <body>
-<header>
-        <div class="titol_Logo">
-            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
-            <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
-        </div>
+    <header>
+        <h1 id="titol">Asistencia al Usuari - <a href="./index.php">Beatify</a></h1>
         <div class="menu">
-            <a href="./premium.php">Premium</a>
             <a href="./index.php">Inici</a>
+            <a href="./premium.php">Premium</a>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
@@ -68,7 +65,6 @@
     </footer>
     <script src="../assets/js/dadesUser.js"></script>
     <script src="../assets/js/cookies.js"></script>
-    <script src="../assets/js/perfil.js"></script>
 </body>
 
 </html>
