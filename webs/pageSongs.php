@@ -202,11 +202,8 @@
                 reproductorTitle.text(songTitle);
                 reproductorArtist.text(artistInfo);
                 reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
-                reproductorAudio[0].play(); // Iniciar la reproducción
-
-                // Llamar a la función para reproducir desde el índice seleccionado
-                window.reproducirCancionDesdeIndice(index);
-                saltarCancons(index);
+                reproductorAudio[0].play();
+            
             }
 
         });
