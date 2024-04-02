@@ -280,7 +280,7 @@ VALUES
   (5, 'Party Playlist','foto');
 
 -- Dades per a la taula Afegeix
-INSERT INTO Afegeix (ID_Canco, ID_LlistaReproduccio)
+INSERT INTO Afegeix (ID_LlistaReproduccio, ID_Canco)
 VALUES
   (1, 1),
   (2, 2),

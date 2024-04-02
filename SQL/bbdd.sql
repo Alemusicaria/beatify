@@ -57,9 +57,9 @@ CREATE TABLE Llista_Reproduccio (
 );
 
 CREATE TABLE Afegeix (
-    ID_Canco INT,
     ID_LlistaReproduccio INT,
-    PRIMARY KEY (ID_Canco, ID_LlistaReproduccio),
-    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID),
-    FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID)
+    ID_Canco INT,
+    PRIMARY KEY (ID_LlistaReproduccio, ID_Canco),
+    FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID),
+    FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
 );

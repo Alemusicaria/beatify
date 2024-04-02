@@ -19,7 +19,6 @@
             <li> <a href="./premium.php">Premium</a></li>
             <li> <a href="./asistencia.php">Asistencia</a></li>
             <?php
-
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
@@ -41,10 +40,8 @@
         <div class="miniMenu">
             <ul id="menu">
                 <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
-                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
-                </li>
-                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a>
-                </li>
+                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a> </li>
+                <li><a href="./index.php"><i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>Buscar cançons</a></li>
             </ul>
         </div>
         <br>
@@ -52,11 +49,12 @@
     <div class="contenedor-right" style="overflow-y: auto;">
         <div class="formulario" id="formulario">
             <form>
-                <input type="text" name="nomLlista" id="nomLlista" placeholder="Nombre de tu lista" required>
+                <input type="text" name="nomLlista" id="nomLlista" placeholder="Nom de la llista" required>
                 <button type="button" id="crearListaBtn">Crear Lista</button>
             </form>
         </div>
-        <h2 id="nombreListaTitulo" style="display: none;">Nombre de la Lista</h2>
+        <h2 id="nombreListaTitulo" style="display: none;">Nom de la Llista</h2>
+        <!-- AQUI VAN LES CANÇONS DE LA LLISTA-->
         <div id="llistaSeleccionades"></div>
         <hr>
         <h2>Busquem alguna cosa per a la teva llista</h2><br>

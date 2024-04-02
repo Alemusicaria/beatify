@@ -11,7 +11,6 @@ $(document).ready(function () {
             // Obtener la información de la canción seleccionada
             var selectedSong = canconsCarregades[currentIndex];
 
-
             var imgSrc;
             if (selectedSong.Titol_Album) {
                 imgSrc = '../musica/portades/' + selectedSong.Titol_Album + '.jpg';
@@ -72,17 +71,18 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Titol_Album) {
-            imgSrc = '../musica/portades/' + canco.Titol_Album +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol_Album + ".jpg";
         } else {
             // Si no hay Titol_Album, utilizar Titol si está disponible, de lo contrario, asignar una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol + ".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
-        novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
+        novaCancoDiv.append('<img src="../img/mas.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
+        novaCancoDiv.append('<h5 style="display: none;">' + canco.ID_Canco + '</h5>');
 
         // Agregar los nombres de los artistas
-        var artistas = canco.artistas.map(function(artista) {
+        var artistas = canco.artistas.map(function (artista) {
             return artista.Nom_Artista;
         }).join(' , ');
         novaCancoDiv.append('<p>' + artistas + '</p>');
@@ -91,8 +91,9 @@ function mostrarCancons(cancons) {
     });
 
     // Agregar evento de clic a las imágenes con la clase 'icono'
-    $('.icono').on('click', transferirInformacion);
+    $('.icono').on('click', afegirCancoLlista);
 }
+
 function afegirCancoLlista(event) {
     // Obtener el ID de la canción desde el elemento clicado
     var cancoID = $(this).siblings('h5').text(); // Suponiendo que el título de la canción contiene el ID
@@ -109,14 +110,12 @@ function afegirCancoLlista(event) {
         processData: false,
         success: function (response) {
             console.log(response);
-            
         },
         error: function (error) {
             console.log('Error en guardar la canción en la lista: ' + error);
         }
     });
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la lista de canciones y el campo de búsqueda
