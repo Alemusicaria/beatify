@@ -126,6 +126,18 @@ function mostrarCancons(cancons) {
 
     // Agregar evento de clic a las imágenes con la clase 'icono'
     $('.icono').on('click', transferirInformacion);
+    $('.portada').on('click', function() {
+        var songTitle = $(this).siblings('h4').text();
+        var artistInfo = $(this).siblings('p').text();
+        var imgSrc = $(this).attr('src'); 
+        localStorage.setItem('selectedSong', JSON.stringify({
+            title: songTitle,
+            artistInfo: artistInfo,
+            imgSrc: imgSrc
+        }));
+        window.location.href = './pageSongs.php';
+    });
+    
 }
 
 

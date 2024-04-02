@@ -1,0 +1,36 @@
+.infAC{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.foto{
+    img{
+        width: 200px;
+        border-radius: 5px;
+    }
+}
+.artista{
+    color: white;
+    font-weight: bold;
+}
+.txt{
+    color: white;
+}
+
+.lista{
+    margin-top: 5%;
+}
+
+#imgPlay{
+    max-width: fit-content;
+    img{
+        width: 50px;
+    }
+}
+#songsList{
+    margin-top: 2%;
+    ol{
+        max-width: fit-content;
+        list-style: none;
+    }
+}
