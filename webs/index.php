@@ -57,8 +57,7 @@
         <div class="llistesUsuaris">
             <h2><i class="fa-solid fa-compact-disc"></i>Llistes Cançons</h2>
             <div id="primera">
-                <h4>Crea la teva Primera Llista</h4>
-                <p>Es molt fàcil</p>
+
                 <?php
                 if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                     echo "<button onclick='location.href=\"./creaLlista.php\";'>Crea Llista</button>";
@@ -86,7 +85,7 @@
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 $sql = "SELECT * FROM llista_reproduccio WHERE ID_Usuari = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("i", $_COOKIE['NomUsuari']);
+                $stmt->bind_param("i", $_COOKIE['UsuariID']);
                 $stmt->execute();
                 $result = $stmt->get_result();
 
@@ -107,12 +106,6 @@
                 echo '<p>INICIAR SESSIO</p>';
             }
             ?>
-
-            <div class="fakeFooter">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida nec est non elementum.
-                    In sollicitudin augue nunc, sed bibendum est pretium a. Sed quam sapien, luctus sit amet libero sed
-                </p>
-            </div>
         </div>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
