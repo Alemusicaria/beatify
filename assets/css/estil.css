@@ -5,7 +5,9 @@ body {
     background-color: black;
     margin-bottom: 75px;
     scrollbar-color: rgb(61, 22, 22) #f1f1f100;
+    overflow-y: visible; /* Modifica l'estil del cos aquí */
 }
+
 
 header {
     position: relative;
@@ -80,7 +82,7 @@ button:hover {
 
 .contenedor-left {
     width: 40vh;
-    height: 77vh;
+    height: 100vh;
     align-items: center;
     padding-top: 0.5%;
     position: fixed;

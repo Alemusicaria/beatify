@@ -40,7 +40,7 @@
             ?>
         </ul>
     </header>
-    <div class="contenedor-left">
+    <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
                 <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
@@ -92,13 +92,14 @@
                 // Verificar si hay resultados
                 if ($result->num_rows > 0) {
                     // Iterar sobre cada lista de reproducción
+                    echo '<div class="Llistes">';
+
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo '<div class="Llistes">';
                         echo '<h3>' . $row['Nom'] . '</h3>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
-                        echo '</div>';
                     }
+                    echo '</div>';
                 } else {
                     echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
                 }
@@ -107,6 +108,7 @@
             }
             ?>
         </div>
+
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
         <h2>Totes les cançons</h2>
