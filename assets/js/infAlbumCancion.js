@@ -29,12 +29,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     //envio del array hacia el php
     $.ajax({
-        url: '../php/obtainSongs.php',
+        url: '../assets/php/obtainSongs.php',
         type: 'POST',
         data: { artistas: artistasArray },
-        success: function(response) {
-            console.log(response); // Maneja la respuesta del servidor aquí
+        success: function (response) {
+            console.log(response); // Handle server response here
+            taulaCancons(response);
         }
     });
+    
+    function taulaCancons(canconsCarregades) {
+        var tabla = document.getElementById('tablaCanciones');
+        tabla.innerHTML = '';
+    
+        canconsCarregades.forEach(function (titulo) { // Iterate over song titles directly
+            var fila = document.createElement('tr');
+    
+            var tituloCancion = document.createElement('td');
+            tituloCancion.textContent = titulo; // Use song title directly
+    
+            fila.appendChild(tituloCancion);
+            tabla.appendChild(fila);
+        });
+    }
+
 
 });
+
+
