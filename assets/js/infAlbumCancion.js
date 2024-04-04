@@ -65,14 +65,24 @@ document.addEventListener('DOMContentLoaded', function () {
             playBlackImg.id = "playBlack";
             numberPlayDiv.appendChild(numberParagraph);
             numberPlayDiv.appendChild(playBlackImg);
+            var divPortadaDiv = document.createElement("div");
+            divPortadaDiv.classList.add("divPortada");
+            var imgPortada = document.createElement("img");
+            if(titulo.TitolAlbum){
+                imgPortada.src = '../musica/portades/' + titulo.TitolAlbum +".jpg";
+            }else{
+                imgPortada.src ='../musica/portades/' + titulo.TitolCanco +".jpg";
+            }
+            divPortadaDiv.appendChild(imgPortada);
             var divCancoDiv = document.createElement("div");
             divCancoDiv.classList.add("divCanco");
             var h4Element = document.createElement("h4");
-            h4Element.textContent = titulo;
+            h4Element.textContent = titulo.TitolCanco;
             divCancoDiv.appendChild(h4Element); 
             var artistasDiv = document.createElement("div");
             artistasDiv.classList.add("Artistas");    
             listSongsDiv.appendChild(numberPlayDiv);
+            listSongsDiv.appendChild(divPortadaDiv);
             listSongsDiv.appendChild(divCancoDiv);
             listSongsDiv.appendChild(artistasDiv);
             tabla.appendChild(listSongsDiv);
