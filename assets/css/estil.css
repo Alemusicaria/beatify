@@ -496,9 +496,6 @@ audio {
     margin-left: 45px;
 
 }
-.infoTitolLlista{
-    color: white;
-}
 @media only screen and (max-width: 1600px) {
     .contenedor-left {
         width: 20%;

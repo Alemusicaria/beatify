@@ -96,7 +96,7 @@
 
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo '<h3>' . $row['Nom'] . '</h3>';
+                        echo ' <a href="mostrarLlista.php">' . $row['Nom'] . '</a> <br>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
                     }
                     echo '</div>';
@@ -108,7 +108,6 @@
             }
             ?>
         </div>
-
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
         <h2>Totes les cançons</h2>
