@@ -1,5 +1,4 @@
 <?php
-// Conexión a la base de datos (modifica los valores según tu configuración)
 $servername = "localhost";
 $username = "root";
 $password = "";
