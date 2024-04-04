@@ -32,7 +32,6 @@ if ($result->num_rows > 0) {
         $ID_Canco = $row['ID_Canco'];
         // Verificar si la canción ya está presente en el array
         if (!isset($canciones[$ID_Canco])) {
-            // Si la canción no está presente, agregarla al array
             $canciones[$ID_Canco] = array(
                 'ID_Canco' => $ID_Canco,
                 'Titol' => $row['Titol'],
