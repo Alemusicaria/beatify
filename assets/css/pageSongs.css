@@ -61,7 +61,7 @@ body{
 .numberPlay {
     margin-right: 10px;
 
-    #playBlack {
+    .playBlack {
         display: none;
         width: 20px;
     }
@@ -78,7 +78,7 @@ body{
     #number{
         display: none;
     }
-    #playBlack{
+    .playBlack{
         display: block;
         cursor: pointer;
     }

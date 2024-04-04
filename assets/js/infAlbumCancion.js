@@ -6,27 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var imgSrc = selectedSong.imgSrc;
         $('.foto img').attr('src', imgSrc);
 
-        
+
         var songTitle = selectedSong.title;
         var artistInfo = selectedSong.artistInfo;
         $('.txt h2').text(songTitle);
         $('.artista h3').text(artistInfo);
     }
-    $('.play').on('click', iniciar);
-
-    function iniciar(event) {
-        var reproductorImg = $('#reproductor-img');
-        var reproductorTitle = $('#reproductor-title');
-        var reproductorArtist = $('#reproductor-artist');
-        var reproductorAudio = $('#reproductor-audio');
-
-        reproductorImg.attr('src', imgSrc);
-        reproductorTitle.text(songTitle);
-        reproductorArtist.text(artistInfo);
-        reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
-        reproductorAudio[0].play();
-
-    }
+    $('.play').on('click', transferirInformacion);
     // Envío del array hacia el php
     $.ajax({
         url: '../assets/php/obtainSongs.php',
@@ -49,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function taulaCancons(canconsCarregades) {
         var tabla = document.getElementById('tablaCanciones');
         tabla.innerHTML = '';
-        let numero=1;
+        let numero = 1;
         canconsCarregades.forEach(function (titulo) {
             var listSongsDiv = document.createElement("div");
             listSongsDiv.classList.add("listSongs");
@@ -62,31 +48,29 @@ document.addEventListener('DOMContentLoaded', function () {
             var playBlackImg = document.createElement("img");
             playBlackImg.src = "../img/playBlack.png";
             playBlackImg.alt = "icono";
-            playBlackImg.id = "playBlack";
+            playBlackImg.classList.add("playBlack");
             numberPlayDiv.appendChild(numberParagraph);
             numberPlayDiv.appendChild(playBlackImg);
             var divPortadaDiv = document.createElement("div");
             divPortadaDiv.classList.add("divPortada");
             var imgPortada = document.createElement("img");
-            if(titulo.TitolAlbum){
-                imgPortada.src = '../musica/portades/' + titulo.TitolAlbum +".jpg";
-            }else{
-                imgPortada.src ='../musica/portades/' + titulo.TitolCanco +".jpg";
+            if (titulo.TitolAlbum) {
+                imgPortada.src = '../musica/portades/' + titulo.TitolAlbum + ".jpg";
+            } else {
+                imgPortada.src = '../musica/portades/' + titulo.TitolCanco + ".jpg";
             }
             divPortadaDiv.appendChild(imgPortada);
             var divCancoDiv = document.createElement("div");
             divCancoDiv.classList.add("divCanco");
             var h4Element = document.createElement("h4");
             h4Element.textContent = titulo.TitolCanco;
-            divCancoDiv.appendChild(h4Element); 
-            var artistasDiv = document.createElement("div");
-            artistasDiv.classList.add("Artistas");    
+            divCancoDiv.appendChild(h4Element);
             listSongsDiv.appendChild(numberPlayDiv);
             listSongsDiv.appendChild(divPortadaDiv);
             listSongsDiv.appendChild(divCancoDiv);
-            listSongsDiv.appendChild(artistasDiv);
             tabla.appendChild(listSongsDiv);
         });
-        $('#playBlack').on('click', iniciar);
+        $('.playBlack').on('click', transferirInformacion);
     }
+
 });
