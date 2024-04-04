@@ -23,14 +23,16 @@ if (isset($_POST['artistas'])) {
             INNER JOIN Crea_musica cm ON c.ID = cm.ID_Canco
             INNER JOIN Artista a ON cm.ID_Artista = a.ID
             WHERE a.NomArtistic IN ('" . implode("','", $data) . "') 
-            LIMIT 5";
+            ";
 
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
         $canciones = array();
         while ($row = $result->fetch_assoc()) {
-            $canciones[] = $row["Titol"];
+            if (!in_array($row["Titol"], $canciones)) {
+                $canciones[] = $row["Titol"];
+            }
         }
 
         echo json_encode($canciones);
