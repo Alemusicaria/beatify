@@ -12,7 +12,18 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.txt h2').text(songTitle);
         $('.artista h3').text(artistInfo);
     }
-    $('.play').on('click', transferirInformacion);
+    $('.play').on('click', iniciar);
+
+    function iniciar(event) {
+        var reproductorImg = $('#reproductor-img');
+        var reproductorTitle = $('#reproductor-title');
+        var reproductorAudio = $('#reproductor-audio');
+
+        reproductorImg.attr('src', imgSrc);
+        reproductorTitle.text(songTitle);
+        reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
+        reproductorAudio[0].play();
+    }
     // Envío del array hacia el php
     $.ajax({
         url: '../assets/php/obtainSongs.php',
@@ -70,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             listSongsDiv.appendChild(divCancoDiv);
             tabla.appendChild(listSongsDiv);
         });
-        $('.playBlack').on('click', transferirInformacion);
+        $('.playBlack').on('click', iniciar);
     }
 
 });

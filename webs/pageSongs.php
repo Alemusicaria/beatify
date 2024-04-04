@@ -174,7 +174,8 @@
             </div>
         </div>
     </footer>
-    <script src="../assets/js/carregarCancons.js"></script>
+    <script>
+    </script>
     <script src="../assets/js/infAlbumCancion.js"></script>
     <script src="../assets/js/audio.js"></script>
     <script src="../assets/js/code.js"></script>
