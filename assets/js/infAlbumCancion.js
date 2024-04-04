@@ -6,10 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var imgSrc = selectedSong.imgSrc;
         $('.foto img').attr('src', imgSrc);
 
-        // También puedes acceder a selectedSong.title y selectedSong.artistInfo
+        
         var songTitle = selectedSong.title;
         var artistInfo = selectedSong.artistInfo;
-        // Usa songTitle y artistInfo para establecer el título y la información del artista en tu div
         $('.txt h2').text(songTitle);
         $('.artista h3').text(artistInfo);
     }
@@ -35,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
         data: { artistas: artistasArray },
         success: function (response) {
             console.log(response);
-            let cancons = JSON.parse(response);
-            carregarCancons(cancons);
+            let tCancons = JSON.parse(response);
+            carregarCancons(tCancons);
         },
         error: function (error) {
             console.log('Error en obtener las canciones:', error);
@@ -50,16 +49,34 @@ document.addEventListener('DOMContentLoaded', function () {
     function taulaCancons(canconsCarregades) {
         var tabla = document.getElementById('tablaCanciones');
         tabla.innerHTML = '';
-
+        let numero=1;
         canconsCarregades.forEach(function (titulo) {
-            var cancoDiv = $('<div class="songs"></div>');
-            var fila = document.createElement('tr');
-
-            var tituloCancion = document.createElement('td');
-            tituloCancion.textContent = titulo;
-
-            fila.appendChild(tituloCancion);
-            tabla.appendChild(fila);
+            var listSongsDiv = document.createElement("div");
+            listSongsDiv.classList.add("listSongs");
+            var numberPlayDiv = document.createElement("div");
+            numberPlayDiv.classList.add("numberPlay");
+            var numberParagraph = document.createElement("p");
+            numberParagraph.id = "number";
+            numberParagraph.textContent = numero;
+            numero++;
+            var playBlackImg = document.createElement("img");
+            playBlackImg.src = "../img/playBlack.png";
+            playBlackImg.alt = "icono";
+            playBlackImg.id = "playBlack";
+            numberPlayDiv.appendChild(numberParagraph);
+            numberPlayDiv.appendChild(playBlackImg);
+            var divCancoDiv = document.createElement("div");
+            divCancoDiv.classList.add("divCanco");
+            var h4Element = document.createElement("h4");
+            h4Element.textContent = titulo;
+            divCancoDiv.appendChild(h4Element); 
+            var artistasDiv = document.createElement("div");
+            artistasDiv.classList.add("Artistas");    
+            listSongsDiv.appendChild(numberPlayDiv);
+            listSongsDiv.appendChild(divCancoDiv);
+            listSongsDiv.appendChild(artistasDiv);
+            tabla.appendChild(listSongsDiv);
         });
+        $('#playBlack').on('click', iniciar);
     }
 });

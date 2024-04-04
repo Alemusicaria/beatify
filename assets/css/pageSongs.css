@@ -1,3 +1,11 @@
+body{
+    scrollbar-color: rgb(61, 22, 22) #f1f1f100;
+}
+.scrollable-container {
+    overflow: auto; 
+    height: 250px;
+    width: 100%;
+}
 .infAC{
     display: flex;
     align-items: center;
@@ -32,10 +40,41 @@
         width: 50px;
     }
 }
-#songsList{
+#songsList {
     margin-top: 2%;
-    ol{
+
+    ol {
         max-width: fit-content;
         list-style: none;
     }
+}
+
+.listSongs {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 0.5%;
+    align-items: center;
+}
+
+.numberPlay {
+    margin-right: 10px;
+
+    #playBlack {
+        display: none;
+        width: 20px;
+    }
+}
+
+.listSongs:hover{
+    background-color: #272225;
+    #number{
+        display: none;
+    }
+    #playBlack{
+        display: block;
+        cursor: pointer;
+    }
+    
 }
