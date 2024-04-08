@@ -76,9 +76,9 @@
 
             // Conectar con la base de datos (ajusta las credenciales según tu configuración)
             $servername = "localhost";
-            $dbusername = "root";
-            $dbpassword = "";
-            $dbname = "beatify";
+            $dbusername = "beatify";
+            $dbpassword = "123456";
+            $dbname = "Beatify";
 
             $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
