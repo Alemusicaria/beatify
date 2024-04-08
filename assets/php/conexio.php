@@ -5,9 +5,7 @@ $dbusername = "beatify";
 $dbpassword = "123456";
 $dbname = "Beatify";
 
-echo "Abans";
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-echo "Despres";
 
 // Verificar la conexión
 if ($conn->connect_error) {
