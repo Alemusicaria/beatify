@@ -1,4 +1,3 @@
--- Dades per a la taula Artista
 INSERT INTO Artista (Nom, Cognom, NomArtistic, Datanaix, Info)
 VALUES 
   ('Ramón Luis', 'Ayala Rodriguez', 'Daddy Yankee', '1977-02-03', 'Reggaeton artist'),
@@ -53,7 +52,6 @@ VALUES
   ('Marcos Efraín', 'Masís Fernández', 'Tainy', '1989-08-09', 'Reggaeton and Latin pop artist'),
   ('Tu Mama', 'Tu Ma', 'Tu Madre', '1989-08-09', 'Reggaeton and Latin pop artist');
 
--- Dades per a la taula Album
 INSERT INTO Album (ID_Artista, Titol, DataLlançament)
 VALUES
   (7, 'Meet the Orphans', '2010-11-16'),
@@ -84,7 +82,6 @@ VALUES
   (21, 'Gargolas 3', '2003-01-01'),
   (27, 'The Bad Boy', '2003-01-01');
 
--- Dades per a la taula Genere
 INSERT INTO Genere (Nom)
 VALUES
   ('Reggaeton'),
@@ -95,7 +92,6 @@ VALUES
   ('Hip Hop'),
   ('Bachata');
 
--- Dades per a la taula Canco
 INSERT INTO canco (ID_Album, ID_Genere, Titol) 
 VALUES
   (NULL, 1, 'Amanece'),
@@ -153,7 +149,6 @@ VALUES
   (NULL, 3, 'De Las 2'),
   (NULL, 1, 'Zun Da Da');
   
--- Dades per a la taula Crea_musica
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES
   (1, 15),
@@ -257,7 +252,6 @@ VALUES
   (53, 48),
   (54, 45);
 
--- Dades per a la taula Usuari
 INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium)
 VALUES
   ('1', 'Aleix', 'aleix@email.com', 'Prat', 'aprat', '../img/user/user.png', true),
@@ -266,7 +260,6 @@ VALUES
   ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', '../img/user/user.png', false),
   ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', '../img/user/user.png', true);
 
--- Dades per a la taula Llista_Reproduccio
 INSERT INTO Llista_Reproduccio (ID_Usuari, Nom,Img)
 VALUES
   (1, 'Favorits','foto'),
@@ -275,7 +268,6 @@ VALUES
   (4, 'Top Charts','foto'),
   (5, 'Party Playlist','foto');
 
--- Dades per a la taula Afegeix
 INSERT INTO Afegeix (ID_LlistaReproduccio, ID_Canco)
 VALUES
   (1, 1),
