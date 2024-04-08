@@ -87,8 +87,13 @@ function carregarCancons() {
         url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
-            canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
-            mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+            try {  
+                canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
+                mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+            } catch (error) {
+                console.error('Error al analizar los datos JSON:', error);
+            }
+            
         },
         error: function (error) {
             console.log('Error en carregar les cançons:', error);

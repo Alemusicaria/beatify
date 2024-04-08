@@ -1,11 +1,11 @@
 <?php
 // Conexión a la base de datos (modifica los valores según tu configuración)
 $servername = "localhost";
-$username = "root";
-$password = "";
+$dbusername = "beatify";
+$dbpassword = "123456";
 $dbname = "Beatify";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -13,11 +13,11 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obtener las canciones con el ID del álbum y la foto del álbum
-$sql = "SELECT canco.ID AS ID_Canco, canco.Titol, canco.ID_Genere, album.ID AS ID_Album, album.Titol AS Titol_Album, crea_musica.ID_Artista, artista.NomArtistic AS Nom_Artista
-        FROM canco
-        LEFT JOIN album ON canco.ID_Album = album.ID
-        LEFT JOIN crea_musica ON canco.ID = crea_musica.ID_Canco
-        LEFT JOIN artista ON crea_musica.ID_Artista = artista.ID";
+$sql = "SELECT Canco.ID AS ID_Canco, Canco.Titol, Canco.ID_Genere, Album.ID AS ID_Album, Album.Titol AS Titol_Album, Crea_musica.ID_Artista, Artista.NomArtistic AS Nom_Artista
+        FROM Canco
+        LEFT JOIN Album ON Canco.ID_Album = Album.ID
+        LEFT JOIN Crea_musica ON Canco.ID = Crea_musica.ID_Canco
+        LEFT JOIN Artista ON Crea_musica.ID_Artista = Artista.ID";
 
 $result = $conn->query($sql);
 
@@ -38,13 +38,13 @@ if ($result->num_rows > 0) {
                 'ID_Album' => $row['ID_Album'],
                 'Titol_Album' => $row['Titol_Album'],
                 'ID_Genere' => $row['ID_Genere'],
-                'artistas' => array() // Inicializar un array para almacenar los artistas de esta canción
+                'Artistas' => array() // Inicializar un array para almacenar los Artistas de esta canción
             );
         }
         
-        // Agregar información del artista a la canción actual
+        // Agregar información del Artista a la canción actual
         if (!empty($row['ID_Artista']) && !empty($row['Nom_Artista'])) {
-            $canciones[$ID_Canco]['artistas'][] = array(
+            $canciones[$ID_Canco]['Artistas'][] = array(
                 'ID_Artista' => $row['ID_Artista'],
                 'Nom_Artista' => $row['Nom_Artista']
             );

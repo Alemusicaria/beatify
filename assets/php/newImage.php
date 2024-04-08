@@ -6,9 +6,9 @@ if (isset($_POST['nuevaFoto']) && isset($_POST['username'])) {
 
 
     $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "beatify";
+    $dbusername = "beatify";
+    $dbpassword = "123456";
+    $dbname = "Beatify";
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
