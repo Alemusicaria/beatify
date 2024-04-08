@@ -10,7 +10,7 @@ $password = $_POST['password'];
 $servername = "beatify.com";
 $dbusername = "root";
 $dbpassword = "123456";
-$dbname = "beatify";
+$dbname = "Beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 

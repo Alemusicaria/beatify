@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $servername = "beatify.com";
 $dbusername = "root";
 $dbpassword = "123456";
-$dbname = "beatify";
+$dbname = "Beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
