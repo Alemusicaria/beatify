@@ -8,8 +8,9 @@ $servername = "beatify.com";
 $dbusername = "root";
 $dbpassword = "123456";
 $dbname = "Beatify";
-
+echo "Abans";
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+echo "Despres";
 
 // Verifica la connexió
 if ($conn->connect_error) {
