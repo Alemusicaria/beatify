@@ -88,8 +88,13 @@ function carregarCancons() {
         method: 'GET',
         success: function (data) {
             try {
-                canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
-                mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+                try {
+                    canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
+                    mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+                } catch (error) {
+                    console.error('Error al analizar los datos JSON:', error);
+                }
+                
             } catch (error) {
                 console.error('Error al analizar los datos JSON:', error);
             }
