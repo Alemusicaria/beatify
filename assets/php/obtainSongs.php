@@ -1,6 +1,6 @@
 <?php
 $servername = "beatify.com";
-$username = "root";
+$dbusername = "beatify";
 $dbpassword = "123456";
 $dbname = "Beatify";
 
