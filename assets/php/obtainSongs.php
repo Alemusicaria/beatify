@@ -4,7 +4,7 @@ $dbusername = "beatify";
 $dbpassword = "123456";
 $dbname = "Beatify";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $password, $dbname);
 
 if (isset($_POST['artistas'])) {
     if (is_array($_POST['artistas'])) {
