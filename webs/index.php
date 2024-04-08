@@ -12,14 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Beatify</title>
 
-    <script src="../assets/js/audio.js"></script>
-    <script src="../assets/js/code.js"></script>
-    <script src="../assets/js/carregarCancons.js"></script>
-    <script src="../assets/js/perfil.js"></script>
-    <script src="../assets/js/cookies.js"></script>
+
+
     <script src="../assets/js/dadesUser.js"></script>
 </head>
 
@@ -51,7 +50,8 @@
         <div class="miniMenu">
             <ul id="menu">
                 <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
-                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a></li>
+                <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
+                </li>
             </ul>
             <div class="buscar">
                 <input type="text" id="searchInput" placeholder="Cerca" required />
@@ -166,5 +166,10 @@
     </footer>
 
 </body>
+<script src="../assets/js/audio.js"></script>
+<script src="../assets/js/code.js"></script>
+<script src="../assets/js/carregarCancons.js"></script>
+<script src="../assets/js/perfil.js"></script>
+<script src="../assets/js/cookies.js"></script>
 
 </html>

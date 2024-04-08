@@ -38,13 +38,13 @@ if ($result->num_rows > 0) {
                 'ID_Album' => $row['ID_Album'],
                 'Titol_Album' => $row['Titol_Album'],
                 'ID_Genere' => $row['ID_Genere'],
-                'Artistas' => array() // Inicializar un array para almacenar los Artistas de esta canción
+                'artistas' => array() // Inicializar un array para almacenar los Artistas de esta canción
             );
         }
         
         // Agregar información del Artista a la canción actual
         if (!empty($row['ID_Artista']) && !empty($row['Nom_Artista'])) {
-            $canciones[$ID_Canco]['Artistas'][] = array(
+            $canciones[$ID_Canco]['artistas'][] = array(
                 'ID_Artista' => $row['ID_Artista'],
                 'Nom_Artista' => $row['Nom_Artista']
             );
