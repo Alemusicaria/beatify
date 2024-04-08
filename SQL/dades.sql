@@ -92,7 +92,7 @@ VALUES
   ('Hip Hop'),
   ('Bachata');
 
-INSERT INTO canco (ID_Album, ID_Genere, Titol) 
+INSERT INTO Canco (ID_Album, ID_Genere, Titol) 
 VALUES
   (NULL, 1, 'Amanece'),
   (NULL, 1, 'Asesina Remix'),
