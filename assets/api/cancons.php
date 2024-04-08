@@ -1,12 +1,12 @@
 <?php
 
 // Conexión a la base de datos
-$servername = "beatify.com";
-$username = "root";
-$password = "";
+$servername = "localhost";
+$dbusername = "beatify";
+$dbpassword = "123456";
 $dbname = "Beatify";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {

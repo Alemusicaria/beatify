@@ -5,7 +5,7 @@ if (isset($_POST['nuevaFoto']) && isset($_POST['username'])) {
     $username = $_POST['username'];
 
 
-    $servername = "beatify.com";
+    $servername = "localhost";
     $dbusername = "beatify";
     $dbpassword = "123456";
     $dbname = "Beatify";
