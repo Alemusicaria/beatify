@@ -71,7 +71,7 @@
             <?php
 
             // Conectar con la base de datos (ajusta las credenciales según tu configuración)
-            $servername = "beatify.com";
+            $servername = "localhost";
             $dbusername = "beatify";
             $dbpassword = "123456";
             $dbname = "Beatify";
