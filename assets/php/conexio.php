@@ -5,7 +5,9 @@ $username = "root";
 $dbpassword = "123456";
 $dbname = "Beatify";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+echo "Abans";
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+echo "Despres";
 
 // Verificar la conexión
 if ($conn->connect_error) {
