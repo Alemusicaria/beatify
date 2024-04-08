@@ -14,45 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Beatify</title>
-    <script>
-        // Definir la función toggleDropdown fuera de $(document).ready()
-        function toggleDropdown() {
-            $('.dropdown-list').toggle();
-        }
 
-        $(document).ready(function() {
-            // Mostrar opciones de personalización al hacer clic en el botón
-            $('#btn-customize').click(function() {
-                $('#customize-options').removeClass('hidden');
-            });
-
-            // Guardar personalización al hacer clic en el botón de guardar
-            $('#btn-save').click(guardarPersonalizacion);
-
-            // Ocultar la lista desplegable al inicio
-            $('.dropdown-list').hide();
-
-            // Ocultar la lista desplegable al hacer clic fuera de ella
-            $(document).click(function(e) {
-                if (!$(e.target).closest('.perfil-dropdown').length) {
-                    $('.dropdown-list').hide();
-                }
-            });
-        });
-
-        // Función para guardar la personalización
-        function guardarPersonalizacion() {
-            const opciones = {
-                forma: $('#button-shape').val(),
-                color: $('#color-picker').val(),
-                fontSize: $('#font-size').val(),
-            };
-
-            document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
-
-            $('#customize-options').addClass('hidden');
-        }
-    </script>
+    <script src="../assets/js/audio.js"></script>
+    <script src="../assets/js/code.js"></script>
+    <script src="../assets/js/carregarCancons.js"></script>
+    <script src="../assets/js/perfil.js"></script>
+    <script src="../assets/js/cookies.js"></script>
+    <script src="../assets/js/dadesUser.js"></script>
 </head>
 
 <body>
@@ -197,12 +165,6 @@
         </div>
     </footer>
 
-    <script src="../assets/js/audio.js"></script>
-    <script src="../assets/js/code.js"></script>
-    <script src="../assets/js/carregarCancons.js"></script>
-    <script src="../assets/js/perfil.js"></script>
-    <script src="../assets/js/cookies.js"></script>
-    <script src="../assets/js/dadesUser.js"></script>
 </body>
 
 </html>
