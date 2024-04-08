@@ -7,7 +7,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Connecta amb la base de dades (canvia les credencials segons la teva configuració)
-$servername = "localhost";
+$servername = "beatify.com";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "beatify";

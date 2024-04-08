@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 // Conectar con la base de datos (ajusta las credenciales según tu configuración)
-$servername = "localhost";
+$servername = "beatify.com";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "beatify";

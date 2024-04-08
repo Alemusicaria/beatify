@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos (modifica los valores según tu configuración)
-$servername = "localhost";
+$servername = "beatify.com";
 $username = "root";
 $password = "";
 $dbname = "Beatify";

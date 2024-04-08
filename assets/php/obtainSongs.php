@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "beatify.com";
 $username = "root";
 $password = "";
 $dbname = "Beatify";
