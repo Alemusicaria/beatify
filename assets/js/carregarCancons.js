@@ -87,6 +87,7 @@ function carregarCancons() {
         url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
+		console.log(data);
             try {
                 try {
                     canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
