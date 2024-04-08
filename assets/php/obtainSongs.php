@@ -1,7 +1,7 @@
 <?php
 $servername = "beatify.com";
 $username = "root";
-$password = "";
+$dbpassword = "123456";
 $dbname = "Beatify";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

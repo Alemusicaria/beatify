@@ -2,7 +2,7 @@
 // Conexión a la base de datos (modifica los valores según tu configuración)
 $servername = "beatify.com";
 $username = "root";
-$password = "";
+$dbpassword = "123456";
 $dbname = "Beatify";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

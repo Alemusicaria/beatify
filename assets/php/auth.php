@@ -6,7 +6,7 @@ $password = $_POST['password'];
 // Connecta amb la base de dades (canvia les credencials segons la teva configuració)
 $servername = "beatify.com";
 $dbusername = "root";
-$dbpassword = "";
+$dbpassword = "123456";
 $dbname = "beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);

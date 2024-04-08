@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 // Conéctate a la base de datos (actualiza con tus credenciales)
-$conexion = new mysqli("beatify.com", "root", "", "beatify");
+$conexion = new mysqli("beatify.com", "root", "123456", "beatify");
 
 // Verifica la conexión
 if ($conexion->connect_error) {
