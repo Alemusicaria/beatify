@@ -157,6 +157,11 @@
             </div>
         </div>
     </footer>
+    <script>
+        function toggleDropdown() {
+            $('.dropdown-list').toggle();
+        }
+    </script>
     <script src="../assets/js/audio.js"></script>
     <script src="../assets/js/code.js"></script>
     <script src="../assets/js/carregarCancons.js"></script>
