@@ -17,12 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function iniciar(event) {
         var reproductorImg = $('#reproductor-img');
         var reproductorTitle = $('#reproductor-title');
-        var reproductorArtist = $('#reproductor-artist');
         var reproductorAudio = $('#reproductor-audio');
-    
+
         reproductorImg.attr('src', imgSrc);
         reproductorTitle.text(songTitle);
-        reproductorArtist.text(artistInfo);
         reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
         reproductorAudio[0].play();
     }
@@ -67,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var divPortadaDiv = document.createElement("div");
             divPortadaDiv.classList.add("divPortada");
             var imgPortada = document.createElement("img");
+            imgPortada.classList.add("portadaList");
             if (titulo.TitolAlbum) {
                 imgPortada.src = '../musica/portades/' + titulo.TitolAlbum + ".jpg";
             } else {
@@ -83,7 +82,26 @@ document.addEventListener('DOMContentLoaded', function () {
             listSongsDiv.appendChild(divCancoDiv);
             tabla.appendChild(listSongsDiv);
         });
-        $('.playBlack').on('click', iniciar);
+        $('.playBlack').on('click', start);
+    }
+    function start(event) {
+        var cancoDiv = $(this).closest('.listSongs');
+        var imgSrc = cancoDiv.find('img.portadaList').attr('src');
+        var songTitle = cancoDiv.find('h4').text();
+
+        // Obtener el índice de la canción seleccionada
+        var index = $('.songs').index(cancoDiv);
+
+
+
+        var reproductorImg = $('#reproductor-img');
+        var reproductorTitle = $('#reproductor-title');
+        var reproductorAudio = $('#reproductor-audio');
+
+        reproductorImg.attr('src', imgSrc);
+        reproductorTitle.text(songTitle);
+        reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
+        reproductorAudio[0].play(); // Iniciar la reproducción
     }
 
 });
