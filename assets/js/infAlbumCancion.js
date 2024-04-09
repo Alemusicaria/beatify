@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var songTitle = cancoDiv.find('h4').text();
 
         // Obtener el índice de la canción seleccionada
-        var index = $('.songs').index(cancoDiv);
+        var index = $('.listSongs').index(cancoDiv);
 
 
 
@@ -102,6 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
         reproductorTitle.text(songTitle);
         reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
         reproductorAudio[0].play();
+        window.reproducirCancionDesdeIndice(index);
     }
-
 });
