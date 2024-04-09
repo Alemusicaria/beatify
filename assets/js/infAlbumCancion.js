@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.play').on('click', iniciar);
 
     function iniciar(event) {
-        var imgSrc = $(this).attr('src');
-        var songTitle = $(this).text();
         var reproductorImg = $('#reproductor-img');
         var reproductorTitle = $('#reproductor-title');
+        var reproductorArtist = $('#reproductor-artist');
         var reproductorAudio = $('#reproductor-audio');
-
+    
         reproductorImg.attr('src', imgSrc);
         reproductorTitle.text(songTitle);
+        reproductorArtist.text(artistInfo);
         reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
         reproductorAudio[0].play();
     }
