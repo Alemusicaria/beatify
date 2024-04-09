@@ -1,8 +1,8 @@
 <?php
 // Connecta amb la base de dades (canvia les credencials segons la teva configuració)
 $servername = "localhost";
-$dbusername = "beatify";
-$dbpassword = "123456";
+$dbusername = "root";
+$dbpassword = "";
 $dbname = "Beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
