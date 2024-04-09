@@ -2,8 +2,8 @@
 
 // Variables para la conexión a la base de datos
 $servername = "localhost";
-$dbusername = "beatify";
-$dbpassword = "123456";
+$dbusername = "root";
+$dbpassword = "";
 $dbname = "Beatify";
 
 // Conexión a la base de datos

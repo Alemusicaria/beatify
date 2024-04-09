@@ -76,8 +76,8 @@
 
             // Conectar con la base de datos (ajusta las credenciales según tu configuración)
             $servername = "localhost";
-            $dbusername = "beatify";
-            $dbpassword = "123456";
+            $dbusername = "root";
+            $dbpassword = "";
             $dbname = "Beatify";
 
             $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -126,9 +126,11 @@
         </div>
         <div class="lista">
             <div id="imgPlay"> <img src="../img/playImg.png" alt="" class="play"></div>
-            <div><h2>Cançons Similars</h2></div>
+            <div>
+                <h2>Cançons Similars</h2>
+            </div>
             <div id="tablaCanciones" class="scrollable-container">
-                
+
             </div>
         </div>
     </div>
