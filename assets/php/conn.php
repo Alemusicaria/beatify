@@ -4,6 +4,7 @@ $servername = "localhost";
 $dbusername = "beatify";
 $dbpassword = "123456";
 $dbname = "Beatify";
+
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 // Verifica la connexió
