@@ -127,7 +127,7 @@
         <div class="lista">
             <div id="imgPlay"> <img src="../img/playImg.png" alt="" class="play"></div>
             <div>
-                <h2>Cançons Similars</h2>
+                <h2>Cançons dels Artistes</h2>
             </div>
             <div id="tablaCanciones" class="scrollable-container">
 

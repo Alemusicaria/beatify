@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         reproductorImg.attr('src', imgSrc);
         reproductorTitle.text(songTitle);
         reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
-        reproductorAudio[0].play(); // Iniciar la reproducción
+        reproductorAudio[0].play();
     }
 
 });
