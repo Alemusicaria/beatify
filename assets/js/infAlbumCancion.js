@@ -89,11 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var imgSrc = cancoDiv.find('img.portadaList').attr('src');
         var songTitle = cancoDiv.find('h4').text();
 
-        // Obtener el índice de la canción seleccionada
-        var index = $('.listSongs').index(cancoDiv);
-
-
-
         var reproductorImg = $('#reproductor-img');
         var reproductorTitle = $('#reproductor-title');
         var reproductorAudio = $('#reproductor-audio');
@@ -102,6 +97,5 @@ document.addEventListener('DOMContentLoaded', function () {
         reproductorTitle.text(songTitle);
         reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
         reproductorAudio[0].play();
-        window.reproducirCancionDesdeIndice(index);
     }
 });
