@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.play').on('click', iniciar);
 
     function iniciar(event) {
+        var imgSrc = $(this).attr('src');
+        var songTitle = $(this).text();
         var reproductorImg = $('#reproductor-img');
         var reproductorTitle = $('#reproductor-title');
         var reproductorAudio = $('#reproductor-audio');

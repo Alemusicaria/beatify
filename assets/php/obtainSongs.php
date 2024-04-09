@@ -4,7 +4,7 @@ $dbusername = "beatify";
 $dbpassword = "123456";
 $dbname = "Beatify";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 if (isset($_POST['artistas'])) {
     if (is_array($_POST['artistas'])) {
@@ -16,12 +16,12 @@ if (isset($_POST['artistas'])) {
     $data = json_decode($jsonString, true);
     error_log("Contenido de \$data: " . print_r($data, true));
 
-    $sql = "SELECT c.ID_Album, c.Titol AS TitolCanco, al.Titol AS TitolAlbum
-    FROM Canco c
-    INNER JOIN Album al ON c.ID_Album = al.ID
-    INNER JOIN Crea_musica cm ON c.ID = cm.ID_Canco
-    INNER JOIN Artista a ON cm.ID_Artista = a.ID
-    WHERE a.NomArtistic IN ('" . implode("','", $data) . "')";
+    $sql = "SELECT Canco.ID_Album, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum
+    FROM Canco
+    INNER JOIN Album  ON Canco.ID_Album = Album.ID
+    INNER JOIN Crea_musica ON Canco.ID = Crea_musica.ID_Canco
+    INNER JOIN Artista  ON Crea_musica.ID_Artista = Artista.ID
+    WHERE Artista.NomArtistic IN ('" . implode("','", $data) . "')";
 
     $result = $conn->query($sql);
 

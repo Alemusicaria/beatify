@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obtener todas las canciones
-$sql = "SELECT * FROM canco";
+$sql = "SELECT * FROM Canco";
 $resultado = $conn->query($sql);
 
 // Verificar si hay resultados
