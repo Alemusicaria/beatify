@@ -46,7 +46,6 @@
         <p class="premium"></p>
 
         <p id="select">Selecciona tu foto de perfil:</p>
-        <!-- Nou bloc d'opcions generat dinàmicament amb JavaScript -->
         <select id="opcionesImagen">
         </select>
 
