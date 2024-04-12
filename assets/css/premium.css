@@ -54,22 +54,14 @@ header {
     }
 
     button {
-      display: inline-block;
       padding: 10px 20px;
-      /* Puedes ajustar el relleno según tus necesidades */
       font-size: 16px;
-      /* Puedes ajustar el tamaño de la fuente según tus preferencias */
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      /* Puedes ajustar el color del borde según tus preferencias */
-      border-radius: 25px;
-      /* Este valor determina la cantidad de redondeo; puedes ajustarlo según tus preferencias */
       background-color: #b40e0e;
-      /* Puedes ajustar el color de fondo según tus preferencias */
-      color: #ffffff;
-    }
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
 
     button:hover {
       transform: scale(1.1);
@@ -267,19 +259,4 @@ header ul li img {
   border-radius: 0%;
   margin-right: 8px;
   margin-left: 8px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 140px;
-}
-
-button:hover {
-  transform: scale(1.1);
 }

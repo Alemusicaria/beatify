@@ -37,6 +37,9 @@ playPause.addEventListener('click', togglePlayPause);
 audio.addEventListener('play', () => {
     playPause.src = '../img/simbols/pause.svg';
 });
+audio.addEventListener('pause', () => {
+    playPause.src = '../img/simbols/Play.svg';
+});
 
 plus10.addEventListener('click', () => {
     audio.currentTime += 10;

@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.play').on('click', iniciar);
 
     function iniciar(event) {
-        var imgSrc = $(this).attr('src');
-        var songTitle = $(this).text();
         var reproductorImg = $('#reproductor-img');
         var reproductorTitle = $('#reproductor-title');
         var reproductorAudio = $('#reproductor-audio');
@@ -67,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var divPortadaDiv = document.createElement("div");
             divPortadaDiv.classList.add("divPortada");
             var imgPortada = document.createElement("img");
+            imgPortada.classList.add("portadaList");
             if (titulo.TitolAlbum) {
                 imgPortada.src = '../musica/portades/' + titulo.TitolAlbum + ".jpg";
             } else {
@@ -83,7 +82,20 @@ document.addEventListener('DOMContentLoaded', function () {
             listSongsDiv.appendChild(divCancoDiv);
             tabla.appendChild(listSongsDiv);
         });
-        $('.playBlack').on('click', iniciar);
+        $('.playBlack').on('click', start);
     }
+    function start(event) {
+        var cancoDiv = $(this).closest('.listSongs');
+        var imgSrc = cancoDiv.find('img.portadaList').attr('src');
+        var songTitle = cancoDiv.find('h4').text();
 
+        var reproductorImg = $('#reproductor-img');
+        var reproductorTitle = $('#reproductor-title');
+        var reproductorAudio = $('#reproductor-audio');
+
+        reproductorImg.attr('src', imgSrc);
+        reproductorTitle.text(songTitle);
+        reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
+        reproductorAudio[0].play();
+    }
 });

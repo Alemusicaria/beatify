@@ -107,7 +107,7 @@
                     echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
                 }
             } else {
-                echo '<p>INICIAR SESSIO</p>';
+                echo '<p>Inicia sessió per a veure les teves llistes</p>';
             }
             ?>
         </div>
@@ -126,9 +126,11 @@
         </div>
         <div class="lista">
             <div id="imgPlay"> <img src="../img/playImg.png" alt="" class="play"></div>
-            <div><h2>Cançons Similars</h2></div>
+            <div>
+                <h2>Més Cançons dels Artistes</h2>
+            </div>
             <div id="tablaCanciones" class="scrollable-container">
-                
+
             </div>
         </div>
     </div>

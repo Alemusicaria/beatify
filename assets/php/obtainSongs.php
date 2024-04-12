@@ -18,7 +18,7 @@ if (isset($_POST['artistas'])) {
 
     $sql = "SELECT Canco.ID_Album, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum
     FROM Canco
-    INNER JOIN Album  ON Canco.ID_Album = Album.ID
+    LEFT JOIN Album  ON Canco.ID_Album = Album.ID
     INNER JOIN Crea_musica ON Canco.ID = Crea_musica.ID_Canco
     INNER JOIN Artista  ON Crea_musica.ID_Artista = Artista.ID
     WHERE Artista.NomArtistic IN ('" . implode("','", $data) . "')";

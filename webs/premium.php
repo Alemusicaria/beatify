@@ -38,7 +38,7 @@
                 </ul>
             ';
             } else {
-                echo "<li><button id=\"iniciarSessio\">Iniciar Sessió</button></li>";
+                echo "<ul><li><button id=\"iniciarSessio\">Iniciar Sessió</button></li><ul>";
             }
             ?>
         </div>

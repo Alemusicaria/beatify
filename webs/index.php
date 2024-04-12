@@ -105,7 +105,7 @@
                     echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
                 }
             } else {
-                echo '<p>INICIAR SESSIO</p>';
+                echo '<p>Inicia sessió per a veure les teves llistes</p>';
             }
             ?>
         </div>
