@@ -14,7 +14,8 @@ if ($conn->connect_error) {
 }
 
 
-function veureLlistes(){
+function veureLlistes()
+{
     global $conn;
 
     // Verificar si la canción ya está en la lista
@@ -33,7 +34,8 @@ function veureLlistes(){
         echo "No se encontraron canciones";
     }
 }
-function veureCanconsLlista($id_Llista){
+function veureCanconsLlista($id_Llista)
+{
     global $conn;
 
     // Verificar si la canción ya está en la lista
@@ -84,10 +86,22 @@ function eliminarCancionDeLista($idLista, $idCancion)
     $sql = "DELETE FROM Afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
     if ($conn->query($sql) === TRUE) {
         echo "Canción eliminada de la lista de reproducción";
+
+        // Verificar si la lista de reproducción está vacía
+        $sql_check_empty = "SELECT COUNT(*) AS count FROM Afegeix WHERE ID_LlistaReproduccio = $idLista";
+        $result = $conn->query($sql_check_empty);
+        $row = $result->fetch_assoc();
+        $count = $row['count'];
+
+        // Si la lista de reproducción está vacía, eliminarla
+        if ($count == 0) {
+            eliminarListaReproduccion($idLista);
+        }
     } else {
-        echo "Error al eliminar la canción: " . $conn->error;
+        echo "Error al eliminar la canción de la lista de reproducción: " . $conn->error;
     }
 }
+
 
 // Función para eliminar una lista de reproducción
 function eliminarListaReproduccion($idLista)
@@ -118,12 +132,11 @@ function crearListaReproduccion($nombreLista, $idUsuario)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if(isset($_GET['id_Llista'])) {
-        $id_Llista = $_GET['id_Llista'];
-        veureCanconsLlista($id_Llista);
-    } else {
-        veureLlistes();
-    }
+    veureLlistes();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_Llista'])) {
+    $id_Llista = $_POST['id_Llista'];
+    veureCanconsLlista($id_Llista);
 }
 // Ruta para agregar una canción a una lista de reproducción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
@@ -154,5 +167,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre_lista']) && is
 
 // Cerrar conexión
 $conn->close();
-
-?>
