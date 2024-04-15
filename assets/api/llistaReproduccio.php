@@ -24,11 +24,11 @@ function veureLlistes(){
     // Verificar si hay resultados
     if ($resultado->num_rows > 0) {
         // Convertir resultados a formato JSON
-        $canciones = array();
+        $array = array();
         while ($fila = $resultado->fetch_assoc()) {
-            $canciones[] = $fila;
+            $array[] = $fila;
         }
-        echo json_encode($canciones);
+        echo json_encode($array);
     } else {
         echo "No se encontraron canciones";
     }
