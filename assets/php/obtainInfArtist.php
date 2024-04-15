@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if (isset($_POST['selectedArtist'])) {
     $data=$_POST['selectedArtist'];
 
-    $sql = "SELECT Artista.ID, Artista.Info, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum
+    $sql = "SELECT Artista.ID AS ID_Artista, Artista.Info, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum
     FROM Artista
     INNER JOIN Album  ON Artista.ID = Album.ID_Artista
     INNER JOIN Crea_musica ON Artista.ID = Crea_musica.ID_Artista
@@ -21,16 +21,17 @@ if (isset($_POST['selectedArtist'])) {
     if ($result && $result->num_rows > 0) {
         $array = array();
         while ($row = $result->fetch_assoc()) {
-            $titulo = $row["TitolCanco"];
-            if (!isset($canciones[$titulo])) {
-                $canciones[$titulo] = array(
+            $idArtista = $row["ID_Artista"];
+            if (!isset($array[$titulo])) {
+                $array[$idArtista] = array(
                     'TitolCanco' => $row['TitolCanco'],
-                    'TitolAlbum' => $row['TitolAlbum']
+                    'TitolAlbum' => $row['TitolAlbum'],
+                    'Info' => $row['Info']
                 );
             }
         }
-        $canciones = array_values($canciones);
-        echo json_encode($canciones);
+        $array = array_values($array);
+        echo json_encode($array);
     } else {
         echo json_encode(array('error' => 'No se encontraron canciones en la base de datos'));
     }
