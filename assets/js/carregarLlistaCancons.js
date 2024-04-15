@@ -115,7 +115,7 @@ function afegirCancoLlista(event) {
 
             // Recorrer todas las canciones y mostrarlas en el div
             $.each(response, function (index, canco) {
-                $('#llistaSeleccionades').append('<div class="songs">' + canco.Titol + ' (' + canco.artistas + ')</div>');
+                $('#llistaSeleccionades').append('<div class="songs">' + canco.Titol + '</div>');
                 // Aquí puedes agregar más información si es necesario, como el nombre del artista, etc.
             });
         },
