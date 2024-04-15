@@ -13,22 +13,19 @@ if (isset($_POST['selectedArtist'])) {
     FROM Artista
     INNER JOIN Album  ON Artista.ID = Album.ID_Artista
     INNER JOIN Crea_musica ON Artista.ID = Crea_musica.ID_Artista
-    INNER JOIN Canco ON Crea_musica.ID_Canco = Canco.ID
-    WHERE Artista.NomArtistic IN ('" . implode("','", $data) . "')";
+    LEFT JOIN Canco ON Crea_musica.ID_Canco = Canco.ID
+    WHERE Artista.NomArtistic = '$data'";
 
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
         $array = array();
         while ($row = $result->fetch_assoc()) {
-            $idArtista = $row["ID_Artista"];
-            if (!isset($array[$titulo])) {
-                $array[$idArtista] = array(
+                $array[] = array(
                     'TitolCanco' => $row['TitolCanco'],
                     'TitolAlbum' => $row['TitolAlbum'],
                     'Info' => $row['Info']
-                );
-            }
+                ); 
         }
         $array = array_values($array);
         echo json_encode($array);
