@@ -1,6 +1,5 @@
 <?php
 
-// Variables para la conexión a la base de datos
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
@@ -14,19 +13,59 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Función para agregar una canción a una lista de reproducción
-function agregarCancionALista($idLista, $idCancion) {
+
+function veureLlistes(){
     global $conn;
-    
+
+    // Verificar si la canción ya está en la lista
+    $sql = "SELECT * FROM  Llista_Reproduccio";
+    $resultado = $conn->query($sql);
+
+    // Verificar si hay resultados
+    if ($resultado->num_rows > 0) {
+        // Convertir resultados a formato JSON
+        $array = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $array[] = $fila;
+        }
+        echo json_encode($array);
+    } else {
+        echo "No se encontraron canciones";
+    }
+}
+function veureCanconsLlista($id_Llista){
+    global $conn;
+
+    // Verificar si la canción ya está en la lista
+    $sql = "SELECT * FROM Afegeix WHERE ID_LlistaReproduccio = $id_Llista";
+    $resultado = $conn->query($sql);
+
+    // Verificar si hay resultados
+    if ($resultado->num_rows > 0) {
+        // Convertir resultados a formato JSON
+        $array = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $array[] = $fila;
+        }
+        echo json_encode($array);
+    } else {
+        echo "No se encontraron canciones";
+    }
+}
+// Función para agregar una canción a una lista de reproducción
+function afegirCanconsLlista($idLista, $idCancion)
+{
+    global $conn;
+
     // Verificar si la canción ya está en la lista
     $sql = "SELECT * FROM Afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
     $resultado = $conn->query($sql);
-    
+
     if ($resultado->num_rows > 0) {
         echo "La canción ya está en la lista de reproducción";
         return;
     }
-    
+
     // Insertar la canción en la lista de reproducción
     $sql = "INSERT INTO Afegeix (ID_LlistaReproduccio, ID_Canco) VALUES ($idLista, $idCancion)";
     if ($conn->query($sql) === TRUE) {
@@ -37,9 +76,10 @@ function agregarCancionALista($idLista, $idCancion) {
 }
 
 // Función para eliminar una canción de una lista de reproducción
-function eliminarCancionDeLista($idLista, $idCancion) {
+function eliminarCancionDeLista($idLista, $idCancion)
+{
     global $conn;
-    
+
     // Eliminar la canción de la lista de reproducción
     $sql = "DELETE FROM Afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
     if ($conn->query($sql) === TRUE) {
@@ -50,9 +90,10 @@ function eliminarCancionDeLista($idLista, $idCancion) {
 }
 
 // Función para eliminar una lista de reproducción
-function eliminarListaReproduccion($idLista) {
+function eliminarListaReproduccion($idLista)
+{
     global $conn;
-    
+
     // Eliminar la lista de reproducción
     $sql = "DELETE FROM Llista_Reproduccio WHERE ID = $idLista";
     if ($conn->query($sql) === TRUE) {
@@ -63,9 +104,10 @@ function eliminarListaReproduccion($idLista) {
 }
 
 // Función para crear una lista de reproducción
-function crearListaReproduccion($nombreLista, $idUsuario) {
+function crearListaReproduccion($nombreLista, $idUsuario)
+{
     global $conn;
-    
+
     // Insertar la lista de reproducción en la base de datos
     $sql = "INSERT INTO Llista_Reproduccio (ID_Usuari, Nom) VALUES ($idUsuario, '$nombreLista')";
     if ($conn->query($sql) === TRUE) {
@@ -75,11 +117,19 @@ function crearListaReproduccion($nombreLista, $idUsuario) {
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if(isset($_GET['id_Llista'])) {
+        $id_Llista = $_GET['id_Llista'];
+        veureCanconsLlista($id_Llista);
+    } else {
+        veureLlistes();
+    }
+}
 // Ruta para agregar una canción a una lista de reproducción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
     $idLista = $_POST['id_lista'];
     $idCancion = $_POST['id_cancion'];
-    agregarCancionALista($idLista, $idCancion);
+    afegirCanconsLlista($idLista, $idCancion);
 }
 
 // Ruta para eliminar una canción de una lista de reproducción
