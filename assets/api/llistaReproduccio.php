@@ -33,6 +33,25 @@ function veureLlistes(){
         echo "No se encontraron canciones";
     }
 }
+function veureCanconsLlista($id_Llista){
+    global $conn;
+
+    // Verificar si la canción ya está en la lista
+    $sql = "SELECT * FROM Afegeix WHERE ID_LlistaReproduccio = $id_Llista";
+    $resultado = $conn->query($sql);
+
+    // Verificar si hay resultados
+    if ($resultado->num_rows > 0) {
+        // Convertir resultados a formato JSON
+        $array = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $array[] = $fila;
+        }
+        echo json_encode($array);
+    } else {
+        echo "No se encontraron canciones";
+    }
+}
 // Función para agregar una canción a una lista de reproducción
 function afegirCanconsLlista($idLista, $idCancion)
 {
@@ -100,6 +119,9 @@ function crearListaReproduccion($nombreLista, $idUsuario)
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     veureLlistes();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_Llista'])) {
+    veureCanconsLlista($id_Llista);
 }
 // Ruta para agregar una canción a una lista de reproducción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
