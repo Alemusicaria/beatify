@@ -97,7 +97,8 @@
 
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo ' <a class="Lista">' . $row['Nom'] . '</a> <br>';
+                        echo ' <a class="Llista">' . $row['Nom'] . '</a> <br>
+                        <p style="display:none">' . $row['ID'] . $row['ID_Usuari'] . '</p>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
                     }
                     echo '</div>';
