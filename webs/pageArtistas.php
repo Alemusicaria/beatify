@@ -8,7 +8,6 @@
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/estil.css">
-    <link rel="stylesheet" href="../assets/css/pageSongs.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Beatify</title>
+    <title>Beatify - Artistes</title>
 </head>
 
 <body>
@@ -43,7 +42,7 @@
             ?>
         </ul>
     </header>
-    <div class="contenedor-left">
+    <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
                 <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
@@ -96,13 +95,15 @@
                 // Verificar si hay resultados
                 if ($result->num_rows > 0) {
                     // Iterar sobre cada lista de reproducción
+                    echo '<div class="Llistes">';
+
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo '<div class="Llistes">';
-                        echo '<h3>' . $row['Nom'] . '</h3>';
+                        echo ' <a class="Llista">' . $row['Nom'] . '</a> <br>
+                        <p style="display:none">ID LLISTA:' . $row['ID'] . ' ID USUARI:' . $row['ID_Usuari'] . '</p>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
-                        echo '</div>';
                     }
+                    echo '</div>';
                 } else {
                     echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
                 }
@@ -121,12 +122,18 @@
                 <h2></h2>
             </div>
             <div class="artista">
+                <h3></h3>
             </div>
         </div>
         <div class="lista">
-            <div id="imgPlay"> <img src="../img/playImg.png" alt="" class="play"></div>
             <div>
-                <h2>Més Cançons dels Artistes</h2>
+                <h2>Albums del Artista</h2>
+            </div>
+            <div id="tablaAlbums" class="scrollable-container">
+
+            </div>
+            <div>
+                <h2>Cançons del Artista</h2>
             </div>
             <div id="tablaCanciones" class="scrollable-container">
 
@@ -175,14 +182,13 @@
             </div>
         </div>
     </footer>
-    <script>
-    </script>
-    <script src="../assets/js/infAlbumCancion.js"></script>
-    <script src="../assets/js/audio.js"></script>
-    <script src="../assets/js/code.js"></script>
-    <script src="../assets/js/perfil.js"></script>
-    <script src="../assets/js/cookies.js"></script>
-    <script src="../assets/js/dadesUser.js"></script>
+
 </body>
+<script src="../assets/js/infArtistes.js"></script>
+<script src="../assets/js/audio.js"></script>
+<script src="../assets/js/code.js"></script>
+<script src="../assets/js/perfil.js"></script>
+<script src="../assets/js/cookies.js"></script>
+<script src="../assets/js/dadesUser.js"></script>
 
 </html>
