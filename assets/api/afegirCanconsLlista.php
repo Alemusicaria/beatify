@@ -34,3 +34,9 @@ function afegirCanconsLlista($idLista, $idCancion) {
         echo "Error al agregar la canción: " . $conn->error;
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
+    $idLista = $_POST['id_lista'];
+    $idCancion = $_POST['id_cancion'];
+    afegirCanconsLlista($idLista, $idCancion);
+}

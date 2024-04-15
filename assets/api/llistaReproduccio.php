@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Función para agregar una canción a una lista de reproducción
-function afegirCanconsLlista($idLista, $idCancion) {
+/*function afegirCanconsLlista($idLista, $idCancion) {
     global $conn;
     
     // Verificar si la canción ya está en la lista
@@ -33,7 +33,7 @@ function afegirCanconsLlista($idLista, $idCancion) {
     } else {
         echo "Error al agregar la canción: " . $conn->error;
     }
-}
+}*/
 
 // Función para eliminar una canción de una lista de reproducción
 function eliminarCancionDeLista($idLista, $idCancion) {
@@ -75,11 +75,11 @@ function crearListaReproduccion($nombreLista, $idUsuario) {
 }
 
 // Ruta para agregar una canción a una lista de reproducción
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
+/*if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
     $idLista = $_POST['id_lista'];
     $idCancion = $_POST['id_cancion'];
     afegirCanconsLlista($idLista, $idCancion);
-}
+}*/
 
 // Ruta para eliminar una canción de una lista de reproducción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista_eliminar']) && isset($_POST['id_cancion_eliminar'])) {
