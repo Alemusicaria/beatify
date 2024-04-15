@@ -1,6 +1,5 @@
 <?php
 
-// Variables para la conexión a la base de datos
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
@@ -15,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Función para agregar una canción a una lista de reproducción
-function agregarCancionALista($idLista, $idCancion) {
+function afegirCanconsLlista($idLista, $idCancion) {
     global $conn;
     
     // Verificar si la canción ya está en la lista
@@ -79,7 +78,7 @@ function crearListaReproduccion($nombreLista, $idUsuario) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
     $idLista = $_POST['id_lista'];
     $idCancion = $_POST['id_cancion'];
-    agregarCancionALista($idLista, $idCancion);
+    afegirCanconsLlista($idLista, $idCancion);
 }
 
 // Ruta para eliminar una canción de una lista de reproducción
