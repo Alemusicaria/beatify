@@ -15,4 +15,21 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Error en obtener las canciones:', error);
         }
     });
+    function carregarArtista(artista) {
+        if (selectedArtist) {
+            $('.foto img').attr('src', "../musica/artista/" + selectedArtist + ".jpg");
+        
+            $('.txt h2').text(selectedArtist);
+            
+            // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
+            $('.artista').empty();
+        
+            // Iteramos sobre el array de artistas y los agregamos al DOM
+            for (var i = 0; i < artistasArray.length; i++) {
+                var nombreArtista = artistasArray[i];
+                var $nombreArtistaElement = $('<h3 class="nom-artista">').text(nombreArtista);
+                $('.artista').append($nombreArtistaElement);
+            }
+        }
+    }
 });

@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.foto img').attr('src', imgSrc);
     
         var songTitle = selectedSong.title;
-        var artistInfo = selectedSong.artistInfo;
         $('.txt h2').text(songTitle);
         
         // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
