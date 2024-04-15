@@ -86,10 +86,22 @@ function eliminarCancionDeLista($idLista, $idCancion)
     $sql = "DELETE FROM Afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
     if ($conn->query($sql) === TRUE) {
         echo "Canción eliminada de la lista de reproducción";
+
+        // Verificar si la lista de reproducción está vacía
+        $sql_check_empty = "SELECT COUNT(*) AS count FROM Afegeix WHERE ID_LlistaReproduccio = $idLista";
+        $result = $conn->query($sql_check_empty);
+        $row = $result->fetch_assoc();
+        $count = $row['count'];
+
+        // Si la lista de reproducción está vacía, eliminarla
+        if ($count == 0) {
+            eliminarListaReproduccion($idLista);
+        }
     } else {
         echo "Error al eliminar la canción de la lista de reproducción: " . $conn->error;
     }
 }
+
 
 // Función para eliminar una lista de reproducción
 function eliminarListaReproduccion($idLista)
