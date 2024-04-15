@@ -118,12 +118,11 @@ function crearListaReproduccion($nombreLista, $idUsuario)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if(isset($_GET['id_Llista'])) {
-        $id_Llista = $_GET['id_Llista'];
-        veureCanconsLlista($id_Llista);
-    } else {
-        veureLlistes();
-    }
+    veureLlistes();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_Llista'])) {
+    $id_Llista = $_POST['id_Llista'];
+    veureCanconsLlista($id_Llista);
 }
 // Ruta para agregar una canción a una lista de reproducción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_lista']) && isset($_POST['id_cancion'])) {
