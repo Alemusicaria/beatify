@@ -32,12 +32,12 @@ function veureCancons()
         echo "No se encontraron canciones";
     }
 }
-function veureCanconsID($id_Cancons)
+function veureCanconsID($id_Canco)
 {
     global $conn;
 
     // Verificar si la canción ya está en la lista
-    $sql = "SELECT * FROM Canco WHERE ID_Canco = $id_Cancons";
+    $sql = "SELECT * FROM Canco WHERE ID = $id_Canco";
     $resultado = $conn->query($sql);
 
     // Verificar si hay resultados
