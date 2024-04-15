@@ -14,7 +14,8 @@ if ($conn->connect_error) {
 }
 
 
-function veureLlistes(){
+function veureLlistes()
+{
     global $conn;
 
     // Verificar si la canción ya está en la lista
@@ -33,7 +34,8 @@ function veureLlistes(){
         echo "No se encontraron canciones";
     }
 }
-function veureCanconsLlista($id_Llista){
+function veureCanconsLlista($id_Llista)
+{
     global $conn;
 
     // Verificar si la canción ya está en la lista
@@ -85,7 +87,7 @@ function eliminarCancionDeLista($idLista, $idCancion)
     if ($conn->query($sql) === TRUE) {
         echo "Canción eliminada de la lista de reproducción";
     } else {
-        echo "Error al eliminar la canción: " . $conn->error;
+        echo "Error al eliminar la canción de la lista de reproducción: " . $conn->error;
     }
 }
 
@@ -153,5 +155,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre_lista']) && is
 
 // Cerrar conexión
 $conn->close();
-
-?>
