@@ -97,7 +97,7 @@
 
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo ' <a href="mostrarLlista.php">' . $row['Nom'] . '</a> <br>';
+                        echo ' <a>' . $row['Nom'] . '</a> <br>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
                     }
                     echo '</div>';
