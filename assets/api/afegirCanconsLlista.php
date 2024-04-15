@@ -18,7 +18,7 @@ function afegirCanconsLlista($idLista, $idCancion) {
     global $conn;
     
     // Verificar si la canción ya está en la lista
-    $sql = "SELECT * FROM Afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
+    $sql = "SELECT * FROM afegeix WHERE ID_LlistaReproduccio = $idLista AND ID_Canco = $idCancion";
     $resultado = $conn->query($sql);
     
     if ($resultado->num_rows > 0) {
@@ -27,7 +27,7 @@ function afegirCanconsLlista($idLista, $idCancion) {
     }
     
     // Insertar la canción en la lista de reproducción
-    $sql = "INSERT INTO Afegeix (ID_LlistaReproduccio, ID_Canco) VALUES ($idLista, $idCancion)";
+    $sql = "INSERT INTO afegeix (ID_LlistaReproduccio, ID_Canco) VALUES ($idLista, $idCancion)";
     if ($conn->query($sql) === TRUE) {
         echo "Canción agregada a la lista de reproducción";
     } else {
