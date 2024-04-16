@@ -10,12 +10,21 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(response);
             var artista = JSON.parse(response);
             console.log(artista);
-            mostrarInformacionArtista(artista);
+            carregarArtista(artista);
         },
         error: function (error) {
             console.log('Error en obtener las canciones:', error);
         }
     });
+    function carregarArtista(artista){
+        $('.foto img').attr('src', "../musica/artista/" + selectedArtist + ".jpg");
+    
+        
+        $('.txt h2').text(selectedArtist);
+        
+        // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
+        $('.artista').empty(artista.Info);
+    }
     function mostrarInformacionArtista(artista) {
         // Mostrar los álbumes
         var tablaAlbums = document.getElementById("tablaAlbums");
@@ -25,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Iterar sobre las claves del objeto artista.canciones
         Object.keys(artista.canciones).forEach(function(key) {
-            var cancion = artista.canciones[key]; // Obtener la canción actual
-            cancion.Albums.forEach(function(album) { // Iterar sobre los álbumes de la canción
+            var cancion = artista.canciones[key]; 
+            cancion.Albums.forEach(function(album) { 
                 var albumElemento = document.createElement("div");
                 albumElemento.textContent = album;
                 tablaAlbums.appendChild(albumElemento);
