@@ -52,6 +52,34 @@ function veureUsuariID($id_Usuari)
         echo "No se encontraron canciones";
     }
 }
+function crearUsuari($contrasenya,$nom,$email,$cognom,$nomUsuari)
+{
+    global $conn;
+
+    // Hash de la contraseña
+$password_hashed = password_hash($contrasenya, PASSWORD_DEFAULT);
+
+// Comprueba si el usuario ya existe con el mismo nombre de usuario o correo electrónico
+$check_query = "SELECT * FROM Usuari WHERE NomUsuari='$nomUsuari' OR Email='$email'";
+$check_result = $conn->query($check_query);
+
+if ($check_result->num_rows > 0) {
+    // El usuario ya existe, envía una respuesta de error
+    echo "ERROR_USER_EXISTS";
+} else {
+    // El usuario no existe, procede con el registro
+    $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium) VALUES ('$password_hashed', '$nom', '$email', '$cognom', '$nomUsuari', NULL, 0)";
+
+    if ($conn->query($insert_query) === TRUE) {
+        echo "OK";
+    } else {
+        // Hubo un error en el registro
+        echo "ERROR_REGISTRATION";
+    }
+}
+
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     veureUsuaris();
@@ -59,6 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_Usuari'])) {
     $id_Usuari = $_POST['id_Usuari'];
     veureUsuariID($id_Usuari);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contrasenya'])&& isset($_POST['nom']) && isset($_POST['email'])&& isset($_POST['cognom']) && isset($_POST['nomUsuari'])) {
+    $contrasenya = $_POST['contrasenya'];
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $cognom = $_POST['cognom'];
+    $nomUsuari = $_POST['nomUsuari'];
+    crearUsuari($contrasenya,$nom,$email,$cognom,$nomUsuari);
 }
 
 // Cerrar conexión
