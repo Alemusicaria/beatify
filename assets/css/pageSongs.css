@@ -7,7 +7,15 @@ body{
     width: 100%;
 }
 #tablaAlbums{ 
+    display: grid;
     height: 175px;
+    justify-content: start;
+    grid-template-columns: repeat(3, 33%);
+    height: 175px;
+}
+.listAlbum{
+    display: flex;
+    font-weight: bold;
 }
 .infAC{
     display: flex;
