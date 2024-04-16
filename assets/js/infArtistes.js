@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
         $('.artista').empty(artista.Info);
+        mostrarInformacionArtista(artista)
     }
     function mostrarInformacionArtista(artista) {
         // Mostrar los álbumes
