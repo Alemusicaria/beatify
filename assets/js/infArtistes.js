@@ -18,16 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     function carregarArtista(artista) {
         $('.foto img').attr('src', "../musica/artistes/" + selectedArtist + ".jpg");
-
-
         $('.txt h2').text(artista.NomArtistic);
-
-        // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
         $('.artista h3').text(artista.Info);
         mostrarInformacionArtista(artista)
     }
     function mostrarInformacionArtista(artista) {
-        // Mostrar los álbumes
         var tablaAlbums = document.getElementById("tablaAlbums");
         tablaAlbums.innerHTML = "";
 
@@ -54,9 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+        if (tablaAlbums.children.length === 0) {
+            tablaAlbums.style.display = "none";
+        } else {
+        }
 
 
-        // Mostrar las canciones
+
+        
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
 
