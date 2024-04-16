@@ -6,10 +6,8 @@ body{
     height: 250px;
     width: 100%;
 }
-#taulaAlbums .scrollable-container {
-    overflow: auto; 
-    height: 250px;
-    width: 100%;
+#tablaAlbums{ 
+    height: 175px;
 }
 .infAC{
     display: flex;
