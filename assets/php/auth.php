@@ -18,7 +18,10 @@ if ($conn->connect_error) {
 // Escapa les dades per prevenir injeccions SQL
 $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
-
+if (password_verify($password, $_COOKIE['Contrasenya_hash'])) {
+    echo "Contraseña válida. Inicio de sesión exitoso.";
+    // Aquí puedes continuar con el proceso de inicio de sesión
+}
 // Crea la consulta SQL per obtenir l'usuari de la base de dades
 $sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password'";
 $result = $conn->query($sql);

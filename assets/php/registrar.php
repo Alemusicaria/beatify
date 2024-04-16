@@ -26,6 +26,7 @@ $email = mysqli_real_escape_string($conn, $email);
 $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+setcookie('Contrasenya_hash', $hashed_password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
 
 // Comprova si l'usuari ja existeix amb el mateix nom d'usuari o email
 $check_query = "SELECT * FROM Usuari WHERE NomUsuari='$username' OR Email='$email'";
