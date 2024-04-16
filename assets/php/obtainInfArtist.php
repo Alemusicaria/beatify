@@ -12,7 +12,7 @@ if (isset($_POST['selectedArtist'])) {
     $sql = "SELECT Artista.NomArtistic, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum, Artista.Info
     FROM Artista
     INNER JOIN Crea_musica ON Artista.ID = Crea_musica.ID_Artista
-    INNER JOIN Canco ON Crea_musica.ID_Canco = Canco.ID
+    LEFT JOIN Canco ON Crea_musica.ID_Canco = Canco.ID
     INNER JOIN Album ON Canco.ID_Album = Album.ID
     WHERE Artista.NomArtistic = '$data' AND Album.ID_Artista = Artista.ID";
 
