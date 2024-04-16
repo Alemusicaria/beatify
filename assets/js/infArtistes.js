@@ -22,18 +22,27 @@ document.addEventListener('DOMContentLoaded', function () {
         tablaAlbums.innerHTML = "";
         console.log("Álbumes:");
         console.log(artista.canciones); // Verifiquemos que artista.canciones es un objeto
-        console.log("Canciones:");
-        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
+    
+        // Iterar sobre las claves del objeto artista.canciones
+        Object.keys(artista.canciones).forEach(function(key) {
+            var cancion = artista.canciones[key]; // Obtener la canción actual
+            cancion.Albums.forEach(function(album) { // Iterar sobre los álbumes de la canción
+                var albumElemento = document.createElement("div");
+                albumElemento.textContent = album;
+                tablaAlbums.appendChild(albumElemento);
+            });
+        });
+    
         // Mostrar las canciones
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
+        console.log("Canciones:");
+        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
         Object.keys(artista.canciones).forEach(function(key) {
             var cancion = artista.canciones[key];
             var cancionElemento = document.createElement("div");
             cancionElemento.textContent = cancion.TitolCanco;
             tablaCanciones.appendChild(cancionElemento);
         });
-    }
-    
-    
+    }          
 });
