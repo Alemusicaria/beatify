@@ -9,34 +9,33 @@ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if (isset($_POST['selectedArtist'])) {
     $data = $_POST['selectedArtist'];
 
-    $sql = "SELECT Artista.ID AS ID_Artista, Artista.Info, Album.Titol AS TitolAlbum, Canco.Titol AS TitolCanco
+    $sql = "SELECT Artista.NomArtistic, Canco.Titol AS TitolCanco, Album.Titol AS TitolAlbum, Artista.Info
     FROM Artista
-    INNER JOIN Album ON Artista.ID = Album.ID_Artista
-    INNER JOIN Crea_musica ON Album.ID = Crea_musica.ID_Album
+    INNER JOIN Crea_musica ON Artista.ID = Crea_musica.ID_Artista
     INNER JOIN Canco ON Crea_musica.ID_Canco = Canco.ID
+    INNER JOIN Album ON Canco.ID_Album = Album.ID
     WHERE Artista.NomArtistic = '$data'";
 
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
-        $canciones = array();
+        $artist_info = array();
         while ($row = $result->fetch_assoc()) {
-            $titulo = $row["TitolCanco"];
-            if (!isset($canciones[$titulo])) {
-                $canciones[$titulo] = array(
-                    'TitolCanco' => $row['TitolCanco'],
-                    'TitolAlbum' => $row['TitolAlbum'],
-                    'Info' => $row['Info']
+            $artist_info['NomArtistic'] = $row['NomArtistic'];
+            $artist_info['Info'] = $row['Info'];
+            $titulo_canco = $row['TitolCanco'];
+            if (!isset($artist_info['canciones'][$titulo_canco])) {
+                $artist_info['canciones'][$titulo_canco] = array(
+                    'TitolCanco' => $titulo_canco,
+                    'Albums' => array($row['TitolAlbum'])
                 );
             } else {
-                // Si ya existe la canción, agregar el álbum si no está en la lista
-                if (!in_array($row['TitolAlbum'], $canciones[$titulo]['TitolAlbum'])) {
-                    $canciones[$titulo]['TitolAlbum'][] = $row['TitolAlbum'];
+                if (!in_array($row['TitolAlbum'], $artist_info['canciones'][$titulo_canco]['Albums'])) {
+                    $artist_info['canciones'][$titulo_canco]['Albums'][] = $row['TitolAlbum'];
                 }
             }
         }
-        $canciones = array_values($canciones);
-        echo json_encode($canciones);
+        echo json_encode($artist_info);
     } else {
         echo json_encode(array('error' => 'No se encontraron canciones en la base de datos'));
     }
