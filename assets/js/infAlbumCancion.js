@@ -2,16 +2,29 @@ document.addEventListener('DOMContentLoaded', function () {
     var selectedSong = JSON.parse(localStorage.getItem('selectedSong'));
     var artistas = selectedSong.artistInfo;
     var artistasArray = artistas.split(", ");
+    
     if (selectedSong) {
         var imgSrc = selectedSong.imgSrc;
         $('.foto img').attr('src', imgSrc);
-
-
+    
         var songTitle = selectedSong.title;
-        var artistInfo = selectedSong.artistInfo;
         $('.txt h2').text(songTitle);
-        $('.artista h3').text(artistInfo);
+        
+        // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
+        $('.artista').empty();
+    
+        // Iteramos sobre el array de artistas y los agregamos al DOM
+        for (var i = 0; i < artistasArray.length; i++) {
+            var nombreArtista = artistasArray[i];
+            var $nombreArtistaElement = $('<h3 class="nom-artista">').text(nombreArtista);
+            $('.artista').append($nombreArtistaElement);
+        }
     }
+    $('.nom-artista').on('click', function() {
+        var nombreArtista = $(this).text();
+        localStorage.setItem('selectedArtist', nombreArtista);
+        window.location.href = './pageArtistas.php';
+    });
     $('.play').on('click', iniciar);
 
     function iniciar(event) {

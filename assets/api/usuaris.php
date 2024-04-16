@@ -12,32 +12,32 @@ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
-function veureCancons()
+function veureUsuaris()
 {
     global $conn;
 
     // Verificar si la canción ya está en la lista
-    $sql = "SELECT * FROM Canco";
+    $sql = "SELECT ID,NomUsuari FROM Usuari";
     $resultado = $conn->query($sql);
     
     // Verificar si hay resultados
     if ($resultado->num_rows > 0) {
         // Convertir resultados a formato JSON
-        $canciones = array();
+        $array = array();
         while ($fila = $resultado->fetch_assoc()) {
-            $canciones[] = $fila;
+            $array[] = $fila;
         }
-        echo json_encode($canciones);
+        echo json_encode($array);
     } else {
         echo "No se encontraron canciones";
     }
 }
-function veureCanconsID($id_Canco)
+function veureUsuariID($id_Usuari)
 {
     global $conn;
 
-
-    $sql = "SELECT * FROM Canco WHERE ID = $id_Canco";
+    // Verificar si la canción ya está en la lista
+    $sql = "SELECT ID,NomUsuari FROM Usuari WHERE ID = $id_Usuari";
     $resultado = $conn->query($sql);
 
     // Verificar si hay resultados
@@ -54,11 +54,11 @@ function veureCanconsID($id_Canco)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    veureCancons();
+    veureUsuaris();
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_Canco'])) {
-    $id_Canco = $_POST['id_Canco'];
-    veureCanconsID($id_Canco);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_Usuari'])) {
+    $id_Usuari = $_POST['id_Usuari'];
+    veureUsuariID($id_Usuari);
 }
 
 // Cerrar conexión
