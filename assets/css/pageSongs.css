@@ -6,6 +6,11 @@ body{
     height: 250px;
     width: 100%;
 }
+#taulaAlbums .scrollable-container {
+    overflow: auto; 
+    height: 250px;
+    width: 100%;
+}
 .infAC{
     display: flex;
     align-items: center;
