@@ -1,54 +1,54 @@
 <?php
-// Obté les dades enviades des del formulari
+// Obtén los datos enviados desde el formulario
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// Connecta amb la base de dades (canvia les credencials segons la teva configuració)
+// Connecta con la base de datos (cambia las credenciales según tu configuración)
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "Beatify";
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-// Verifica la connexió
+// Verifica la conexión
 if ($conn->connect_error) {
     die("Connexió fallida: " . $conn->connect_error);
 }
 
-// Escapa les dades per prevenir injeccions SQL
+// Escapa los datos para prevenir inyecciones SQL
 $username = mysqli_real_escape_string($conn, $username);
-$password = mysqli_real_escape_string($conn, $password);
-$sql1 = "SELECT Contrasenya WHERE NomUsuari='$username'";
-if (password_verify($password, $sql1)) {
-    echo "Contraseña válida. Inicio de sesión exitoso." + $sql1;
-}
 
-// Crea la consulta SQL per obtenir l'usuari de la base de dades
-$sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email FROM Usuari WHERE NomUsuari='$username' AND Contrasenya='$password";
+// Crea la consulta SQL para obtener el usuario de la base de datos
+$sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email, Contrasenya FROM Usuari WHERE NomUsuari='$username'";
 $result = $conn->query($sql);
 
 // Inicializa un array para almacenar los resultados
 $response = array();
 
-// Verifica si s'ha trobat un usuari amb les credencials proporcionades
+// Verifica si se ha encontrado un usuario con las credenciales proporcionadas
 if ($result->num_rows > 0) {
-    // L'autenticació és exitosa
     $row = $result->fetch_assoc();
 
-    setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
-    setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
-    setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda l'ID de l'usuari com a cookie
+    // Verifica la contraseña utilizando password_verify
+    if (password_verify($password, $row['Contrasenya'])) {
+        // Autenticación exitosa
+        setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
+        setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda el ID del usuario como cookie
 
-    // Agrega los datos del usuario al array de respuesta
-    $response['status'] = "OK";
-    $response['Nom'] = $row['Nom'];
-    $response['Cognom'] = $row['Cognom'];
-    $response['NomUsuari'] = $row['NomUsuari'];
-    $response['Foto'] = $row['Foto'];
-    $response['Premium'] = $row['Premium'];
-    $response['Email'] = $row['Email'];
+        // Agrega los datos del usuario al array de respuesta
+        $response['status'] = "OK";
+        $response['Nom'] = $row['Nom'];
+        $response['Cognom'] = $row['Cognom'];
+        $response['NomUsuari'] = $row['NomUsuari'];
+        $response['Foto'] = $row['Foto'];
+        $response['Premium'] = $row['Premium'];
+        $response['Email'] = $row['Email'];
+    } else {
+        // Autenticación fallida debido a la contraseña incorrecta
+        $response['status'] = "KO";
+    }
 } else {
-    // L'autenticació ha fallat
+    // Autenticación fallida debido a que el usuario no existe
     $response['status'] = "KO";
 }
 
@@ -56,6 +56,5 @@ if ($result->num_rows > 0) {
 header('Content-Type: application/json');
 echo json_encode($response);
 
-// Tanca la connexió amb la base de dades
+// Cierra la conexión con la base de datos
 $conn->close();
-?>
