@@ -33,24 +33,48 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Álbumes:");
         console.log(artista.canciones); // Verifiquemos que artista.canciones es un objeto
     
-        // Iterar sobre las claves del objeto artista.canciones
         Object.keys(artista.canciones).forEach(function(key) {
-            var cancion = artista.canciones[key]; 
-            cancion.Albums.forEach(function(album) { 
-                var albumElemento = document.createElement("div");
-                albumElemento.textContent = album;
-                tablaAlbums.appendChild(albumElemento);
+            var cancion = artista.canciones[key];
+            cancion.Albums.forEach(function(album) {
+                var listAlbumDiv = document.createElement("div");
+                listAlbumDiv.classList.add("listAlbum");
+                var albumParagraph = document.createElement("p");
+                albumParagraph.textContent = album;
+                listAlbumDiv.appendChild(albumParagraph);
+                tablaAlbums.appendChild(listAlbumDiv);
             });
         });
     
         // Mostrar las canciones
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
+        console.log("Canciones:");
+        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
+    
         Object.keys(artista.canciones).forEach(function(key) {
             var cancion = artista.canciones[key];
-            var cancionElemento = document.createElement("div");
-            cancionElemento.textContent = cancion.TitolCanco;
-            tablaCanciones.appendChild(cancionElemento);
+            
+            var listSongsDiv = document.createElement("div");
+            listSongsDiv.classList.add("listSongs");
+    
+            var divPortadaDiv = document.createElement("div");
+            divPortadaDiv.classList.add("divPortada");
+            var imgPortada = document.createElement("img");
+            imgPortada.classList.add("portadaList");
+            // Si hay un álbum asociado, usamos su nombre para buscar la imagen, de lo contrario, usamos el título de la canción
+            imgPortada.src = '../musica/portades/' + (cancion.Albums.length > 0 ? cancion.Albums[0] : cancion.TitolCanco) + ".jpg";
+            divPortadaDiv.appendChild(imgPortada);
+    
+            var divCancoDiv = document.createElement("div");
+            divCancoDiv.classList.add("divCanco");
+            var h4Element = document.createElement("h4");
+            h4Element.textContent = cancion.TitolCanco;
+            divCancoDiv.appendChild(h4Element);
+    
+            listSongsDiv.appendChild(divPortadaDiv);
+            listSongsDiv.appendChild(divCancoDiv);
+            tablaCanciones.appendChild(listSongsDiv);
         });
-    }          
+    }
+    
 });
