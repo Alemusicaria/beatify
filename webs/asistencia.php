@@ -61,6 +61,7 @@
             <i class="fa fa-twitter"></i>
             <i class="fa fa-linkedin"></i>
         </div>
+        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn">API</a>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </footer>
     <script src="../assets/js/perfil.js"></script>
