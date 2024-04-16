@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.foto img').attr('src', "../musica/artista/" + selectedArtist + ".jpg");
     
         
-        $('.txt h2').text(selectedArtist);
+        $('.txt h2').text(artista.NomArtistic);
         
         // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
         $('.artista').empty(artista.Info);
@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar las canciones
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
-        console.log("Canciones:");
-        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
         Object.keys(artista.canciones).forEach(function(key) {
             var cancion = artista.canciones[key];
             var cancionElemento = document.createElement("div");
