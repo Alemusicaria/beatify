@@ -50,6 +50,10 @@
         <input type="text" id="assumpte" placeholder="Assumpte" required>
         <textarea name="textarea" id="textarea" cols="30" rows="3" placeholder="Missatge" required></textarea>
         <button>Enviar</button>
+        <br>
+        <br>
+        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
+
     </form>
 
     <footer>
@@ -61,7 +65,6 @@
             <i class="fa fa-twitter"></i>
             <i class="fa fa-linkedin"></i>
         </div>
-        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn">API</a>
         <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </footer>
     <script src="../assets/js/perfil.js"></script>
