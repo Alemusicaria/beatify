@@ -71,7 +71,7 @@ if ($check_result->num_rows > 0) {
     $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium) VALUES ('$password_hashed', '$nom', '$email', '$cognom', '$nomUsuari', NULL, 0)";
 
     if ($conn->query($insert_query) === TRUE) {
-        echo "OK";
+        echo "Usuari creat";
     } else {
         // Hubo un error en el registro
         echo "ERROR_REGISTRATION";
