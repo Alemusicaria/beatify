@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar los álbumes
         var tablaAlbums = document.getElementById("tablaAlbums");
         tablaAlbums.innerHTML = "";
-        console.log("Álbumes:");
-        console.log(artista.canciones); // Verifiquemos que artista.canciones es un objeto
     
         Object.keys(artista.canciones).forEach(function(key) {
             var cancion = artista.canciones[key];
@@ -48,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar las canciones
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
-        console.log("Canciones:");
-        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
     
         Object.keys(artista.canciones).forEach(function(key) {
             var cancion = artista.canciones[key];
