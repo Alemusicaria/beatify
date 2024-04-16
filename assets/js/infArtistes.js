@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.txt h2').text(artista.NomArtistic);
         
         // Limpiamos el contenido actual de la etiqueta '.artista' antes de agregar los nuevos artistas
-        $('.artista').empty(artista.Info);
+        $('.artista h3').text(artista.Info);
         mostrarInformacionArtista(artista)
     }
     function mostrarInformacionArtista(artista) {
