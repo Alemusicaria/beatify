@@ -25,6 +25,7 @@ $surname = mysqli_real_escape_string($conn, $surname);
 $email = mysqli_real_escape_string($conn, $email);
 $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Comprova si l'usuari ja existeix amb el mateix nom d'usuari o email
 $check_query = "SELECT * FROM Usuari WHERE NomUsuari='$username' OR Email='$email'";
@@ -35,7 +36,7 @@ if ($check_result->num_rows > 0) {
     echo "ERROR_USER_EXISTS";
 } else {
     // L'usuari no existeix, procedeix amb el registre
-    $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium) VALUES ('$password', '$name', '$email', '$surname', '$username', NULL, 0)";
+    $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium) VALUES ('$hashed_password', '$name', '$email', '$surname', '$username', NULL, 0)";
 
     if ($conn->query($insert_query) === TRUE) {
         
