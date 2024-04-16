@@ -255,27 +255,3 @@ VALUES
   (53, 8),
   (53, 22),
   (54, 45);
-
-INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium)
-VALUES
-  ('1', 'Aleix', 'aleix@email.com', 'Prat', 'aprat', '../img/user/user.png', true),
-  ('contrasenya2', 'Pablo', 'pablo@email.com', 'Fernandez', 'pablo_f', '../img/user/user.png', false),
-  ('contrasenya3', 'Eva', 'eva@email.com', 'Lopez', 'eva_l', '../img/user/user.png', true),
-  ('contrasenya4', 'Carlos', 'carlos@email.com', 'Martinez', 'carlos_m', '../img/user/user.png', false),
-  ('contrasenya5', 'Laura', 'laura@email.com', 'Rodriguez', 'laura_r', '../img/user/user.png', true);
-
-INSERT INTO Llista_Reproduccio (ID_Usuari, Nom,Img)
-VALUES
-  (1, 'Favorits','foto'),
-  (2, 'Reggaeton Mix','foto'),
-  (3, 'Latin Hits','foto'),
-  (4, 'Top Charts','foto'),
-  (5, 'Party Playlist','foto');
-
-INSERT INTO Afegeix (ID_LlistaReproduccio, ID_Canco)
-VALUES
-  (1, 1),
-  (2, 2),
-  (3, 3),
-  (4, 4),
-  (5, 5);

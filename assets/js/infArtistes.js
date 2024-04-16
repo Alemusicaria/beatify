@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     function carregarArtista(artista){
-        $('.foto img').attr('src', "../musica/artista/" + selectedArtist + ".jpg");
+        $('.foto img').attr('src', "../musica/artistes/" + selectedArtist + ".jpg");
     
         
         $('.txt h2').text(selectedArtist);
