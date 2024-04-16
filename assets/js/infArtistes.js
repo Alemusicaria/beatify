@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         success: function (response) {
             console.log(response);
             var artista = JSON.parse(response);
-            console.log(artista); // Agregar este console.log para depurar
+            console.log(artista);
             mostrarInformacionArtista(artista);
         },
         error: function (error) {
@@ -17,23 +17,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     function mostrarInformacionArtista(artista) {
+        // Mostrar los álbumes
         var tablaAlbums = document.getElementById("tablaAlbums");
         tablaAlbums.innerHTML = "";
-        artista.canciones.forEach(function(cancion) {
-            cancion.Albums.forEach(function(album) {
-                var albumElemento = document.createElement("div");
-                albumElemento.textContent = album;
-                tablaAlbums.appendChild(albumElemento);
-            });
-        });
-    
-        
+        console.log("Álbumes:");
+        console.log(artista.canciones); // Verifiquemos que artista.canciones es un objeto
+        console.log("Canciones:");
+        console.log(Object.keys(artista.canciones)); // Imprimimos las claves del objeto
+        // Mostrar las canciones
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
-        artista.canciones.forEach(function(cancion) {
+        Object.keys(artista.canciones).forEach(function(key) {
+            var cancion = artista.canciones[key];
             var cancionElemento = document.createElement("div");
             cancionElemento.textContent = cancion.TitolCanco;
             tablaCanciones.appendChild(cancionElemento);
         });
     }
+    
+    
 });
