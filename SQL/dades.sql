@@ -148,7 +148,8 @@ VALUES
   (NULL, 3, 'De Las 2'),
   (NULL, 1, 'Zun Da Da'),
   (2, 3, 'Si Estuviésemos Juntos'),
-  (2, 3, 'Otra Noche en Miami');
+  (2, 3, 'Otra Noche en Miami'),
+  (20, 3, 'WHERE SHE GOES');
   
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES
@@ -258,4 +259,5 @@ VALUES
   (53, 22),
   (54, 45),
   (55, 8),
-  (56, 8);
+  (56, 8),
+  (57, 8);
