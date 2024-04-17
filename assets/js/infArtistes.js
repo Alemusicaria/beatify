@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
-        
+
         if (tablaAlbums.children.length === 0) {
             tablaAlbums.style.display = "none";
         } else {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        
+
         var tablaCanciones = document.getElementById("tablaCanciones");
         tablaCanciones.innerHTML = "";
 
@@ -72,12 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
             divPortadaDiv.classList.add("divPortada");
             var imgPortada = document.createElement("img");
             imgPortada.classList.add("portadaList");
-            if(cancion.Albums.length > 0){
+            if (cancion.Albums.length > 0) {
                 imgPortada.src = '../musica/portades/' + cancion.Albums[0].TitolAlbum + ".jpg";
-            }else{
+            } else {
                 imgPortada.src = '../musica/portades/' + cancion.TitolCanco + ".jpg";
             }
-            
+
             divPortadaDiv.appendChild(imgPortada);
 
             var divCancoDiv = document.createElement("div");
