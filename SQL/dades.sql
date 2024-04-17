@@ -146,7 +146,9 @@ VALUES
   (25, 1, 'Yo No Soy Tu Marido'),
   (26, 1, 'Donde Estan Las Gatas'),
   (NULL, 3, 'De Las 2'),
-  (NULL, 1, 'Zun Da Da');
+  (NULL, 1, 'Zun Da Da'),
+  (2, 3, 'Si Estuviésemos Juntos'),
+  (2, 3, 'Otra Noche en Miami');
   
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES
@@ -254,4 +256,6 @@ VALUES
   (53, 48),
   (53, 8),
   (53, 22),
-  (54, 45);
+  (54, 45),
+  (55, 8),
+  (56, 8);
