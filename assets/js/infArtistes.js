@@ -25,30 +25,32 @@ document.addEventListener('DOMContentLoaded', function () {
     function mostrarInformacionArtista(artista) {
         var tablaAlbums = document.getElementById("tablaAlbums");
         tablaAlbums.innerHTML = "";
-
         var albumsYaAgregados = new Set(); // Conjunto para rastrear álbumes
 
         Object.keys(artista.canciones).forEach(function (key) {
             var cancion = artista.canciones[key];
             cancion.Albums.forEach(function (album) {
-                if (!albumsYaAgregados.has(album)) {
-                    var listAlbumDiv = document.createElement("div");
-                    listAlbumDiv.classList.add("listAlbum");
-                    var divPortadaDiv = document.createElement("div");
-                    divPortadaDiv.classList.add("divPortada");
-                    var imgPortada = document.createElement("img");
-                    imgPortada.classList.add("portadaList");
-                    imgPortada.src = '../musica/portades/' + album + ".jpg";
-                    divPortadaDiv.appendChild(imgPortada);
-                    var albumParagraph = document.createElement("p");
-                    albumParagraph.textContent = album;
-                    listAlbumDiv.appendChild(divPortadaDiv);
-                    listAlbumDiv.appendChild(albumParagraph);
-                    tablaAlbums.appendChild(listAlbumDiv);
-                    albumsYaAgregados.add(album);
+                if (album.ID_AlArtista === artista.Artista_ID) { // Comparar ID_AlArtista del álbum con ID del artista
+                    if (!albumsYaAgregados.has(album.TitolAlbum)) {
+                        var listAlbumDiv = document.createElement("div");
+                        listAlbumDiv.classList.add("listAlbum");
+                        var divPortadaDiv = document.createElement("div");
+                        divPortadaDiv.classList.add("divPortada");
+                        var imgPortada = document.createElement("img");
+                        imgPortada.classList.add("portadaList");
+                        imgPortada.src = '../musica/portades/' + album.TitolAlbum + ".jpg";
+                        divPortadaDiv.appendChild(imgPortada);
+                        var albumParagraph = document.createElement("p");
+                        albumParagraph.textContent = album.TitolAlbum;
+                        listAlbumDiv.appendChild(divPortadaDiv);
+                        listAlbumDiv.appendChild(albumParagraph);
+                        tablaAlbums.appendChild(listAlbumDiv);
+                        albumsYaAgregados.add(album.TitolAlbum);
+                    }
                 }
             });
         });
+        
         if (tablaAlbums.children.length === 0) {
             tablaAlbums.style.display = "none";
         } else {
@@ -70,8 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
             divPortadaDiv.classList.add("divPortada");
             var imgPortada = document.createElement("img");
             imgPortada.classList.add("portadaList");
-            // Si hay un álbum asociado, usamos su nombre para buscar la imagen, de lo contrario, usamos el título de la canción
-            imgPortada.src = '../musica/portades/' + (cancion.Albums.length > 0 ? cancion.Albums[0] : cancion.TitolCanco) + ".jpg";
+            if(cancion.Albums.length > 0){
+                imgPortada.src = '../musica/portades/' + cancion.Albums[0].TitolAlbum + ".jpg";
+            }else{
+                imgPortada.src = '../musica/portades/' + cancion.TitolCanco + ".jpg";
+            }
+            
             divPortadaDiv.appendChild(imgPortada);
 
             var divCancoDiv = document.createElement("div");
