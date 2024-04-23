@@ -12,12 +12,9 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
 
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
 
     <link href="../assets/css/pagament.css" rel="stylesheet">
 </head>
@@ -27,7 +24,7 @@
         <main>
             <div class="py-5 text-center">
                 <a href="index.php">
-                <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57" >
+                    <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57">
                 </a>
                 <h2>Formulari de pagament</h2>
             </div>
