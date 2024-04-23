@@ -29,7 +29,7 @@ $expiracio = $conn->real_escape_string($_POST['cc-expiration']);
 $cvv = $conn->real_escape_string($_POST['cc-cvv']);
 
 // Query para insertar los datos en la tabla Pagament
-$sql = "INSERT INTO pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV) VALUES ('$nom', '$cognom', '$nomUsuari', '$email', '$adreca', '$adreca2', '$pais', '$cp', '$tipus', '$nom_tarjeta', '$num_tarjeta', '$expiracio', '$cvv')";
+$sql = "INSERT INTO pagament (ID_Usuari, Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV) VALUES ($_COOKIE[UsuariID],'$nom', '$cognom', '$nomUsuari', '$email', '$adreca', '$adreca2', '$pais', '$cp', '$tipus', '$nom_tarjeta', '$num_tarjeta', '$expiracio', '$cvv')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Datos guardados correctamente en la base de datos.";
