@@ -71,7 +71,7 @@ VALUES
   (2, 'Aura', '2003-01-01'),
   (19, 'Blanco Perla', '2003-01-01'),
   (32, 'Famouz', '2003-01-01'),
-  (22, 'Data', '2003-01-01'),
+  (49, 'Data', '2003-01-01'),
   (8, 'nadie sabe que va a pasar mañana', '2003-01-01'),
   (19, 'El Principe', '2003-01-01'),
   (29, 'El Abayarde', '2003-01-01'),
@@ -146,7 +146,10 @@ VALUES
   (25, 1, 'Yo No Soy Tu Marido'),
   (26, 1, 'Donde Estan Las Gatas'),
   (NULL, 3, 'De Las 2'),
-  (NULL, 1, 'Zun Da Da');
+  (NULL, 1, 'Zun Da Da'),
+  (2, 3, 'Si Estuviésemos Juntos'),
+  (2, 3, 'Otra Noche en Miami'),
+  (20, 3, 'WHERE SHE GOES');
   
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES
@@ -254,4 +257,7 @@ VALUES
   (53, 48),
   (53, 8),
   (53, 22),
-  (54, 45);
+  (54, 45),
+  (55, 8),
+  (56, 8),
+  (57, 8);
