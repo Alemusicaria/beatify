@@ -52,7 +52,6 @@
         <button onclick="alert('Enviat!')">Enviar</button>
         <br>
         <br>
-        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
 
     </form>
 
