@@ -87,7 +87,10 @@
                 die("Conexión fallida: " . $conn->connect_error);
             }
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                $sql = "SELECT * FROM llista_reproduccio WHERE ID_Usuari = ?";
+                $sql = "SELECT Llista_Reproduccio.ID AS ID, Llista_Reproduccio.Nom As Nom,Usuari.NomUsuari AS nomUsuari 
+                FROM llista_reproduccio 
+                INNER JOIN Usuari  ON Llista_Reproduccio.ID_Usuari = Usuari.ID  
+                WHERE ID_Usuari = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("i", $_COOKIE['UsuariID']);
                 $stmt->execute();
@@ -96,13 +99,16 @@
                 // Verificar si hay resultados
                 if ($result->num_rows > 0) {
                     // Iterar sobre cada lista de reproducción
+                    echo '<div class="Llistes">';
+
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo '<div class="Llistes">';
-                        echo '<h3>' . $row['Nom'] . '</h3>';
+                        echo ' <div class="boxLlista"><a class="Llista" style="cursor:pointer;">' . $row['Nom'] . '</a> <br>
+                        <p id="lista"style="display:none">' . $row['ID'] . '</p>
+                        <p id="user" style="display:none">' . $row['nomUsuari'] . '</p></div>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
-                        echo '</div>';
                     }
+                    echo '</div>';
                 } else {
                     echo '<p>No se encontraron listas de reproducción para este usuario.</p>';
                 }
@@ -176,6 +182,19 @@
             </div>
         </div>
     </footer>
+    <script>
+        $('.boxLlista').on('click', function () {
+            var nomLlista = $(this).children('a').text();
+            var idLlista = $(this).children('p#lista').text();
+            var idUser = $(this).children('p#user').text();
+            localStorage.setItem('selectedList', JSON.stringify({
+                nomLlista: nomLlista,
+                id_Llista: idLlista,
+                id_User: idUser
+            }));
+            window.location.href = './mostrarLlista.php';
+        });
+    </script>
     <script src="../assets/js/infLlista.js"></script>
     <script src="../assets/js/audio.js"></script>
     <script src="../assets/js/code.js"></script>
