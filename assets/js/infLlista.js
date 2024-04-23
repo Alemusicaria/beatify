@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     var selectedList = JSON.parse(localStorage.getItem('selectedList'));
     console.log(selectedList);
-    var idLlista=selectedList.id_Llista;
+    var idLlista = selectedList.id_Llista;
     if (selectedList) {
         var listTitle = selectedList.nomLlista;
         $('.txt h2').text(listTitle);
+        var username = selectedList.id_User;
+        console.log(username);
+        $('.artista h3').text(username);
     }
     $.ajax({
         url: '../assets/php/obtainSongsofList.php',

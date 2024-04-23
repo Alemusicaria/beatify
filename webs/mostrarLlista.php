@@ -120,7 +120,7 @@
             <div class="txt">
                 <h2></h2>
             </div>
-            <div class="user">
+            <div class="artista">
                 <h3></h3>
             </div>
         </div>

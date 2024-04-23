@@ -86,7 +86,10 @@
                 die("Conexión fallida: " . $conn->connect_error);
             }
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                $sql = "SELECT * FROM llista_reproduccio WHERE ID_Usuari = ?";
+                $sql = "SELECT Llista_Reproduccio.ID AS ID, Llista_Reproduccio.Nom As Nom,Usuari.NomUsuari AS nomUsuari 
+                FROM llista_reproduccio 
+                INNER JOIN Usuari  ON Llista_Reproduccio.ID_Usuari = Usuari.ID  
+                WHERE ID_Usuari = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("i", $_COOKIE['UsuariID']);
                 $stmt->execute();
@@ -101,7 +104,7 @@
                         // Mostrar información de la lista de reproducción
                         echo ' <div class="boxLlista"><a class="Llista" style="cursor:pointer;">' . $row['Nom'] . '</a> <br>
                         <p id="lista"style="display:none">' . $row['ID'] . '</p>
-                        <p id="user" style="display:none">' . $row['ID_Usuari'] . '</p></div>';
+                        <p id="user" style="display:none">' . $row['nomUsuari'] . '</p></div>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
                     }
                     echo '</div>';
