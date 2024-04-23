@@ -150,7 +150,14 @@
         <li>Cost mensual</li>
         <li>Requereix subscripció</li>
       </ul>
-      <a href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+      <?php
+
+      if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+        echo '<a href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      } else {
+        echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      }
+      ?>
 
     </div>
 
@@ -165,7 +172,14 @@
         <li>Cost mensual</li>
         <li>Requereix subscripció</li>
       </ul>
-      <a href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+      <?php
+
+      if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+        echo '<a href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      } else {
+        echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      }
+      ?>
 
     </div>
   </section>
