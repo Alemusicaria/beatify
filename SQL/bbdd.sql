@@ -63,3 +63,24 @@ CREATE TABLE Afegeix (
     FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
 );
+
+
+CREATE TABLE Pagament (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Usuari INT,
+    Nom VARCHAR(255),
+    Cognom VARCHAR(255),
+    NomUsuari VARCHAR(255),
+    Email VARCHAR(255),
+    Adreca VARCHAR(255),
+    Adreca2 VARCHAR(255),
+    Pais VARCHAR(255),
+    Provincia VARCHAR(255),
+    CP INT(20),
+    Tipus VARCHAR(255),
+    Nom_tarjeta VARCHAR(255),
+    Num_tarjeta VARCHAR(255),
+    Expiracio VARCHAR(255),
+    CVV INT(3),
+    FOREIGN KEY (ID_Usuari) REFERENCES Usuari(ID)
+);
