@@ -198,12 +198,7 @@
         </main>
 
         <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-            <p class="mb-1">&copy; 2017–2023 Nom de l'Empresa</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privadesa</a></li>
-                <li class="list-inline-item"><a href="#">Termes</a></li>
-                <li class="list-inline-item"><a href="#">Suport</a></li>
-            </ul>
+            <p class="mb-1">&copy; 2024 Beatify. Tots els drets reservats.</p>
         </footer>
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
