@@ -101,29 +101,21 @@
                                 <input type="text" class="form-control" id="address2" placeholder="Apartament o pis">
                             </div>
 
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <label for="country" class="form-label">País</label>
                                 <select class="form-select" id="country" required>
                                     <option value="">Tria...</option>
-                                    <option>Estat Unis</option>
+                                    <option>Espanya</option>
+                                    <option>França</option>
+                                    <option>Alemania</option>
+                                    <option>Estats Units</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Si us plau, seleccioneu un país vàlid.
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="state" class="form-label">Estat</label>
-                                <select class="form-select" id="state" required>
-                                    <option value="">Tria...</option>
-                                    <option>Califòrnia</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Si us plau, introduïu un estat vàlid.
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <label for="zip" class="form-label">Codi postal</label>
                                 <input type="text" class="form-control" id="zip" placeholder="" required>
                                 <div class="invalid-feedback">

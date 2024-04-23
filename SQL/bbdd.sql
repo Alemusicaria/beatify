@@ -75,7 +75,6 @@ CREATE TABLE Pagament (
     Adreca VARCHAR(255),
     Adreca2 VARCHAR(255),
     Pais VARCHAR(255),
-    Provincia VARCHAR(255),
     CP INT(20),
     Tipus VARCHAR(255),
     Nom_tarjeta VARCHAR(255),
