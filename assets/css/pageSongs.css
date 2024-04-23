@@ -3,7 +3,7 @@ body{
 }
 .scrollable-container {
     overflow: auto; 
-    height: 250px;
+    height: 350px;
     width: 100%;
 }
 #tablaAlbums{ 
@@ -94,4 +94,12 @@ body{
         cursor: pointer;
     }
     
+}
+
+@media only screen and (max-width: 1600px) {
+    .scrollable-container {
+        overflow: auto;
+        height: 250px;
+        width: 100%;
+    }
 }
