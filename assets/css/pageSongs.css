@@ -33,6 +33,9 @@ body{
     font-weight: bold;
     text-align: center;
     max-width: 20%;
+    h3{
+        cursor: pointer;
+    }
 }
 .txt{
     color: white;
