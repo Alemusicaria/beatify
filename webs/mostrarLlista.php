@@ -120,7 +120,7 @@
             <div class="txt">
                 <h2></h2>
             </div>
-            <div class="artista">
+            <div class="user">
                 <h3></h3>
             </div>
         </div>
@@ -176,9 +176,7 @@
             </div>
         </div>
     </footer>
-    <script>
-    </script>
-    <script src="../assets/js/infAlbumCancion.js"></script>
+    <script src="../assets/js/infLlista.js"></script>
     <script src="../assets/js/audio.js"></script>
     <script src="../assets/js/code.js"></script>
     <script src="../assets/js/perfil.js"></script>

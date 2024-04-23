@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Beatify</title>
 </head>
 
@@ -97,8 +99,9 @@
 
                     while ($row = $result->fetch_assoc()) {
                         // Mostrar información de la lista de reproducción
-                        echo ' <a class="Llista">' . $row['Nom'] . '</a> <br>
-                        <p style="display:none">ID LLISTA:' . $row['ID'] .' ID USUARI:'. $row['ID_Usuari'] . '</p>';
+                        echo ' <div class="boxLlista"><a class="Llista" style="cursor:pointer;">' . $row['Nom'] . '</a> <br>
+                        <p id="lista"style="display:none">' . $row['ID'] . '</p>
+                        <p id="user" style="display:none">' . $row['ID_Usuari'] . '</p></div>';
                         // Puedes mostrar más información si lo deseas, como la cantidad de canciones en la lista, etc.
                     }
                     echo '</div>';
@@ -161,10 +164,24 @@
     </footer>
 
 </body>
+<script>
+    $('.boxLlista').on('click', function () {
+        var nomLlista = $(this).children('a').text();
+        var idLlista = $(this).children('p#lista').text();
+        var idUser = $(this).children('p#user').text();
+        localStorage.setItem('selectedList', JSON.stringify({
+            nomLlista: nomLlista,
+            id_Llista: idLlista,
+            id_User: idUser
+        }));
+        window.location.href = './mostrarLlista.php';
+    });
+</script>
 <script src="../assets/js/audio.js"></script>
 <script src="../assets/js/code.js"></script>
 <script src="../assets/js/carregarCancons.js"></script>
 <script src="../assets/js/perfil.js"></script>
 <script src="../assets/js/cookies.js"></script>
 <script src="../assets/js/dadesUser.js"></script>
+
 </html>
