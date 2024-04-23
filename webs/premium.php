@@ -16,18 +16,18 @@
 </head>
 
 <body>
-<header>
-        <div class="titol_Logo">
-            <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
-            <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
-        </div>
-        <div class="menu">
-            <a href="./index.php">Inici</a>
-            <a href="./asistencia.php">Asistencia</a>
-            <?php
+  <header>
+    <div class="titol_Logo">
+      <a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="Logo" class="logo"> </a>
+      <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
+    </div>
+    <div class="menu">
+      <a href="./index.php">Inici</a>
+      <a href="./asistencia.php">Asistencia</a>
+      <?php
 
-            if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                echo '
+      if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+        echo '
                 <div class="perfil-dropdown">
                     <img src="../img/user/user.png" alt="" class="fotoPerfil" onclick="toggleDropdown()"/>
                 </div>
@@ -37,12 +37,12 @@
                     <li onclick="cerrarSesion()"><img src="../img/simbols/cerrar-sesion.png" alt="Cerrar sesión"><a href="#"> Tancar sessió </a></li>
                 </ul>
             ';
-            } else {
-                echo "<ul><li><button id=\"iniciarSessio\">Iniciar Sessió</button></li><ul>";
-            }
-            ?>
-        </div>
-    </header>
+      } else {
+        echo "<ul><li><button id=\"iniciarSessio\">Iniciar Sessió</button></li><ul>";
+      }
+      ?>
+    </div>
+  </header>
   <div class="textoIntro">
     <h1>Desbloqueja tot el potencial musical amb Beatify Premium!</h1>
     <p>A Beatify, creiem que la música té el poder de transformar el teu dia, inspirar emocions i crear records
@@ -114,7 +114,7 @@
     </div>
 
     <div class="plan">
-      <h2>Premium - 10€/Mes</h2>
+      <h2>Premium Mensual - 12.10€/Mes</h2>
       <ul class="avantatges">
         <li>Accés a tota la biblioteca</li>
         <li>Reproducció sense anuncis</li>
@@ -126,7 +126,33 @@
       </ul>
     </div>
   </section>
+  <section>
+    <div class="plan">
+      <h2>Premium Trimestral - 9.5€/Mes</h2>
+      <ul class="avantatges">
+        <li>Accés a tota la biblioteca</li>
+        <li>Reproducció sense anuncis</li>
+        <li>Qualitat d'àudio millorada</li>
+      </ul>
+      <ul class="desavantatges">
+        <li>Cost mensual</li>
+        <li>Requereix subscripció</li>
+      </ul>
+    </div>
 
+    <div class="plan">
+      <h2>Premium Semestral - 9€/Mes</h2>
+      <ul class="avantatges">
+        <li>Accés a tota la biblioteca</li>
+        <li>Reproducció sense anuncis</li>
+        <li>Qualitat d'àudio millorada</li>
+      </ul>
+      <ul class="desavantatges">
+        <li>Cost mensual</li>
+        <li>Requereix subscripció</li>
+      </ul>
+    </div>
+  </section>
   <footer>
     <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
   </footer>
