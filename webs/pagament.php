@@ -26,7 +26,9 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57">
+                <a href="index.php">
+                <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57" >
+                </a>
                 <h2>Formulari de pagament</h2>
             </div>
 
@@ -131,18 +133,6 @@
                                     Cal un codi postal.
                                 </div>
                             </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="same-address">
-                            <label class="form-check-label" for="same-address">L'adreça d'enviament és la mateixa que la d'enviament</label>
-                        </div>
-
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">Desa aquesta informació per a la propera vegada</label>
                         </div>
 
                         <hr class="my-4">
