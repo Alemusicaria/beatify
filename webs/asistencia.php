@@ -49,7 +49,7 @@
         <label for="assumpte"></label>
         <input type="text" id="assumpte" placeholder="Assumpte" required>
         <textarea name="textarea" id="textarea" cols="30" rows="3" placeholder="Missatge" required></textarea>
-        <button>Enviar</button>
+        <button onclick="alert(Enviat!)">Enviar</button>
         <br>
         <br>
         <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
