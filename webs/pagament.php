@@ -141,7 +141,7 @@
                                 <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
-                            <input type="hidden" id="paymentMethod" name="paymentMethod" value="" />
+                            <input type="hidden" id="paymentMethod" name="pago" value="" />
                         </div>
 
                         <div class="row gy-3">
