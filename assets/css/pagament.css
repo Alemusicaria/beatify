@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(rgb(32, 11, 11), #000000);
+  color: white;
+}
+
 .container {
   max-width: 960px;
 }
@@ -77,4 +82,10 @@
 
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
+}
+.text-primary{
+  color: #b40e0e !important;
+}
+.text-body-secondary{
+  color: rgb(168, 168, 168) !important;
 }

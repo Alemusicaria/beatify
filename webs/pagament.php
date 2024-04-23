@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="ca" data-bs-theme="auto">
 
 <head>
 
@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Checkout example · Bootstrap v5.3</title>
+    <title>Beatify | Pagament</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
 
@@ -18,87 +18,7 @@
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;
-        }
-
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
-
-        .bd-mode-toggle .dropdown-menu .active .bi {
-            display: block !important;
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
     <link href="../assets/css/pagament.css" rel="stylesheet">
 </head>
 
@@ -106,138 +26,109 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                <h2>Checkout form</h2>
-                <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+                <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57">
+                <h2>Formulari de pagament</h2>
             </div>
 
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Your cart</span>
-                        <span class="badge bg-primary rounded-pill">3</span>
+                        <span class="text-primary">Carret</span>
                     </h4>
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-body-secondary">Brief description</small>
+                                <h6 class="my-0">Beatify Premium</h6>
+                                <small class="text-body-secondary">Pagament Mensual</small>
                             </div>
-                            <span class="text-body-secondary">$12</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Second product</h6>
-                                <small class="text-body-secondary">Brief description</small>
-                            </div>
-                            <span class="text-body-secondary">$8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Third item</h6>
-                                <small class="text-body-secondary">Brief description</small>
-                            </div>
-                            <span class="text-body-secondary">$5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-                            <div class="text-success">
-                                <h6 class="my-0">Promo code</h6>
-                                <small>EXAMPLECODE</small>
-                            </div>
-                            <span class="text-success">−$5</span>
+                            <span class="text-body-secondary">10€</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong>$20</strong>
+                            <span>Total (EURO)</span>
+                            <strong>12.10€</strong>
                         </li>
                     </ul>
 
-                    <form class="card p-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </form>
                 </div>
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Billing address</h4>
+                    <h4 class="mb-3">Adreça de Pagament</h4>
                     <form class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
+                                <label for="firstName" class="form-label">Nom</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                                 <div class="invalid-feedback">
-                                    Valid first name is required.
+                                    Cal un nom vàlid.
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
+                                <label for="lastName" class="form-label">Cognom</label>
                                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                                 <div class="invalid-feedback">
-                                    Valid last name is required.
+                                    Cal un cognom vàlid.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Nom d'usuari</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                    <input type="text" class="form-control" id="username" placeholder="Nom d'usuari" required>
                                     <div class="invalid-feedback">
-                                        Your username is required.
+                                        Cal un nom d'usuari.
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <label for="email" class="form-label">Correu electrònic</label>
+                                <input type="email" class="form-control" id="email" placeholder="tu@exemple.com" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
+                                    Si us plau, introdueixi una adreça de correu electrònic vàlida per a actualitzacions d'enviament.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                                <label for="address" class="form-label">Adreça</label>
+                                <input type="text" class="form-control" id="address" placeholder="Carrer Principal, 123" required>
                                 <div class="invalid-feedback">
-                                    Please enter your shipping address.
+                                    Si us plau, introdueixi la vostra adreça d'enviament.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                                <label for="address2" class="form-label">Adreça 2 <span class="text-body-secondary">(Opcional)</span></label>
+                                <input type="text" class="form-control" id="address2" placeholder="Apartament o pis">
                             </div>
 
                             <div class="col-md-5">
-                                <label for="country" class="form-label">Country</label>
+                                <label for="country" class="form-label">País</label>
                                 <select class="form-select" id="country" required>
-                                    <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option value="">Tria...</option>
+                                    <option>Estat Unis</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please select a valid country.
+                                    Si us plau, seleccioneu un país vàlid.
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="state" class="form-label">State</label>
+                                <label for="state" class="form-label">Estat</label>
                                 <select class="form-select" id="state" required>
-                                    <option value="">Choose...</option>
-                                    <option>California</option>
+                                    <option value="">Tria...</option>
+                                    <option>Califòrnia</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please provide a valid state.
+                                    Si us plau, introduïu un estat vàlid.
                                 </div>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
+                                <label for="zip" class="form-label">Codi postal</label>
                                 <input type="text" class="form-control" id="zip" placeholder="" required>
                                 <div class="invalid-feedback">
-                                    Zip code required.
+                                    Cal un codi postal.
                                 </div>
                             </div>
                         </div>
@@ -246,26 +137,26 @@
 
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="same-address">
-                            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+                            <label class="form-check-label" for="same-address">L'adreça d'enviament és la mateixa que la d'enviament</label>
                         </div>
 
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">Save this information for next time</label>
+                            <label class="form-check-label" for="save-info">Desa aquesta informació per a la propera vegada</label>
                         </div>
 
                         <hr class="my-4">
 
-                        <h4 class="mb-3">Payment</h4>
+                        <h4 class="mb-3">Pagament</h4>
 
                         <div class="my-3">
                             <div class="form-check">
                                 <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                                <label class="form-check-label" for="credit">Credit card</label>
+                                <label class="form-check-label" for="credit">Targeta de crèdit</label>
                             </div>
                             <div class="form-check">
                                 <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                                <label class="form-check-label" for="debit">Debit card</label>
+                                <label class="form-check-label" for="debit">Targeta de dèbit</label>
                             </div>
                             <div class="form-check">
                                 <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
@@ -275,27 +166,27 @@
 
                         <div class="row gy-3">
                             <div class="col-md-6">
-                                <label for="cc-name" class="form-label">Name on card</label>
+                                <label for="cc-name" class="form-label">Nom a la targeta</label>
                                 <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                <small class="text-body-secondary">Full name as displayed on card</small>
+                                <small class="text-body-secondary">Nom complet com es mostra a la targeta</small>
                                 <div class="invalid-feedback">
-                                    Name on card is required
+                                    El nom a la targeta és obligatori
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="cc-number" class="form-label">Credit card number</label>
+                                <label for="cc-number" class="form-label">Número de targeta de crèdit</label>
                                 <input type="text" class="form-control" id="cc-number" placeholder="" required>
                                 <div class="invalid-feedback">
-                                    Credit card number is required
+                                    El número de targeta de crèdit és obligatori
                                 </div>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="cc-expiration" class="form-label">Expiration</label>
+                                <label for="cc-expiration" class="form-label">Caducitat</label>
                                 <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
                                 <div class="invalid-feedback">
-                                    Expiration date required
+                                    Data de caducitat obligatòria
                                 </div>
                             </div>
 
@@ -303,25 +194,25 @@
                                 <label for="cc-cvv" class="form-label">CVV</label>
                                 <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
                                 <div class="invalid-feedback">
-                                    Security code required
+                                    Codi de seguretat obligatori
                                 </div>
                             </div>
                         </div>
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar a la comanda</button>
                     </form>
                 </div>
             </div>
         </main>
 
         <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-            <p class="mb-1">&copy; 2017–2023 Company Name</p>
+            <p class="mb-1">&copy; 2017–2023 Nom de l'Empresa</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
+                <li class="list-inline-item"><a href="#">Privadesa</a></li>
+                <li class="list-inline-item"><a href="#">Termes</a></li>
+                <li class="list-inline-item"><a href="#">Suport</a></li>
             </ul>
         </footer>
     </div>
