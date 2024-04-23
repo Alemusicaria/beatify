@@ -58,6 +58,7 @@
             <br>
             <button type="button" onclick="guardarFotoPerfil()">Guardar</button>
         </form>
+        
     </div>
 
     <div class="profile-container">
@@ -78,10 +79,11 @@
                 <option value="large">Gran</option>
             </select>
             <button id="btn-save">Desar</button>
-        </div>
+        </div> <br><br>
+        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
+
     </div>
 
-    <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../assets/js/perfil.js"></script>
