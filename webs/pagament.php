@@ -141,6 +141,7 @@
                                 <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
+                            <input type="hidden" id="paymentMethod" name="paymentMethod" value="" />
                         </div>
 
                         <div class="row gy-3">
@@ -191,6 +192,19 @@
         </footer>
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Obtener todos los elementos de radio con el nombre paymentMethod
+    const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+
+    // Recorrer todos los elementos de radio
+    paymentMethods.forEach(method => {
+        // Agregar un event listener para detectar cuando se selecciona un método de pago
+        method.addEventListener('change', function() {
+            // Actualizar el valor del campo oculto paymentMethod con el valor del método de pago seleccionado
+            document.getElementById('paymentMethod').value = this.value;
+        });
+    });
+</script>
 
     <script src="../assets/js/pagament.js"></script>
 </body>
