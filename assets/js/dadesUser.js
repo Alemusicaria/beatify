@@ -1,7 +1,6 @@
 function obtenerUsuario() {
     var nombreUsuario = obtenerCookie('NomUsuari');
     var contraseña = obtenerCookie('Contrasenya');
-    console.log(contraseña);
     if (nombreUsuario && contraseña) {
         autenticarUsuario(nombreUsuario, contraseña);
     } else {
