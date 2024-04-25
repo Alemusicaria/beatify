@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $row['Contrasenya'])) {
         // Autenticación exitosa
         setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
-        setcookie('Contrasenya', $row['Contrasenya'],  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
+        setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
         setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda el ID del usuario como cookie
 
         // Agrega los datos del usuario al array de respuesta
