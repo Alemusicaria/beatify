@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
         setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
         setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
         setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda el ID del usuario como cookie
-
+        setcookie('Premium', $row['Premium'], time() + (86400 * 1), "/");
         // Agrega los datos del usuario al array de respuesta
         $response['status'] = "OK";
         $response['Nom'] = $row['Nom'];

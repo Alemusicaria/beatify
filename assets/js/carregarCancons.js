@@ -1,4 +1,9 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
+var cookieValue = obtenerCookie('Premium');
+var premiumUser =false;
+if (cookieValue === "true") {
+   premiumUser = true;
+}
 // Reproducción de Canciones Automática
 function saltarCancons(index) {
     var currentIndex = index;
@@ -6,13 +11,18 @@ function saltarCancons(index) {
 
     var nextSong = document.getElementById('NextSong');
     var afterSong = document.getElementById('AfterSong');
-
+    var limiteSaltarCancons = 0;
     nextSong.addEventListener('click', function () {
         currentIndex += 1;
-        if (randomImage.hasClass('clicked')) {
-            window.reproducirCancionAleatoria();
+        if (premiumUser || currentIndex && limiteSaltarCancons<3) {
+            limiteSaltarCancons +=1;
+            if (randomImage.hasClass('clicked')) {
+                window.reproducirCancionAleatoria();
+            } else {
+                reproducirCancionDesdeIndice(currentIndex);
+            }
         } else {
-            reproducirCancionDesdeIndice(currentIndex);
+            //alert("¡Debes ser usuario premium para saltar más canciones!");
         }
     });
 
@@ -21,10 +31,12 @@ function saltarCancons(index) {
         if (currentIndex < 0) {
             currentIndex = canconsCarregades.length - 1;
         }
-        if (randomImage.hasClass('clicked')) {
-            window.reproducirCancionAleatoria();
-        } else {
-            reproducirCancionDesdeIndice(currentIndex);
+        if (premiumUser || currentIndex ) {
+            if (randomImage.hasClass('clicked')) {
+                window.reproducirCancionAleatoria();
+            } else {
+                reproducirCancionDesdeIndice(currentIndex);
+            }
         }
     });
 }
@@ -221,3 +233,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+function obtenerCookie(nombre) {
+    var nombreEQ = nombre + '=';
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(nombreEQ) === 0) {
+            return cookie.substring(nombreEQ.length, cookie.length);
+        }
+    }
+    return null;
+}
