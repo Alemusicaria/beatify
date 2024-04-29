@@ -14,8 +14,8 @@ function saltarCancons(index) {
     var limiteSaltarCancons = 0;
     nextSong.addEventListener('click', function () {
         currentIndex += 1;
+        limiteSaltarCancons +=1;
         if (premiumUser || currentIndex && limiteSaltarCancons<3) {
-            limiteSaltarCancons +=1;
             if (randomImage.hasClass('clicked')) {
                 window.reproducirCancionAleatoria();
             } else {
