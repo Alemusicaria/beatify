@@ -51,20 +51,20 @@ function mostrarInformacionUsuario(usuario) {
         title.textContent = 'Admin';
 
         // Crear el botón de personalización
-        const customizeButton = document.createElement('button');
-        customizeButton.textContent = 'Personalitzar';
-        customizeButton.id = 'btn-customize';
+        const customizeButton2 = document.createElement('button');
+        customizeButton2.textContent = 'Personalitzar';
+        customizeButton2.id = 'btn-customize2';
 
         // Crear el contenedor de opciones de personalización
-        const customizeOptions = document.createElement('div');
-        customizeOptions.id = 'customize-options';
-        customizeOptions.classList.add('hidden');
+        const customizeOptions2 = document.createElement('div');
+        customizeOptions2.id = 'customize-options2';
+        customizeOptions2.classList.add('hidden');
 
         // Crear la etiqueta y el select para la forma de los botones
         const shapeLabel = document.createElement('label');
         shapeLabel.textContent = 'Forma dels botons:';
         const shapeSelect = document.createElement('select');
-        shapeSelect.id = 'button-shape';
+        shapeSelect.id = 'button-shape2';
         const roundedOption = document.createElement('option');
         roundedOption.value = 'rounded';
         roundedOption.textContent = 'Arrodonit';
@@ -79,13 +79,13 @@ function mostrarInformacionUsuario(usuario) {
         colorLabel.textContent = 'Color:';
         const colorInput = document.createElement('input');
         colorInput.type = 'color';
-        colorInput.id = 'color-picker';
+        colorInput.id = 'color-picker2';
 
         // Crear la etiqueta y el select para el tamaño de la letra
         const fontSizeLabel = document.createElement('label');
         fontSizeLabel.textContent = 'Mida de la lletra:';
         const fontSizeSelect = document.createElement('select');
-        fontSizeSelect.id = 'font-size';
+        fontSizeSelect.id = 'font-size2';
         const smallOption = document.createElement('option');
         smallOption.value = 'small';
         smallOption.textContent = 'Petit';
@@ -102,7 +102,7 @@ function mostrarInformacionUsuario(usuario) {
         // Crear el botón de guardar
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Desar';
-        saveButton.id = 'btn-save';
+        saveButton.id = 'btn-save2';
 
         // Crear el enlace a la API
         const apiLink = document.createElement('a');
@@ -111,18 +111,18 @@ function mostrarInformacionUsuario(usuario) {
         apiLink.style.color = 'white';
 
         // Agregar todos los elementos al contenedor de opciones de personalización
-        customizeOptions.appendChild(shapeLabel);
-        customizeOptions.appendChild(shapeSelect);
-        customizeOptions.appendChild(colorLabel);
-        customizeOptions.appendChild(colorInput);
-        customizeOptions.appendChild(fontSizeLabel);
-        customizeOptions.appendChild(fontSizeSelect);
-        customizeOptions.appendChild(saveButton);
+        customizeOptions2.appendChild(shapeLabel);
+        customizeOptions2.appendChild(shapeSelect);
+        customizeOptions2.appendChild(colorLabel);
+        customizeOptions2.appendChild(colorInput);
+        customizeOptions2.appendChild(fontSizeLabel);
+        customizeOptions2.appendChild(fontSizeSelect);
+        customizeOptions2.appendChild(saveButton);
 
         // Agregar todos los elementos al contenedor principal
         profileContainer.appendChild(title);
-        profileContainer.appendChild(customizeButton);
-        profileContainer.appendChild(customizeOptions);
+        profileContainer.appendChild(customizeButton2);
+        profileContainer.appendChild(customizeOptions2);
         profileContainer.appendChild(document.createElement('br'));
         profileContainer.appendChild(document.createElement('br'));
         profileContainer.appendChild(apiLink);
@@ -135,12 +135,12 @@ function mostrarInformacionUsuario(usuario) {
         const script = document.createElement('script');
         script.textContent = `
                 document.addEventListener("DOMContentLoaded", function() {
-                    const customizeButton = document.getElementById("btn-customize");
-                    const customizeOptions = document.getElementById("customize-options");
-                    const saveButton = document.getElementById("btn-save");
+                    const customizeButton2 = document.getElementById("btn-customize2");
+                    const customizeOptions2 = document.getElementById("customize-options2");
+                    const saveButton = document.getElementById("btn-save2");
     
-                    customizeButton.addEventListener("click", function() {
-                        customizeOptions.classList.toggle("hidden");
+                    customizeButton2.addEventListener("click", function() {
+                        customizeOptions2.classList.toggle("hidden");
                     });
     
                     saveButton.addEventListener("click", function() {
