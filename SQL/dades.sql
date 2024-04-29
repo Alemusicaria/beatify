@@ -153,7 +153,7 @@ VALUES
   (2, 3, 'Otra Noche en Miami'),
   (20, 3, 'WHERE SHE GOES'),
   (28, 3, 'Es Épico'),
-  (28, 3, 'Jermías 17-5'),
+  (28, 3, 'Jeremías 17-5'),
   (28, 3, 'Maquiavélico');
   
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
