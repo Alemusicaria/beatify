@@ -125,47 +125,47 @@
     </div>
 
     <footer>
-    <div class="reproductor-musica">
-    <div class="reproductor-contenido">
-        <div class="reproductor-info">
-            <img src="../img/simbols/black.jpg" alt="portada" id="reproductor-img">
-            <div class="info-text">
-                <h4 id="reproductor-title"></h4>
-                <p id="reproductor-artist"></p>
-            </div>
-        </div>
-        <div class="music-player-container">
-            <div class="controls-music-container">
-                <div class="progress-song-container">
-                    <div class="progress-bar">
-                        <span class="progress"></span>
-                        <!-- Bola para controlar la barra de progreso -->
-                        <span class="progress-ball"></span>
+        <div class="reproductor-musica">
+            <div class="reproductor-contenido">
+                <div class="reproductor-info">
+                    <img src="../img/simbols/black.jpg" alt="portada" id="reproductor-img">
+                    <div class="info-text">
+                        <h4 id="reproductor-title"></h4>
+                        <p id="reproductor-artist"></p>
                     </div>
                 </div>
-                <div class="time-container">
-                    <span class="time-left" id="CurrentSongTime"></span>
-                    <span class="time-left" id="SongLength"></span>
+                <div class="music-player-container">
+                    <div class="controls-music-container">
+                        <div class="progress-song-container">
+                            <div class="progress-bar">
+                                <span id="audioColor" class="progress"></span>
+                                <!-- Bola para controlar la barra de progreso -->
+                                <span id="audioColor" class="progress-ball"></span>
+                            </div>
+                        </div>
+                        <div class="time-container">
+                            <span class="time-left" id="CurrentSongTime"></span>
+                            <span class="time-left" id="SongLength"></span>
+                        </div>
+                    </div>
+                    <audio controls preload="metadata" src="" id="reproductor-audio"></audio>
+                    <div class="main-song-controls">
+                        <img src="../img/simbols/after.svg" alt="" class="icon" id="AfterSong">
+                        <img src="../img/simbols/Backward.svg" alt="" class="icon" id="Back10">
+                        <img src="../img/simbols/Play.svg" alt="" class="icon" id="PlayPause">
+                        <img src="../img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
+                        <img src="../img/simbols/next.svg" alt="" class="icon" id="NextSong">
+                    </div>
+                </div>
+                <div class="aleatori">
+                    <img src="../img/simbols/random.svg" alt="" id="random">
+                </div>
+                <div class="volume-container">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
+                    <img id="volumeIcon" src="../img/simbols/volume.svg" alt="Volume">
                 </div>
             </div>
-            <audio controls preload="metadata" src="" id="reproductor-audio"></audio>
-            <div class="main-song-controls">
-                <img src="../img/simbols/after.svg" alt="" class="icon" id="AfterSong">
-                <img src="../img/simbols/Backward.svg" alt="" class="icon" id="Back10">
-                <img src="../img/simbols/Play.svg" alt="" class="icon" id="PlayPause">
-                <img src="../img/simbols/Forward.svg" alt="" class="icon" id="Plus10">
-                <img src="../img/simbols/next.svg" alt="" class="icon" id="NextSong">
-            </div>
         </div>
-        <div class="aleatori">
-            <img src="../img/simbols/random.svg" alt="" id="random">
-        </div>
-        <div class="volume-container">
-            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
-            <img id="volumeIcon" src="../img/simbols/volume.svg" alt="Volume">
-        </div>
-    </div>
-</div>
 
     </footer>
 

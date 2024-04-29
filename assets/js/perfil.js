@@ -29,6 +29,7 @@ function guardarPersonalizacion() {
         forma: $('#button-shape').val(),
         color: $('#color-picker').val(),
         fontSize: $('#font-size').val(),
+        colorBarraAudio: $('#color-barrraAudio').val()
     };
 
     document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;

@@ -31,8 +31,9 @@ function aplicarPersonalizacion() {
     if (opciones) {
         // Aplicar la personalización a los elementos que desees
         // En este ejemplo, solo se aplica a los botones
+        const barra= document.getElementById('audioColor');
         const botones = document.querySelectorAll('button');
-
+        barra.style.backgroundColor = opciones.colorBarraAudio;
         botones.forEach(boton => {
             boton.style.borderRadius = opciones.forma === 'rounded' ? '10px' : '0';
             boton.style.backgroundColor = opciones.color;
@@ -41,7 +42,6 @@ function aplicarPersonalizacion() {
         });
         const searchBtn = document.getElementById('search');
         if (searchBtn) {
-            console.log('Aplicando personalización al elemento con id "search". Opciones:', opciones);
             searchBtn.style.backgroundColor = opciones.color;
         } else {
             console.log('Elemento con id "search" no encontrado.');

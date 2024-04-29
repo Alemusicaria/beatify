@@ -78,6 +78,10 @@
                 <option value="medium">Mitjà</option>
                 <option value="large">Gran</option>
             </select>
+            <br>
+            <label for="color-barrraAudio">Color barra progress del reproductor d'audio:</label>
+            <label for="color-barrraAudio">Color:</label>
+            <input type="color" id="color-barrraAudio">
             <button id="btn-save">Desar</button>
         </div> <br><br>
 
