@@ -130,10 +130,10 @@ function mostrarInformacionUsuario(usuario) {
         // Agregar el contenedor principal al body del documento
         adminPage.appendChild(profileContainer);
 
-        /*
-            // Agregar el script para la interactividad
-            const script = document.createElement('script');
-            script.textContent = `
+
+        // Agregar el script para la interactividad
+        const script = document.createElement('script');
+        script.textContent = `
                 document.addEventListener("DOMContentLoaded", function() {
                     const customizeButton = document.getElementById("btn-customize");
                     const customizeOptions = document.getElementById("customize-options");
@@ -151,8 +151,8 @@ function mostrarInformacionUsuario(usuario) {
                     });
                 });
             `;
-            document.body.appendChild(script);
-        */
+        document.body.appendChild(script);
+
     }
     $('#guardarCambios').on('click', function () {
         var nuevaFoto = $('#opcionesImagen').val();
