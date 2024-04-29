@@ -80,9 +80,9 @@
             </select>
             <button id="btn-save">Desar</button>
         </div> <br><br>
-        <a href="https://documenter.getpostman.com/view/32731356/2sA3BkbXtn" style="color: white;">API</a>
 
     </div>
+    <div id="adminID"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

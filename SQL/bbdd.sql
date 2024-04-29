@@ -39,13 +39,14 @@ CREATE TABLE Crea_musica (
 
 CREATE TABLE Usuari (
     ID INT AUTO_INCREMENT PRIMARY KEY,
+    NomUsuari VARCHAR(255),
     Contrasenya VARCHAR(255),
     Nom VARCHAR(255),
-    Email VARCHAR(255),
     Cognom VARCHAR(255),
-    NomUsuari VARCHAR(255),
+    Email VARCHAR(255),
     Foto VARCHAR(255),
-    Premium BOOLEAN
+    Premium BOOLEAN,
+    Admin BOOLEAN
 );
 
 CREATE TABLE Llista_Reproduccio (
