@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $username = mysqli_real_escape_string($conn, $username);
 
 // Crea la consulta SQL para obtener el usuario de la base de datos
-$sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email, Contrasenya FROM Usuari WHERE NomUsuari='$username'";
+$sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email, Contrasenya, Admin FROM Usuari WHERE NomUsuari='$username'";
 $result = $conn->query($sql);
 
 // Inicializa un array para almacenar los resultados
@@ -44,6 +44,7 @@ if ($result->num_rows > 0) {
         $response['Foto'] = $row['Foto'];
         $response['Premium'] = $row['Premium'];
         $response['Email'] = $row['Email'];
+        $response['Admin'] = $row['Admin'];
     } else {
         // Autenticación fallida debido a la contraseña incorrecta
         $response['status'] = "KO";
