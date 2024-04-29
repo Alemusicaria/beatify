@@ -45,7 +45,8 @@ CREATE TABLE Usuari (
     Cognom VARCHAR(255),
     NomUsuari VARCHAR(255),
     Foto VARCHAR(255),
-    Premium BOOLEAN
+    Premium BOOLEAN,
+    Admin BOOLEAN
 );
 
 CREATE TABLE Llista_Reproduccio (
