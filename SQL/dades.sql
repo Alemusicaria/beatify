@@ -49,6 +49,7 @@ VALUES
   ('Juan Luis', 'Morera Luna', 'Wisin', '1978-12-19', 'Reggaeton and Latin pop artist'),
   ('Noel', 'Santos Román', 'Noriel', '1994-06-26', 'Reggaeton and Latin pop artist'),
   ('Marcos Efraín', 'Masís Fernández', 'Tainy', '1989-08-09', 'Reggaeton and Latin pop artist'),
+  ('Tirone José', 'González Orama', 'Canserbero', '1988-05-11', 'Latin Rap artist'),
   ('Tu Mama', 'Tu Ma', 'Tu Madre', '1989-08-09', 'Reggaeton and Latin pop artist');
 
 INSERT INTO Album (ID_Artista, Titol, DataLlançament)
@@ -79,7 +80,8 @@ VALUES
   (20, 'The King is Back', '2003-01-01'),
   (21, 'Kilates 2', '2003-01-01'),
   (21, 'Gargolas 3', '2003-01-01'),
-  (27, 'The Bad Boy', '2003-01-01');
+  (27, 'The Bad Boy', '2003-01-01'),
+  (50, 'Muerte', '2003-06-22');
 
 INSERT INTO Genere (Nom)
 VALUES
@@ -149,7 +151,10 @@ VALUES
   (NULL, 1, 'Zun Da Da'),
   (2, 3, 'Si Estuviésemos Juntos'),
   (2, 3, 'Otra Noche en Miami'),
-  (20, 3, 'WHERE SHE GOES');
+  (20, 3, 'WHERE SHE GOES'),
+  (28, 3, 'Es Épico'),
+  (28, 3, 'Jermías 17-5'),
+  (28, 3, 'Maquiavélico');
   
 INSERT INTO Crea_musica (ID_Canco, ID_Artista)
 VALUES
@@ -260,4 +265,7 @@ VALUES
   (54, 45),
   (55, 8),
   (56, 8),
-  (57, 8);
+  (57, 8),
+  (58, 50),
+  (59, 50),
+  (60, 50);
