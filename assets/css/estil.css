@@ -355,6 +355,7 @@ footer {
     width: 100%;
     background-color: rgb(102, 102, 102);
     position: relative;
+    cursor: pointer;
 }
 
 .progress {
@@ -364,7 +365,16 @@ footer {
     border-radius: 3px;
     background-color: white;
 }
-
+.progress-ball {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px; 
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
 .time-container {
     width: 100%;
     display: flex;
