@@ -404,7 +404,7 @@ footer {
   }
   /* CSS DE PREMIUM */
   .comparison-table {
-    max-width: 30%;
+    max-width: 50%;
     margin: 50px auto;
     overflow: hidden;
     color: white;
@@ -455,7 +455,7 @@ footer {
     border-image-slice: 1;
     border-radius: 8px;
     padding: 20px;
-    width: 30%;
+    width: 40%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     background-color: rgb(36, 34, 34);
