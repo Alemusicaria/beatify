@@ -463,6 +463,10 @@ footer {
     h2 {
         color: #a30606;
       }
+      a{
+        color: white;
+        text-decoration: none;
+      }
   }
   
   .plan:hover {
