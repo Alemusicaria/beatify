@@ -154,6 +154,7 @@
                 </div>
                 <div class="aleatori">
                     <img src="../img/simbols/random.svg" alt="" id="random">
+                    <img src="../img/simbols/micro.png" alt="" id="micro">
                 </div>
                 <div class="volume-container">
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
