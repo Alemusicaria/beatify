@@ -1,4 +1,4 @@
-var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
+var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
 if (cookieValue === "true") {
@@ -8,43 +8,47 @@ if (cookieValue === "true") {
 function saltarCancons(index) {
     var currentIndex = index;
     var randomImage = $('#random');
+    var saltosRealizados = 0; 
 
     var nextSong = document.getElementById('NextSong');
     var afterSong = document.getElementById('AfterSong');
-    var limiteSaltarCancons = 0;
-    nextSong.addEventListener('click', function () {
-        currentIndex += 1;
-        limiteSaltarCancons += 1;
-        if (premiumUser == false && limiteSaltarCancons < 3) {
-            if (randomImage.hasClass('clicked')) {
-                window.reproducirCancionAleatoria();
-            } else {
-                reproducirCancionDesdeIndice(currentIndex);
-            }
-        } else {
-            if (randomImage.hasClass('clicked')) {
-                window.reproducirCancionAleatoria();
-            } else {
-                reproducirCancionDesdeIndice(currentIndex);
-            }
-        }
 
+    nextSong.addEventListener('click', function () {
+        if (!premiumUser && saltosRealizados >= 3) {
+            return;
+        }
+        
+        currentIndex += 1;
+        if (currentIndex >= canconsCarregades.length) {
+            currentIndex = 0;
+        }
+        saltosRealizados++;
+
+        if (randomImage.hasClass('clicked')) {
+            window.reproducirCancionAleatoria();
+        } else {
+            reproducirCancionDesdeIndice(currentIndex);
+        }
     });
 
     afterSong.addEventListener('click', function () {
         currentIndex -= 1;
         if (currentIndex < 0) {
-            currentIndex = canconsCarregades.length - 1;
+            currentIndex = canconsCarregades.length - 1; // Si está en la primera canción, va a la última
         }
-        if (premiumUser || currentIndex) {
+        
+        if (premiumUser || saltosRealizados === 0) {
+            // Si es usuario premium o no se han realizado saltos aún, reproduce la canción
             if (randomImage.hasClass('clicked')) {
                 window.reproducirCancionAleatoria();
             } else {
                 reproducirCancionDesdeIndice(currentIndex);
             }
         }
+        saltosRealizados--; // Decrementa el contador de saltos realizados
     });
 }
+
 
 // Llamada a la función de inicialización cuando la página está lista
 document.addEventListener('DOMContentLoaded', function () {
