@@ -14,7 +14,7 @@ if (isset($_POST['idLlista'])) {
         INNER JOIN Canco AS C ON Afegeix.ID_Canco = C.ID
         INNER JOIN Llista_Reproduccio AS L ON Afegeix.ID_LlistaReproduccio = L.ID
         INNER JOIN Usuari AS U ON L.ID_Usuari = U.ID
-        INNER JOIN Album AS A ON C.ID_Album = A.ID
+        LEFT JOIN Album AS A ON C.ID_Album = A.ID
         WHERE L.ID = $data";
 
     // Ejecutar la consulta
