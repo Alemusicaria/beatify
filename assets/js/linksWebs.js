@@ -1,12 +1,20 @@
 $(document).ready(function () {
-    $.ajax({
-        url: './components/inici.php',
-        type: 'GET',
-        success: function (data) {
-            $('.contenedor-right').html(data);
-        }
-    });
+    // Función para realizar la llamada AJAX a ./components/inici.php
+    function cargarInici() {
+        $.ajax({
+            url: './components/inici.php',
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                $('.contenedor-right').html(data);
+            }
+        });
+    }
 
+    // Llamada inicial al cargar la página
+    cargarInici();
+
+    // Evento de clic para el elemento #crear
     $('#crear').click(function () {
         $.ajax({
             url: './components/crearLlista.php',
@@ -17,6 +25,7 @@ $(document).ready(function () {
         });
     });
 
+    // Evento de clic para el elemento #asistencia
     $('#asistencia').click(function () {
         $.ajax({
             url: './components/asistencia.php',
@@ -27,16 +36,13 @@ $(document).ready(function () {
         });
     });
 
+    // Evento de clic para el elemento #inici
     $('#inici').click(function () {
-        $.ajax({
-            url: './components/inici.php',
-            type: 'GET',
-            success: function (data) {
-                $('.contenedor-right').html(data);
-            }
-        });
+        // Llamar a la función cargarInici en lugar de definir nuevamente la llamada AJAX
+        cargarInici();
     });
 
+    // Evento de clic para el elemento #obrirMicro
     $('#obrirMicro').click(function () {
         $.ajax({
             url: './components/obrirMicro.php',
