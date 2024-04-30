@@ -375,7 +375,110 @@ footer {
     align-items: center;
     flex-direction: column;
 }
-
+.textoIntro {
+    color: white;
+    max-width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      background-clip: text;
+      color: transparent;
+      color: #a30606;
+      display: inline-block;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    li {
+      margin-bottom: 5px;
+    }
+  
+    p {
+      line-height: 1.5;
+    }
+  }
+  .comparison-table {
+    max-width: 30%;
+    margin: 50px auto;
+    overflow: hidden;
+    color: white;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        text-transform: uppercase;
+      }
+      
+      th:nth-child(3),
+      td:nth-child(3) {
+        background: rgb(32, 11, 11);
+        /* Puedes ajustar los colores del degradado según tus preferencias */
+      }
+      
+      th:nth-child(2) {
+        background-color: white;
+        color: black;
+      }
+      
+      
+      tbody tr:hover {
+        background-color: #53515142;
+      }
+  }
+  section {
+    display: flex;
+    margin-top: 50px;
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+  }
+  
+  .plan {
+    border-style: solid;
+    border-image: linear-gradient(to left, rgb(32, 11, 11), rgb(32, 11, 11));
+    border-image-slice: 1;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(36, 34, 34);
+    margin-left: 10%;
+    h2 {
+        color: #a30606;
+      }
+  }
+  
+  .plan:hover {
+    transform: scale(1.03);
+  }
+  
+ 
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ventajas,
+  .desventajas {
+    margin-top: 10px;
+  }
 .progress-bar {
     height: 3px;
     border-radius: 3px;
