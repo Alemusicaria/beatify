@@ -116,6 +116,7 @@
         </div>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
+        <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </div>
 
     <footer>
