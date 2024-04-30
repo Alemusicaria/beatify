@@ -20,7 +20,7 @@
     <header>
         <ul class="menu">
             <li> <a href="./premium.php">Premium</a></li>
-            <li> <a href="./asistencia.php">Asistencia</a></li>
+            <li> <button id="asistencia">Asistencia</button></li>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
@@ -43,11 +43,11 @@
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
-                <li><a href="./index.php"><img src="../img/Logo_sense_fons.png" alt="">BEATIFY</a></li>
+                <li><button id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</button></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
             </ul>
-            <div class="buscar">
+            <div class="buscar buscador">
                 <input type="text" id="searchInput" placeholder="Cerca" required />
                 <div class="btn" id="search">
                     <i class="fas fa-search icon"></i>
@@ -116,10 +116,6 @@
         </div>
     </div>
     <div class="contenedor-right" style="overflow-y: auto;">
-        <h2>Totes les cançons</h2>
-        <div id="taula" class="scrollable-container">
-        </div>
-        <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
     </div>
 
     <footer>
