@@ -135,6 +135,3 @@
 
     </div>
   </section>
-  <footer>
-    <p>&copy; 2024 Beatify. Tots els drets reservats.</p>
-  </footer>
