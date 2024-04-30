@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke</title>
+    <style>
+        /* Estilos CSS básicos */
+        #karaoke {
+            text-align: center;
+        }
+
+        #lyrics {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="karaoke">
+        <h1>Karaoke</h1>
+        <div id="lyrics">Let's sing along!</div>
+        <audio id="audio" controls>
+            <source src="/musica/mp3/Amanece.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button onclick="togglePlay()">Play/Pause</button>
+    </div>
+
+    <script>
+        let lyrics = [
+            { time: 0, text: "Estrofa 1: Yo te miro y tú me miras" },
+            { time: 10, text: "Estrofa 2: El mundo parece detenerse" },
+            { time: 20, text: "Estribillo: Y juntos volamos hacia el cielo" },
+            { time: 30, text: "Estribillo: Nada importa cuando estamos juntos" }
+            // Agrega más letras y tiempos según necesites
+        ];
+
+        let audio = document.getElementById('audio');
+        let currentLyricIndex = 0;
+
+        audio.addEventListener('timeupdate', function () {
+            let currentTime = audio.currentTime;
+            for (let i = 0; i < lyrics.length; i++) {
+                if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration)) {
+                    document.getElementById('lyrics').innerText = lyrics[i].text;
+                    currentLyricIndex = i;
+                    break;
+                }
+            }
+        });
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>
