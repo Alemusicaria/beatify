@@ -1,8 +1,8 @@
 var canconsCarregades = []; // Array per emmagatzemar les cançons ja carregades
 var cookieValue = obtenerCookie('Premium');
-var premiumUser =false;
+var premiumUser = false;
 if (cookieValue === "true") {
-   premiumUser = true;
+    premiumUser = true;
 }
 // Reproducción de Canciones Automática
 function saltarCancons(index) {
@@ -14,16 +14,21 @@ function saltarCancons(index) {
     var limiteSaltarCancons = 0;
     nextSong.addEventListener('click', function () {
         currentIndex += 1;
-        limiteSaltarCancons +=1;
-        if (premiumUser || currentIndex && limiteSaltarCancons<3) {
+        limiteSaltarCancons += 1;
+        if (premiumUser == false && limiteSaltarCancons < 3) {
             if (randomImage.hasClass('clicked')) {
                 window.reproducirCancionAleatoria();
             } else {
                 reproducirCancionDesdeIndice(currentIndex);
             }
         } else {
-            //alert("¡Debes ser usuario premium para saltar más canciones!");
+            if (randomImage.hasClass('clicked')) {
+                window.reproducirCancionAleatoria();
+            } else {
+                reproducirCancionDesdeIndice(currentIndex);
+            }
         }
+
     });
 
     afterSong.addEventListener('click', function () {
@@ -31,7 +36,7 @@ function saltarCancons(index) {
         if (currentIndex < 0) {
             currentIndex = canconsCarregades.length - 1;
         }
-        if (premiumUser || currentIndex ) {
+        if (premiumUser || currentIndex) {
             if (randomImage.hasClass('clicked')) {
                 window.reproducirCancionAleatoria();
             } else {
@@ -99,13 +104,13 @@ function carregarCancons() {
         url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
-            try {  
+            try {
                 canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
                 mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
             } catch (error) {
                 console.error('Error al analizar los datos JSON:', error);
             }
-            
+
         },
         error: function (error) {
             console.log('Error en carregar les cançons:', error);
@@ -123,17 +128,17 @@ function mostrarCancons(cancons) {
         // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
         if (canco.Titol_Album) {
-            imgSrc = '../musica/portades/' + canco.Titol_Album +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol_Album + ".jpg";
         } else {
             // Si no hay Titol_Album, utilizar Titol si está disponible, de lo contrario, asignar una imagen genérica por defecto
-            imgSrc = '../musica/portades/' + canco.Titol +".jpg";
+            imgSrc = '../musica/portades/' + canco.Titol + ".jpg";
         }
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
 
         // Agregar los nombres de los artistas
-        var artistas = canco.artistas.map(function(artista) {
+        var artistas = canco.artistas.map(function (artista) {
             return artista.Nom_Artista;
         }).join(', ');
         novaCancoDiv.append('<p>' + artistas + '</p>');
@@ -143,10 +148,10 @@ function mostrarCancons(cancons) {
 
     // Agregar evento de clic a las imágenes con la clase 'icono'
     $('.icono').on('click', transferirInformacion);
-    $('.portada').on('click', function() {
+    $('.portada').on('click', function () {
         var songTitle = $(this).siblings('h4').text();
         var artistInfo = $(this).siblings('p').text();
-        var imgSrc = $(this).attr('src'); 
+        var imgSrc = $(this).attr('src');
         localStorage.setItem('selectedSong', JSON.stringify({
             title: songTitle,
             artistInfo: artistInfo,
@@ -154,7 +159,7 @@ function mostrarCancons(cancons) {
         }));
         window.location.href = './pageSongs.php';
     });
-    
+
 }
 
 
