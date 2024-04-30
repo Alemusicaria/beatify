@@ -12,9 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Beatify</title>
 </head>
 
@@ -63,7 +61,7 @@
 
                 <?php
                 if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-                    echo "<button onclick='location.href=\"./creaLlista.php\";'>Crea Llista</button>";
+                    echo "<button id='crear';'>Crea Llista</button>";
                 } else {
                     echo "<button onclick='location.href=\"./login.html\";'>Crea Llista</button>";
                 }
@@ -170,8 +168,9 @@
     </footer>
 
 </body>
+<script src="../assets/js/linksWebs.js"></script>
 <script>
-    $('.boxLlista').on('click', function () {
+    $('.boxLlista').on('click', function() {
         var nomLlista = $(this).children('a').text();
         var idLlista = $(this).children('p#lista').text();
         var idUser = $(this).children('p#user').text();
@@ -183,6 +182,7 @@
         window.location.href = './mostrarLlista.php';
     });
 </script>
+
 <script src="../assets/js/audio.js"></script>
 <script src="../assets/js/code.js"></script>
 <script src="../assets/js/carregarCancons.js"></script>
