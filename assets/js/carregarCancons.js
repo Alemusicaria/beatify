@@ -5,6 +5,7 @@ if (cookieValue === "true") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
+// Reproducción de Canciones Automática
 function saltarCancons(index) {
     var currentIndex = index;
     var randomImage = $('#random');
@@ -47,7 +48,14 @@ function saltarCancons(index) {
         }
         saltosRealizados--; // Decrementa el contador de saltos realizados
     });
+
+    // Activa la reproducción aleatoria para usuarios no premium
+    if (!premiumUser) {
+        randomImage.addClass('clicked');
+        randomImage.attr('src', '../img/simbols/crandom.svg');
+    }
 }
+
 
 
 // Llamada a la función de inicialización cuando la página está lista
