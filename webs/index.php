@@ -22,7 +22,6 @@
             <li> <a href="./premium.php">Premium</a></li>
             <li> <button id="asistencia">Asistencia</button></li>
             <?php
-
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
                 <div class="perfil-dropdown">
