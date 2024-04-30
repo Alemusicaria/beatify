@@ -5,7 +5,6 @@ $(document).ready(function () {
             url: './components/inici.php',
             type: 'GET',
             success: function (data) {
-                console.log(data);
                 $('.contenedor-right').html(data);
             }
         });
