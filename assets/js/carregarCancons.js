@@ -5,7 +5,6 @@ if (cookieValue === "true") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
-// Reproducción de Canciones Automática
 function saltarCancons(index) {
     var currentIndex = index;
     var randomImage = $('#random');
