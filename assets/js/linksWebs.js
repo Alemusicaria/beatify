@@ -15,7 +15,6 @@ $(document).ready(function () {
                 $('.contenedor-right').html(data);
             }
         });
-        $('.buscador').hide();
 
     });
 
