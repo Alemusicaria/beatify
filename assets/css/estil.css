@@ -116,9 +116,11 @@ button:hover {
     color: white;
     font-family: 'Outfit', sans-serif;
 }
+
 .contenedor-left .miniMenu button {
-transform: scale(1);
+    transform: scale(1);
 }
+
 .contenedor-left .miniMenu ul {
     list-style: none;
     line-height: 2.5em;
@@ -304,9 +306,17 @@ footer {
         cursor: pointer;
     }
 }
-.aleatori img {
-    width: 24px;
+
+.micro {
+    position: absolute;
+    left: 75%;
+    cursor: pointer;
 }
+
+.micro i {
+    font-size: 20px;
+}
+
 .music-player-container {
     background: linear-gradient(30deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
     height: fit-content;
