@@ -36,4 +36,14 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#obrirMicro').click(function () {
+        $.ajax({
+            url: './components/obrirMicro.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+            }
+        });
+    });
 });
