@@ -84,7 +84,7 @@ function mostrarCancons(cancons) {
         // Agregar los nombres de los artistas
         var artistas = canco.artistas.map(function (artista) {
             return artista.Nom_Artista;
-        }).join(' , ');
+        }).join(', ');
         novaCancoDiv.append('<p>' + artistas + '</p>');
 
         taula.append(novaCancoDiv);
@@ -125,25 +125,25 @@ function afegirCancoLlista(event) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Obtén la lista de canciones y el campo de búsqueda
-    const songList = document.getElementById('taula');
-    const searchInput = document.getElementById('searchInput');
 
-    // Agrega un evento de escucha al campo de búsqueda
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
+// Obtén la lista de canciones y el campo de búsqueda
+const songList = document.getElementById('taula');
+const searchInput = document.getElementById('searchInput');
+console.log(searchInput);
+// Agrega un evento de escucha al campo de búsqueda
+searchInput.addEventListener('input', function () {
+    const searchTerm = searchInput.value.toLowerCase();
 
-        // Filtra las canciones basadas en el término de búsqueda
-        Array.from(songList.children).forEach(function (song) {
-            const songTitle = song.querySelector('h4').textContent.toLowerCase();
-            const artistName = song.querySelector('p').textContent.toLowerCase();
+    // Filtra las canciones basadas en el término de búsqueda
+    Array.from(songList.children).forEach(function (song) {
+        const songTitle = song.querySelector('h4').textContent.toLowerCase();
+        const artistName = song.querySelector('p').textContent.toLowerCase();
 
-            if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
-                song.style.display = 'block'; // Muestra la canción si coincide
-            } else {
-                song.style.display = 'none'; // Oculta la canción si no coincide
-            }
-        });
+        if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
+            song.style.display = 'block'; // Muestra la canción si coincide
+        } else {
+            song.style.display = 'none'; // Oculta la canción si no coincide
+        }
     });
 });
+
