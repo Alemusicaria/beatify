@@ -1,7 +1,7 @@
 var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
-if (cookieValue === "true") {
+if (cookieValue === "1") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
