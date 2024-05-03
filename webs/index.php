@@ -42,7 +42,7 @@
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
-                <li><button id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</button></li>
+                <li><a style = "cursor:pointer;"id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
             </ul>
