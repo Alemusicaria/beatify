@@ -19,8 +19,8 @@
 <body>
     <header>
         <ul class="menu">
-            <li> <a href="./premium.php">Premium</a></li>
-            <li> <button id="asistencia">Asistencia</button></li>
+            <li> <a id="premium" style="cursor:pointer;">Premium</a></li>
+            <li ><a id="asistencia" style="cursor:pointer;">Asistencia</a></li>
             <?php
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
