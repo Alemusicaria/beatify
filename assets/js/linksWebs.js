@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     $('#premium').click(function () {
         $.ajax({
-            url: './components/obrirMicro.php',
+            url: './components/premium.php',
             type: 'GET',
             success: function (data) {
                 $('.contenedor-right').html(data);
