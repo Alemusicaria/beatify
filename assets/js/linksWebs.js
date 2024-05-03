@@ -51,6 +51,18 @@ $(document).ready(function () {
             }
         });
     });
+
+    // Evento de clic para el elemento #obrirMicro
+    $('#lletra').click(function () {
+        $.ajax({
+            url: './components/lletra.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+            }
+        });
+    });
+
     $('#premium').click(function () {
         $.ajax({
             url: './components/obrirMicro.php',
