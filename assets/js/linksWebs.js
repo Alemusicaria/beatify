@@ -37,9 +37,9 @@ $(document).ready(function () {
         });
     });
 
-    $('#obrirMicro').click(function () {
+    $('#lletra').click(function () {
         $.ajax({
-            url: './components/obrirMicro.php',
+            url: './components/lletra.php',
             type: 'GET',
             success: function (data) {
                 $('.contenedor-right').html(data);
