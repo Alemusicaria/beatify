@@ -155,7 +155,7 @@
                     <img src="../img/simbols/random.svg" alt="" id="random">
                 </div>
                 <div class="micro">
-                    <button id="obrirMicro"><i class="fa-solid fa-microphone" style="color: #ffffff;"></i></button>
+                    <button id="lletra"><i class="fa-solid fa-microphone" style="color: #ffffff;"></i></button>
                 </div>
                 <div class="volume-container">
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
