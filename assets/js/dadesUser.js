@@ -43,8 +43,8 @@ function mostrarInformacionUsuario(usuario) {
     if (Admin == 1 && adminPage !== null) {
         // Crear el contenedor principal
 
-        const profileContainer = document.createElement('div');
-        profileContainer.classList.add('profile-container');
+        const adminContainer = document.createElement('div');
+        adminContainer.classList.add('profile-container');
 
         const adminTitle = document.createElement('h1');
         adminTitle.textContent = 'Admin';
