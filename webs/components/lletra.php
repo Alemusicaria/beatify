@@ -15,10 +15,10 @@
 <div id="karaoke">
     <h1>Karaoke</h1>
     <div id="lyrics">Let's sing along!</div>
-    <audio id="audio" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <audio2 id="audio2" controls>
+        <source src="../../musica/mp3/Amanece.mp3" type="audio2/mpeg">
+        Your browser does not support the audio2 element.
+    </audio2>
     <button onclick="togglePlay()">Play/Pause</button>
 </div>
 
@@ -141,13 +141,13 @@
         }
     ];
 
-    let audio = document.getElementById('audio');
+    let audio2 = document.getElementById('audio2');
     let currentLyricIndex = 0;
 
-    audio.addEventListener('timeupdate', function() {
-        let currentTime = audio.currentTime;
+    audio2.addEventListener('timeupdate', function() {
+        let currentTime = audio2.currentTime;
         for (let i = 0; i < lyrics.length; i++) {
-            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration)) {
+            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio2.duration)) {
                 document.getElementById('lyrics').innerText = lyrics.map(l => l.text).join('\n'); // Mostrar toda la letra
                 document.getElementById('lyrics').innerHTML = document.getElementById('lyrics').innerText.replace(lyrics[i].text, `<span style="color: red;">${lyrics[i].text}</span>`); // Cambiar el color de la línea actual
                 currentLyricIndex = i;
@@ -157,10 +157,10 @@
     });
 
     function togglePlay() {
-        if (audio.paused) {
-            audio.play();
+        if (audio2.paused) {
+            audio2.play();
         } else {
-            audio.pause();
+            audio2.pause();
         }
     }
 </script>
