@@ -15,10 +15,6 @@
 <div id="karaoke">
     <h1>Amanece</h1>
     <div id="lyrics"></div>
-    <audio id="audio2" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
-        Your browser does not support the audio2 element.
-    </audio>
 </div>
 
 <script>
