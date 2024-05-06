@@ -13,11 +13,6 @@
 <div id="karaoke">
     <h1>Karaoke</h1>
     <div id="lyrics">Let's sing along!</div>
-    <audio id="audio" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <button onclick="togglePlay()">Play/Pause</button>
 </div>
 
 <script>
@@ -114,32 +109,18 @@
             text: "Y cómo quieres (no, no)Quédate en lo que amanece"
         }
     ];
+    let audio2 = document.getElementById('audio');
+    let currentLyricIndex = 0;
 
-    let audio = document.getElementById('audio');
-    let lyricsDiv = document.getElementById('lyrics');
-    let currentLineIndex = 0;
-
-    function togglePlay() {
-        if (audio.paused) {
-            audio.play();
-            audio.addEventListener('timeupdate', highlightLyrics);
-        } else {
-            audio.pause();
-            audio.removeEventListener('timeupdate', highlightLyrics);
+    audio2.addEventListener('timeupdate', function() {
+        let currentTime = audio2.currentTime;
+        for (let i = 0; i < lyrics.length; i++) {
+            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio2.duration)) {
+                document.getElementById('lyrics').innerText = lyrics.map(l => l.text).join('\n'); // Mostrar toda la letra
+                document.getElementById('lyrics').innerHTML = document.getElementById('lyrics').innerText.replace(lyrics[i].text, `<span style="color: red;">${lyrics[i].text}</span>`); // Cambiar el color de la línea actual
+                currentLyricIndex = i;
+                break;
+            }
         }
-    }
-
-    function highlightLyrics() {
-        let currentTime = audio.currentTime;
-
-        while (currentLineIndex < lyrics.length && currentTime >= lyrics[currentLineIndex].time) {
-            currentLineIndex++;
-        }
-
-        if (currentLineIndex === 0) {
-            lyricsDiv.textContent = lyrics[0].text;
-        } else {
-            lyricsDiv.textContent = lyrics[currentLineIndex - 1].text;
-        }
-    }
+    });
 </script>
