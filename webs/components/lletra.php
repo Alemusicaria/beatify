@@ -15,10 +15,10 @@
 <div id="karaoke">
     <h1>Karaoke</h1>
     <div id="lyrics">Let's sing along!</div>
-    <audio2 id="audio2" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio2/mpeg">
+    <audio id="audio2" controls>
+        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
         Your browser does not support the audio2 element.
-    </audio2>
+    </audio>
     <button onclick="togglePlay()">Play/Pause</button>
 </div>
 
