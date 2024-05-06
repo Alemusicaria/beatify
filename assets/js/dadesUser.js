@@ -110,9 +110,10 @@ function mostrarInformacionUsuario(usuario) {
     
     
 
+    
     $('#guardarCambios').on('click', function () {
         var nuevaFoto = $('#opcionesImagen').val();
-        $('#fotoPerfil').attr('src', nuevaFoto);
+        $('.fotoPerfil').attr('src', nuevaFoto);
         console.log(nuevaFoto);
         console.log(NomUsuari);
         $.post('../assets/php/newImage.php', { nuevaFoto: nuevaFoto, username: NomUsuari }, function (respuesta) {
