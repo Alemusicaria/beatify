@@ -39,11 +39,12 @@ function mostrarInformacionUsuario(usuario) {
     $('.fotoPerfil').attr('src', foto);
     $('.NomUsuari').text('Nom: ' + nombre + ' ' + apellido);
     $('.email').text('Correu: ' + email);
-    $('.premium').text('Premium: ' + (premium === 1 ? 'Si' : 'No'));
-    if (Admin === 1 && adminPage !== null) {
-        // Crear elementos HTML
-        const adminContainer = document.createElement('div');
-        adminContainer.classList.add('admin-container');
+    $('.premium').text('Premium: ' + (premium === "1" ? 'Si' : 'No'));
+    if (Admin == 1 && adminPage !== null) {
+        // Crear el contenedor principal
+
+        const profileContainer = document.createElement('div');
+        profileContainer.classList.add('profile-container');
 
         const adminTitle = document.createElement('h1');
         adminTitle.textContent = 'Admin';
