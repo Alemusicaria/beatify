@@ -125,11 +125,10 @@ function afegirCancoLlista(event) {
     });
 }
 
-
+$(document).ready(function () {
 // Obtén la lista de canciones y el campo de búsqueda
 const songList = document.getElementById('taula');
 const searchInput = document.getElementById('searchInput');
-console.log(searchInput);
 // Agrega un evento de escucha al campo de búsqueda
 searchInput.addEventListener('input', function () {
     const searchTerm = searchInput.value.toLowerCase();
@@ -146,4 +145,4 @@ searchInput.addEventListener('input', function () {
         }
     });
 });
-
+});
