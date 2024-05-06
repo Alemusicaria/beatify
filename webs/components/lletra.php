@@ -1,20 +1,22 @@
 <style>
+    /* Estilos CSS básicos */
     #karaoke {
         text-align: center;
-        color: yellow;
+        color: white;
     }
 
     #lyrics {
         font-size: 24px;
         margin-bottom: 20px;
         white-space: pre-line;
+        /* Para mostrar saltos de línea correctamente */
     }
 </style>
 <div id="karaoke">
     <h1>Karaoke</h1>
     <div id="lyrics">Let's sing along!</div>
     <audio id="audio" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
+        <source src="../musica/mp3/Amanece.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <button onclick="togglePlay()">Play/Pause</button>
