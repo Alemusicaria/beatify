@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var selectedList = JSON.parse(localStorage.getItem('selectedList'));
     var idLlista = selectedList.id_Llista;
     if (selectedList) {
+        var imgSrc = selectedList.img;
+        $('.foto img').attr('src', "../musica/portades/" + imgSrc + ".jpg");
         var listTitle = selectedList.nomLlista;
         $('.txt h2').text(listTitle);
         var username = selectedList.id_User;

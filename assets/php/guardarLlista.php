@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 // Recibir el nombre de la lista del formulario
 $nomLlista = $_POST['nomLlista'];
-$foto = "Foto";
+$foto = "reggaeton";
 
 // Asegurar de que el cookie 'UsuariID' existe
 if (isset($_COOKIE['UsuariID'])) {
