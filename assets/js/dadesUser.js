@@ -51,7 +51,6 @@ function mostrarInformacionUsuario(usuario) {
 
         const adminOptions = document.createElement('div');
         adminOptions.id = 'admin-options';
-        adminOptions.classList.add('hidden');
 
         const adminAccessLabel = document.createElement('label');
         adminAccessLabel.setAttribute('for', 'admin-access');
@@ -80,7 +79,7 @@ function mostrarInformacionUsuario(usuario) {
         });
         adminPage.appendChild(adminContainer);
     }
-    
+
     $('#guardarCambios').on('click', function () {
         var nuevaFoto = $('#opcionesImagen').val();
         $('#fotoPerfil').attr('src', nuevaFoto);
