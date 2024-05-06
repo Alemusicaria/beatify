@@ -19,7 +19,6 @@
         <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
         Your browser does not support the audio2 element.
     </audio>
-    <button onclick="togglePlay()">Play/Pause</button>
 </div>
 
 <script>
@@ -141,7 +140,7 @@
         }
     ];
 
-    let audio2 = document.getElementById('audio2');
+    let audio2 = document.getElementById('reproductor-audio');
     let currentLyricIndex = 0;
 
     audio2.addEventListener('timeupdate', function() {
