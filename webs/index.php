@@ -19,8 +19,8 @@
 <body>
     <header>
         <ul class="menu">
-            <li> <a href="./premium.php">Premium</a></li>
-            <li> <button id="asistencia">Asistencia</button></li>
+            <li> <a id="premium" style="cursor:pointer;">Premium</a></li>
+            <li ><a id="asistencia" style="cursor:pointer;">Asistencia</a></li>
             <?php
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
@@ -42,7 +42,7 @@
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
-                <li><button id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</button></li>
+                <li><a style = "cursor:pointer;"id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
             </ul>
@@ -155,7 +155,7 @@
                     <img src="../img/simbols/random.svg" alt="" id="random">
                 </div>
                 <div class="micro">
-                    <button id="obrirMicro"><i class="fa-solid fa-microphone" style="color: #ffffff;"></i></button>
+                    <button id="lletra"><i class="fa-solid fa-microphone" style="color: #ffffff;"></i></button>
                 </div>
                 <div class="volume-container">
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="100">
