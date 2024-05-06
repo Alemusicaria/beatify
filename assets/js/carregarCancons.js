@@ -2,10 +2,7 @@ var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
-if(reproAutoAdmin == true){
-    premiumUser = true;
-}
-if (cookieValue === "1") {
+if (cookieValue === "1" || reproAutoAdmin === "true") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
