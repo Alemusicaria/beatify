@@ -1,15 +1,13 @@
 <style>
-    /* Estilos CSS básicos */
     #karaoke {
         text-align: center;
-        color: white;
+        color: yellow;
     }
 
     #lyrics {
         font-size: 24px;
         margin-bottom: 20px;
         white-space: pre-line;
-        /* Para mostrar saltos de línea correctamente */
     }
 </style>
 <div id="karaoke">
@@ -101,11 +99,7 @@
         },
         {
             time: 110.60,
-            text: "mí tú te moja' (moja-ah) Yo sé que me prefieres, y quieres (bebecita) Quédate"
-        },
-        {
-            time: 115.80,
-            text: "en lo que amanece Y como Karol G en mi cama (cama)"
+            text: "mí tú te moja' (moja-ah) Yo sé que me prefieres, y quieres (bebecita) Quédate en lo que amanece Y como Karol G en mi cama (cama)"
         },
         {
             time: 122.70,
@@ -117,50 +111,35 @@
         },
         {
             time: 136.30,
-            text: "Y que yo vivo en tu mente (bebé) Y que te pongo caliente Bandolera,"
-        },
-        {
-            time: 143.30,
-            text: "recuerdo la tembla'era (eh-eh, uah) Yo sé que tú me desea' (bebé) Me tiene' en una"
-        },
-        {
-            time: 148.60,
-            text: "odisea (uah-uah) Pa' ir rompiéndote to'a (to'a) Y nos olvidamo' de la hora (uah)"
-        },
-        {
-            time: 154.50,
-            text: "Yo sé que me prefieres, y quieres (oh-oh, uah) Quédate en lo que amanece"
-        },
-        {
-            time: 187.90,
-            text: "pa' ir comiéndote to'a (-o'a) Y encima de mí tú te moja' (moja-ah)Yo sé que"
-        },
-        {
-            time: 189.60,
-            text: "me prefieres, y quieres (bebecita) Quédate en lo que amanece Donde se fuma y se hace el amor bien rico, bebecita"
+            text: "Y cómo quieres (no, no)Quédate en lo que amanece"
         }
     ];
 
     let audio = document.getElementById('audio');
-    let currentLyricIndex = 0;
-
-    audio.addEventListener('timeupdate', function() {
-        let currentTime = audio.currentTime;
-        for (let i = 0; i < lyrics.length; i++) {
-            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration)) {
-                document.getElementById('lyrics').innerText = lyrics.map(l => l.text).join('\n'); // Mostrar toda la letra
-                document.getElementById('lyrics').innerHTML = document.getElementById('lyrics').innerText.replace(lyrics[i].text, `<span style="color: red;">${lyrics[i].text}</span>`); // Cambiar el color de la línea actual
-                currentLyricIndex = i;
-                break;
-            }
-        }
-    });
+    let lyricsDiv = document.getElementById('lyrics');
+    let currentLineIndex = 0;
 
     function togglePlay() {
         if (audio.paused) {
             audio.play();
+            audio.addEventListener('timeupdate', highlightLyrics);
         } else {
             audio.pause();
+            audio.removeEventListener('timeupdate', highlightLyrics);
+        }
+    }
+
+    function highlightLyrics() {
+        let currentTime = audio.currentTime;
+
+        while (currentLineIndex < lyrics.length && currentTime >= lyrics[currentLineIndex].time) {
+            currentLineIndex++;
+        }
+
+        if (currentLineIndex === 0) {
+            lyricsDiv.textContent = lyrics[0].text;
+        } else {
+            lyricsDiv.textContent = lyrics[currentLineIndex - 1].text;
         }
     }
 </script>
