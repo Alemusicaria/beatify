@@ -10,9 +10,6 @@ $(document).ready(function () {
         });
     }
 
-    // Llamada inicial al cargar la página
-    cargarInici();
-
     // Evento de clic para el elemento #crear
     $('#crear').click(function () {
         $.ajax({
