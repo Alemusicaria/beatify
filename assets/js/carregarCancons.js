@@ -1,6 +1,5 @@
 var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
-console.log(reproAutoAdmin);
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
 if(reproAutoAdmin == true){
