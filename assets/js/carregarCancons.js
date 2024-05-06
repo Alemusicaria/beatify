@@ -206,13 +206,16 @@ function transferirInformacion(event) {
 $(document).ready(function () {
     var randomImage = $('#random');
     randomImage.on('click', function () {
-        if (randomImage.hasClass('clicked')) {
-            randomImage.removeClass('clicked');
-            randomImage.attr('src', '../img/simbols/random.svg');
-        } else {
-            window.reproducirCancionAleatoria();
-            randomImage.addClass('clicked');
-            randomImage.attr('src', '../img/simbols/crandom.svg');
+        if (premiumUser == true) {
+            // Cambiar el estado solo si no es un usuario premium
+            if (randomImage.hasClass('clicked')) {
+                randomImage.removeClass('clicked');
+                randomImage.attr('src', '../img/simbols/random.svg');
+            } else {
+                window.reproducirCancionAleatoria();
+                randomImage.addClass('clicked');
+                randomImage.attr('src', '../img/simbols/crandom.svg');
+            }
         }
 
     });
