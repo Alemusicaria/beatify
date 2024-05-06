@@ -39,7 +39,7 @@ function mostrarInformacionUsuario(usuario) {
     $('.fotoPerfil').attr('src', foto);
     $('.NomUsuari').text('Nom: ' + nombre + ' ' + apellido);
     $('.email').text('Correu: ' + email);
-    $('.premium').text('Premium: ' + (premium === 1 ? 'Si' : 'No'));
+    $('.premium').text('Premium: ' + (premium === "1" ? 'Si' : 'No'));
     if (Admin == 1 && adminPage !== null) {
         // Crear el contenedor principal
 
