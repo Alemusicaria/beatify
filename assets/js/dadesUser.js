@@ -55,7 +55,7 @@ function mostrarInformacionUsuario(usuario) {
 
         const adminAccessLabel = document.createElement('label');
         adminAccessLabel.setAttribute('for', 'admin-access');
-        adminAccessLabel.textContent = 'Acceso de Admin:';
+        adminAccessLabel.textContent = 'Reproduccio Automàtica (NO Premium):';
         adminOptions.appendChild(adminAccessLabel);
 
         const adminAccessSelect = document.createElement('select');
@@ -74,10 +74,6 @@ function mostrarInformacionUsuario(usuario) {
         adminOptions.appendChild(adminAccessSelect);
         adminContainer.appendChild(adminOptions);
 
-        // Agregar evento al título de Admin
-        adminTitle.addEventListener('click', () => {
-            adminOptions.classList.toggle('hidden');
-        });
         adminPage.appendChild(adminContainer);
     }
 
