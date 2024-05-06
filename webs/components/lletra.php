@@ -13,13 +13,8 @@
     }
 </style>
 <div id="karaoke">
-    <h1>Karaoke</h1>
-    <div id="lyrics">Let's sing along!</div>
-    <audio id="audio" controls>
-        <source src="../../musica/mp3/Amanece.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <button onclick="togglePlay()">Play/Pause</button>
+    <h1>Amanece</h1>
+    <div id="lyrics"></div>
 </div>
 
 <script>
@@ -29,7 +24,7 @@
         },
         {
             time: 4.40,
-            text: "Siempre te llamo de madrugá Porque quería decirte que (oh-oh)Me encanta todo"
+            text: "Siempre te llamo de madrugá Porque quería decirte que (oh-oh) Me encanta todo"
         },
         {
             time: 9.70,
@@ -37,7 +32,7 @@
         },
         {
             time: 14.40,
-            text: "No es casualidad, yo lo sé (oh-oh-oh, oh-oh)Te sucede también (oh-oh-oh, oh-oh)Y estás ahí"
+            text: "No es casualidad, yo lo sé (oh-oh-oh, oh-oh) Te sucede también (oh-oh-oh, oh-oh) Y estás ahí"
         },
         {
             time: 21.10,
@@ -45,7 +40,7 @@
         },
         {
             time: 24.60,
-            text: "no lo confieses Quieres volver, con él no te sientes bien (bebé)Si"
+            text: "no lo confieses Quieres volver, con él no te sientes bien (bebé) Si"
         },
         {
             time: 31.00,
@@ -57,15 +52,15 @@
         },
         {
             time: 42.30,
-            text: "prefieres, y quieres (oh-oh)Quédate en lo que amanece pa' ir comiéndote to'a (-o'a)"
+            text: "prefieres, y quieres (oh-oh) Quédate en lo que amanece pa' ir comiéndote to'a (-o'a) "
         },
         {
             time: 48.50,
-            text: "Y encima de mí tú te moja’ (moja-ah)"
+            text: "Y encima de mí tú te moja’ (moja-ah) "
         },
         {
             time: 55.50,
-            text: "Yo sé que me prefieres, y quieres (bebecita)Quédate"
+            text: "Yo sé que me prefieres, y quieres (bebecita) Quédate"
         },
         {
             time: 59.00,
@@ -85,7 +80,7 @@
         },
         {
             time: 81.20,
-            text: "Y adentro de ti enloquecer Mi diabla, manipulándome cuando habla (habla)Adentro de ti"
+            text: "Y adentro de ti enloquecer Mi diabla, manipulándome cuando habla (habla) Adentro de ti"
         },
         {
             time: 87.60,
@@ -93,11 +88,11 @@
         },
         {
             time: 93.90,
-            text: "to'a (to'a) Y nos olvidamo' de la hora (uah) Yo sé que me prefieres, y quieres (oh-oh, uah)"
+            text: "to'a (to'a) Y nos olvidamo' de la hora (uah) Yo sé que me prefieres, y quieres (oh-oh, uah) "
         },
         {
             time: 98.60,
-            text: "Quédate en lo que amanece pa' ir comiéndote to'a (-o'a)Y encima de"
+            text: "Quédate en lo que amanece pa' ir comiéndote to'a (-o'a) Y encima de"
         },
         {
             time: 110.60,
@@ -105,11 +100,11 @@
         },
         {
             time: 115.80,
-            text: "en lo que amanece Y como Karol G en mi cama (cama)"
+            text: "en lo que amanece Y como Karol G en mi cama (cama) "
         },
         {
             time: 122.70,
-            text: "Como Becky G sin pijama (-jama)Ella no sabe amar (uah) Y no se quiere"
+            text: "Como Becky G sin pijama (-jama) Ella no sabe amar (uah) Y no se quiere"
         },
         {
             time: 130.10,
@@ -125,7 +120,7 @@
         },
         {
             time: 148.60,
-            text: "odisea (uah-uah) Pa' ir rompiéndote to'a (to'a) Y nos olvidamo' de la hora (uah)"
+            text: "odisea (uah-uah) Pa' ir rompiéndote to'a (to'a) Y nos olvidamo' de la hora (uah) "
         },
         {
             time: 154.50,
@@ -133,7 +128,7 @@
         },
         {
             time: 187.90,
-            text: "pa' ir comiéndote to'a (-o'a) Y encima de mí tú te moja' (moja-ah)Yo sé que"
+            text: "pa' ir comiéndote to'a (-o'a) Y encima de mí tú te moja' (moja-ah) Yo sé que"
         },
         {
             time: 189.60,
@@ -141,13 +136,13 @@
         }
     ];
 
-    let audio = document.getElementById('audio');
+    let audio2 = document.getElementById('reproductor-audio');
     let currentLyricIndex = 0;
 
-    audio.addEventListener('timeupdate', function() {
-        let currentTime = audio.currentTime;
+    audio2.addEventListener('timeupdate', function() {
+        let currentTime = audio2.currentTime;
         for (let i = 0; i < lyrics.length; i++) {
-            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration)) {
+            if (currentTime >= lyrics[i].time && currentTime < (lyrics[i + 1] ? lyrics[i + 1].time : audio2.duration)) {
                 document.getElementById('lyrics').innerText = lyrics.map(l => l.text).join('\n'); // Mostrar toda la letra
                 document.getElementById('lyrics').innerHTML = document.getElementById('lyrics').innerText.replace(lyrics[i].text, `<span style="color: red;">${lyrics[i].text}</span>`); // Cambiar el color de la línea actual
                 currentLyricIndex = i;
@@ -157,10 +152,10 @@
     });
 
     function togglePlay() {
-        if (audio.paused) {
-            audio.play();
+        if (audio2.paused) {
+            audio2.play();
         } else {
-            audio.pause();
+            audio2.pause();
         }
     }
 </script>

@@ -51,13 +51,11 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Adreça de Pagament</h4>
-                    <form class="needs-validation" action="../assets/php/processar_pagament.php" method="post"
-                        novalidate>
+                    <form class="needs-validation" action="../assets/php/processar_pagament.php" method="post" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">Nom</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder=""
-                                    value="" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
                                 <div class="invalid-feedback">
                                     Cal un nom vàlid.
                                 </div>
@@ -65,8 +63,7 @@
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Cognom</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder=""
-                                    value="" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required>
                                 <div class="invalid-feedback">
                                     Cal un cognom vàlid.
                                 </div>
@@ -76,8 +73,7 @@
                                 <label for="username" class="form-label">Nom d'usuari</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" name="username"
-                                        placeholder="Nom d'usuari" required>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'usuari" required>
                                     <div class="invalid-feedback">
                                         Cal un nom d'usuari.
                                     </div>
@@ -86,8 +82,7 @@
 
                             <div class="col-12">
                                 <label for="email" class="form-label">Correu electrònic</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="tu@exemple.com" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="tu@exemple.com" required>
                                 <div class="invalid-feedback">
                                     Si us plau, introdueixi una adreça de correu electrònic vàlida per a actualitzacions
                                     d'enviament.
@@ -96,18 +91,15 @@
 
                             <div class="col-12">
                                 <label for="address" class="form-label">Adreça</label>
-                                <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Carrer Principal, 123" required>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Carrer Principal, 123" required>
                                 <div class="invalid-feedback">
                                     Si us plau, introdueixi la vostra adreça d'enviament.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="address2" class="form-label">Adreça 2 <span
-                                        class="text-body-secondary">(Opcional)</span></label>
-                                <input type="text" class="form-control" id="address2" name="address2"
-                                    placeholder="Apartament o pis">
+                                <label for="address2" class="form-label">Adreça 2 <span class="text-body-secondary">(Opcional)</span></label>
+                                <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartament o pis">
                             </div>
 
                             <div class="col-md-6">
@@ -139,8 +131,7 @@
 
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
-                                    required>
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
                                 <label class="form-check-label" for="credit">Targeta de crèdit</label>
                             </div>
                             <div class="form-check">
@@ -157,8 +148,7 @@
                         <div class="row gy-3">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Nom a la targeta</label>
-                                <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder=""
-                                    required>
+                                <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder="" required>
                                 <small class="text-body-secondary">Nom complet com es mostra a la targeta</small>
                                 <div class="invalid-feedback">
                                     El nom a la targeta és obligatori
@@ -167,8 +157,7 @@
 
                             <div class="col-md-6">
                                 <label for="cc-number" class="form-label">Número de targeta de crèdit</label>
-                                <input type="text" class="form-control" id="cc-number" name="cc-number" placeholder=""
-                                    required>
+                                <input type="text" class="form-control" id="cc-number" name="cc-number" placeholder="" required>
                                 <div class="invalid-feedback">
                                     El número de targeta de crèdit és obligatori
                                 </div>
@@ -176,8 +165,7 @@
 
                             <div class="col-md-3">
                                 <label for="cc-expiration" class="form-label">Caducitat</label>
-                                <input type="text" class="form-control" id="cc-expiration" name="cc-expiration"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="cc-expiration" name="cc-expiration" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Data de caducitat obligatòria
                                 </div>
@@ -185,8 +173,7 @@
 
                             <div class="col-md-3">
                                 <label for="cc-cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" name="cc-cvv" placeholder=""
-                                    required>
+                                <input type="text" class="form-control" id="cc-cvv" name="cc-cvv" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Codi de seguretat obligatori
                                 </div>
@@ -212,7 +199,7 @@
         const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
 
         paymentMethods.forEach(method => {
-            method.addEventListener('change', function () {
+            method.addEventListener('change', function() {
                 if (this.checked) {
                     paymentMethodField.value = this.id;
                 }
