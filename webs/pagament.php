@@ -10,6 +10,8 @@
     <meta name="generator" content="Hugo 0.118.2">
     <title>Beatify | Pagament</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -182,7 +184,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar a la comanda</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="button" onclick="generateInvoice()">Continuar a la comanda</button>
                     </form>
                 </div>
             </div>
@@ -206,6 +208,39 @@
             });
         });
     </script>
+
+    <script>
+        function generateInvoice() {
+            const {
+                jsPDF
+            } = window.jspdf;
+            const doc = new jsPDF();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const address2 = document.getElementById('address2').value || 'N/A'; // Opcional, si està buit mostra 'N/A'
+            const country = document.getElementById('country').value;
+            const zip = document.getElementById('zip').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            const content = `
+            Nom: ${firstName} ${lastName}
+            Nom d'usuari: ${username}
+            Correu electrònic: ${email}
+            Adreça: ${address}, ${address2}
+            País: ${country}
+            Codi Postal: ${zip}
+            Mètode de pagament: ${paymentMethod}
+            `;
+
+            doc.text(content, 10, 10);
+            doc.save('Factura.pdf');
+        }
+    </script>
+
 
     <script src="../assets/js/pagament.js"></script>
 </body>
