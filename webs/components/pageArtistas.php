@@ -23,5 +23,4 @@
 
     </div>
 </div>
-<script>console.log("KLK");</script>
 <script src="../assets/js/infArtistes.js"></script>
