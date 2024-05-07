@@ -9,6 +9,8 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
     <title>Beatify | Pagament</title>
+    <link rel="icon" href="../img/Logo_sense_fons.png">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
@@ -43,11 +45,35 @@
                                 <h6 class="my-0">Beatify Premium</h6>
                                 <small class="text-body-secondary" id="tipusFactura"></small>
                             </div>
-                            <span class="text-body-secondary">10€</span>
+                            <span class="text-body-secondary" id="preuFactura"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total (EURO)</span>
-                            <strong>12.10€</strong>
+                            <?php
+                            // Obtener el valor de la cookie preuFactura
+                            $preuFactura = $_COOKIE['preuFactura'] ?? '';
+
+                            // Definir el precio base
+                            $precioBase = 12.10;
+
+                            // Calcular el total basado en el valor de la cookie preuFactura
+                            switch ($preuFactura) {
+                                case '10€/Mes':
+                                    $total = $precioBase;
+                                    break;
+                                case '9.5€/Mes':
+                                    $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+                                    break;
+                                case '9€/Mes':
+                                    $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+                                    break;
+                                default:
+                                    $total = $precioBase; // Si no se especifica la cookie, se utiliza el precio base
+                            }
+
+                            // Imprimir el total
+                            echo "<strong>" . number_format($total, 2) . "€</strong>";
+                            ?>
                         </li>
                     </ul>
 
@@ -254,14 +280,18 @@
             }
 
             // Ejemplo de uso:
-            var valorCookie = obtenerCookie("tipus_factura");
-            console.log("Valor de la cookie 'tipus_factura': " + valorCookie);
+            var tipus = obtenerCookie("tipus_factura");
+            var preu = obtenerCookie("preu_factura");
+            console.log("Valor de la cookie 'tipus_factura': " + tipus);
+            console.log("Valor de la cookie 'tipus_factura': " + preu);
 
 
-            if (valorCookie) {
-                document.getElementById('tipusFactura').textContent = "Tipus de factura: " + valorCookie;
+            if (tipus && preu) {
+                document.getElementById('tipusFactura').textContent = tipus;
+                document.getElementById('preuFactura').textContent = preu;
             } else {
                 document.getElementById('tipusFactura').textContent = "No se ha proporcionado ningún tipo de factura.";
+                document.getElementById('preuFactura').textContent = "No se ha proporcionado ningún precio.";
             }
         });
     </script>

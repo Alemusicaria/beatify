@@ -69,7 +69,8 @@
   </div>
 
   <div class="plan">
-    <h2>Premium Mensual - 10€/Mes</h2>
+    <h2>Premium Mensual</h2>
+    <h3>10€/Mes</h3>
     <ul class="avantatges">
       <li>Accés a tota la biblioteca</li>
       <li>Reproducció sense anuncis</li>
@@ -92,7 +93,8 @@
 </section>
 <section>
   <div class="plan">
-    <h2>Premium Trimestral - 9.5€/Mes</h2>
+  <h2>Premium Trimestral</h2>
+  <h3>9.5€/Mes</h3>
     <ul class="avantatges">
       <li>Accés a tota la biblioteca</li>
       <li>Reproducció sense anuncis</li>
@@ -114,7 +116,8 @@
   </div>
 
   <div class="plan">
-    <h2>Premium Semestral - 9€/Mes</h2>
+    <h2>Premium Semestral</h2>
+    <h3>9€/Mes</h3>
     <ul class="avantatges">
       <li>Accés a tota la biblioteca</li>
       <li>Reproducció sense anuncis</li>
@@ -141,9 +144,11 @@
     plan.addEventListener('click', function() {
       // Obtén el texto del título del plan clicado
       var titulo = this.querySelector('h2').textContent.trim();
+      var precio = this.querySelector('h3').textContent.trim();
 
       // Establece la cookie con el título del plan como valor
       document.cookie = "tipus_factura=" + titulo + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/;";
+      document.cookie = "preu_factura=" + precio + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/;";
 
       // Log para verificar que se estableció la cookie
       console.log("Cookie establecida: " + document.cookie);
@@ -161,8 +166,10 @@
       }
 
       // Ejemplo de uso:
-      var valorCookie = obtenerCookie("tipus_factura");
-      console.log("Valor de la cookie 'tipus_factura': " + valorCookie);
+      var tipus = obtenerCookie("tipus_factura");
+      var preu = obtenerCookie("preu_factura");
+      console.log("Valor de la cookie 'tipus_factura': " + tipus);
+      console.log("Valor de la cookie 'tipus_factura': " + preu);
 
     });
   });
