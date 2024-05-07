@@ -41,7 +41,7 @@
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
                                 <h6 class="my-0">Beatify Premium</h6>
-                                <small class="text-body-secondary">Pagament Mensual</small>
+                                <small class="text-body-secondary" id="tipusFactura"></small>
                             </div>
                             <span class="text-body-secondary">10€</span>
                         </li>
@@ -236,6 +236,19 @@
             });
         });
     </script>
+    <script>
+        // Tu script que utiliza la variable global window.tipoFactura
+        document.addEventListener("DOMContentLoaded", function() {
+            var tipoFactura = window.tipoFactura;
+            console.log(window.tipoFactura);
+            if (tipoFactura) {
+                document.getElementById('tipusFactura').textContent = "Tipus de factura: " + tipoFactura;
+            } else {
+                document.getElementById('tipusFactura').textContent = "No se ha proporcionado ningún tipo de factura.";
+            }
+        });
+    </script>
+
 </body>
 
 </html>
