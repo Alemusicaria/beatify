@@ -221,17 +221,17 @@ $(document).ready(function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la lista de canciones y el campo de búsqueda
-    const songList = document.getElementById('taula');
+    const taula = document.getElementById('taula');
     const searchInput = document.getElementById('searchInput');
 
     // Verifica si los elementos se han encontrado correctamente
-    if (songList && searchInput) {
+    if (taula && searchInput) {
         // Agrega un evento de escucha al campo de búsqueda
         searchInput.addEventListener('input', function () {
             const searchTerm = searchInput.value.toLowerCase();
 
             // Filtra las canciones basadas en el término de búsqueda
-            Array.from(songList.children).forEach(function (song) {
+            Array.from(taula.children).forEach(function (song) {
                 const songTitle = song.querySelector('h4').textContent.toLowerCase();
                 const artistName = song.querySelector('p').textContent.toLowerCase();
 
