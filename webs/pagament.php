@@ -41,7 +41,7 @@
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
                                 <h6 class="my-0">Beatify Premium</h6>
-                                <small class="text-body-secondary" id="tipusFactura"><?php $_COOKIE['tipus_factura'] ?></small>
+                                <small class="text-body-secondary" id="tipusFactura"></small>
                             </div>
                             <span class="text-body-secondary">10€</span>
                         </li>
