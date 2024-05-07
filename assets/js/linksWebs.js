@@ -116,6 +116,28 @@ $(document).ready(function () {
             }
         });
     }
+    $(document).on('click', '.boxLlista', function () {
+        var nomLlista = $(this).children('a').text();
+        var idLlista = $(this).children('p#lista').text();
+        var idUser = $(this).children('p#user').text();
+        var img = $(this).children('p#foto').text();
+        localStorage.setItem('selectedList', JSON.stringify({
+            nomLlista: nomLlista,
+            id_Llista: idLlista,
+            id_User: idUser,
+            img: img
+        }));
+        pageListas();
+    });
+    function pageListas() {
+        $.ajax({
+            url: './components/pageListas.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+            }
+        });
+    }
 });
 
 

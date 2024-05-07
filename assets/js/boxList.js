@@ -1,4 +1,4 @@
-
+/*
 $('.boxLlista').on('click', function () {
     var nomLlista = $(this).children('a').text();
     var idLlista = $(this).children('p#lista').text();
@@ -12,3 +12,4 @@ $('.boxLlista').on('click', function () {
     }));
     window.location.href = './mostrarLlista.php';
 });
+*/
