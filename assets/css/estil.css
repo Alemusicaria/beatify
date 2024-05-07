@@ -484,6 +484,95 @@ footer {
   .desventajas {
     margin-top: 10px;
   }
+  /* CSS DE PAGE SONGS/ARTISTAS*/
+  .infAC{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .foto{
+        img{
+            width: 200px;
+            border-radius: 5px;
+        }
+    }
+    .artista{
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        max-width: 20%;
+        h3{
+            cursor: pointer;
+        }
+    }
+    .txt{
+        color: white;
+        h2{
+            margin:0;
+        }
+    }
+}
+
+
+.lista{
+   
+    margin-top: 5%;
+    .scrollable-container {
+        overflow: auto; 
+        height: 350px;
+        width: 100%;
+    }
+    #imgPlay{
+        max-width: fit-content;
+        img{
+            width: 50px;
+        }
+    }
+    #songsList {
+        margin-top: 2%;
+    
+        ol {
+            max-width: fit-content;
+            list-style: none;
+        }
+    }
+    
+    .listSongs {
+        display: flex;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding: 0.5%;
+        align-items: center;
+    }
+    
+    .numberPlay {
+        margin-right: 10px;
+    
+        .playBlack {
+            display: none;
+            width: 20px;
+        }
+    }
+    .divPortada{
+        margin-right: 10px;
+        img{
+            width: 50px;
+            border-radius: 2px;
+        }
+    }
+    .listSongs:hover{
+        background-color: #272225;
+        #number{
+            display: none;
+        }
+        .playBlack{
+            display: block;
+            cursor: pointer;
+        }
+        
+    }
+}
+/*------------------------*/
 .progress-bar {
     height: 3px;
     border-radius: 3px;

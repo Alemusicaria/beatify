@@ -1,11 +1,7 @@
 body{
     scrollbar-color: rgb(61, 22, 22) #f1f1f100;
 }
-.scrollable-container {
-    overflow: auto; 
-    height: 350px;
-    width: 100%;
-}
+
 #tablaAlbums{ 
     display: grid;
     height: 175px;
@@ -21,83 +17,92 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.foto{
-    img{
-        width: 200px;
-        border-radius: 5px;
+    .foto{
+        img{
+            width: 200px;
+            border-radius: 5px;
+        }
+    }
+    .artista{
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        max-width: 20%;
+        h3{
+            cursor: pointer;
+        }
+    }
+    .txt{
+        color: white;
+        h2{
+            margin:0;
+        }
     }
 }
-.artista{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    max-width: 20%;
-    h3{
-        cursor: pointer;
-    }
-}
-.txt{
-    color: white;
-    h2{
-        margin:0;
-    }
-}
+
 
 .lista{
+   
     margin-top: 5%;
-}
-
-#imgPlay{
-    max-width: fit-content;
-    img{
-        width: 50px;
+    .scrollable-container {
+        overflow: auto; 
+        height: 350px;
+        width: 100%;
     }
-}
-#songsList {
-    margin-top: 2%;
-
-    ol {
+    #imgPlay{
         max-width: fit-content;
-        list-style: none;
+        img{
+            width: 50px;
+        }
     }
-}
-
-.listSongs {
-    display: flex;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 15px;
-    padding: 0.5%;
-    align-items: center;
-}
-
-.numberPlay {
-    margin-right: 10px;
-
-    .playBlack {
-        display: none;
-        width: 20px;
-    }
-}
-.divPortada{
-    margin-right: 10px;
-    img{
-        width: 50px;
-        border-radius: 2px;
-    }
-}
-.listSongs:hover{
-    background-color: #272225;
-    #number{
-        display: none;
-    }
-    .playBlack{
-        display: block;
-        cursor: pointer;
+    #songsList {
+        margin-top: 2%;
+    
+        ol {
+            max-width: fit-content;
+            list-style: none;
+        }
     }
     
+    .listSongs {
+        display: flex;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding: 0.5%;
+        align-items: center;
+    }
+    
+    .numberPlay {
+        margin-right: 10px;
+    
+        .playBlack {
+            display: none;
+            width: 20px;
+        }
+    }
+    .divPortada{
+        margin-right: 10px;
+        img{
+            width: 50px;
+            border-radius: 2px;
+        }
+    }
+    .listSongs:hover{
+        background-color: #272225;
+        #number{
+            display: none;
+        }
+        .playBlack{
+            display: block;
+            cursor: pointer;
+        }
+        
+    }
 }
+
+
+
 
 @media only screen and (max-width: 1600px) {
     .scrollable-container {

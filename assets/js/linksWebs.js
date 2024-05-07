@@ -72,7 +72,7 @@ $(document).ready(function () {
             }
         });
     });
-    
+
     $('#pagament').click(function () {
         $.ajax({
             url: './components/pagament.php',
@@ -82,4 +82,28 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on('click', '.portada', function () {
+        var songTitle = $(this).siblings('h4').text();
+        var artistInfo = $(this).siblings('p').text();
+        var imgSrc = $(this).attr('src');
+        localStorage.setItem('selectedSong', JSON.stringify({
+            title: songTitle,
+            artistInfo: artistInfo,
+            imgSrc: imgSrc
+        }));
+        pageSongs();
+    });
+    function pageSongs() {
+        $.ajax({
+            url: './components/pageSongs.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+                console.log(data);
+            }
+        });
+    }
 });
+
+
+
