@@ -20,7 +20,7 @@
     <header>
         <ul class="menu">
             <li> <a id="premium" style="cursor:pointer;">Premium</a></li>
-            <li ><a id="asistencia" style="cursor:pointer;">Asistencia</a></li>
+            <li><a id="asistencia" style="cursor:pointer;">Asistencia</a></li>
             <?php
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
                 echo '
@@ -42,7 +42,7 @@
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
-                <li><a style = "cursor:pointer;"id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</a></li>
+                <li><a style="cursor:pointer;" id="inici"><img src="../img/Logo_sense_fons.png" alt=""> BEATIFY</a></li>
                 <li><a href="./index.php"><i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i>INICI</a>
                 </li>
             </ul>

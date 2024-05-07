@@ -72,4 +72,14 @@ $(document).ready(function () {
             }
         });
     });
+    
+    $('#pagament').click(function () {
+        $.ajax({
+            url: './components/pagament.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+            }
+        });
+    });
 });
