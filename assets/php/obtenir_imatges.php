@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Obté les imatges de la carpeta ../../img/user
+    // Obté les imatges de la carpeta ../../img/userW
     if (is_dir($directoriImatgesUser)) {
         $fitxersUser = glob($directoriImatgesUser . "*.{jpg,png,gif,jpeg}", GLOB_BRACE);
         foreach ($fitxersUser as $fitxer) {
