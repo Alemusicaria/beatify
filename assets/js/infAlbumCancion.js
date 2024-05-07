@@ -1,3 +1,4 @@
+
 var selectedSong = JSON.parse(localStorage.getItem('selectedSong'));
 var artistas = selectedSong.artistInfo;
 var artistasArray = artistas.split(", ");
@@ -19,11 +20,6 @@ if (selectedSong) {
         $('.artista').append($nombreArtistaElement);
     }
 }
-$('.nom-artista').on('click', function () {
-    var nombreArtista = $(this).text();
-    localStorage.setItem('selectedArtist', nombreArtista);
-    window.location.href = './pageArtistas.php';
-});
 $('.play').on('click', iniciar);
 
 function iniciar(event) {

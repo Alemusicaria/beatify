@@ -99,7 +99,20 @@ $(document).ready(function () {
             type: 'GET',
             success: function (data) {
                 $('.contenedor-right').html(data);
-                console.log(data);
+            }
+        });
+    }
+    $(document).on('click', '.nom-artista', function () {
+        var nombreArtista = $(this).text();
+        localStorage.setItem('selectedArtist', nombreArtista);
+        pageArtistas();
+    });
+    function pageArtistas() {
+        $.ajax({
+            url: './components/pageArtistas.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
             }
         });
     }

@@ -375,81 +375,85 @@ footer {
     align-items: center;
     flex-direction: column;
 }
+
 .textoIntro {
     color: white;
     max-width: 70%;
     margin: 20px auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
+
     h1 {
-      background-clip: text;
-      color: transparent;
-      color: #a30606;
-      display: inline-block;
+        background-clip: text;
+        color: transparent;
+        color: #a30606;
+        display: inline-block;
     }
-  
+
     ul {
-      list-style-type: none;
-      padding: 0;
+        list-style-type: none;
+        padding: 0;
     }
-  
+
     li {
-      margin-bottom: 5px;
+        margin-bottom: 5px;
     }
-  
+
     p {
-      line-height: 1.5;
+        line-height: 1.5;
     }
-  }
-  /* CSS DE PREMIUM */
-  .comparison-table {
+}
+
+/* CSS DE PREMIUM */
+.comparison-table {
     max-width: 50%;
     margin: 50px auto;
     overflow: hidden;
     color: white;
+
     table {
         width: 100%;
         border-collapse: collapse;
-      }
-      
-      
-      th,
-      td {
+    }
+
+
+    th,
+    td {
         padding: 15px;
         text-align: left;
         border-bottom: 1px solid #ddd;
-      }
-      
-      th {
+    }
+
+    th {
         text-transform: uppercase;
-      }
-      
-      th:nth-child(3),
-      td:nth-child(3) {
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
         background: rgb(56, 31, 31);
         /* Puedes ajustar los colores del degradado según tus preferencias */
-      }
-      
-      th:nth-child(2) {
+    }
+
+    th:nth-child(2) {
         background-color: white;
         color: black;
-      }
-      
-      
-      tbody tr:hover {
+    }
+
+
+    tbody tr:hover {
         background-color: #53515142;
-      }
-  }
-  section {
+    }
+}
+
+section {
     display: flex;
     margin-top: 50px;
     color: white;
     width: 80%;
     margin-left: 10%;
-  }
-  
-  .plan {
+}
+
+.plan {
     border-style: solid;
     border-image: linear-gradient(to left, rgb(32, 11, 11), rgb(32, 11, 11));
     border-image-slice: 1;
@@ -460,82 +464,94 @@ footer {
     transition: transform 0.3s ease-in-out;
     background-color: rgb(36, 34, 34);
     margin-left: 10%;
+
     h2 {
         color: #a30606;
-      }
-      a{
+    }
+
+    a {
         color: white;
         text-decoration: none;
-      }
-  }
-  
-  .plan:hover {
+    }
+}
+
+.plan:hover {
     transform: scale(1.03);
-  }
-  
- 
-  
-  ul {
+}
+
+
+
+ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .ventajas,
-  .desventajas {
+}
+
+.ventajas,
+.desventajas {
     margin-top: 10px;
-  }
-  /* CSS DE PAGE SONGS/ARTISTAS*/
-  .infAC{
+}
+
+/* CSS DE PAGE SONGS/ARTISTAS*/
+.infAC {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .foto{
-        img{
+
+    .foto {
+        img {
             width: 200px;
             border-radius: 5px;
         }
     }
-    .artista{
+
+    .artista {
         color: white;
         font-weight: bold;
         text-align: center;
         max-width: 20%;
-        h3{
+
+        h3 {
             cursor: pointer;
         }
     }
-    .txt{
+
+    .txt {
         color: white;
-        h2{
-            margin:0;
+
+        h2 {
+            margin: 0;
         }
     }
 }
 
 
-.lista{
-   
+.lista {
+
     margin-top: 5%;
+
     .scrollable-container {
-        overflow: auto; 
+        overflow: auto;
         height: 350px;
         width: 100%;
     }
-    #imgPlay{
+
+    #imgPlay {
         max-width: fit-content;
-        img{
+
+        img {
             width: 50px;
         }
     }
+
     #songsList {
         margin-top: 2%;
-    
+
         ol {
             max-width: fit-content;
             list-style: none;
         }
     }
-    
+
     .listSongs {
         display: flex;
         color: white;
@@ -544,34 +560,53 @@ footer {
         padding: 0.5%;
         align-items: center;
     }
-    
+
     .numberPlay {
         margin-right: 10px;
-    
+
         .playBlack {
             display: none;
             width: 20px;
         }
     }
-    .divPortada{
+
+    .divPortada {
         margin-right: 10px;
-        img{
+
+        img {
             width: 50px;
             border-radius: 2px;
         }
     }
-    .listSongs:hover{
+
+    .listSongs:hover {
         background-color: #272225;
-        #number{
+
+        #number {
             display: none;
         }
-        .playBlack{
+
+        .playBlack {
             display: block;
             cursor: pointer;
         }
-        
+
     }
 }
+
+#tablaAlbums {
+    display: grid;
+    height: 175px;
+    justify-content: start;
+    grid-template-columns: repeat(3, 33%);
+    height: 175px;
+}
+
+.listAlbum {
+    display: flex;
+    font-weight: bold;
+}
+
 /*------------------------*/
 .progress-bar {
     height: 3px;
