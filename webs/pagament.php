@@ -196,14 +196,13 @@
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const paymentMethodField = document.getElementById('paymentMethod');
+        const paymentMethodButtons = document.querySelectorAll('input[name="paymentMethod"]');
+        const form = document.querySelector('form');
 
-        const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
-
-        paymentMethods.forEach(method => {
-            method.addEventListener('change', function() {
+        paymentMethodButtons.forEach(button => {
+            button.addEventListener('change', function() {
                 if (this.checked) {
-                    paymentMethodField.value = this.id;
+                    form.querySelector('button[type="submit"]').value = this.id;
                 }
             });
         });
