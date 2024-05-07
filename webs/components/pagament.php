@@ -1,4 +1,3 @@
-<main>
     <div class="py-5 text-center">
         <a href="index.php">
             <img class="d-block mx-auto mb-4" src="../img/Logo_sense_fons.png" alt="" width="72" height="57">
@@ -174,46 +173,63 @@
             </form>
         </div>
     </div>
-</main>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="../assets/js/pagament.js"></script>
-<script>
-    $(document).ready(function() {
-        // Función para calcular el IVA
-        function calcularIVA(pais) {
-            // Definir tasas de IVA para cada país
-            var tasasIVA = {
-                "Espanya": 21,
-                "França": 20,
-                "Alemania": 19,
-                "Estats Units": 0 // Asumiendo que en Estados Unidos no hay IVA
-            };
+    <script src="../assets/js/pagament.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Función para calcular el IVA
+            function calcularIVA(pais) {
+                // Definir tasas de IVA para cada país
+                var tasasIVA = {
+                    "Espanya": 21,
+                    "França": 20,
+                    "Alemania": 19,
+                    "Estats Units": 0 // Asumiendo que en Estados Unidos no hay IVA
+                };
 
-            // Obtener la tasa de IVA del país seleccionado
-            var tasaIVA = tasasIVA[pais];
+                // Obtener la tasa de IVA del país seleccionado
+                var tasaIVA = tasasIVA[pais];
 
-            // Devolver la tasa de IVA
-            return tasaIVA;
-        }
+                // Devolver la tasa de IVA
+                return tasaIVA;
+            }
 
-        // Evento cuando cambia la selección del país
-        $('#pais').on('change', function() {
-            var paisSeleccionado = $(this).val(); // Obtener el país seleccionado del formulario
-            var tasaIVA = calcularIVA(paisSeleccionado); // Calcular la tasa de IVA según el país seleccionado
-            console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+            // Evento cuando cambia la selección del país
+            $('#pais').on('change', function() {
+                var paisSeleccionado = $(this).val(); // Obtener el país seleccionado del formulario
+                var tasaIVA = calcularIVA(paisSeleccionado); // Calcular la tasa de IVA según el país seleccionado
+                console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+            });
         });
-    });
-</script>
-<script>
-    // Tu script que utiliza la variable global window.tipoFactura
-    document.addEventListener("DOMContentLoaded", function() {
-        var tipoFactura = window.tipoFactura;
-        console.log(window.tipoFactura);
-        if (tipoFactura) {
-            document.getElementById('tipusFactura').textContent = "Tipus de factura: " + tipoFactura;
-        } else {
-            document.getElementById('tipusFactura').textContent = "No se ha proporcionado ningún tipo de factura.";
-        }
-    });
-</script>
+    </script>
+    <script>
+        // Tu script que utiliza la variable global window.tipoFactura
+        document.addEventListener("DOMContentLoaded", function() {
+
+
+            function obtenerCookie(nombre) {
+                var nombreCookie = nombre + "=";
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.indexOf(nombreCookie) === 0) {
+                        return cookie.substring(nombreCookie.length, cookie.length);
+                    }
+                }
+                return "";
+            }
+
+            // Ejemplo de uso:
+            var valorCookie = obtenerCookie("tipus_factura");
+            console.log("Valor de la cookie 'tipus_factura': " + valorCookie);
+
+
+            if (valorCookie) {
+                document.getElementById('tipusFactura').textContent = "Tipus de factura: " + valorCookie;
+            } else {
+                document.getElementById('tipusFactura').textContent = "No se ha proporcionado ningún tipo de factura.";
+            }
+        });
+    </script>

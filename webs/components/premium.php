@@ -69,7 +69,7 @@
   </div>
 
   <div class="plan">
-    <h2>Premium Mensual - 12.10€/Mes</h2>
+    <h2>Premium Mensual - 10€/Mes</h2>
     <ul class="avantatges">
       <li>Accés a tota la biblioteca</li>
       <li>Reproducció sense anuncis</li>
@@ -142,9 +142,28 @@
       // Obtén el texto del título del plan clicado
       var titulo = this.querySelector('h2').textContent.trim();
 
-      // Almacena el título en la variable global
-      window.tipoFactura = titulo;
-      console.log(window.tipoFactura);
+      // Establece la cookie con el título del plan como valor
+      document.cookie = "tipus_factura=" + titulo + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/;";
+
+      // Log para verificar que se estableció la cookie
+      console.log("Cookie establecida: " + document.cookie);
+
+      function obtenerCookie(nombre) {
+        var nombreCookie = nombre + "=";
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          if (cookie.indexOf(nombreCookie) === 0) {
+            return cookie.substring(nombreCookie.length, cookie.length);
+          }
+        }
+        return "";
+      }
+
+      // Ejemplo de uso:
+      var valorCookie = obtenerCookie("tipus_factura");
+      console.log("Valor de la cookie 'tipus_factura': " + valorCookie);
+
     });
   });
 </script>

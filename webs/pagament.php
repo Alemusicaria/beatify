@@ -41,7 +41,7 @@
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
                                 <h6 class="my-0">Beatify Premium</h6>
-                                <small class="text-body-secondary" id="tipusFactura"></small>
+                                <small class="text-body-secondary" id="tipusFactura"><?php $_COOKIE['tipus_factura'] ?></small>
                             </div>
                             <span class="text-body-secondary">10€</span>
                         </li>
@@ -239,10 +239,27 @@
     <script>
         // Tu script que utiliza la variable global window.tipoFactura
         document.addEventListener("DOMContentLoaded", function() {
-            var tipoFactura = window.tipoFactura;
-            console.log(window.tipoFactura);
-            if (tipoFactura) {
-                document.getElementById('tipusFactura').textContent = "Tipus de factura: " + tipoFactura;
+
+
+            function obtenerCookie(nombre) {
+                var nombreCookie = nombre + "=";
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.indexOf(nombreCookie) === 0) {
+                        return cookie.substring(nombreCookie.length, cookie.length);
+                    }
+                }
+                return "";
+            }
+
+            // Ejemplo de uso:
+            var valorCookie = obtenerCookie("tipus_factura");
+            console.log("Valor de la cookie 'tipus_factura': " + valorCookie);
+
+
+            if (valorCookie) {
+                document.getElementById('tipusFactura').textContent = "Tipus de factura: " + valorCookie;
             } else {
                 document.getElementById('tipusFactura').textContent = "No se ha proporcionado ningún tipo de factura.";
             }
