@@ -8,7 +8,7 @@ if (cookieValue === "1") {
 function saltarCancons(index) {
     var currentIndex = index;
     var randomImage = $('#random');
-    var saltosRealizados = 0; 
+    var saltosRealizados = 0;
 
     var nextSong = document.getElementById('NextSong');
     var afterSong = document.getElementById('AfterSong');
@@ -17,7 +17,7 @@ function saltarCancons(index) {
         if (!premiumUser && saltosRealizados >= 3) {
             return;
         }
-        
+
         currentIndex += 1;
         if (currentIndex >= canconsCarregades.length) {
             currentIndex = 0;
@@ -36,7 +36,7 @@ function saltarCancons(index) {
         if (currentIndex < 0) {
             currentIndex = canconsCarregades.length - 1; // Si está en la primera canción, va a la última
         }
-        
+
         if (premiumUser || saltosRealizados === 0) {
             // Si es usuario premium o no se han realizado saltos aún, reproduce la canción
             if (randomImage.hasClass('clicked')) {
@@ -226,7 +226,6 @@ $(document).ready(function () {
 
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
     // Obtén la lista de canciones y el campo de búsqueda
     const songList = document.getElementById('taula');
@@ -241,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const songTitle = song.querySelector('h4').textContent.toLowerCase();
             const artistName = song.querySelector('p').textContent.toLowerCase();
 
+            // Verifica si el título de la canción o el nombre del artista coinciden con el término de búsqueda
             if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
                 song.style.display = 'block'; // Muestra la canción si coincide
             } else {
@@ -249,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 function obtenerCookie(nombre) {
     var nombreEQ = nombre + '=';
     var cookies = document.cookie.split(';');
