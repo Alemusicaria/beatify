@@ -235,24 +235,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const songList = document.getElementById('taula');
     const searchInput = document.getElementById('searchInput');
 
-    // Agrega un evento de escucha al campo de búsqueda
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
+    // Verifica si los elementos se han encontrado correctamente
+    if (songList && searchInput) {
+        // Agrega un evento de escucha al campo de búsqueda
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
 
-        // Filtra las canciones basadas en el término de búsqueda
-        Array.from(songList.children).forEach(function (song) {
-            const songTitle = song.querySelector('h4').textContent.toLowerCase();
-            const artistName = song.querySelector('p').textContent.toLowerCase();
+            // Filtra las canciones basadas en el término de búsqueda
+            Array.from(songList.children).forEach(function (song) {
+                const songTitle = song.querySelector('h4').textContent.toLowerCase();
+                const artistName = song.querySelector('p').textContent.toLowerCase();
 
-            // Verifica si el título de la canción o el nombre del artista coinciden con el término de búsqueda
-            if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
-                song.style.display = 'block'; // Muestra la canción si coincide
-            } else {
-                song.style.display = 'none'; // Oculta la canción si no coincide
-            }
+                // Verifica si el título de la canción o el nombre del artista coinciden con el término de búsqueda
+                if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
+                    song.style.display = 'block'; // Muestra la canción si coincide
+                } else {
+                    song.style.display = 'none'; // Oculta la canción si no coincide
+                }
+            });
         });
-    });
+    } else {
+        console.error("No se pudo encontrar la lista de canciones o el campo de búsqueda.");
+    }
 });
+
 
 function obtenerCookie(nombre) {
     var nombreEQ = nombre + '=';
