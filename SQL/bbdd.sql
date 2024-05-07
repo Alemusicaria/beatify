@@ -80,6 +80,5 @@ CREATE TABLE Pagament (
     Nom_tarjeta VARCHAR(255),
     Num_tarjeta VARCHAR(255),
     Expiracio VARCHAR(255),
-    CVV INT(3),
-    FOREIGN KEY (ID_Usuari) REFERENCES Usuari(ID)
+    CVV INT(3)
 );
