@@ -35,6 +35,7 @@ $stmt->bind_param("sssssssiissss", $nom, $cognom, $nomUsuari, $email, $adreca, $
 
 // Executar consulta
 if ($stmt->execute()) {
+    echo "Pagament registrat amb èxit!";
     header("Location: ../../webs/factura.html");
     exit();
 } else {
