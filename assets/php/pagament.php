@@ -1,16 +1,16 @@
 <?php
-$host = "localhost";
-$username = "beatify";
-$password = "123456";
+// Connecta con la base de datos (cambia las credenciales según tu configuración)
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
 $dbname = "Beatify";
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-// Connectar-se a la base de dades
-$conexion = new mysqli($host, $username, $password, $dbname);
-
-// Comprovar conexió
-if ($conexion->connect_error) {
-    die("Connection failed: " . $conexion->connect_error);
+// Verifica la conexión
+if ($conn->connect_error) {
+    die("Connexió fallida: " . $conn->connect_error);
 }
+
 
 // Recollir dades del formulari
 $nom = $_POST['firstName'];
@@ -30,7 +30,7 @@ $cvv = $_POST['cc-cvv'];
 // Preparar consulta SQL
 $sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-$stmt = $conexion->prepare($sql);
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("sssssssiissss", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv);
 
 // Executar consulta
@@ -41,4 +41,4 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-$conexion->close();
+$conn->close();

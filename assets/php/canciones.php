@@ -1,12 +1,16 @@
 <?php
 header('Content-Type: application/json');
 
-// Conéctate a la base de datos (actualiza con tus credenciales)
-$conexion = new mysqli("localhost", "beatify", "123456", "Beatify");
+// Connecta con la base de datos (cambia las credenciales según tu configuración)
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "Beatify";
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 // Verifica la conexión
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+if ($conn->connect_error) {
+    die("Connexió fallida: " . $conn->connect_error);
 }
 
 // Consulta SQL para obtener la información relacionada con canciones, álbumes y artistas
@@ -16,7 +20,7 @@ $consulta = "SELECT CANCO.Ruta_canco, CANCO.Img, ALBUM.Nombre AS AlbumNombre,
              INNER JOIN ALBUM ON CANCO.ID_Album = ALBUM.ID
              INNER JOIN CREA_MUSICA ON CANCO.ID = CREA_MUSICA.ID_Canco
              INNER JOIN ARTISTA ON CREA_MUSICA.ID_Artista = ARTISTA.ID";
-$resultado = $conexion->query($consulta);
+$resultado = $conn->query($consulta);
 
 // Verifica si hay resultados
 if ($resultado->num_rows > 0) {
@@ -36,5 +40,4 @@ if ($resultado->num_rows > 0) {
 }
 
 // Cierra la conexión
-$conexion->close();
-?>
+$conn->close();

@@ -68,7 +68,6 @@ CREATE TABLE Afegeix (
 
 CREATE TABLE Pagament (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    ID_Usuari INT,
     Nom VARCHAR(255),
     Cognom VARCHAR(255),
     NomUsuari VARCHAR(255),
