@@ -46,7 +46,7 @@
       <p>
         Dades bancàries: <br>
         BEATIFY S.L<br>
-        ES6721003979685416516194
+        # ES6721003979685416516194
       </p>
     </div><!--.bank-->
   </header>

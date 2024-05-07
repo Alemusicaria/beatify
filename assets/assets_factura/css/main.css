@@ -254,14 +254,6 @@ body {
     box-sizing: inherit
 }
 
-[contenteditable]:hover,
-[contenteditable]:focus,
-input:hover,
-input:focus {
-    background: rgba(241, 76, 76, 0.1);
-    outline: 1px solid #ff0000
-}
-
 .group:after,
 .row:after,
 .invoicelist-footer:after {
@@ -459,11 +451,11 @@ h1 {
 }
 
 
-.invoice_detail{
-	border: solid 1px rgb(150, 0, 0);
-	padding:10px;
-	height:25px;
-	text-align:center
+.invoice_detail {
+    border: solid 1px rgb(150, 0, 0);
+    padding: 10px;
+    height: 25px;
+    text-align: center
 }
 
 
@@ -587,6 +579,7 @@ footer p {
         padding: 0;
         background: #fff
     }
+
     body {
         width: 100%;
         border: none;
@@ -595,15 +588,4 @@ footer p {
         margin: 0;
         padding: 0
     }
-    .control,
-    .control-bar {
-        display: none !important
-    }
-    [contenteditable]:hover,
-    [contenteditable]:focus {
-        outline: none
-    }
 }
-
-
-/*# sourceMappingURL=main.css.map */
