@@ -78,7 +78,6 @@ function mostrarInformacionUsuario(usuario) {
         saveButton.addEventListener('click', function() {
             // Guardar el valor en localStorage
             localStorage.setItem('reproduccionAutomatica', reproduccionAutomatica);
-            alert('Valor guardado en localStorage.');
         });
         adminContainer.appendChild(saveButton);
     
@@ -94,9 +93,6 @@ function mostrarInformacionUsuario(usuario) {
             } else {
                 reproduccionAutomatica = false;
             }
-    
-            // Aquí puedes hacer lo que necesites con la variable reproduccionAutomatica
-            console.log('Reproducción automática:', reproduccionAutomatica);
         });
     
         // Verificar si hay un valor previamente guardado en localStorage y establecer reproduccionAutomatica en consecuencia
