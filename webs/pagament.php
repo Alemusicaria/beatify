@@ -146,7 +146,18 @@
                             </div>
                             <input type="hidden" id="paymentMethod" name="pago" value="" />
                         </div>
+                        <script>
+                            const paymentMethodButtons = document.querySelectorAll('input[name="paymentMethod"]');
+                            const form = document.querySelector('form');
 
+                            paymentMethodButtons.forEach(button => {
+                                button.addEventListener('change', function() {
+                                    if (this.checked) {
+                                        form.querySelector('button[type="submit"]').value = this.id;
+                                    }
+                                });
+                            });
+                        </script>
                         <div class="row gy-3">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Nom a la targeta</label>
@@ -195,18 +206,7 @@
         </footer>
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const paymentMethodButtons = document.querySelectorAll('input[name="paymentMethod"]');
-        const form = document.querySelector('form');
 
-        paymentMethodButtons.forEach(button => {
-            button.addEventListener('change', function() {
-                if (this.checked) {
-                    form.querySelector('button[type="submit"]').value = this.id;
-                }
-            });
-        });
-    </script>
     <script src="../assets/js/pagament.js"></script>
 </body>
 
