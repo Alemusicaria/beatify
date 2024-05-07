@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Adreça de Pagament</h4>
-                    <form class="needs-validation" action="processar_pagament.php" method="post" novalidate>
+                    <form class="needs-validation" action="../assets/php/pagament.php" method="post" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">Nom</label>
