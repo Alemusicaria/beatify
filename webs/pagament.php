@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Adreça de Pagament</h4>
-                    <form class="needs-validation" action="../assets/php/processar_pagament.php" method="post" novalidate>
+                    <form class="needs-validation" action="processar_pagament.php" method="post" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">Nom</label>
@@ -184,7 +184,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="button" onclick="generateInvoice()">Continuar a la comanda</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar a la comanda</button>
                     </form>
                 </div>
             </div>
@@ -208,40 +208,6 @@
             });
         });
     </script>
-
-    <script>
-        function generateInvoice() {
-            const {
-                jsPDF
-            } = window.jspdf;
-            const doc = new jsPDF();
-
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const address = document.getElementById('address').value;
-            const address2 = document.getElementById('address2').value || 'N/A'; // Opcional, si està buit mostra 'N/A'
-            const country = document.getElementById('country').value;
-            const zip = document.getElementById('zip').value;
-            const paymentMethod = document.getElementById('paymentMethod').value;
-
-            const content = `
-            Nom: ${firstName} ${lastName}
-            Nom d'usuari: ${username}
-            Correu electrònic: ${email}
-            Adreça: ${address}, ${address2}
-            País: ${country}
-            Codi Postal: ${zip}
-            Mètode de pagament: ${paymentMethod}
-            `;
-
-            doc.text(content, 10, 10);
-            doc.save('Factura.pdf');
-        }
-    </script>
-
-
     <script src="../assets/js/pagament.js"></script>
 </body>
 
