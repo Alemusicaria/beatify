@@ -150,7 +150,7 @@
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
             <td width="33%">#BY-2024</td>
-            <td width="33%">Factura ···</td>
+            <td width="33%">MES/TRIM/SEM/ANO···</td>
           </tr>
         </tbody>
       </table>
@@ -168,7 +168,7 @@
       <tbody>
         <tr>
           <td width='83%'><span>Descripció</span></td>
-          <td class="rate"><input type="text" value="99" /></td>
+          <td class="rate"><input type="text" value="10€" /></td>
           <td class="tax"></td>
         </tr>
       </tbody>

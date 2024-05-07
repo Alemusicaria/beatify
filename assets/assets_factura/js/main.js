@@ -41,65 +41,24 @@ function calculate() {
   $('.invoicelist-body tbody tr').each(function () {
     var row = $(this),
       rate = parseFloat(row.find('.rate input').val()), // Obtener el precio del producto
-      taxRate = 21, // Obtener la tasa de impuesto
+      taxRate = 21, // Tasa de impuesto fija en 21%
       amount = 1; // Suponemos que la cantidad es 1 en este caso
 
     var sum = rate * amount;
     var tax = (sum * taxRate) / 100;
 
-    total_price = total_price + sum;
-    total_tax = total_tax + tax;
+    total_price += sum; // Sumar al total el precio del producto
+    total_tax += tax; // Sumar al total el impuesto del producto
 
     row.find('.sum').text(sum.toFixed(2) + '€');
     row.find('.tax').text(tax.toFixed(2) + '€');
   });
 
-  $('#total_price').text(total_price.toFixed(2) + '€');
+  var total = total_price + total_tax; // Calcular el total sumando el precio y el impuesto
+
+  // Mostrar el total en la interfaz
+  $('#total_price').text(total.toFixed(2) + '€');
   $('#total_tax').text(total_tax.toFixed(2) + '€');
-
 }
-
-
-
-var newRow = '<tr><td><a class="control removeRow" href="#">x</a><span contenteditable>12345</span></td><td><span contenteditable>Descripción</span></td><td class="amount"><input type="text" value="1"/></td><td class="rate"><input type="text" value="99" /></td><td class="tax taxrelated"></td><td class="sum"></td></tr>';
-
-$('.invoicelist-body').on('keyup', 'input', function () {
-  calculate();
-});
-
-$('.newRow').on('click', function (e) {
-  $('.invoicelist-body tbody').append(newRow);
-  e.preventDefault();
-  calculate();
-});
-
-$('body').on('click', '.removeRow', function (e) {
-  $(this).closest('tr').remove();
-  e.preventDefault();
-  calculate();
-});
-
-$('#config_note').on('change', function () {
-  $('body').toggleClass('shownote hidenote');
-});
-$('#config_tax').on('change', function () {
-  TAX_SETTING = !TAX_SETTING;
-  $('body').toggleClass('showtax hidetax');
-});
-
-$('#config_tax_rate').on('keyup', function () {
-  TAX_RATE = parseFloat($(this).val());
-  if (TAX_RATE < 0 || TAX_RATE > 100) {
-    TAX_RATE = 0;
-  }
-  console.log('Changed tax rate to: ' + TAX_RATE);
-  calculate();
-});
-
-$('#config_date').on('change', function () {
-  $('body').toggleClass('hidedate showdate');
-});
-
-
 init_date();
 calculate();
