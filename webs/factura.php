@@ -13,14 +13,6 @@
       <div class="row">
         <div class="col-2-4">
           <div class="slogan">Facturació</div>
-
-          <label for="config_tax">IVA:
-            <input type="checkbox" id="config_tax" />
-          </label>
-          <label for="config_tax_rate" class="taxrelated">Taxa:
-            <input type="text" id="config_tax_rate" value="13" />%
-          </label>
-
         </div>
         <div class="col-4 text-right">
           <a href="javascript:window.print()">Imprimir</a>
@@ -60,6 +52,61 @@
     </div><!--.bank-->
 
   </header>
+  <?php
+  // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
+  $servername = "localhost";
+  $dbusername = "root";
+  $dbpassword = "";
+  $dbname = "Beatify";
+  $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+  // Verifica la connexió
+  if ($conn->connect_error) {
+    die("Connexió fallida: " . $conn->connect_error);
+  }
+
+  // Consulta SQL per obtenir les dades del pagament
+  $sql = "SELECT * FROM Pagament ORDER BY id DESC LIMIT 1"; // Suposant que l'ID és el camp clau primari
+
+  $result = $conn->query($sql);
+
+  $id = "";
+  $nom = "";
+  $cognom = "";
+  $nomUsuari = "";
+  $email = "";
+  $adreca = "";
+  $adreca2 = "";
+  $pais = "";
+  $cp = "";
+  $tipus = "";
+  $nom_tarjeta = "";
+  $num_tarjeta = "";
+  $expiracio = "";
+  $cvv = "";
+
+  if ($result->num_rows > 0) {
+    // Assigna les dades a les variables
+    $row = $result->fetch_assoc();
+    $id = $row["ID"];
+    $nom = $row["Nom"];
+    $cognom = $row["Cognom"];
+    $nomUsuari = $row["NomUsuari"];
+    $email = $row["Email"];
+    $adreca = $row["Adreca"];
+    $adreca2 = $row["Adreca2"];
+    $pais = $row["Pais"];
+    $cp = $row["CP"];
+    $tipus = $row["Tipus"];
+    $nom_tarjeta = $row["Nom_tarjeta"];
+    $num_tarjeta = $row["Num_tarjeta"];
+    $expiracio = $row["Expiracio"];
+    $cvv = $row["CVV"];
+  } else {
+    echo "0 resultats";
+  }
+  $conn->close();
+  ?>
 
 
   <div class="row section">
@@ -71,7 +118,7 @@
     <div class="col-2 text-right details">
       <p>
         Data: <input type="text" class="datePicker" /><br>
-        Factura #: <input type="text" value="100" /><br>
+        Factura #: <input type="text" value="<?php echo $id; ?>" /><br>
         Venciment: <input class="twoweeks" type="text" />
       </p>
     </div><!--.col-->
@@ -79,16 +126,16 @@
 
 
     <div class="col-2">
-
-
       <p class="client">
         <strong>Facturar a</strong><br>
-        [Nom del client]<br>
-        [Nom de l'empresa]<br>
-        [Adreça de l'empresa]<br>
-        [Telèfon de l'empresa]
+        <?php echo $nom . ' ' . $cognom; ?><br>
+        <?php echo $email; ?><br>
+        <?php echo $adreca; ?><br>
+        <?php echo $cp; ?><br>
+        <?php echo $pais; ?><br>
       </p>
     </div><!--.col-->
+
   </div><!--.row-->
 
   <div class="row section" style="margin-top:-1rem">
@@ -143,7 +190,9 @@
     </table>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+  <script>
+    window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')
+  </script>
   <script src="../assets/assets_factura/js/main.js"></script>
 </body>
 

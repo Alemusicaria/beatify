@@ -9,6 +9,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
     <title>Beatify | Pagament</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
@@ -208,6 +209,33 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="../assets/js/pagament.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Función para calcular el IVA
+            function calcularIVA(pais) {
+                // Definir tasas de IVA para cada país
+                var tasasIVA = {
+                    "Espanya": 21,
+                    "França": 20,
+                    "Alemania": 19,
+                    "Estats Units": 0 // Asumiendo que en Estados Unidos no hay IVA
+                };
+
+                // Obtener la tasa de IVA del país seleccionado
+                var tasaIVA = tasasIVA[pais];
+
+                // Devolver la tasa de IVA
+                return tasaIVA;
+            }
+
+            // Evento cuando cambia la selección del país
+            $('#pais').on('change', function() {
+                var paisSeleccionado = $(this).val(); // Obtener el país seleccionado del formulario
+                var tasaIVA = calcularIVA(paisSeleccionado); // Calcular la tasa de IVA según el país seleccionado
+                console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+            });
+        });
+    </script>
 </body>
 
 </html>
