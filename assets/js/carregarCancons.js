@@ -256,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     } else {
         console.error("No se pudo encontrar la lista de canciones o el campo de búsqueda.");
+        console.error(songList + " +++++ " + searchInput.value);
     }
 });
 
