@@ -38,12 +38,10 @@ function calculate() {
   var total_price = 0,
     total_tax = 0;
 
-  console.log('CALCULATING - Tax Rate:' + TAX_RATE);
-
   $('.invoicelist-body tbody tr').each(function () {
     var row = $(this),
       rate = parseFloat(row.find('.rate input').val()), // Obtener el precio del producto
-      taxRate = parseFloat($('#config_tax_rate').val()), // Obtener la tasa de impuesto
+      taxRate = 21, // Obtener la tasa de impuesto
       amount = 1; // Suponemos que la cantidad es 1 en este caso
 
     var sum = rate * amount;

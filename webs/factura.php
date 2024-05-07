@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Crear factures amb HTML, CSS i JavaScript</title>
+  <title>Factura</title>
   <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
 </head>
 
@@ -28,18 +28,17 @@
 
     <div class="me">
       <p>
-        <strong>Sistema Web S.A. de C.V.</strong><br>
-        234/90, Carrer Juan Maragall<br>
-        Catalunya, Lleida.<br>
-
+        <a href="http://beatify.com">Beatify.com</a><br>
+        <a href="mailto:info@obedalvarado.pw">beatify@beatify.com</a><br>
+        Tel: +34 345-908-559<br>
       </p>
     </div><!--.me-->
 
     <div class="info">
       <p>
-        <a href="http://beatify.com">beatify.com</a><br>
-        <a href="mailto:info@obedalvarado.pw">beatify@beatify.com</a><br>
-        Tel: +34 345-908-559<br>
+        Ubicació: <br>
+        234/90, Carrer Juan Maragall<br>
+        Catalunya, Lleida.<br>
       </p>
     </div><!-- .info -->
 
@@ -50,7 +49,6 @@
         ES6721003979685416516194
       </p>
     </div><!--.bank-->
-
   </header>
   <?php
   // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
@@ -151,8 +149,8 @@
         <tbody>
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
-            <td width="33%">#BY-2024 </td>
-            <td width="33%">Pagament al comptat</td>
+            <td width="33%">#BY-2024</td>
+            <td width="33%">Factura ···</td>
           </tr>
         </tbody>
       </table>

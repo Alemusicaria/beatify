@@ -466,14 +466,6 @@ h1 {
 	text-align:center
 }
 
-.rate:before,
-.price:before,
-.sum:before,
-.tax:before,
-#total_price:before,
-#total_tax:before {
-    content: '$'
-}
 
 .invoicelist-body {
     margin: 1rem
