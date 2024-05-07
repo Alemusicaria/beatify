@@ -96,18 +96,16 @@
       <table style='width:100%'>
         <thead>
           <tr class="invoice_detail">
-            <th width="25%">Venedor</th>
-            <th width="25%">Ordre de compra</th>
-            <th width="20%">Enviar per</th>
-            <th width="30%">Termes i condicions</th>
+            <th width="33%">Empresa</th>
+            <th width="33%">Ordre de compra</th>
+            <th width="33%">Termes i condicions</th>
           </tr>
         </thead>
         <tbody>
           <tr class="invoice_detail">
-            <td width="25%">John Doe</td>
-            <td width="25%">#PO-2020 </td>
-            <td width="20%">DHL</td>
-            <td width="30%">Pagament al comptat</td>
+            <td width="33%">BEATIFY S.L</td>
+            <td width="33%">#BY-2024 </td>
+            <td width="33%">Pagament al comptat</td>
           </tr>
         </tbody>
       </table>
@@ -118,22 +116,15 @@
   <div class="invoicelist-body">
     <table>
       <thead>
-        <th width="5%">Codi</th>
-        <th width="60%">Descripció</th>
-
-        <th width="10%">Quant.</th>
-        <th width="15%">Preu</th>
-        <th class="taxrelated">IVA</th>
-        <th width="10%">Total</th>
+        <th width="83%">Descripció</th>
+        <th width="17%">Preu</th>
+        <th>IVA</th>
       </thead>
       <tbody>
         <tr>
-          <td width='5%'><span>12345</span></td>
-          <td width='60%'><span>Descripció</span></td>
-          <td class="amount"><input type="text" value="1" /></td>
+          <td width='83%'><span>Descripció</span></td>
           <td class="rate"><input type="text" value="99" /></td>
-          <td class="tax taxrelated"></td>
-          <td class="sum"></td>
+          <td class="tax"></td>
         </tr>
       </tbody>
     </table>
@@ -141,7 +132,7 @@
 
   <div class="invoicelist-footer">
     <table>
-      <tr class="taxrelated">
+      <tr class="">
         <td>IVA:</td>
         <td id="total_tax"></td>
       </tr>
@@ -151,14 +142,6 @@
       </tr>
     </table>
   </div>
-
-  <footer class="row">
-    <div class="col-1 text-center">
-      <p class="notaxrelated">L'import de la factura no inclou l'impost sobre les vendes.</p>
-
-    </div>
-  </footer>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
   <script src="../assets/assets_factura/js/main.js"></script>
