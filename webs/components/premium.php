@@ -169,7 +169,7 @@
       var tipus = obtenerCookie("tipus_factura");
       var preu = obtenerCookie("preu_factura");
       console.log("Valor de la cookie 'tipus_factura': " + tipus);
-      console.log("Valor de la cookie 'tipus_factura': " + preu);
+      console.log("Valor de la cookie 'preu_factura': " + preu);
 
     });
   });

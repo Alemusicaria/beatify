@@ -82,6 +82,10 @@ $(document).ready(function () {
             }
         });
     });
+
+
+
+    
     $(document).on('click', '.portada', function () {
         var songTitle = $(this).siblings('h4').text();
         var artistInfo = $(this).siblings('p').text();
