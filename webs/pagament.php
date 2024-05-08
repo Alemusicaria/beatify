@@ -52,7 +52,11 @@
                             <?php
                             // Obtener el valor de la cookie preuFactura
                             $preuFactura = $_COOKIE['preuFactura'] ?? '';
-
+                            $tipus;
+                            if ($preuFactura == '10€/Mes') {
+                                $tipus = 1;
+                            }
+                            
                             // Definir el precio base
                             $precioBase = 12.10;
 
