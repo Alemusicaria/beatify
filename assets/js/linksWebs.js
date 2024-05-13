@@ -71,21 +71,7 @@ $(document).ready(function () {
                 $('.contenedor-right').html(data);
             }
         });
-    });
-
-    $('#pagament').click(function () {
-        $.ajax({
-            url: './components/pagament.php',
-            type: 'GET',
-            success: function (data) {
-                $('.contenedor-right').html(data);
-            }
-        });
-    });
-
-
-
-    
+    });    
     $(document).on('click', '.portada', function () {
         var songTitle = $(this).siblings('h4').text();
         var artistInfo = $(this).siblings('p').text();

@@ -150,7 +150,7 @@
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
             <td width="33%">#BY-2024</td>
-            <td width="33%">MES/TRIM/SEM/ANO···</td>
+            <td width="33%"><?php echo $_COOKIE['tipus_factura'] ?? "ERROR" ?></td>
           </tr>
         </tbody>
       </table>
@@ -168,7 +168,18 @@
       <tbody>
         <tr>
           <td width='83%'><span>Descripció</span></td>
-          <td class="rate"><input type="text" value="10€" /></td>
+          <td class="rate" style="text-align: left;"><input type="text" value="
+            <?php
+            // Obtén el valor de la cookie
+            $valorCookie = $_COOKIE['preu_factura'];
+
+            // Separa el precio y la moneda
+            $partes = explode("/", $valorCookie);
+            $precio = trim($partes[0]);
+
+            echo $precio;
+            ?>
+          "></td>
           <td class="tax"></td>
         </tr>
       </tbody>
