@@ -142,6 +142,21 @@ $(document).ready(function () {
             }
         });
     }
+    $(document).on('click', '.moreSongs', function () {
+        var selectedList = JSON.parse(localStorage.getItem('selectedList'));
+        var idLlista = selectedList.id_Llista;
+        document.cookie = "ID_llista=" + idLlista + "; path=/";
+        addSongs();
+    });
+    function addSongs(){
+        $.ajax({
+            url: './components/addSongs.php',
+            type: 'GET',
+            success: function (data) {
+                $('.contenedor-right').html(data);
+            }
+        });
+    }
 });
 
 
