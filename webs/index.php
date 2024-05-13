@@ -175,5 +175,5 @@
 <script src="../assets/js/perfil.js"></script>
 <script src="../assets/js/cookies.js"></script>
 <script src="../assets/js/dadesUser.js"></script>
-
+<script src="../assets/js/search.js"></script>
 </html>
