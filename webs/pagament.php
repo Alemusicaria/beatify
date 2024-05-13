@@ -51,12 +51,7 @@
                             <span>Total (EURO)</span>
                             <?php
                             // Obtener el valor de la cookie preuFactura
-                            $preuFactura = $_COOKIE['preuFactura'] ?? '';
-                            $tipus;
-                            if ($preuFactura == '10€/Mes') {
-                                $tipus = 1;
-                            }
-                            
+                            $preuFactura = $_COOKIE['preu_factura'] ?? '';
                             // Definir el precio base
                             $precioBase = 12.10;
 
@@ -71,8 +66,11 @@
                                 case '9€/Mes':
                                     $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
                                     break;
+                                case '8.5€/Mes':
+                                    $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+                                    break;
                                 default:
-                                    $total = $precioBase; // Si no se especifica la cookie, se utiliza el precio base
+                                    $total = 0; // Si no se especifica la cookie, se utiliza el precio base
                             }
 
                             // Imprimir el total
@@ -287,7 +285,7 @@
             var tipus = obtenerCookie("tipus_factura");
             var preu = obtenerCookie("preu_factura");
             console.log("Valor de la cookie 'tipus_factura': " + tipus);
-            console.log("Valor de la cookie 'tipus_factura': " + preu);
+            console.log("Valor de la cookie 'preu_factura': " + preu);
 
 
             if (tipus && preu) {

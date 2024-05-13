@@ -150,7 +150,7 @@
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
             <td width="33%">#BY-2024</td>
-            <td width="33%">MES/TRIM/SEM/ANO···</td>
+            <td width="33%"><?php $_COOKIE['tipus_factura'] ?? "hola" ?></td>
           </tr>
         </tbody>
       </table>
