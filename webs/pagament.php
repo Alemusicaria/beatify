@@ -104,12 +104,10 @@
                                 <label for="username" class="form-label">Nom d'usuari</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'usuari" required>
-                                    <div class="invalid-feedback">
-                                        Cal un nom d'usuari.
-                                    </div>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'usuari" value="<?php echo htmlspecialchars($_COOKIE['NomUsuari'] ?? ''); ?>" readonly>
                                 </div>
                             </div>
+
 
                             <div class="col-12">
                                 <label for="email" class="form-label">Correu electrònic</label>
@@ -141,6 +139,14 @@
                                     <option>França</option>
                                     <option>Alemania</option>
                                     <option>Estats Units</option>
+                                    <?php
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        if (isset($_POST['country']) && !empty($_POST['country'])) {
+                                            setcookie('selected_country', $_POST['country'], time() + (86400 * 30), "/"); // Cookie expira en 30 días
+                                        }
+                                    }
+                                    ?>
+
                                 </select>
                                 <div class="invalid-feedback">
                                     Si us plau, seleccioneu un país vàlid.

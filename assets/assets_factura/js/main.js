@@ -33,6 +33,44 @@ function init_date() {
   $('.twoweeks').val(twoweeks);
 }
 
+// Función para calcular el IVA
+function calcularIVA(pais) {
+  // Definir tasas de IVA para cada país
+  var tasasIVA = {
+    "Espanya": 21,
+    "França": 20,
+    "Alemania": 19,
+    "Estats Units": 0 // Asumiendo que en Estados Unidos no hay IVA
+  };
+
+  // Obtener la tasa de IVA del país seleccionado de la cookie
+  var tasaIVA = tasasIVA[pais];
+
+  // Devolver la tasa de IVA
+  return tasaIVA;
+}
+
+// Función para obtener el valor de una cookie
+function obtenerCookie(nombre) {
+  var nombreCookie = nombre + "=";
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(nombreCookie) === 0) {
+      return cookie.substring(nombreCookie.length, cookie.length);
+    }
+  }
+  return "";
+}
+
+// Obtener el país seleccionado almacenado en la cookie
+var paisSeleccionado = obtenerCookie("selected_country");
+
+// Si hay un país seleccionado, calcular su tasa de IVA correspondiente
+if (paisSeleccionado) {
+  var tasaIVA = calcularIVA(paisSeleccionado);
+  console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+}
 function calculate() {
 
   var total_price = 0,
@@ -41,11 +79,11 @@ function calculate() {
   $('.invoicelist-body tbody tr').each(function () {
     var row = $(this),
       rate = parseFloat(row.find('.rate input').val()), // Obtener el precio del producto
-      taxRate = 21, // Tasa de impuesto fija en 21%
       amount = 1; // Suponemos que la cantidad es 1 en este caso
+    var tasaIVA = calcularIVA(paisSeleccionado); // Calcular la tasa de IVA según el país seleccionado
 
     var sum = rate * amount;
-    var tax = (sum * taxRate) / 100;
+    var tax = (sum * tasaIVA) / 100;
 
     total_price += sum; // Sumar al total el precio del producto
     total_tax += tax; // Sumar al total el impuesto del producto

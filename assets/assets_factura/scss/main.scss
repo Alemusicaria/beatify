@@ -32,14 +32,6 @@ body{
   box-sizing: inherit;
 }
 
-[contenteditable],
-input{
-  &:hover,
-  &:focus{
-    background: rgba($primary,.1);
-    outline: 2px solid $primary;
-  }
-}
 .group:after {
   content: "";
   display: table;
@@ -411,12 +403,5 @@ footer{
   .control,
   .control-bar{
     display: none !important;
-  }
-
-  [contenteditable] {
-    &:hover,
-    &:focus{
-      outline: none;
-    }
   }
 }

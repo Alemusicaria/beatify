@@ -82,6 +82,14 @@
   $num_tarjeta = "";
   $expiracio = "";
   $cvv = "";
+  $tipus2 = $_COOKIE['tipus_factura'];
+  // Obtén el valor de la cookie
+  $valorCookie = $_COOKIE['preu_factura'];
+
+  // Separa el preu y la moneda
+  $partes = explode("/", $valorCookie);
+  $preu = trim($partes[0]);
+
 
   if ($result->num_rows > 0) {
     // Assigna les dades a les variables
@@ -150,7 +158,7 @@
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
             <td width="33%">#BY-2024</td>
-            <td width="33%"><?php echo $_COOKIE['tipus_factura'] ?? "ERROR" ?></td>
+            <td width="33%"><?php echo $tipus2 ?></td>
           </tr>
         </tbody>
       </table>
@@ -168,17 +176,7 @@
       <tbody>
         <tr>
           <td width='83%'><span>Descripció</span></td>
-          <td class="rate" style="text-align: left;"><input type="text" value="
-            <?php
-            // Obtén el valor de la cookie
-            $valorCookie = $_COOKIE['preu_factura'];
-
-            // Separa el precio y la moneda
-            $partes = explode("/", $valorCookie);
-            $precio = trim($partes[0]);
-
-            echo $precio;
-            ?>
+          <td class="rate" style="text-align: left;"><input type="text" value="<?php echo $preu; ?>
           "></td>
           <td class="tax"></td>
         </tr>
