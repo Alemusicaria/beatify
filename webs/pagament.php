@@ -52,30 +52,60 @@
                             <?php
                             // Obtener el valor de la cookie preuFactura
                             $preuFactura = $_COOKIE['preu_factura'] ?? '';
-                            // Definir el precio base
-                            $precioBase = 12.10;
 
-                            // Calcular el total basado en el valor de la cookie preuFactura
-                            switch ($preuFactura) {
-                                case '10€/Mes':
-                                    $total = $precioBase;
-                                    break;
-                                case '9.5€/Mes':
-                                    $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
-                                    break;
-                                case '9€/Mes':
-                                    $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
-                                    break;
-                                case '8.5€/Mes':
-                                    $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
-                                    break;
-                                default:
-                                    $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+                            // Definir el precio base
+                            $precioBase = 10;
+
+                            // Definir la función para calcular el IVA
+                            function calcularIVA($pais)
+                            {
+                                // Definir tasas de IVA para cada país
+                                $tasasIVA = array(
+                                    "Espanya" => 21,
+                                    "França" => 20,
+                                    "Alemania" => 19,
+                                    "Estats Units" => 0 // Asumiendo que en Estados Unidos no hay IVA
+                                );
+
+                                // Obtener la tasa de IVA del país seleccionado
+                                $tasaIVA = $tasasIVA[$pais];
+
+                                // Devolver la tasa de IVA
+                                return $tasaIVA;
                             }
 
-                            // Imprimir el total
-                            echo "<strong>" . number_format($total, 2) . "€</strong>";
+                            // Obtener el país seleccionado almacenado en la cookie
+                            $paisSeleccionado = $_COOKIE['selected_country'] ?? '';
+
+                            // Si hay un país seleccionado, calcular su tasa de IVA correspondiente
+                            if ($paisSeleccionado) {
+                                $tasaIVA = calcularIVA($paisSeleccionado);
+
+                                // Calcular el total basado en el valor de la cookie preuFactura y la tasa de IVA
+                                switch ($preuFactura) {
+                                    case '10€/Mes':
+                                        $total = $precioBase * (1 + $tasaIVA / 100);
+                                        break;
+                                    case '9.5€/Mes':
+                                        $total = $precioBase * 2.85 * (1 + $tasaIVA / 100); // 2.85 = 34.48 / 12.10
+                                        break;
+                                    case '9€/Mes':
+                                        $total = $precioBase * 5.42 * (1 + $tasaIVA / 100); // 5.42 = 65.34 / 12.10
+                                        break;
+                                    case '8.5€/Mes':
+                                        $total = $precioBase * 10.2 * (1 + $tasaIVA / 100); // 10.2 = 123.42 / 12.10
+                                        break;
+                                    default:
+                                        $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+                                }
+
+                                // Imprimir el total
+                                echo "<strong>" . number_format($total, 2) . "€</strong>";
+                            } else {
+                                echo "No se ha seleccionado ningún país.";
+                            }
                             ?>
+
                         </li>
                     </ul>
 

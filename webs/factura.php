@@ -88,7 +88,28 @@
 
   // Separa el preu y la moneda
   $partes = explode("/", $valorCookie);
-  $preu = trim($partes[0]);
+  // Obtener el valor de la cookie preuFactura
+  $preuFactura = $_COOKIE['preu_factura'] ?? '';
+  // Definir el precio base
+  $precioBase = 10;
+
+  // Calcular el total basado en el valor de la cookie preuFactura
+  switch ($preuFactura) {
+    case '10€/Mes':
+      $total = $precioBase;
+      break;
+    case '9.5€/Mes':
+      $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+      break;
+    case '9€/Mes':
+      $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+      break;
+    case '8.5€/Mes':
+      $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+      break;
+    default:
+      $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+  }
 
 
   if ($result->num_rows > 0) {
@@ -176,7 +197,7 @@
       <tbody>
         <tr>
           <td width='83%'><span>Descripció</span></td>
-          <td class="rate" style="text-align: left;"><input type="text" value="<?php echo $preu; ?>
+          <td class="rate" style="text-align: left;"><input type="text" value="<?php echo number_format($total, 2); ?>
           "></td>
           <td class="tax"></td>
         </tr>
