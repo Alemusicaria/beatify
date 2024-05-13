@@ -1,8 +1,14 @@
 var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
+var admin=false;
+if(reproAutoAdmin === "true"){
+    admin =true;
+}else{
+    admin=false;
+}
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
-if (cookieValue === "1" || reproAutoAdmin === "true") {
+if (cookieValue === "1") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
@@ -50,7 +56,7 @@ function saltarCancons(index) {
     });
 
     // Activa la reproducción aleatoria para usuarios no premium
-    if (!premiumUser) {
+    if (!premiumUser || admin === true) {
         randomImage.addClass('clicked');
         randomImage.attr('src', '../img/simbols/crandom.svg');
     }
