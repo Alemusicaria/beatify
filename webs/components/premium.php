@@ -83,7 +83,7 @@
     <?php
 
     if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-      echo '<a style="cursor:pointer;" id="pagament"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      echo '<a style="cursor:pointer;" id="pagament" href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     } else {
       echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     }
@@ -107,7 +107,7 @@
     <?php
 
     if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-      echo '<a style="cursor:pointer;" id="pagament"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      echo '<a style="cursor:pointer;" id="pagament" href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     } else {
       echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     }
@@ -130,7 +130,31 @@
     <?php
 
     if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
-      echo '<a style="cursor:pointer;" id="pagament"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+      echo '<a style="cursor:pointer;" id="pagament" href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+    } else {
+      echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
+    }
+    ?>
+
+  </div>
+</section>
+<section>
+  <div class="plan" style="margin-left: 40vh;">
+    <h2>Premium Anual</h2>
+    <h3>8.5€/Mes</h3>
+    <ul class="avantatges">
+      <li>Accés a tota la biblioteca</li>
+      <li>Reproducció sense anuncis</li>
+      <li>Qualitat d'àudio millorada</li>
+    </ul>
+    <ul class="desavantatges">
+      <li>Cost mensual</li>
+      <li>Requereix subscripció</li>
+    </ul>
+    <?php
+
+    if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {
+      echo '<a style="cursor:pointer;" id="pagament" href="pagament.php"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     } else {
       echo '<a href="login.html"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>';
     }
