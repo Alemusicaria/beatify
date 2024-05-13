@@ -65,7 +65,6 @@ CREATE TABLE Afegeix (
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
 );
 
-
 CREATE TABLE Pagament (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nom VARCHAR(255),
@@ -80,5 +79,7 @@ CREATE TABLE Pagament (
     Nom_tarjeta VARCHAR(255),
     Num_tarjeta VARCHAR(255),
     Expiracio VARCHAR(255),
-    CVV INT(3)
-);
+    CVV INT(3),
+    Data DATE,  
+    Total DECIMAL(10, 2)
+    );
