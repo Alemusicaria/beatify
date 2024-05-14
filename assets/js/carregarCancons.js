@@ -1,17 +1,25 @@
-var canconsCarregades = []; // Array para almacenar las canciones cargadas
+// Array per emmagatzemar les cançons carregades
+var canconsCarregades = [];
+
+// Variable per determinar si l'usuari és administrador
+var admin = false;
+
+// Verifica si l'administrador ha habilitat la reproducció automàtica
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
-var admin=false;
-if(reproAutoAdmin === "true"){
-    admin =true;
-}else{
-    admin=false;
+if (reproAutoAdmin === "true") {
+    admin = true;
+} else {
+    admin = false;
 }
+
+// Obté el valor de la cookie 'Premium' per determinar si l'usuari és premium
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
 if (cookieValue === "1") {
     premiumUser = true;
 }
-// Reproducción de Canciones Automática
+
+// Funció per saltar les cançons automàticament
 function saltarCancons(index) {
     var currentIndex = index;
     var randomImage = $('#random');
@@ -41,46 +49,40 @@ function saltarCancons(index) {
     afterSong.addEventListener('click', function () {
         currentIndex -= 1;
         if (currentIndex < 0) {
-            currentIndex = canconsCarregades.length - 1; // Si está en la primera canción, va a la última
+            currentIndex = canconsCarregades.length - 1;
         }
 
         if (premiumUser || saltosRealizados === 0) {
-            // Si es usuario premium o no se han realizado saltos aún, reproduce la canción
             if (randomImage.hasClass('clicked')) {
                 window.reproducirCancionAleatoria();
             } else {
                 reproducirCancionDesdeIndice(currentIndex);
             }
         }
-        saltosRealizados--; // Decrementa el contador de saltos realizados
+        saltosRealizados--;
     });
 
-    // Activa la reproducción aleatoria para usuarios no premium
     if (!premiumUser || admin === true) {
         randomImage.addClass('clicked');
         randomImage.attr('src', '../img/simbols/crandom.svg');
     }
 }
 
-
-
-// Llamada a la función de inicialización cuando la página está lista
+// Inicialització de la funció quan la pàgina està carregada
 document.addEventListener('DOMContentLoaded', function () {
     saltarCancons();
 });
-$(document).ready(function () {
 
+// Inicialització de la funció quan el document està preparat
+$(document).ready(function () {
+    // Funció per reproduir una cançó des d'un índex determinat
     window.reproducirCancionDesdeIndice = function (index) {
-        // Detener la reproducción actual si hay una
         $('#reproductor-audio')[0].pause();
-        // Verificar si el índice está dentro del rango del array
+
         if (index >= 0 && index < canconsCarregades.length) {
             currentIndex = index;
 
-            // Obtener la información de la canción seleccionada
             var selectedSong = canconsCarregades[currentIndex];
-
-
             var imgSrc;
             if (selectedSong.Titol_Album) {
                 imgSrc = '../musica/portades/' + selectedSong.Titol_Album + '.jpg';
@@ -89,22 +91,17 @@ $(document).ready(function () {
             }
             var songTitle = selectedSong.Titol;
 
-            // Actualizar la información del reproductor de música
             $('#reproductor-img').attr('src', imgSrc);
             $('#reproductor-title').text(songTitle);
-            $('#reproductor-artist').text(""); // Puedes agregar información del artista si es necesario
+            $('#reproductor-artist').text("");
             $('#reproductor-audio').attr('src', "../musica/mp3/" + songTitle + ".mp3");
-
-            // Reproducir la canción seleccionada
             $('#reproductor-audio')[0].play();
         } else {
-            // Si el índice está fuera del rango, volver al principio del array
             reproducirCancionDesdeIndice(0);
         }
     }
 
-    var randomImage = $('#random');
-    // Agregar un evento 'ended' al elemento de audio para detectar el final de la canción
+    // Gestiona l'event 'ended' per reproduir la següent cançó
     $('#reproductor-audio').on('ended', function () {
         if (randomImage.hasClass('clicked')) {
             window.reproducirCancionAleatoria();
@@ -113,22 +110,22 @@ $(document).ready(function () {
         }
     });
 
-    // Cargar las canciones y comenzar a reproducir la primera
+    // Carrega les cançons i comença a reproduir la primera
     carregarCancons();
 });
 
+// Funció per carregar les cançons des del servidor
 function carregarCancons() {
     $.ajax({
         url: '../assets/php/conexio.php',
         method: 'GET',
         success: function (data) {
             try {
-                canconsCarregades = JSON.parse(data); // Emmagatzemar les cançons a nivel local
-                mostrarCancons(canconsCarregades); // Mostrar totes les cançons inicials
+                canconsCarregades = JSON.parse(data);
+                mostrarCancons(canconsCarregades);
             } catch (error) {
-                console.error('Error al analizar los datos JSON:', error);
+                console.error('Error en analitzar les dades JSON:', error);
             }
-
         },
         error: function (error) {
             console.log('Error en carregar les cançons:', error);
@@ -136,51 +133,43 @@ function carregarCancons() {
     });
 }
 
+// Funció per mostrar les cançons a la pàgina web
 function mostrarCancons(cancons) {
     var taula = $('#taula');
-    taula.empty(); // Limpiar la tabla antes de mostrar las canciones
+    taula.empty();
 
     $.each(cancons, function (index, canco) {
         var novaCancoDiv = $('<div class="songs"></div>');
-
-        // Utilizar la Foto del Álbum si está disponible
         var imgSrc;
+
         if (canco.Titol_Album) {
             imgSrc = '../musica/portades/' + canco.Titol_Album + ".jpg";
         } else {
-            // Si no hay Titol_Album, utilizar Titol si está disponible, de lo contrario, asignar una imagen genérica por defecto
             imgSrc = '../musica/portades/' + canco.Titol + ".jpg";
         }
+
         novaCancoDiv.append('<img src="' + imgSrc + '" alt="' + canco.Titol + '" class="portada">');
         novaCancoDiv.append('<img src="../img/playImg.png" alt="icon" class="icono">');
         novaCancoDiv.append('<h4>' + canco.Titol + '</h4>');
 
-        // Agregar los nombres de los artistas
         var artistas = canco.artistas.map(function (artista) {
             return artista.Nom_Artista;
         }).join(', ');
-        novaCancoDiv.append('<p>' + artistas + '</p>');
 
+        novaCancoDiv.append('<p>' + artistas + '</p>');
         taula.append(novaCancoDiv);
     });
 
-    // Agregar evento de clic a las imágenes con la clase 'icono'
     $('.icono').on('click', transferirInformacion);
-
 }
 
-
-// Función para transferir información al reproductor de música
+// Funció per transferir informació al reproductor de música
 function transferirInformacion(event) {
     var cancoDiv = $(this).closest('.songs');
     var imgSrc = cancoDiv.find('img.portada').attr('src');
     var songTitle = cancoDiv.find('h4').text();
     var artistInfo = cancoDiv.find('p').text();
-
-    // Obtener el índice de la canción seleccionada
     var index = $('.songs').index(cancoDiv);
-
-
 
     var reproductorImg = $('#reproductor-img');
     var reproductorTitle = $('#reproductor-title');
@@ -191,13 +180,13 @@ function transferirInformacion(event) {
     reproductorTitle.text(songTitle);
     reproductorArtist.text(artistInfo);
     reproductorAudio.attr('src', "../musica/mp3/" + songTitle + ".mp3");
-    reproductorAudio[0].play(); // Iniciar la reproducción
+    reproductorAudio[0].play();
 
-    // Llamar a la función para reproducir desde el índice seleccionado
     window.reproducirCancionDesdeIndice(index);
     saltarCancons(index);
-}
+};
 
+// Funció per gestionar la reproducció aleatòria de les cançons
 $(document).ready(function () {
     var randomImage = $('#random');
     randomImage.on('click', function () {
@@ -214,15 +203,13 @@ $(document).ready(function () {
     });
 
     window.reproducirCancionAleatoria = function () {
-        // Detener la reproducción actual si hay una
         $('#reproductor-audio')[0].pause();
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
 });
 
-
-
+// Funció per obtenir el valor d'una cookie
 function obtenerCookie(nombre) {
     var nombreEQ = nombre + '=';
     var cookies = document.cookie.split(';');

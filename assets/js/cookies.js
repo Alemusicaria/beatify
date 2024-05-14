@@ -1,17 +1,18 @@
 $('#iniciarSessio').on('click', function () {
+    // Redirigeix l'usuari a la pàgina de login en fer clic al botó d'iniciar sessió
     window.location.href = './login.html';
 });
 
 function cerrarSesion() {
-    // Eliminar la cookie
+    // Elimina les cookies de sessió quan l'usuari tanca la sessió
     document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-    // Redirigir a la página de inicio de sesión o a otra página relevante
+    // Redirigeix l'usuari a la pàgina de login o a una altra pàgina rellevant
     window.location.href = '../assets/php/unlogin.php';
 }
 
-// Función para cargar la personalización desde la cookie
+// Funció per carregar la personalització des de la cookie
 function cargarPersonalizacion() {
     const cookieValue = document.cookie
         .split('; ')
@@ -24,16 +25,16 @@ function cargarPersonalizacion() {
     return null;
 }
 
-// Función para aplicar la personalización a los elementos necesarios
+// Funció per aplicar la personalització als elements necessaris
 function aplicarPersonalizacion() {
     const opciones = cargarPersonalizacion();
 
     if (opciones) {
-        // Aplicar la personalización a los elementos que desees
-        // En este ejemplo, solo se aplica a los botones
-        const barra= document.querySelectorAll('#audioColor');
+        // Aplica la personalització als elements que desitgis
+        // En aquest exemple, s'aplica només als botons i a la barra d'àudio
+        const barra = document.querySelectorAll('#audioColor');
         const botones = document.querySelectorAll('button');
-        barra.forEach(estilo =>{
+        barra.forEach(estilo => {
             estilo.style.backgroundColor = opciones.colorBarraAudio;
         });
         botones.forEach(boton => {
@@ -51,5 +52,5 @@ function aplicarPersonalizacion() {
     }
 }
 
-// Llamar a la función para cargar y aplicar la personalización al cargar la página
+// Crida la funció per carregar i aplicar la personalització quan es carrega la pàgina
 window.addEventListener('load', aplicarPersonalizacion);
