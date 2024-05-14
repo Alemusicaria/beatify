@@ -191,26 +191,24 @@
                                 </div>
                             </div>
                         </div>
-
                         <hr class="my-4">
-
                         <h4 class="mb-3">Pagament</h4>
-
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" value="targeta de crèdit" checked required>
                                 <label class="form-check-label" for="credit">Targeta de crèdit</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" value="targeta de dèbit" required>
                                 <label class="form-check-label" for="debit">Targeta de dèbit</label>
                             </div>
                             <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" value="PayPal" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
                             <input type="hidden" id="paymentMethod" name="pago" value="" />
                         </div>
+
                         <script>
                             const paymentMethodButtons = document.querySelectorAll('input[name="paymentMethod"]');
                             const form = document.querySelector('form');

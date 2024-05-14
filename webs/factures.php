@@ -3,13 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Historial de Facturas</title>
+    <title>Historial de Factures</title>
     <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table td {
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Historial de Facturas</h1>
+        <h1>Historial de Factures</h1>
 
         <?php
         // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
@@ -37,6 +83,7 @@
             echo "<th>Factura #</th>";
             echo "<th>Data</th>";
             echo "<th>Total</th>";
+            echo "<th>Pais</th>";
             echo "</tr>";
             echo "</thead>";
             echo "<tbody>";
@@ -46,9 +93,11 @@
                 echo "<tr>";
                 echo "<td>" . $row["ID"] . "</td>";
                 echo "<td>" . $row["Data"] . "</td>";
-                echo "<td>" . $row["Total"] . "</td>"; // Suposo que a la base de dades hi ha un camp anomenat 'Total' que conté el preu total de la factura
+                echo "<td>" . $row["Total"] . "€</td>";
+                echo "<td>" . $row["Pais"] . "</td>";
                 echo "</tr>";
             }
+
 
             echo "</tbody>";
             echo "</table>";

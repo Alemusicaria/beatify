@@ -64,7 +64,6 @@ CREATE TABLE Afegeix (
     FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
 );
-
 CREATE TABLE Pagament (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nom VARCHAR(255),
@@ -80,6 +79,16 @@ CREATE TABLE Pagament (
     Num_tarjeta VARCHAR(255),
     Expiracio VARCHAR(255),
     CVV INT(3),
-    Data DATE,  
+    Data DATE DEFAULT NOW(),  
     Total DECIMAL(10, 2)
-    );
+);
+
+
+DELIMITER //
+CREATE TRIGGER actualizar_fecha BEFORE INSERT ON pagament
+FOR EACH ROW
+BEGIN
+    SET NEW.Data = NOW();
+END;
+//
+DELIMITER ;
