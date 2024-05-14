@@ -1,10 +1,5 @@
 <?php
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+include 'conn.php';
 
 if (isset($_POST['idLlista'])) {
     $data = $_POST['idLlista'];

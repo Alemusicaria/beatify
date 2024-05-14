@@ -1,16 +1,5 @@
 <?php
-// Connecta con la base de datos (cambia las credenciales según tu configuración)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
-
+include 'conn.php';
 
 // Recollir dades del formulari
 $nom = $_POST['firstName'];

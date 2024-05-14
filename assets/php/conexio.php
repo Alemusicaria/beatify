@@ -1,16 +1,5 @@
 <?php
-// Connexió a la base de dades (modifica els valors segons la teva configuració)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verificar la connexió
-if ($conn->connect_error) {
-    die(json_encode(array('error' => 'Error de connexió a la base de dades')));
-}
+include 'conn.php';
 
 // Consulta SQL per obtenir les cançons amb l'ID de l'àlbum i la foto de l'àlbum
 $sql = "SELECT Canco.ID AS ID_Canco, Canco.Titol, Canco.ID_Genere, Album.ID AS ID_Album, Album.Titol AS Titol_Album, Crea_musica.ID_Artista, Artista.NomArtistic AS Nom_Artista

@@ -1,17 +1,5 @@
 <?php
-
-// Conectar con la base de datos (ajusta las credenciales según tu configuración)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+include 'conn.php';
 
 // Recibir el nombre de la lista del formulario
 $nomLlista = $_POST['nomLlista'];

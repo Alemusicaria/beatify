@@ -1,17 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Connecta amb la base de dades (canvia les credencials segons la teva configuració)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verifica la connexió
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
+include 'conn.php';
 
 // Consulta SQL per obtenir la informació relacionada amb cançons, àlbums i artistes
 $consulta = "SELECT CANCO.Ruta_canco, CANCO.Img, ALBUM.Nombre AS AlbumNombre, 
