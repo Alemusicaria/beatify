@@ -54,7 +54,7 @@ function mostrarInformacionUsuario(usuario) {
     
         const adminAccessLabel = document.createElement('label');
         adminAccessLabel.setAttribute('for', 'admin-access');
-        adminAccessLabel.textContent = 'Reproducción Automática (NO Premium):';
+        adminAccessLabel.textContent = 'Reproduccio Aleatoria (NO Premium):';
         adminOptions.appendChild(adminAccessLabel);
     
         const adminAccessSelect = document.createElement('select');

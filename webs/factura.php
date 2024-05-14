@@ -8,6 +8,8 @@
 </head>
 
 <body>
+<button onclick="location.href='index.php'">Inici</button>
+
   <div class="control-bar">
     <div class="container">
       <div class="row">
@@ -82,6 +84,35 @@
   $num_tarjeta = "";
   $expiracio = "";
   $cvv = "";
+  $tipus2 = $_COOKIE['tipus_factura'];
+  // Obtén el valor de la cookie
+  $valorCookie = $_COOKIE['preu_factura'];
+
+  // Separa el preu y la moneda
+  $partes = explode("/", $valorCookie);
+  // Obtener el valor de la cookie preuFactura
+  $preuFactura = $_COOKIE['preu_factura'] ?? '';
+  // Definir el precio base
+  $precioBase = 10;
+
+  // Calcular el total basado en el valor de la cookie preuFactura
+  switch ($preuFactura) {
+    case '10€/Mes':
+      $total = $precioBase;
+      break;
+    case '9.5€/Mes':
+      $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+      break;
+    case '9€/Mes':
+      $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+      break;
+    case '8.5€/Mes':
+      $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+      break;
+    default:
+      $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+  }
+
 
   if ($result->num_rows > 0) {
     // Assigna les dades a les variables
@@ -150,7 +181,7 @@
           <tr class="invoice_detail">
             <td width="33%">BEATIFY S.L</td>
             <td width="33%">#BY-2024</td>
-            <td width="33%">MES/TRIM/SEM/ANO···</td>
+            <td width="33%"><?php echo $tipus2 ?></td>
           </tr>
         </tbody>
       </table>
@@ -168,7 +199,8 @@
       <tbody>
         <tr>
           <td width='83%'><span>Descripció</span></td>
-          <td class="rate"><input type="text" value="10€" /></td>
+          <td class="rate" style="text-align: left;"><input type="text" value="<?php echo number_format($total, 2); ?>
+          "></td>
           <td class="tax"></td>
         </tr>
       </tbody>

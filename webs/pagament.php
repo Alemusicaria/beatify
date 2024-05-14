@@ -51,33 +51,61 @@
                             <span>Total (EURO)</span>
                             <?php
                             // Obtener el valor de la cookie preuFactura
-                            $preuFactura = $_COOKIE['preuFactura'] ?? '';
-                            $tipus;
-                            if ($preuFactura == '10€/Mes') {
-                                $tipus = 1;
-                            }
-                            
+                            $preuFactura = $_COOKIE['preu_factura'] ?? '';
+
                             // Definir el precio base
-                            $precioBase = 12.10;
+                            $precioBase = 10;
 
-                            // Calcular el total basado en el valor de la cookie preuFactura
-                            switch ($preuFactura) {
-                                case '10€/Mes':
-                                    $total = $precioBase;
-                                    break;
-                                case '9.5€/Mes':
-                                    $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
-                                    break;
-                                case '9€/Mes':
-                                    $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
-                                    break;
-                                default:
-                                    $total = $precioBase; // Si no se especifica la cookie, se utiliza el precio base
+                            // Definir la función para calcular el IVA
+                            function calcularIVA($pais)
+                            {
+                                // Definir tasas de IVA para cada país
+                                $tasasIVA = array(
+                                    "Espanya" => 21,
+                                    "França" => 20,
+                                    "Alemania" => 19,
+                                    "Estats Units" => 0 // Asumiendo que en Estados Unidos no hay IVA
+                                );
+
+                                // Obtener la tasa de IVA del país seleccionado
+                                $tasaIVA = $tasasIVA[$pais];
+
+                                // Devolver la tasa de IVA
+                                return $tasaIVA;
                             }
 
-                            // Imprimir el total
-                            echo "<strong>" . number_format($total, 2) . "€</strong>";
+                            // Obtener el país seleccionado almacenado en la cookie
+                            $paisSeleccionado = $_COOKIE['selected_country'] ?? '';
+
+                            // Si hay un país seleccionado, calcular su tasa de IVA correspondiente
+                            if ($paisSeleccionado) {
+                                $tasaIVA = calcularIVA($paisSeleccionado);
+
+                                // Calcular el total basado en el valor de la cookie preuFactura y la tasa de IVA
+                                switch ($preuFactura) {
+                                    case '10€/Mes':
+                                        $total = $precioBase * (1 + $tasaIVA / 100);
+                                        break;
+                                    case '9.5€/Mes':
+                                        $total = $precioBase * 2.85 * (1 + $tasaIVA / 100); // 2.85 = 34.48 / 12.10
+                                        break;
+                                    case '9€/Mes':
+                                        $total = $precioBase * 5.42 * (1 + $tasaIVA / 100); // 5.42 = 65.34 / 12.10
+                                        break;
+                                    case '8.5€/Mes':
+                                        $total = $precioBase * 10.2 * (1 + $tasaIVA / 100); // 10.2 = 123.42 / 12.10
+                                        break;
+                                    default:
+                                        $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+                                }
+
+                                // Imprimir el total
+                                echo "<strong>" . number_format($total, 2) . "€</strong>";
+                            } else {
+                                echo "No se ha seleccionado ningún país.";
+                            }
                             ?>
+
                         </li>
                     </ul>
 
@@ -106,12 +134,10 @@
                                 <label for="username" class="form-label">Nom d'usuari</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'usuari" required>
-                                    <div class="invalid-feedback">
-                                        Cal un nom d'usuari.
-                                    </div>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'usuari" value="<?php echo htmlspecialchars($_COOKIE['NomUsuari'] ?? ''); ?>" readonly>
                                 </div>
                             </div>
+
 
                             <div class="col-12">
                                 <label for="email" class="form-label">Correu electrònic</label>
@@ -143,6 +169,14 @@
                                     <option>França</option>
                                     <option>Alemania</option>
                                     <option>Estats Units</option>
+                                    <?php
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        if (isset($_POST['country']) && !empty($_POST['country'])) {
+                                            setcookie('selected_country', $_POST['country'], time() + (86400 * 30), "/"); // Cookie expira en 30 días
+                                        }
+                                    }
+                                    ?>
+
                                 </select>
                                 <div class="invalid-feedback">
                                     Si us plau, seleccioneu un país vàlid.
@@ -157,26 +191,24 @@
                                 </div>
                             </div>
                         </div>
-
                         <hr class="my-4">
-
                         <h4 class="mb-3">Pagament</h4>
-
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" value="targeta de crèdit" checked required>
                                 <label class="form-check-label" for="credit">Targeta de crèdit</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" value="targeta de dèbit" required>
                                 <label class="form-check-label" for="debit">Targeta de dèbit</label>
                             </div>
                             <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" value="PayPal" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
                             <input type="hidden" id="paymentMethod" name="pago" value="" />
                         </div>
+
                         <script>
                             const paymentMethodButtons = document.querySelectorAll('input[name="paymentMethod"]');
                             const form = document.querySelector('form');
@@ -287,7 +319,7 @@
             var tipus = obtenerCookie("tipus_factura");
             var preu = obtenerCookie("preu_factura");
             console.log("Valor de la cookie 'tipus_factura': " + tipus);
-            console.log("Valor de la cookie 'tipus_factura': " + preu);
+            console.log("Valor de la cookie 'preu_factura': " + preu);
 
 
             if (tipus && preu) {

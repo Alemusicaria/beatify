@@ -17,7 +17,7 @@
             <h1 id="titol">Configuració Usuari - <a href="./index.php">Beatify</a> </h1>
         </div>
         <div class="menu">
-            <a href="./factura.php">Veure Factures</a>
+            <a href="./factures.php">Veure Factures</a>
             <?php
 
             if (isset($_COOKIE['NomUsuari']) || !empty($_COOKIE['NomUsuari'])) {

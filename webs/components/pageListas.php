@@ -10,7 +10,9 @@
     </div>
 </div>
 <div class="lista">
-    <div id="imgPlay"> <img src="../img/mas.png" alt="" class="play"></div>
+    <div id="imgPlay">
+        <img src="../img/mas.png" alt="" class="moreSongs">
+    </div>
     <div>
         <h2>Cançons de la llista</h2>
     </div>

@@ -32,21 +32,27 @@ if (isset($_COOKIE['UsuariID'])) {
     $stmt->bind_param("si", $idCanco, $idLlista);
 
     if ($stmt->execute()) {
-        // Recuperar totes les cançons de la llista de reproducció
+        // Recuperar todas las canciones de la lista de reproducción
         $sql_select = "SELECT c.* FROM canco c INNER JOIN afegeix a ON c.ID = a.ID_Canco WHERE a.ID_LlistaReproduccio = ?";
         $stmt_select = $conn->prepare($sql_select);
         $stmt_select->bind_param("i", $idLlista);
         $stmt_select->execute();
         $result = $stmt_select->get_result();
-
-        // Guardar les cançons en un array
+    
+        // Guardar las canciones en un array
         $cancons = array();
         while ($row = $result->fetch_assoc()) {
             $cancons[] = $row;
         }
     } else {
-        echo "Error al insertar datos en la tabla afegeix: " . $stmt->error;
+        // Comprobar si la ejecución falló debido a una clave duplicada
+        if ($stmt->errno == 1062) {
+            echo '<script>alert("No es pot agregar aquesta canço a la llista.");</script>';
+        } else {
+            echo "Error al insertar datos en la tabla afegeix: " . $stmt->error;
+        }
     }
+    
 } else {
     echo '<script>alert("No s\'ha pogut verificar l\'ID de l\'usuari."); window.location.href=\'./index.php\';</script>';
 }

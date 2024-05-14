@@ -150,12 +150,4 @@
             }
         }
     });
-
-    function togglePlay() {
-        if (audio2.paused) {
-            audio2.play();
-        } else {
-            audio2.pause();
-        }
-    }
 </script>

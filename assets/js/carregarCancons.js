@@ -1,8 +1,14 @@
 var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
+var admin=false;
+if(reproAutoAdmin === "true"){
+    admin =true;
+}else{
+    admin=false;
+}
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
-if (cookieValue === "1" || reproAutoAdmin === "true") {
+if (cookieValue === "1") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
@@ -50,7 +56,7 @@ function saltarCancons(index) {
     });
 
     // Activa la reproducción aleatoria para usuarios no premium
-    if (!premiumUser) {
+    if (!premiumUser || admin === true) {
         randomImage.addClass('clicked');
         randomImage.attr('src', '../img/simbols/crandom.svg');
     }
@@ -195,8 +201,7 @@ function transferirInformacion(event) {
 $(document).ready(function () {
     var randomImage = $('#random');
     randomImage.on('click', function () {
-        if (premiumUser == true) {
-            // Cambiar el estado solo si no es un usuario premium
+        if (premiumUser === true) {
             if (randomImage.hasClass('clicked')) {
                 randomImage.removeClass('clicked');
                 randomImage.attr('src', '../img/simbols/random.svg');
@@ -206,7 +211,6 @@ $(document).ready(function () {
                 randomImage.attr('src', '../img/simbols/crandom.svg');
             }
         }
-
     });
 
     window.reproducirCancionAleatoria = function () {
@@ -215,37 +219,8 @@ $(document).ready(function () {
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
-
-
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Obtén la lista de canciones y el campo de búsqueda
-    const taula = document.getElementById('taula');
-    const searchInput = document.getElementById('searchInput');
-
-    // Verifica si los elementos se han encontrado correctamente
-    if (taula && searchInput) {
-        // Agrega un evento de escucha al campo de búsqueda
-        searchInput.addEventListener('input', function () {
-            const searchTerm = searchInput.value.toLowerCase();
-
-            // Filtra las canciones basadas en el término de búsqueda
-            Array.from(taula.children).forEach(function (song) {
-                const songTitle = song.querySelector('h4').textContent.toLowerCase();
-                const artistName = song.querySelector('p').textContent.toLowerCase();
-
-                // Verifica si el título de la canción o el nombre del artista coinciden con el término de búsqueda
-                if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
-                    song.style.display = 'block'; // Muestra la canción si coincide
-                } else {
-                    song.style.display = 'none'; // Oculta la canción si no coincide
-                }
-            });
-        });
-    } else {
-    }
-});
 
 
 function obtenerCookie(nombre) {
