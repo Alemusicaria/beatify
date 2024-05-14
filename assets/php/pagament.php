@@ -81,6 +81,14 @@ if ($paisSeleccionado) {
     }
 }
 
+$sql2 = "UPDATE usuari SET Premium = 1 WHERE NomUsuari = $nomUsuari";
+$result = mysqli_query($conn, $sql2); // Executa la consulta SQL amb la connexió
+if ($result) {
+    echo "Base de dades actualitzada amb èxit";
+} else {
+    echo "Error en l'actualització de la base de dades: " . mysqli_error($conn);
+}
+
 // Preparar la consulta SQL con los valores que obtuvimos
 $sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV, Total)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -90,7 +98,7 @@ $stmt->bind_param("sssssssiissssd", $nom, $cognom, $nomUsuari, $email, $adreca, 
 // Executar consulta
 if ($stmt->execute()) {
     echo "Pagament registrat amb èxit!";
-    //header("Location: ../../webs/factura.php");
+    header("Location: ../../webs/factura.php");
     exit();
 } else {
     echo "Error: " . $stmt->error;
