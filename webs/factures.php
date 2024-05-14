@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Historial de Facturas</title>
+    <title>Historial de Factures</title>
     <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
     <style>
         body {
@@ -55,7 +55,7 @@
 
 <body>
     <div class="container">
-        <h1>Historial de Facturas</h1>
+        <h1>Historial de Factures</h1>
 
         <?php
         // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
@@ -83,6 +83,7 @@
             echo "<th>Factura #</th>";
             echo "<th>Data</th>";
             echo "<th>Total</th>";
+            echo "<th>Pais</th>";
             echo "</tr>";
             echo "</thead>";
             echo "<tbody>";
@@ -92,10 +93,11 @@
                 echo "<tr>";
                 echo "<td>" . $row["ID"] . "</td>";
                 echo "<td>" . $row["Data"] . "</td>";
-                    echo "<td>" . $row["Total"] . "€</td>"; // Suposo que a la base de dades hi ha un camp anomenat 'Total' que conté el preu total de la factura
-                    echo "</tr>";
-                }
-            
+                echo "<td>" . $row["Total"] . "€</td>";
+                echo "<td>" . $row["Pais"] . "</td>";
+                echo "</tr>";
+            }
+
 
             echo "</tbody>";
             echo "</table>";
