@@ -452,7 +452,9 @@ section {
     width: 80%;
     margin-left: 10%;
 }
-
+#lonleySection{
+    margin-left: 40vh;
+}
 .plan {
     border-style: solid;
     border-image: linear-gradient(to left, rgb(32, 11, 11), rgb(32, 11, 11));

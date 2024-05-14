@@ -1,5 +1,7 @@
 @media only screen and (max-width: 600px) {
-
+    body{
+        text-align: center;
+    }
     /* ---------------------------------------------CSS DE INICI-------------------------------------------------------------*/
     .contenedor-left {
         display: none;
@@ -30,7 +32,9 @@
     .main-song-controls {
         margin-top: 0;
     }
-
+    .progress-bar{
+        text-align: justify;
+    }
     .volume-container {
         display: none;
     }
@@ -48,6 +52,16 @@
     .comparison-table {
         max-width: 100%;
     }
+    section{
+        width: 100%;
+        margin-left: 0;
+    }
+    .plan{
+        margin-left: 0;
+    }
+    #lonleySection{
+        margin-left: 25%;
+    }
     /* ---------------------------------------------CSS DE ASISTENCIA-------------------------------------------------------------*/
     .contacte-form{
         max-width: 80%;
@@ -57,14 +71,21 @@
     }
     /* ---------------------------------------------CSS DE PERFIL-------------------------------------------------------------*/
     #titol{
-        font-size: 15px;
+        font-size: 17px;
     }
     .dadesUser{
         max-width: 80%;
+        #formFotoPerfil{
+            #inputFotoPerfil{
+                margin-left: 0;
+                width: 100%;
+            }
+        }
     }
     .profile-container{
         max-width: 80%;
     }
+   
     /* ---------------------------------------------CSS DE LLISTES,ARTISTES,CANÇONS-------------------------------------------------------------*/
     .infAC {
         .foto{
@@ -73,5 +94,7 @@
             }
         }
     }
-    
+    #tablaAlbums{
+        grid-template-columns: repeat(2, 50%);
+    }
 }

@@ -63,10 +63,7 @@ function mostrarInformacionArtista(artista) {
     // Amaguem la taula d'àlbums si no hi ha àlbums
     if (tablaAlbums.children.length === 0) {
         tablaAlbums.style.display = "none";
-    } else {
-        tablaAlbums.style.display = "block";
     }
-
     // Mostrem les cançons de l'artista a la taula de cançons
     var tablaCanciones = document.getElementById("tablaCanciones");
     tablaCanciones.innerHTML = "";
