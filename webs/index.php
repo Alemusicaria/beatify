@@ -8,6 +8,7 @@
     <link rel="icon" href="../img/Logo_sense_fons.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/estil.css">
+    <link rel="stylesheet" href="../assets/css/movil.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -171,7 +172,6 @@
 <script src="../assets/js/linksWebs.js"></script>
 <script src="../assets/js/audio.js"></script>
 <script src="../assets/js/code.js"></script>
-<script src="../assets/js/carregarCancons.js"></script>
 <script src="../assets/js/perfil.js"></script>
 <script src="../assets/js/cookies.js"></script>
 <script src="../assets/js/dadesUser.js"></script>

@@ -3,7 +3,7 @@ var canconsCarregades = [];
 
 // Variable per determinar si l'usuari és administrador
 var admin = false;
-
+var randomImage = $('#random');
 // Verifica si l'administrador ha habilitat la reproducció automàtica
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
 if (reproAutoAdmin === "true") {
@@ -188,7 +188,6 @@ function transferirInformacion(event) {
 
 // Funció per gestionar la reproducció aleatòria de les cançons
 $(document).ready(function () {
-    var randomImage = $('#random');
     randomImage.on('click', function () {
         if (premiumUser === true) {
             if (randomImage.hasClass('clicked')) {
@@ -200,13 +199,17 @@ $(document).ready(function () {
                 randomImage.attr('src', '../img/simbols/crandom.svg');
             }
         }
+
     });
 
     window.reproducirCancionAleatoria = function () {
+        // Detener la reproducción actual si hay una
         $('#reproductor-audio')[0].pause();
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
+
+
 });
 
 // Funció per obtenir el valor d'una cookie
