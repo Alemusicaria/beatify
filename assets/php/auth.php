@@ -1,4 +1,8 @@
 <?php
+// Obté les dades enviades des del formulari
+$username = $_POST['username'];
+$password = $_POST['password'];
+
 include 'conn.php';
 // Escapa les dades per prevenir injeccions SQL
 $username = mysqli_real_escape_string($conn, $username);
