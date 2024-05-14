@@ -1,42 +1,27 @@
 <?php
-// Obtén los datos enviados desde el formulario
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-// Connecta con la base de datos (cambia las credenciales según tu configuración)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
-
-// Escapa los datos para prevenir inyecciones SQL
+include 'conn.php';
+// Escapa les dades per prevenir injeccions SQL
 $username = mysqli_real_escape_string($conn, $username);
 
-// Crea la consulta SQL para obtener el usuario de la base de datos
+// Crea la consulta SQL per obtenir l'usuari de la base de dades
 $sql = "SELECT ID, Nom, Cognom, NomUsuari, Foto, Premium, Email, Contrasenya, Admin FROM Usuari WHERE NomUsuari='$username'";
 $result = $conn->query($sql);
 
-// Inicializa un array para almacenar los resultados
+// Inicialitza un array per emmagatzemar els resultats
 $response = array();
 
-// Verifica si se ha encontrado un usuario con las credenciales proporcionadas
+// Verifica si s'ha trobat un usuari amb les credencials proporcionades
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    // Verifica la contraseña utilizando password_verify
+    // Verifica la contrasenya utilitzant password_verify
     if (password_verify($password, $row['Contrasenya'])) {
-        // Autenticación exitosa
-        setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
-        setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segundos = 1 día
-        setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda el ID del usuario como cookie
+        // Autenticació exitosa
+        setcookie('NomUsuari', $username,  time() + (86400 * 1), "/"); // 86400 segons = 1 dia
+        setcookie('Contrasenya', $password,  time() + (86400 * 1), "/"); // 86400 segons = 1 dia
+        setcookie('UsuariID', $row['ID'], time() + (86400 * 1), "/"); // Guarda l'ID de l'usuari com a cookie
         setcookie('Premium', $row['Premium'], time() + (86400 * 1), "/");
-        // Agrega los datos del usuario al array de respuesta
+        // Afegeix les dades de l'usuari a l'array de resposta
         $response['status'] = "OK";
         $response['Nom'] = $row['Nom'];
         $response['Cognom'] = $row['Cognom'];
@@ -46,17 +31,17 @@ if ($result->num_rows > 0) {
         $response['Email'] = $row['Email'];
         $response['Admin'] = $row['Admin'];
     } else {
-        // Autenticación fallida debido a la contraseña incorrecta
+        // Autenticació fallida a causa de la contrasenya incorrecta
         $response['status'] = "KO";
     }
 } else {
-    // Autenticación fallida debido a que el usuario no existe
+    // Autenticació fallida a causa que l'usuari no existeix
     $response['status'] = "KO";
 }
 
-// Imprime la respuesta en formato JSON
+// Imprimeix la resposta en format JSON
 header('Content-Type: application/json');
 echo json_encode($response);
 
-// Cierra la conexión con la base de datos
+// Tanca la connexió amb la base de dades
 $conn->close();

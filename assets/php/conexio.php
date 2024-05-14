@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos (modifica los valores según tu configuración)
+// Connexió a la base de dades (modifica els valors segons la teva configuració)
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
@@ -7,12 +7,12 @@ $dbname = "Beatify";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-// Verificar la conexión
+// Verificar la connexió
 if ($conn->connect_error) {
-    die(json_encode(array('error' => 'Error de conexión a la base de datos')));
+    die(json_encode(array('error' => 'Error de connexió a la base de dades')));
 }
 
-// Consulta SQL para obtener las canciones con el ID del álbum y la foto del álbum
+// Consulta SQL per obtenir les cançons amb l'ID de l'àlbum i la foto de l'àlbum
 $sql = "SELECT Canco.ID AS ID_Canco, Canco.Titol, Canco.ID_Genere, Album.ID AS ID_Album, Album.Titol AS Titol_Album, Crea_musica.ID_Artista, Artista.NomArtistic AS Nom_Artista
         FROM Canco
         LEFT JOIN Album ON Canco.ID_Album = Album.ID
@@ -21,16 +21,15 @@ $sql = "SELECT Canco.ID AS ID_Canco, Canco.Titol, Canco.ID_Genere, Album.ID AS I
 
 $result = $conn->query($sql);
 
-
-// Verificar si hay resultados
+// Verificar si hi ha resultats
 if ($result->num_rows > 0) {
-    // Inicializar un array para almacenar las canciones
+    // Inicialitzar un array per emmagatzemar les cançons
     $canciones = array();
 
-    // Iterar sobre los resultados y añadir cada canción al array
+    // Iterar sobre els resultats i afegir cada cançó a l'array
     while ($row = $result->fetch_assoc()) {
         $ID_Canco = $row['ID_Canco'];
-        // Verificar si la canción ya está presente en el array
+        // Verificar si la cançó ja està present a l'array
         if (!isset($canciones[$ID_Canco])) {
             $canciones[$ID_Canco] = array(
                 'ID_Canco' => $ID_Canco,
@@ -38,11 +37,11 @@ if ($result->num_rows > 0) {
                 'ID_Album' => $row['ID_Album'],
                 'Titol_Album' => $row['Titol_Album'],
                 'ID_Genere' => $row['ID_Genere'],
-                'artistas' => array() // Inicializar un array para almacenar los Artistas de esta canción
+                'artistas' => array() // Inicialitzar un array per emmagatzemar els Artistes d'aquesta cançó
             );
         }
-        
-        // Agregar información del Artista a la canción actual
+
+        // Afegir informació de l'Artista a la cançó actual
         if (!empty($row['ID_Artista']) && !empty($row['Nom_Artista'])) {
             $canciones[$ID_Canco]['artistas'][] = array(
                 'ID_Artista' => $row['ID_Artista'],
@@ -50,15 +49,15 @@ if ($result->num_rows > 0) {
             );
         }
     }
-    
-    // Convertir el array de canciones a un array simple
+
+    // Convertir l'array de cançons a un array simple
     $canciones = array_values($canciones);
-    
-    // Devolver el array de canciones como JSON
+
+    // Retornar l'array de cançons com a JSON
     echo json_encode($canciones);
 } else {
-    echo json_encode(array('error' => 'No se encontraron canciones en la base de datos'));
+    echo json_encode(array('error' => 'No s\'han trobat cançons a la base de dades'));
 }
 
-// Cerrar la conexión a la base de datos
+// Tancar la connexió a la base de dades
 $conn->close();
