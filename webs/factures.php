@@ -16,7 +16,7 @@
             max-width: 800px;
             height: 600px;
             /* Reduïm l'alçada del contenidor perquè pugui contenir el botó "Inici" i la taula sense una barra de desplaçament */
-            margin: 20px auto;
+            margin: 20px 0px 20px 20px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
