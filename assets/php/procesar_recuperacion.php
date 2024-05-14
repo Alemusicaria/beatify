@@ -1,37 +1,36 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el correo electrónico del formulario
+    // Obtenir el correu electrònic del formulari
     $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
 
-    // Validar el correo electrónico
+    // Validar el correu electrònic
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Redirigir si el correu electrònic no és vàlid
         header("Location: index.php?error=invalid_email");
         exit();
     }
 
-    // Verificar si el correo electrónico existe en tu base de datos (simulado)
-    // Aquí deberías tener una lógica para comprobar si el correo electrónico está registrado
+    // Verificar si el correu electrònic existeix a la base de dades (simulat)
+    // Aquí hauries de tenir una lògica per comprovar si el correu electrònic està registrat
 
-    // Generar un token único para el enlace de recuperación
+    // Generar un token únic per a l'enllaç de recuperació
     $token = uniqid();
 
-    // Guardar el token en la base de datos junto con la dirección de correo electrónico y la fecha de expiración
-    // Aquí deberías tener lógica para almacenar el token en tu base de datos
+    // Guardar el token a la base de dades juntament amb el correu electrònic i la data d'expiració
+    // Aquí hauries de tenir una lògica per emmagatzemar el token a la base de dades
 
-    // Enviar un correo electrónico con el enlace de recuperación
-    $subject = "Recuperación de contraseña - Beatify";
-    $message = "Hola,\n\nHemos recibido una solicitud para restablecer tu contraseña en Beatify. Haz clic en el siguiente enlace para continuar:\n\n";
-    $message .= "http://tudominio.com/reset_password.php?token=$token\n\n";
-    $message .= "Si no solicitaste esta recuperación, ignora este mensaje.\n\nSaludos,\nBeatify";
+    // Enviar un correu electrònic amb l'enllaç de recuperació
+    $subject = "Recuperació de contrasenya - Beatify";
+    $message = "Hola,\n\nHem rebut una sol·licitud per restablir la teva contrasenya a Beatify. Fes clic al següent enllaç per continuar:\n\n";
+    $message .= "http://tudomini.com/reset_password.php?token=$token\n\n";
+    $message .= "Si no has sol·licitat aquesta recuperació, ignora aquest missatge.\n\nSalutacions,\nBeatify";
 
-    // Envía el correo electrónico (ajusta según la configuración de tu servidor)
+    // Envia el correu electrònic (ajusta-ho segons la configuració del teu servidor)
     $headers = "From: alemusicaria@gmail.com\r\n";
     mail($email, $subject, $message, $headers);
 
-    // Redirige al usuario a una página de éxito o muestra un mensaje de éxito aquí
-    header("Location: ./recuperacion_exitosa.html");
+    // Redirigeix l'usuari a una pàgina d'èxit o mostra un missatge d'èxit aquí
+    header("Location: ./recuperacio_exitosa.html");
     exit();
 }
-
-?>

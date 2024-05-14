@@ -3,7 +3,7 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-include 'conn.php';
+include 'conn.php'; // Incloure el fitxer de connexió a la base de dades
 // Escapa les dades per prevenir injeccions SQL
 $username = mysqli_real_escape_string($conn, $username);
 

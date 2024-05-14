@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomUsuari = $_COOKIE['NomUsuari'];
+    $nomUsuari = $_COOKIE['NomUsuari']; // Obtenir el nom d'usuari del cookie
 
     // Directori on es guardarà la imatge de l'usuari
     $directoriDesti = "../../img/" . $nomUsuari . "/";
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $arxiuDesti .= "." . $extensio;
 
+    // Moure l'arxiu a la destinació final
     if (move_uploaded_file($_FILES["fotoPerfil"]["tmp_name"], $arxiuDesti)) {
         echo "Imatge guardada amb èxit.";
     } else {

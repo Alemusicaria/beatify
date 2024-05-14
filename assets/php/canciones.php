@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-include 'conn.php';
+include 'conn.php'; // Incloure el fitxer de connexió a la base de dades
 
 // Consulta SQL per obtenir la informació relacionada amb cançons, àlbums i artistes
 $consulta = "SELECT CANCO.Ruta_canco, CANCO.Img, ALBUM.Nombre AS AlbumNombre, 

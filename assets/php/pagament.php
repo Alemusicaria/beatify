@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 
-// Recollir dades del formulari
+// Recull les dades del formulari
 $nom = $_POST['firstName'];
 $cognom = $_POST['lastName'];
 $nomUsuari = $_POST['username'];
@@ -16,86 +16,85 @@ $num_tarjeta = $_POST['cc-number'];
 $expiracio = $_POST['cc-expiration'];
 $cvv = $_POST['cc-cvv'];
 
-// Obtener la fecha actual
+// Obté la data actual
 $data_actual = date("Y-m-d");
-echo $data_actual;
 
-// Obtener el valor de la cookie preuFactura
+// Obté el valor de la cookie preuFactura
 $preuFactura = $_COOKIE['preu_factura'] ?? '';
 
-// Definir el precio base
-$precioBase = 10;
+// Defineix el preu base
+$preuBase = 10;
 
-// Definir la función para calcular el IVA
+// Defineix la funció per calcular l'IVA
 function calcularIVA($pais)
 {
-    // Definir tasas de IVA para cada país
-    $tasasIVA = array(
+    // Defineix les taxes d'IVA per a cada país
+    $taxesIVA = array(
         "Espanya" => 21,
         "França" => 20,
-        "Alemania" => 19,
-        "Estats Units" => 0 // Asumiendo que en Estados Unidos no hay IVA
+        "Alemanya" => 19,
+        "Estats Units" => 0 // Assumint que als Estats Units no hi ha IVA
     );
 
-    // Obtener la tasa de IVA del país seleccionado
-    $tasaIVA = $tasasIVA[$pais];
+    // Obté la taxa d'IVA del país seleccionat
+    $taxaIVA = $taxesIVA[$pais];
 
-    // Devolver la tasa de IVA
-    return $tasaIVA;
+    // Retorna la taxa d'IVA
+    return $taxaIVA;
 }
 
-// Obtener el país seleccionado almacenado en la cookie
-$paisSeleccionado = $_COOKIE['selected_country'] ?? '';
+// Obté el país seleccionat emmagatzemat a la cookie
+$paisSeleccionat = $_COOKIE['selected_country'] ?? '';
 
-// Si hay un país seleccionado, calcular su tasa de IVA correspondiente
-if ($paisSeleccionado) {
-    $tasaIVA = calcularIVA($paisSeleccionado);
+// Si hi ha un país seleccionat, calcula la seva taxa d'IVA corresponent
+if ($paisSeleccionat) {
+    $taxaIVA = calcularIVA($paisSeleccionat);
 
-    // Calcular el total basado en el valor de la cookie preuFactura y la tasa de IVA
+    // Calcula el total basat en el valor de la cookie preuFactura i la taxa d'IVA
     switch ($preuFactura) {
         case '10€/Mes':
-            $total = $precioBase * (1 + $tasaIVA / 100);
+            $total = $preuBase * (1 + $taxaIVA / 100);
             break;
         case '9.5€/Mes':
-            $total = $precioBase * 2.85 * (1 + $tasaIVA / 100);
+            $total = $preuBase * 2.85 * (1 + $taxaIVA / 100);
             break;
         case '9€/Mes':
-            $total = $precioBase * 5.42 * (1 + $tasaIVA / 100);
+            $total = $preuBase * 5.42 * (1 + $taxaIVA / 100);
             break;
         case '8.5€/Mes':
-            $total = $precioBase * 10.2 * (1 + $tasaIVA / 100);
+            $total = $preuBase * 10.2 * (1 + $taxaIVA / 100);
             break;
         default:
-            $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+            $total = 0; // Si no s'especifica la cookie, s'utilitza el preu base
     }
 }
 
-// Escapar la variable $nomUsuari para evitar la inyección SQL
+// Escapa la variable $nomUsuari per evitar la injecció SQL
 $nomUsuari = mysqli_real_escape_string($conn, $nomUsuari);
 
-// Actualizar la tabla usuari
+// Actualitza la taula usuari
 $sql2 = "UPDATE usuari SET Premium = 1 WHERE NomUsuari = '$nomUsuari'";
-$result = mysqli_query($conn, $sql2); // Ejecuta la consulta SQL con la conexión
-if ($result) {
+$resultat = mysqli_query($conn, $sql2); // Executa la consulta SQL amb la connexió
+if ($resultat) {
     echo "Base de dades actualitzada amb èxit";
 } else {
     echo "Error en l'actualització de la base de dades: " . mysqli_error($conn);
 }
 
-// Preparar la consulta SQL con los valores que obtuvimos
+// Prepara la consulta SQL amb els valors que hem obtingut
 $sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV, Total)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssiissssd", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total);
+$consulta = $conn->prepare($sql);
+$consulta->bind_param("sssssssiissssd", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total);
 
-// Executar consulta
-if ($stmt->execute()) {
+// Executa la consulta
+if ($consulta->execute()) {
     echo "Pagament registrat amb èxit!";
     header("Location: ../../webs/factura.php");
     exit();
 } else {
-    echo "Error: " . $stmt->error;
+    echo "Error: " . $consulta->error;
 }
 
-$stmt->close();
+$consulta->close();
 $conn->close();

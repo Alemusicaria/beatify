@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'conn.php'; // Incloure el fitxer de connexió a la base de dades
 
 // Consulta SQL per obtenir les cançons amb l'ID de l'àlbum i la foto de l'àlbum
 $sql = "SELECT Canco.ID AS ID_Canco, Canco.Titol, Canco.ID_Genere, Album.ID AS ID_Album, Album.Titol AS Titol_Album, Crea_musica.ID_Artista, Artista.NomArtistic AS Nom_Artista

@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 
-// Recibir los datos del formulario y escaparlos para prevenir inyecciones SQL
+// Recollir les dades del formulari i escapar-les per prevenir injeccions SQL
 $nom = $conn->real_escape_string($_POST['firstName']);
 $cognom = $conn->real_escape_string($_POST['lastName']);
 $nomUsuari = $conn->real_escape_string($_POST['username']);
@@ -16,14 +16,14 @@ $num_tarjeta = $conn->real_escape_string($_POST['cc-number']);
 $expiracio = $conn->real_escape_string($_POST['cc-expiration']);
 $cvv = $conn->real_escape_string($_POST['cc-cvv']);
 
-// Query para insertar los datos en la tabla Pagament
+// Consulta per inserir les dades a la taula Pagament
 $sql = "INSERT INTO pagament (ID_Usuari, Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV) VALUES ($_COOKIE[UsuariID],'$nom', '$cognom', '$nomUsuari', '$email', '$adreca', '$adreca2', '$pais', '$cp', '$tipus', '$nom_tarjeta', '$num_tarjeta', '$expiracio', '$cvv')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Datos guardados correctamente en la base de datos.";
+    echo "Dades guardades correctament a la base de dades.";
 } else {
-    echo "Error al guardar los datos en la base de datos: " . $conn->error;
+    echo "Error en desar les dades a la base de dades: " . $conn->error;
 }
 
-// Cerrar la conexión con la base de datos
+// Tancar la connexió amb la base de dades
 $conn->close();
