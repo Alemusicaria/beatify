@@ -14,11 +14,15 @@
 
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            height: 600px;
+            /* Reduïm l'alçada del contenidor perquè pugui contenir el botó "Inici" i la taula sense una barra de desplaçament */
+            margin: 20px 0px 20px 20px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            /* Afegeix una barra de desplaçament si el contingut supera les dimensions del contenidor */
         }
 
         h1 {
@@ -50,12 +54,19 @@
         tbody tr:hover {
             background-color: #f9f9f9;
         }
+
+        /* Afegeix una alçada màxima i una barra de desplaçament vertical a la taula */
+        table {
+            max-height: 400px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Historial de Factures</h1>
+        <button onclick="location.href='index.php'">Inici</button>
 
         <?php
         // Connecta amb la base de dades (adapta les credencials segons la teva configuració)

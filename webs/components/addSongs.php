@@ -12,6 +12,3 @@
     $('#nomLlista').text(listTitle);
 </script>
 <script src="../assets/js/carregarLlistaCancons.js"></script>
-<script>
-    
-</script>
