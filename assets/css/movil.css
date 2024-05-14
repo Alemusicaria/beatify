@@ -1,0 +1,48 @@
+@media only screen and (max-width: 600px) {
+
+    /* ---------------------------------------------CSS DE INICI-------------------------------------------------------------*/
+    .contenedor-left {
+        display: none;
+    }
+
+    .contenedor-right {
+        left: 0;
+        max-width: 100%;
+        #taula{
+            justify-items:center;
+        }
+    }
+
+    .songs {
+        p {
+            display: none;
+        }
+    }
+    .contenedor-right .songs .icono {
+        top: 33%;
+    }
+    .reproductor-info {
+        .info-text {
+            display: none;
+        }
+    }
+
+    .main-song-controls {
+        margin-top: 0;
+    }
+
+    .volume-container {
+        display: none;
+    }
+    .aleatori{
+        left: 73%;
+    }
+    .micro {
+        left: 85%;
+
+        #lletra {
+            padding: 6px 12px;
+        }
+    }
+
+}
