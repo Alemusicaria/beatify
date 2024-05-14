@@ -83,3 +83,12 @@ CREATE TABLE Pagament (
     Total DECIMAL(10, 2)
 );
 
+
+DELIMITER //
+CREATE TRIGGER actualizar_fecha BEFORE INSERT ON pagament
+FOR EACH ROW
+BEGIN
+    SET NEW.Data = NOW();
+END;
+//
+DELIMITER ;

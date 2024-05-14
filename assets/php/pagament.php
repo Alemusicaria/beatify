@@ -81,8 +81,12 @@ if ($paisSeleccionado) {
     }
 }
 
-$sql2 = "UPDATE usuari SET Premium = 1 WHERE NomUsuari = $nomUsuari";
-$result = mysqli_query($conn, $sql2); // Executa la consulta SQL amb la connexió
+// Escapar la variable $nomUsuari para evitar la inyección SQL
+$nomUsuari = mysqli_real_escape_string($conn, $nomUsuari);
+
+// Actualizar la tabla usuari
+$sql2 = "UPDATE usuari SET Premium = 1 WHERE NomUsuari = '$nomUsuari'";
+$result = mysqli_query($conn, $sql2); // Ejecuta la consulta SQL con la conexión
 if ($result) {
     echo "Base de dades actualitzada amb èxit";
 } else {

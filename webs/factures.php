@@ -92,7 +92,7 @@
                 echo "<tr>";
                 echo "<td>" . $row["ID"] . "</td>";
                 echo "<td>" . $row["Data"] . "</td>";
-                    echo "<td>" . $row["Total"] . "</td>"; // Suposo que a la base de dades hi ha un camp anomenat 'Total' que conté el preu total de la factura
+                    echo "<td>" . $row["Total"] . "€</td>"; // Suposo que a la base de dades hi ha un camp anomenat 'Total' que conté el preu total de la factura
                     echo "</tr>";
                 }
             
