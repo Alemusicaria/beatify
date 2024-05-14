@@ -4,11 +4,10 @@
     duradors. Imagina tenir accés il·limitat a un univers de sons, sense interrupcions, i descobrir les teves cançons
     favorites sense límits. Beatify Premium fa realitat aquesta experiència!</p>
   <ul>
-    <li>Sense anuncis molestos</li>
-    <li>Descàrregues il·limitades</li>
-    <li>Qualitat d'àudio superior</li>
-    <li>Explora sense límits</li>
-    <li>Experiència sense restriccions</li>
+    <li><strong>anuncis molestos</strong></li>
+    <li><strong>Qualitat d'àudio superior</strong></li>
+    <li><strong>Explora sense límits</strong></li>
+    <li><strong>Experiència sense restriccions</strong></li>
   </ul>
   <p>Fes que cada nota compti i porta la teva experiència musical al següent nivell amb Beatify Premium. Subscriu-te
     ara i descobreix un món de possibilitats sonores!</p>
