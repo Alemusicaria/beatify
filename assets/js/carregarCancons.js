@@ -1,8 +1,14 @@
 var canconsCarregades = []; // Array para almacenar las canciones cargadas
 var reproAutoAdmin = localStorage.getItem('reproduccionAutomatica');
+var admin=false;
+if(reproAutoAdmin === "true"){
+    admin =true;
+}else{
+    admin=false;
+}
 var cookieValue = obtenerCookie('Premium');
 var premiumUser = false;
-if (cookieValue === "1" || reproAutoAdmin === "true") {
+if (cookieValue === "1") {
     premiumUser = true;
 }
 // Reproducción de Canciones Automática
@@ -50,7 +56,7 @@ function saltarCancons(index) {
     });
 
     // Activa la reproducción aleatoria para usuarios no premium
-    if (!premiumUser) {
+    if (!premiumUser || admin === true) {
         randomImage.addClass('clicked');
         randomImage.attr('src', '../img/simbols/crandom.svg');
     }
@@ -195,8 +201,7 @@ function transferirInformacion(event) {
 $(document).ready(function () {
     var randomImage = $('#random');
     randomImage.on('click', function () {
-        if (premiumUser == true) {
-            // Cambiar el estado solo si no es un usuario premium
+        if (premiumUser === true) {
             if (randomImage.hasClass('clicked')) {
                 randomImage.removeClass('clicked');
                 randomImage.attr('src', '../img/simbols/random.svg');
@@ -206,7 +211,6 @@ $(document).ready(function () {
                 randomImage.attr('src', '../img/simbols/crandom.svg');
             }
         }
-
     });
 
     window.reproducirCancionAleatoria = function () {
@@ -215,9 +219,8 @@ $(document).ready(function () {
         var randomIndex = Math.floor(Math.random() * canconsCarregades.length);
         reproducirCancionDesdeIndice(randomIndex);
     }
-
-
 });
+
 
 
 function obtenerCookie(nombre) {
