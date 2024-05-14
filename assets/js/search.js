@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Agrega un evento de escucha al documento para capturar los eventos de input en cualquier parte del documento
+    // Afegir un esdeveniment d'escolta al document per capturar els esdeveniments d'entrada en qualsevol part del document
     document.addEventListener('input', function (event) {
-        // Verifica si el elemento que activó el evento de input es el campo de búsqueda
+        // Comprovar si l'element que ha activat l'esdeveniment d'entrada és el camp de cerca
         if (event.target.id === 'searchInput') {
-            const searchTerm = event.target.value.toLowerCase();
+            const termeCerca = event.target.value.toLowerCase();
             const taula = document.getElementById('taula');
 
-            // Verifica si los elementos se han encontrado correctamente
+            // Comprovar si els elements s'han trobat correctament
             if (taula) {
-                // Filtra las canciones basadas en el término de búsqueda
-                Array.from(taula.children).forEach(function (song) {
-                    const songTitle = song.querySelector('h4').textContent.toLowerCase();
-                    const artistName = song.querySelector('p').textContent.toLowerCase();
+                // Filtrar les cançons basades en el terme de cerca
+                Array.from(taula.children).forEach(function (canco) {
+                    const titolCanco = canco.querySelector('h4').textContent.toLowerCase();
+                    const nomArtista = canco.querySelector('p').textContent.toLowerCase();
 
-                    // Verifica si el título de la canción o el nombre del artista coinciden con el término de búsqueda
-                    if (songTitle.includes(searchTerm) || artistName.includes(searchTerm)) {
-                        song.style.display = 'block'; // Muestra la canción si coincide
+                    // Comprovar si el títol de la cançó o el nom de l'artista coincideixen amb el terme de cerca
+                    if (titolCanco.includes(termeCerca) || nomArtista.includes(termeCerca)) {
+                        canco.style.display = 'block'; // Mostra la cançó si coincideix
                     } else {
-                        song.style.display = 'none'; // Oculta la canción si no coincide
+                        canco.style.display = 'none'; // Amaga la cançó si no coincideix
                     }
                 });
             }

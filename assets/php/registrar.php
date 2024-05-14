@@ -1,51 +1,39 @@
 <?php
-// Obtén los datos enviados desde el formulario
-$name = $_POST['name'];
-$surname = $_POST['surname'];
+// Obté les dades enviades des del formulari
+$nom = $_POST['name'];
+$cognom = $_POST['surname'];
 $email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+$usuari = $_POST['username'];
+$contrasenya = $_POST['password'];
+include 'conn.php';
 
-// Connecta con la base de datos (cambia las credenciales según tu configuración)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
-
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
-
-// Escapa los datos para prevenir inyecciones SQL
-$name = mysqli_real_escape_string($conn, $name);
-$surname = mysqli_real_escape_string($conn, $surname);
+// Escapa les dades per prevenir injeccions SQL
+$nom = mysqli_real_escape_string($conn, $nom);
+$cognom = mysqli_real_escape_string($conn, $cognom);
 $email = mysqli_real_escape_string($conn, $email);
-$username = mysqli_real_escape_string($conn, $username);
+$usuari = mysqli_real_escape_string($conn, $usuari);
 
-// Hash de la contraseña
-$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+// Hash de la contrasenya
+$contrasenya_hashed = password_hash($contrasenya, PASSWORD_DEFAULT);
 
-// Comprueba si el usuario ya existe con el mismo nombre de usuario o correo electrónico
-$check_query = "SELECT * FROM Usuari WHERE NomUsuari='$username' OR Email='$email'";
-$check_result = $conn->query($check_query);
+// Comprova si l'usuari ja existeix amb el mateix nom d'usuari o correu electrònic
+$consulta_comprovacio = "SELECT * FROM Usuari WHERE NomUsuari='$usuari' OR Email='$email'";
+$resultat_comprovacio = $conn->query($consulta_comprovacio);
 
-if ($check_result->num_rows > 0) {
-    // El usuario ya existe, envía una respuesta de error
-    echo "ERROR_USER_EXISTS";
+if ($resultat_comprovacio->num_rows > 0) {
+    // L'usuari ja existeix, envia una resposta d'error
+    echo "ERROR_USUARI_EXISTENT";
 } else {
-    // El usuario no existe, procede con el registro
-    $insert_query = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium, Admin) VALUES ('$password_hashed', '$name', '$email', '$surname', '$username', '../img/user/user.png', 0, 0)";
+    // L'usuari no existeix, procedeix amb el registre
+    $insercio_consulta = "INSERT INTO Usuari (Contrasenya, Nom, Email, Cognom, NomUsuari, Foto, Premium, Admin) VALUES ('$contrasenya_hashed', '$nom', '$email', '$cognom', '$usuari', '../img/user/user.png', 0, 0)";
 
-    if ($conn->query($insert_query) === TRUE) {
+    if ($conn->query($insercio_consulta) === TRUE) {
         echo "OK";
     } else {
-        // Hubo un error en el registro
-        echo "ERROR_REGISTRATION";
+        // Hi va haver un error en el registre
+        echo "ERROR_REGISTRE";
     }
 }
 
-// Cierra la conexión con la base de datos
+// Tanca la connexió amb la base de dades
 $conn->close();

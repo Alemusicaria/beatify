@@ -1,28 +1,19 @@
 <?php
-// Aquí deberías incluir la lógica para actualizar la base de datos
+// Aquí deberies incloure la lògica per actualitzar la base de dades
 if (isset($_POST['nuevaFoto']) && isset($_POST['username'])) {
     $nuevaFoto = $_POST['nuevaFoto'];
     $username = $_POST['username'];
+    
+    include 'conn.php'; // Incloure el fitxer de connexió a la base de dades
 
-
-    $servername = "localhost";
-            $dbusername = "root";
-            $dbpassword = "";
-            $dbname = "Beatify";
-
-    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-    if ($conn->connect_error) {
-        die('Error de conexión: ' . $conn->connect_error);
-    }
-
+    // Prepara i executa la consulta per actualitzar la foto de l'usuari
     $consulta = $conn->prepare('UPDATE Usuari SET foto = ? WHERE NomUsuari = ?');
     $consulta->bind_param('ss', $nuevaFoto, $username);
 
     $consulta->execute();
     $consulta->close();
     $conn->close();
-    echo 'Actualización exitosa';
+    echo 'Actualització exitosa';
 } else {
-    echo 'Error: Datos no recibidos';
+    echo 'Error: Dades no rebudes';
 }

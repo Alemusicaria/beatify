@@ -1,29 +1,21 @@
 <?php
-// Conexión a la base de datos (modifica los valores según tu configuración)
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "Beatify";
+// Inclou el fitxer de connexió a la base de dades
+include 'conn.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die(json_encode(array('error' => 'Error de conexión a la base de datos')));
-}
-
-// Verificar si el usuario ha iniciado sesión
+// Inicia la sessió per gestionar l'estat de l'usuari
 session_start();
+
+// Verifica si l'usuari ha iniciat sessió
 if (isset($_SESSION['usuario'])) {
-    // Obtener la información del usuario desde la sesión
+    // Obté la informació de l'usuari emmagatzemada a la sessió
     $usuario = $_SESSION['usuario'];
 
-    // Devolver la información del usuario como JSON
+    // Retorna la informació de l'usuari com a JSON
     echo json_encode($usuario);
 } else {
-    echo json_encode(array('error' => 'No se ha iniciado sesión'));
+    // Si no s'ha iniciat sessió, retorna un missatge d'error
+    echo json_encode(array('error' => 'No s\'ha iniciat sessió'));
 }
 
-// Cerrar la conexión a la base de datos
+// Tanca la connexió amb la base de dades
 $conn->close();
-?>

@@ -1,11 +1,11 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Funció autoinvocada per desactivar l'enviament de formularis si hi ha camps invàlids
 (() => {
   'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  // Captura tots els formularis als quals volem aplicar estils de validació personalitzats de Bootstrap
   const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
+  // Itera sobre ells i evita l'enviament
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
       if (!form.checkValidity()) {
@@ -18,32 +18,32 @@
   })
 })()
 
-// Evento cuando cambia la selección del país
+// Event quan canvia la selecció del país
 $('#country').on('change', function () {
-  var paisSeleccionado = $(this).val(); // Obtener el país seleccionado del formulario
-  document.cookie = "selected_country=" + paisSeleccionado + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/;"; // Establecer cookie para almacenar el país seleccionado
-  var tasaIVA = calcularIVA(paisSeleccionado); // Calcular la tasa de IVA según el país seleccionado
-  console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+  var paisSeleccionado = $(this).val(); // Obté el país seleccionat del formulari
+  document.cookie = "selected_country=" + paisSeleccionado + "; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/;"; // Estableix una cookie per emmagatzemar el país seleccionat
+  var tasaIVA = calcularIVA(paisSeleccionado); // Calcula la taxa d'IVA segons el país seleccionat
+  console.log('La taxa d\'IVA per a ' + paisSeleccionado + ' és ' + tasaIVA + '%');
 });
 
-// Función para calcular el IVA
+// Funció per calcular l'IVA
 function calcularIVA(pais) {
-  // Definir tasas de IVA para cada país
+  // Defineix taxes d'IVA per a cada país
   var tasasIVA = {
     "Espanya": 21,
     "França": 20,
-    "Alemania": 19,
-    "Estats Units": 0 // Asumiendo que en Estados Unidos no hay IVA
+    "Alemanya": 19,
+    "Estats Units": 0 // Suposant que als Estats Units no hi ha IVA
   };
 
-  // Obtener la tasa de IVA del país seleccionado de la cookie
+  // Obté la taxa d'IVA del país seleccionat de la cookie
   var tasaIVA = tasasIVA[pais];
 
-  // Devolver la tasa de IVA
+  // Retorna la taxa d'IVA
   return tasaIVA;
 }
 
-// Función para obtener el valor de una cookie
+// Funció per obtenir el valor d'una cookie
 function obtenerCookie(nombre) {
   var nombreCookie = nombre + "=";
   var cookies = document.cookie.split(';');
@@ -56,12 +56,11 @@ function obtenerCookie(nombre) {
   return "";
 }
 
-// Obtener el país seleccionado almacenado en la cookie
+// Obté el país seleccionat emmagatzemat a la cookie
 var paisSeleccionado = obtenerCookie("selected_country");
 
-// Si hay un país seleccionado, calcular su tasa de IVA correspondiente
+// Si hi ha un país seleccionat, calcula la seva taxa d'IVA corresponent
 if (paisSeleccionado) {
   var tasaIVA = calcularIVA(paisSeleccionado);
-  console.log('La tasa de IVA para ' + paisSeleccionado + ' es ' + tasaIVA + '%');
+  console.log('La taxa d\'IVA per a ' + paisSeleccionado + ' és ' + tasaIVA + '%');
 }
-

@@ -1,21 +1,21 @@
-// Definir la función toggleDropdown fuera de $(document).ready()
+// Definir la funció toggleDropdown fora de $(document).ready()
 function toggleDropdown() {
     $('.dropdown-list').toggle();
 }
 
 $(document).ready(function () {
-    // Mostrar opciones de personalización al hacer clic en el botón
+    // Mostrar opcions de personalització en fer clic al botó
     $('#btn-customize').click(function () {
         $('#customize-options').removeClass('hidden');
     });
 
-    // Guardar personalización al hacer clic en el botón de guardar
-    $('#btn-save').click(guardarPersonalizacion);
+    // Desar personalització en fer clic al botó de desar
+    $('#btn-save').click(guardarPersonalitzacio);
 
-    // Ocultar la lista desplegable al inicio
+    // Ocultar la llista desplegable a l'inici
     $('.dropdown-list').hide();
 
-    // Ocultar la lista desplegable al hacer clic fuera de ella
+    // Ocultar la llista desplegable en fer clic fora d'ella
     $(document).click(function (e) {
         if (!$(e.target).closest('.perfil-dropdown').length) {
             $('.dropdown-list').hide();
@@ -23,16 +23,19 @@ $(document).ready(function () {
     });
 });
 
-// Función para guardar la personalización
-function guardarPersonalizacion() {
-    const opciones = {
+// Funció per desar la personalització
+function guardarPersonalitzacio() {
+    // Obté opcions de personalització des dels elements del formulari
+    const opcions = {
         forma: $('#button-shape').val(),
         color: $('#color-picker').val(),
         fontSize: $('#font-size').val(),
         colorBarraAudio: $('#color-barrraAudio').val()
     };
 
-    document.cookie = `personalizacion=${JSON.stringify(opciones)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
+    // Desa les opcions de personalització a una cookie amb data de caducitat
+    document.cookie = `personalitzacio=${JSON.stringify(opcions)}; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/`;
 
+    // Oculta les opcions de personalització després de desar
     $('#customize-options').addClass('hidden');
 }
