@@ -1,8 +1,21 @@
 @media only screen and (max-width: 600px) {
-    body{
+    body {
         text-align: center;
     }
+
     /* ---------------------------------------------CSS DE INICI-------------------------------------------------------------*/
+    header {
+        max-width: 100%;
+        left: 0;
+    }
+
+    #imagenMenuMovil {
+        display: block;
+        position: absolute;
+        width: 20%;
+        bottom: 90%;
+    }
+
     .contenedor-left {
         display: none;
     }
@@ -10,8 +23,9 @@
     .contenedor-right {
         left: 0;
         max-width: 100%;
-        #taula{
-            justify-items:center;
+
+        #taula {
+            justify-items: center;
         }
     }
 
@@ -20,9 +34,11 @@
             display: none;
         }
     }
+
     .contenedor-right .songs .icono {
         top: 33%;
     }
+
     .reproductor-info {
         .info-text {
             display: none;
@@ -32,15 +48,19 @@
     .main-song-controls {
         margin-top: 0;
     }
-    .progress-bar{
+
+    .progress-bar {
         text-align: justify;
     }
+
     .volume-container {
         display: none;
     }
-    .aleatori{
+
+    .aleatori {
         left: 73%;
     }
+
     .micro {
         left: 85%;
 
@@ -48,53 +68,66 @@
             padding: 6px 12px;
         }
     }
+
     /* ---------------------------------------------CSS DE PREMIUM-------------------------------------------------------------*/
     .comparison-table {
         max-width: 100%;
     }
-    section{
+
+    section {
         width: 100%;
         margin-left: 0;
     }
-    .plan{
+
+    .plan {
         margin-left: 0;
     }
-    #lonleySection{
+
+    #lonleySection {
         margin-left: 25%;
     }
+
     /* ---------------------------------------------CSS DE ASISTENCIA-------------------------------------------------------------*/
-    .contacte-form{
+    .contacte-form {
         max-width: 80%;
-        input,textarea,button{
+
+        input,
+        textarea,
+        button {
             width: 90%;
         }
     }
+
     /* ---------------------------------------------CSS DE PERFIL-------------------------------------------------------------*/
-    #titol{
+    #titol {
         font-size: 17px;
     }
-    .dadesUser{
+
+    .dadesUser {
         max-width: 80%;
-        #formFotoPerfil{
-            #inputFotoPerfil{
+
+        #formFotoPerfil {
+            #inputFotoPerfil {
                 margin-left: 0;
                 width: 100%;
             }
         }
     }
-    .profile-container{
+
+    .profile-container {
         max-width: 80%;
     }
-   
+
     /* ---------------------------------------------CSS DE LLISTES,ARTISTES,CANÇONS-------------------------------------------------------------*/
     .infAC {
-        .foto{
-            img{
+        .foto {
+            img {
                 width: 80px;
             }
         }
     }
-    #tablaAlbums{
+
+    #tablaAlbums {
         grid-template-columns: repeat(2, 50%);
     }
 }

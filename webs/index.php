@@ -40,6 +40,7 @@
             ?>
         </ul>
     </header>
+    <img src="../img/Logo_sense_fons.png" alt="" id="imagenMenuMovil">
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
