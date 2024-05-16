@@ -130,6 +130,7 @@
         $email = $row["Email"];
         $adreca = $row["Adreca"];
         $adreca2 = $row["Adreca2"];
+        $pais = $row["Pais"];
         $cp = $row["CP"];
         $tipus = $row["Tipus"];
         $nom_tarjeta = $row["Nom_tarjeta"];
@@ -140,7 +141,7 @@
         echo "0 resultats";
     }
     $conn->close();
-   
+
 
     ?>
 
@@ -168,7 +169,7 @@
                 <?php echo $email; ?><br>
                 <?php echo $adreca; ?><br>
                 <?php echo $cp; ?><br>
-                <?php echo $pais; ?><br>
+                <?php echo     $_COOKIE['selected_country'] = $pais; ?><br>
             </p>
         </div><!--.col-->
 

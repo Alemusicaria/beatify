@@ -126,9 +126,9 @@
         window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')
     </script>
     <script>
-        // Función para redirigir a factura.php con el ID de la factura y el precio
-        function redirectToFacture(id, precio) {
-            window.location.href = 'facturaID.php?id=' + id + '&precio=' + precio;
+        // Función para redirigir a factura.php con el ID de la factura, el precio y el país
+        function redirectToFacture(id, precio, pais) {
+            window.location.href = 'facturaID.php?id=' + id + '&precio=' + precio + '&pais=' + pais;
         }
 
         // Agrega un evento clic a cada fila de la tabla
@@ -140,7 +140,7 @@
                 var pais = $(this).find('td:eq(3)').text(); // Cambia el índice al de la columna del precio
 
                 // Redirige a factura.php con el ID y el precio como parámetros
-                redirectToFacture(facturaId, precio);
+                redirectToFacture(facturaId, precio, pais);
             });
         });
     </script>
