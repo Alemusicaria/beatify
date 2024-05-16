@@ -73,53 +73,7 @@
     $sql = "SELECT * FROM Pagament WHERE ID = $facturaId"; // Suposant que l'ID és el camp clau primari
 
     $result = $conn->query($sql);
-
-    $id = "";
-    $nom = "";
-    $cognom = "";
-    $nomUsuari = "";
-    $email = "";
-    $adreca = "";
-    $adreca2 = "";
-    $cp = "";
-    $tipus = "";
-    $nom_tarjeta = "";
-    $num_tarjeta = "";
-    $expiracio = "";
-    $cvv = "";
-
-    $tipus2 = $_COOKIE['tipus_factura'];
-
-
-    // Obtén el valor de la cookie
-    $valorCookie = $_COOKIE['preu_factura'];
-
-    // Separa el preu y la moneda
-    $partes = explode("/", $valorCookie);
-    // Obtener el valor de la cookie preuFactura
-    $preuFactura = $_COOKIE['preu_factura'] ?? '';
-    // Definir el precio base
-    $precioBase = 10;
-
-    // Calcular el total basado en el valor de la cookie preuFactura
-    switch ($preuFactura) {
-        case '10€/Mes':
-            $total = $precioBase;
-            break;
-        case '9.5€/Mes':
-            $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
-            break;
-        case '9€/Mes':
-            $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
-            break;
-        case '8.5€/Mes':
-            $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
-            break;
-        default:
-            $total = 0; // Si no se especifica la cookie, se utiliza el precio base
-    }
-
-
+    
     if ($result->num_rows > 0) {
         // Assigna les dades a les variables
         $row = $result->fetch_assoc();
@@ -132,7 +86,8 @@
         $adreca2 = $row["Adreca2"];
         $pais = $row["Pais"];
         $cp = $row["CP"];
-        $tipus = $row["Tipus"];
+        $total=$row["Total"];
+        $tipus = $row["Tipus_factura"];
         $nom_tarjeta = $row["Nom_tarjeta"];
         $num_tarjeta = $row["Num_tarjeta"];
         $expiracio = $row["Expiracio"];
@@ -141,6 +96,29 @@
         echo "0 resultats";
     }
     $conn->close();
+
+    // Definir el precio base
+    $precioBase = 10;
+
+
+    switch ($total) {
+        case '12.10':
+            $total = $precioBase;
+            break;
+        case '34.49':
+            $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+            break;
+        case '65.58':
+            $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+            break;
+        case '123.42':
+            $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+            break;
+        default:
+            $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+    }
+
+
 
 
     ?>
@@ -189,7 +167,7 @@
                     <tr class="invoice_detail">
                         <td width="33%">BEATIFY S.L</td>
                         <td width="33%">#BY-2024</td>
-                        <td width="33%"><?php echo $tipus2 ?></td>
+                        <td width="33%"><?php echo $tipus ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -231,7 +209,10 @@
     <script>
         window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')
     </script>
-    <script src="../assets/assets_factura/js/main.js"></script>
 </body>
-
+<script>
+// Definir una variable JavaScript con el país obtenido de PHP
+var paisSeleccionado = "<?php echo $pais; ?>";
+</script>
+<script src="../assets/assets_factura/js/main.js"></script>
 </html>

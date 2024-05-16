@@ -15,6 +15,7 @@ $nom_tarjeta = $_POST['cc-name'];
 $num_tarjeta = $_POST['cc-number'];
 $expiracio = $_POST['cc-expiration'];
 $cvv = $_POST['cc-cvv'];
+$tipusFactura = $_POST['tipusFactura'];
 
 // Obté la data actual
 $data_actual = date("Y-m-d");
@@ -85,7 +86,7 @@ if ($resultat) {
 $sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV, Total, Tipus_factura)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $consulta = $conn->prepare($sql);
-$consulta->bind_param("sssssssiissssds", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total, $tipus2);
+$consulta->bind_param("sssssssiissssds", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total, $tipusFactura);
 
 // Executa la consulta
 if ($consulta->execute()) {
