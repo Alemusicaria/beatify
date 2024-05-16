@@ -98,21 +98,47 @@
 
 
     switch ($total) {
-        case '12.10':
-            $total = $precioBase;
-            break;
-        case '34.49':
-            $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
-            break;
-        case '65.58':
-            $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
-            break;
-        case '123.42':
-            $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
-            break;
-        default:
-            $total = 0; // Si no se especifica la cookie, se utiliza el precio base
-    }
+      case '12.10':
+          $total = $precioBase;
+          break;
+      case '34.49':
+          $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+          break;
+      case '65.58':
+          $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+          break;
+      case '123.42':
+          $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+          break;
+      //Francia creo que es asi
+      case '12':
+          $total = $precioBase;
+          break;
+      case '34.20':
+          $total = $precioBase * 2.85; // 2.85 = 34.20 / 12
+          break;
+      case '65.04':
+          $total = $precioBase * 5.42; // 5.42 = 65.04 / 12
+          break;
+      case '122.40':
+          $total = $precioBase * 10.2; // 10.2 = 122.40 / 12
+          break;
+      //Alemania
+      case '11.90':
+          $total = $precioBase;
+          break;
+      case '33.92':
+          $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
+          break;
+      case '64.50':
+          $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
+          break;
+      case '121.38':
+          $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
+          break;
+      default:
+          $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+  }
 
 
 

@@ -71,9 +71,9 @@
 
     // Consulta SQL per obtenir les dades del pagament
     $sql = "SELECT * FROM Pagament WHERE ID = $facturaId"; // Suposant que l'ID és el camp clau primari
-
-    $result = $conn->query($sql);
     
+    $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
         // Assigna les dades a les variables
         $row = $result->fetch_assoc();
@@ -86,7 +86,7 @@
         $adreca2 = $row["Adreca2"];
         $pais = $row["Pais"];
         $cp = $row["CP"];
-        $total=$row["Total"];
+        $total = $row["Total"];
         $tipus = $row["Tipus_factura"];
         $nom_tarjeta = $row["Nom_tarjeta"];
         $num_tarjeta = $row["Num_tarjeta"];
@@ -113,6 +113,32 @@
             break;
         case '123.42':
             $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+            break;
+        //Francia creo que es asi
+        case '12':
+            $total = $precioBase;
+            break;
+        case '34.20':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 12
+            break;
+        case '65.04':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 12
+            break;
+        case '122.40':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 12
+            break;
+        //Alemania
+        case '11.90':
+            $total = $precioBase;
+            break;
+        case '33.92':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
+            break;
+        case '64.50':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
+            break;
+        case '121.38':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
             break;
         default:
             $total = 0; // Si no se especifica la cookie, se utiliza el precio base
@@ -147,7 +173,7 @@
                 <?php echo $email; ?><br>
                 <?php echo $adreca; ?><br>
                 <?php echo $cp; ?><br>
-                <?php echo     $_COOKIE['selected_country'] = $pais; ?><br>
+                <?php echo $_COOKIE['selected_country'] = $pais; ?><br>
             </p>
         </div><!--.col-->
 
@@ -211,8 +237,9 @@
     </script>
 </body>
 <script>
-// Definir una variable JavaScript con el país obtenido de PHP
-var paisSeleccionado = "<?php echo $pais; ?>";
+    // Definir una variable JavaScript con el país obtenido de PHP
+    var paisSeleccionado = "<?php echo $pais; ?>";
 </script>
 <script src="../assets/assets_factura/js/main.js"></script>
+
 </html>
