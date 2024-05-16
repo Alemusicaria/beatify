@@ -40,6 +40,7 @@
             ?>
         </ul>
     </header>
+    <img src="../img/Logo_sense_fons.png" alt="" id="imagenMenuMovil">
     <div class="contenedor-left" style="overflow-y: auto;">
         <div class="miniMenu">
             <ul id="menu">
@@ -170,6 +171,7 @@
 
 </body>
 <script src="../assets/js/linksWebs.js"></script>
+<script src="../assets/js/menuMovil.js"></script>
 <script src="../assets/js/audio.js"></script>
 <script src="../assets/js/code.js"></script>
 <script src="../assets/js/perfil.js"></script>

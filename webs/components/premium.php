@@ -138,7 +138,7 @@
   </div>
 </section>
 <section>
-  <div class="plan" style="margin-left: 40vh;">
+  <div class="plan" id="lonleySection">
     <h2>Premium Anual</h2>
     <h3>8.5€/Mes</h3>
     <ul class="avantatges">

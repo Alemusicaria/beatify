@@ -1,15 +1,57 @@
 @media only screen and (max-width: 600px) {
+    body {
+        text-align: center;
+    }
 
     /* ---------------------------------------------CSS DE INICI-------------------------------------------------------------*/
+    header {
+        max-width: 100%;
+        left: 0;
+    }
     .contenedor-left {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(rgb(32, 11, 11), #000000);
+        z-index: 1000;
+        overflow-y: auto; 
+        .llistesUsuaris,.miniMenu,#primera{
+            background: none;
+        }
+    }
+    .miniMenu{
+        #menu{
+            li{
+                text-align: left;
+            }
+        }
+    }
+    .buscar input{
+        position: absolute;
+        left: 1px;
+    }
+    .llistesUsuaris{
+      text-align: left;
+    }
+    #imagenMenuMovil {
+        display: block;
+        position: absolute;
+        width: 20%;
+        bottom: 90%;
+    }
+    .contenedor-left.mostrar {
+        display: block;
     }
 
     .contenedor-right {
         left: 0;
         max-width: 100%;
-        #taula{
-            justify-items:center;
+
+        #taula {
+            justify-items: center;
         }
     }
 
@@ -18,9 +60,11 @@
             display: none;
         }
     }
+
     .contenedor-right .songs .icono {
         top: 33%;
     }
+
     .reproductor-info {
         .info-text {
             display: none;
@@ -31,12 +75,18 @@
         margin-top: 0;
     }
 
+    .progress-bar {
+        text-align: justify;
+    }
+
     .volume-container {
         display: none;
     }
-    .aleatori{
+
+    .aleatori {
         left: 73%;
     }
+
     .micro {
         left: 85%;
 
@@ -45,4 +95,69 @@
         }
     }
 
+    /* ---------------------------------------------CSS DE PREMIUM-------------------------------------------------------------*/
+    .comparison-table {
+        max-width: 100%;
+    }
+
+    section {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .plan {
+        margin-left: 0;
+    }
+
+    #lonleySection {
+        margin-left: 25%;
+    }
+
+    /* ---------------------------------------------CSS DE ASISTENCIA-------------------------------------------------------------*/
+    .contacte-form {
+        max-width: 80%;
+
+        input,
+        textarea,
+        button {
+            width: 90%;
+        }
+    }
+
+    /* ---------------------------------------------CSS DE PERFIL-------------------------------------------------------------*/
+    #titol {
+        font-size: 17px;
+    }
+
+    .dadesUser {
+        max-width: 80%;
+
+        #formFotoPerfil {
+            #inputFotoPerfil {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    .profile-container {
+        max-width: 80%;
+    }
+
+    /* ---------------------------------------------CSS DE LLISTES,ARTISTES,CANÇONS-------------------------------------------------------------*/
+    .infAC {
+        flex-direction: column;
+        .artista{
+            max-width: 40%;
+        }
+        .foto {
+            img {
+                width: 80px;
+            }
+        }
+    }
+
+    #tablaAlbums {
+        grid-template-columns: repeat(2, 50%);
+    }
 }
