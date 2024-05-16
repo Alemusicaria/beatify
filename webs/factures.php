@@ -66,7 +66,7 @@
 <body>
     <div class="container">
         <h1>Historial de Factures</h1>
-        <button onclick="location.href='index.php'">Inici</button>
+        <button onclick="location.href='index.php'">Inici</button> <br>
 
         <?php
         // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
@@ -113,7 +113,7 @@
             echo "</tbody>";
             echo "</table>";
         } else {
-            echo "No hi ha cap factura disponible.";
+            echo "<p>No hi ha cap factura disponible.</p>";
         }
 
         // Tanca la connexió amb la base de dades
@@ -125,6 +125,26 @@
     <script>
         window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')
     </script>
+    <script>
+        // Función para redirigir a factura.php con el ID de la factura y el precio
+        function redirectToFacture(id, precio) {
+            window.location.href = 'facturaID.php?id=' + id + '&precio=' + precio;
+        }
+
+        // Agrega un evento clic a cada fila de la tabla
+        $(document).ready(function() {
+            $('tbody tr').click(function() {
+                // Captura el ID y el precio de la factura de la fila clicada
+                var facturaId = $(this).find('td:first').text();
+                var precio = $(this).find('td:eq(2)').text(); // Cambia el índice al de la columna del precio
+
+                // Redirige a factura.php con el ID y el precio como parámetros
+                redirectToFacture(facturaId, precio);
+            });
+        });
+    </script>
+
+
     <script src="../assets/assets_factura/js/main.js"></script>
 </body>
 

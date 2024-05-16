@@ -80,7 +80,8 @@ CREATE TABLE Pagament (
     Expiracio VARCHAR(255),
     CVV INT(3),
     Data DATE DEFAULT NOW(),  
-    Total DECIMAL(10, 2)
+    Total DECIMAL(10, 2),
+    Tipus_factura VARCHAR(255)
 );
 
 

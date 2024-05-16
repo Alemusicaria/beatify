@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<button onclick="location.href='index.php'">Inici</button>
+  <button onclick="location.href='index.php'">Inici</button>
 
   <div class="control-bar">
     <div class="container">

@@ -32,7 +32,7 @@ function calcularIVA($pais)
     $taxesIVA = array(
         "Espanya" => 21,
         "França" => 20,
-        "Alemanya" => 19,
+        "Alemania" => 19,
         "Estats Units" => 0 // Assumint que als Estats Units no hi ha IVA
     );
 
@@ -44,7 +44,7 @@ function calcularIVA($pais)
 }
 
 // Obté el país seleccionat emmagatzemat a la cookie
-$paisSeleccionat = $_COOKIE['selected_country'] ?? '';
+$paisSeleccionat = $_COOKIE['selected_country'];
 
 // Si hi ha un país seleccionat, calcula la seva taxa d'IVA corresponent
 if ($paisSeleccionat) {
@@ -82,10 +82,10 @@ if ($resultat) {
 }
 
 // Prepara la consulta SQL amb els valors que hem obtingut
-$sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV, Total)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Pagament (Nom, Cognom, NomUsuari, Email, Adreca, Adreca2, Pais, CP, Tipus, Nom_tarjeta, Num_tarjeta, Expiracio, CVV, Total, Tipus_factura)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $consulta = $conn->prepare($sql);
-$consulta->bind_param("sssssssiissssd", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total);
+$consulta->bind_param("sssssssiissssds", $nom, $cognom, $nomUsuari, $email, $adreca, $adreca2, $pais, $cp, $tipus, $nom_tarjeta, $num_tarjeta, $expiracio, $cvv, $total, $tipus2);
 
 // Executa la consulta
 if ($consulta->execute()) {
