@@ -137,6 +137,7 @@
                 // Captura el ID y el precio de la factura de la fila clicada
                 var facturaId = $(this).find('td:first').text();
                 var precio = $(this).find('td:eq(2)').text(); // Cambia el índice al de la columna del precio
+                var pais = $(this).find('td:eq(3)').text(); // Cambia el índice al de la columna del precio
 
                 // Redirige a factura.php con el ID y el precio como parámetros
                 redirectToFacture(facturaId, precio);

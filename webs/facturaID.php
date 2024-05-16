@@ -66,6 +66,9 @@
     }
     $facturaId = $_GET['id'];
     $precio = $_GET['precio'];
+    $pais = $_GET['pais'];
+    $_COOKIE['selected_country'] = $pais;
+
     // Consulta SQL per obtenir les dades del pagament
     $sql = "SELECT * FROM Pagament WHERE ID = $facturaId"; // Suposant que l'ID és el camp clau primari
 
@@ -78,7 +81,6 @@
     $email = "";
     $adreca = "";
     $adreca2 = "";
-    $pais = "";
     $cp = "";
     $tipus = "";
     $nom_tarjeta = "";
@@ -128,7 +130,6 @@
         $email = $row["Email"];
         $adreca = $row["Adreca"];
         $adreca2 = $row["Adreca2"];
-        $pais = $row["Pais"];
         $cp = $row["CP"];
         $tipus = $row["Tipus"];
         $nom_tarjeta = $row["Nom_tarjeta"];
@@ -139,7 +140,7 @@
         echo "0 resultats";
     }
     $conn->close();
-    $_COOKIE['selected_country'] = $pais;
+   
 
     ?>
 
