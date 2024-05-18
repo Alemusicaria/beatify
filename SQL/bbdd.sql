@@ -64,6 +64,7 @@ CREATE TABLE Afegeix (
     FOREIGN KEY (ID_LlistaReproduccio) REFERENCES Llista_Reproduccio(ID),
     FOREIGN KEY (ID_Canco) REFERENCES Canco(ID)
 );
+
 CREATE TABLE Pagament (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nom VARCHAR(255),
