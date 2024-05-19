@@ -6,7 +6,7 @@ $('#iniciarSessio').on('click', function () {
 function cerrarSesion() {
     // Elimina les cookies de sessió quan l'usuari tanca la sessió
     document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "personalitzacio=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Redirigeix l'usuari a la pàgina de login o a una altra pàgina rellevant
     window.location.href = '../assets/php/unlogin.php';
@@ -16,7 +16,7 @@ function cerrarSesion() {
 function cargarPersonalizacion() {
     const cookieValue = document.cookie
         .split('; ')
-        .find(row => row.startsWith('personalizacion='));
+        .find(row => row.startsWith('personalitzacio='));
 
     if (cookieValue) {
         return JSON.parse(cookieValue.split('=')[1]);
@@ -28,8 +28,9 @@ function cargarPersonalizacion() {
 // Funció per aplicar la personalització als elements necessaris
 function aplicarPersonalizacion() {
     const opciones = cargarPersonalizacion();
-
+    console.log(opciones)
     if (opciones) {
+        console.log("hola")
         // Aplica la personalització als elements que desitgis
         // En aquest exemple, s'aplica només als botons i a la barra d'àudio
         const barra = document.querySelectorAll('#audioColor');
