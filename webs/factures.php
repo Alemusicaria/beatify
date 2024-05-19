@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Historial de Factures</title>
     <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
+    <link rel="icon" href="../img/Logo_sense_fons.png">
+
     <style>
         body {
             font-family: Arial, sans-serif;

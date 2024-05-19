@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Factura</title>
     <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
+    <link rel="icon" href="../img/Logo_sense_fons.png">
+
 </head>
 
 <body>
