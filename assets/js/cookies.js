@@ -6,7 +6,7 @@ $('#iniciarSessio').on('click', function () {
 function cerrarSesion() {
     // Elimina les cookies de sessió quan l'usuari tanca la sessió
     document.cookie = "NomUsuari=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "personalizacion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "personalitzacio=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Redirigeix l'usuari a la pàgina de login o a una altra pàgina rellevant
     window.location.href = '../assets/php/unlogin.php';
