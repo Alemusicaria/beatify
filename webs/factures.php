@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
     <link rel="icon" href="../img/Logo_sense_fons.png">
 
-    <style>
+    <style> 
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
