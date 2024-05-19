@@ -91,10 +91,11 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../assets/js/perfil.js"></script>
-    <script src="../assets/js/dadesUser.js"></script>
-    <script src="../assets/js/cookies.js"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../assets/js/perfil.js"></script>
+<script src="../assets/js/dadesUser.js"></script>
+<script src="../assets/js/cookies.js"></script>
     <script>
         // Executar la funció en la càrrega de la pàgina
         window.onload = function() {
@@ -168,7 +169,4 @@
             return cookieValue;
         }
     </script>
-
-</body>
-
 </html>
