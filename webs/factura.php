@@ -2,74 +2,74 @@
 <html lang="ca">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Factura</title>
-  <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
+    <meta charset="UTF-8">
+    <title>Factura</title>
+    <link rel="stylesheet" href="../assets/assets_factura/css/main.css">
 </head>
 
 <body>
-  <button onclick="location.href='index.php'">Inici</button>
+    <button onclick="location.href='index.php'">Inici</button>
 
-  <div class="control-bar">
-    <div class="container">
-      <div class="row">
-        <div class="col-2-4">
-          <div class="slogan">Facturació</div>
-        </div>
-        <div class="col-4 text-right">
-          <a href="javascript:window.print()">Imprimir</a>
-        </div><!--.col-->
-      </div><!--.row-->
-    </div><!--.container-->
-  </div><!--.control-bar-->
+    <div class="control-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-2-4">
+                    <div class="slogan">Facturació</div>
+                </div>
+                <div class="col-4 text-right">
+                    <a href="javascript:window.print()">Imprimir</a>
+                </div><!--.col-->
+            </div><!--.row-->
+        </div><!--.container-->
+    </div><!--.control-bar-->
 
-  <header class="row">
-    <div class="logoholder text-center">
-      <img src="../assets/assets_factura/img/Logo_sense_fons.png">
-    </div><!--.logoholder-->
+    <header class="row">
+        <div class="logoholder text-center">
+            <img src="../assets/assets_factura/img/Logo_sense_fons.png">
+        </div><!--.logoholder-->
 
-    <div class="me">
-      <p>
-        <a href="http://beatify.com">Beatify.com</a><br>
-        <a href="mailto:info@obedalvarado.pw">beatify@beatify.com</a><br>
-        Tel: +34 345-908-559<br>
-      </p>
-    </div><!--.me-->
+        <div class="me">
+            <p>
+                <a href="http://beatify.com">Beatify.com</a><br>
+                <a href="mailto:info@obedalvarado.pw">beatify@beatify.com</a><br>
+                Tel: +34 345-908-559<br>
+            </p>
+        </div><!--.me-->
 
-    <div class="info">
-      <p>
-        Ubicació: <br>
-        234/90, Carrer Juan Maragall<br>
-        Catalunya, Lleida.<br>
-      </p>
-    </div><!-- .info -->
+        <div class="info">
+            <p>
+                Ubicació: <br>
+                234/90, Carrer Juan Maragall<br>
+                Catalunya, Lleida.<br>
+            </p>
+        </div><!-- .info -->
 
-    <div class="bank">
-      <p>
-        Dades bancàries: <br>
-        BEATIFY S.L<br>
-        # ES6721003979685416516194
-      </p>
-    </div><!--.bank-->
-  </header>
-  <?php
-  // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
-  $servername = "localhost";
-  $dbusername = "root";
-  $dbpassword = "";
-  $dbname = "Beatify";
-  $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+        <div class="bank">
+            <p>
+                Dades bancàries: <br>
+                BEATIFY S.L<br>
+                # ES6721003979685416516194
+            </p>
+        </div><!--.bank-->
+    </header>
+    <?php
+    // Connecta amb la base de dades (adapta les credencials segons la teva configuració)
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "Beatify";
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-  // Verifica la connexió
-  if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-  }
+    // Verifica la connexió
+    if ($conn->connect_error) {
+        die("Connexió fallida: " . $conn->connect_error);
+    }
 
-  // Consulta SQL per obtenir les dades del pagament
-  $sql = "SELECT * FROM Pagament ORDER BY id DESC LIMIT 1"; // Suposant que l'ID és el camp clau primari
-
-  $result = $conn->query($sql);
+    // Consulta SQL per obtenir les dades del pagament
+    $sql = "SELECT * FROM Pagament ORDER BY id DESC LIMIT 1"; // Suposant que l'ID és el camp clau primari
     
+    $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
         // Assigna les dades a les variables
         $row = $result->fetch_assoc();
@@ -82,7 +82,7 @@
         $adreca2 = $row["Adreca2"];
         $pais = $row["Pais"];
         $cp = $row["CP"];
-        $total=$row["Total"];
+        $total = $row["Total"];
         $tipus = $row["Tipus_factura"];
         $nom_tarjeta = $row["Nom_tarjeta"];
         $num_tarjeta = $row["Num_tarjeta"];
@@ -98,47 +98,60 @@
 
 
     switch ($total) {
-      case '12.10':
-          $total = $precioBase;
-          break;
-      case '34.49':
-          $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
-          break;
-      case '65.58':
-          $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
-          break;
-      case '123.42':
-          $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
-          break;
-      //Francia creo que es asi
-      case '12':
-          $total = $precioBase;
-          break;
-      case '34.20':
-          $total = $precioBase * 2.85; // 2.85 = 34.20 / 12
-          break;
-      case '65.04':
-          $total = $precioBase * 5.42; // 5.42 = 65.04 / 12
-          break;
-      case '122.40':
-          $total = $precioBase * 10.2; // 10.2 = 122.40 / 12
-          break;
-      //Alemania
-      case '11.90':
-          $total = $precioBase;
-          break;
-      case '33.92':
-          $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
-          break;
-      case '64.50':
-          $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
-          break;
-      case '121.38':
-          $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
-          break;
-      default:
-          $total = 0; // Si no se especifica la cookie, se utiliza el precio base
-  }
+        case '12.10':
+            $total = $precioBase;
+            break;
+        case '34.49':
+            $total = $precioBase * 2.85; // 2.85 = 34.48 / 12.10
+            break;
+        case '65.58':
+            $total = $precioBase * 5.42; // 5.42 = 65.34 / 12.10
+            break;
+        case '123.42':
+            $total = $precioBase * 10.2; // 10.2 = 123.42 / 12.10
+            break;
+        //Francia creo que es asi
+        case '12':
+            $total = $precioBase;
+            break;
+        case '34.20':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 12
+            break;
+        case '65.04':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 12
+            break;
+        case '122.40':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 12
+            break;
+        //Alemania
+        case '11.90':
+            $total = $precioBase;
+            break;
+        case '33.92':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
+            break;
+        case '64.50':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
+            break;
+        case '121.38':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
+            break;
+        //EEUU
+        case '10':
+            $total = $precioBase;
+            break;
+        case '28.50':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
+            break;
+        case '54':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
+            break;
+        case '102':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
+            break;
+        default:
+            $total = 0; // Si no se especifica la cookie, se utiliza el precio base
+    }
 
 
 
@@ -169,7 +182,7 @@
                 <?php echo $email; ?><br>
                 <?php echo $adreca; ?><br>
                 <?php echo $cp; ?><br>
-                <?php echo     $_COOKIE['selected_country'] = $pais; ?><br>
+                <?php echo $_COOKIE['selected_country'] = $pais; ?><br>
             </p>
         </div><!--.col-->
 
@@ -233,8 +246,8 @@
     </script>
 </body>
 <script>
-// Definir una variable JavaScript con el país obtenido de PHP
-var paisSeleccionado = "<?php echo $pais; ?>";
+    // Definir una variable JavaScript con el país obtenido de PHP
+    var paisSeleccionado = "<?php echo $pais; ?>";
 </script>
 <script src="../assets/assets_factura/js/main.js"></script>
 

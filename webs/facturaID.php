@@ -142,6 +142,19 @@
         case '121.38':
             $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
             break;
+        //EEUU
+        case '10':
+            $total = $precioBase;
+            break;
+        case '28.50':
+            $total = $precioBase * 2.85; // 2.85 = 34.20 / 11.90
+            break;
+        case '54':
+            $total = $precioBase * 5.42; // 5.42 = 65.04 / 11.90
+            break;
+        case '102':
+            $total = $precioBase * 10.2; // 10.2 = 122.40 / 11.90
+            break;
         default:
             $total = 0; // Si no se especifica la cookie, se utiliza el precio base
     }
